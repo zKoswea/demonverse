@@ -4,197 +4,351 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>DemonVerse | Geometry Dash Demon List</title>
+  <title>DemonVerse</title>
 
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f4f4f4;
+      background: #f2f2f2;
       color: #222;
     }
 
+    /* HEADER */
+
     header {
       background: white;
-      border-bottom: 1px solid #ddd;
-      padding: 20px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      border-bottom: 4px solid #c62828;
+      padding: 28px 20px;
+    }
+
+    .header-content {
+      max-width: 1250px;
+      margin: auto;
     }
 
     .logo {
-      font-size: 28px;
+      font-size: 42px;
       font-weight: 800;
+      letter-spacing: -1px;
     }
 
     .logo span {
       color: #c62828;
     }
 
-    nav {
-      display: flex;
-      gap: 10px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #222;
-      background: #f7f7f7;
-      border: 1px solid #ddd;
-      padding: 10px 16px;
-      border-radius: 8px;
+    .subtitle {
+      margin-top: 6px;
+      color: #777;
+      font-size: 14px;
       font-weight: bold;
+      letter-spacing: 1px;
     }
 
-    nav a:hover {
-      background: #e9e9e9;
+    /* MAIN */
+
+    main {
+      max-width: 1250px;
+      margin: auto;
+      padding: 35px 20px 60px;
     }
 
-    .hero {
-      text-align: center;
-      padding: 55px 20px 30px;
-    }
+    /* SEARCH */
 
-    .hero h1 {
-      font-size: 38px;
-      margin-bottom: 8px;
-    }
-
-    .hero p {
-      color: #666;
-      font-size: 17px;
+    .search-container {
+      margin-bottom: 28px;
     }
 
     #search {
-      display: block;
-      width: min(560px, 90%);
-      margin: 28px auto 0;
-      padding: 16px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
+      width: 100%;
+      max-width: 520px;
+      padding: 14px 17px;
       font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      background: white;
     }
 
-    .list {
-      width: min(1050px, 92%);
-      margin: 0 auto 60px;
+    #search:focus {
+      outline: none;
+      border-color: #c62828;
     }
+
+    /* TITLE */
+
+    .list-title {
+      font-size: 25px;
+      font-weight: bold;
+      padding-left: 13px;
+      border-left: 5px solid #c62828;
+      margin-bottom: 22px;
+    }
+
+    /* LEVEL CARD */
 
     .level-card {
-      position: relative;
       display: flex;
-      gap: 22px;
+      align-items: stretch;
       background: white;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      padding: 18px;
-      margin-bottom: 20px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+      border: 1px solid #dddddd;
+      border-radius: 9px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .thumbnail {
-      width: 290px;
-      height: 165px;
-      flex-shrink: 0;
-      border-radius: 8px;
-      background: #ddd;
-      object-fit: cover;
-      border: 1px solid #ccc;
+    .level-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
 
-    .thumbnail-placeholder {
-      width: 290px;
-      height: 165px;
-      flex-shrink: 0;
-      border-radius: 8px;
-      background: #ddd;
+    /* RANK */
+
+    .rank {
+      width: 75px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #555;
+      font-size: 24px;
       font-weight: bold;
-      border: 1px solid #ccc;
+      background: #fafafa;
+      border-right: 1px solid #dddddd;
+      flex-shrink: 0;
     }
 
-    .level-info {
-      padding: 5px 10px 5px 0;
+    /* LEFT SIDE */
+
+    .left-section {
+      display: flex;
       flex: 1;
+      padding: 16px;
+      gap: 20px;
+      min-width: 0;
     }
 
-    .level-title {
-      margin: 0 0 12px;
-      font-size: 28px;
-      padding-right: 120px;
+    /* THUMBNAIL */
+
+    .thumbnail {
+      width: 300px;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #e4e4e4;
+      border: 1px solid #d5d5d5;
+      flex-shrink: 0;
     }
 
-    .rank {
-      color: #c62828;
+    .thumbnail-placeholder {
+      width: 300px;
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e4e4e4;
+      color: #999;
+      border-radius: 6px;
+      border: 1px solid #d5d5d5;
+      flex-shrink: 0;
     }
 
-    .level-info p {
-      margin: 8px 0;
-      color: #555;
+    /* LEVEL DETAILS */
+
+    .level-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .level-name {
+      font-size: 27px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      word-break: break-word;
+    }
+
+    .detail-line {
       font-size: 16px;
+      margin-bottom: 9px;
+      color: #555;
     }
 
-    .level-info strong {
+    .detail-line strong {
       color: #222;
     }
 
-    .points {
-      display: inline-block;
-      margin-top: 8px;
-      background: #f0f0f0;
-      padding: 8px 12px;
-      border-radius: 7px;
-      font-weight: bold;
-      font-size: 14px;
+    /* DIVIDER */
+
+    .divider {
+      width: 1px;
+      background: #dddddd;
+      margin: 16px 0;
+      flex-shrink: 0;
     }
 
-    .verification-link {
-      position: absolute;
-      top: 18px;
-      right: 20px;
-      text-decoration: none;
+    /* RIGHT SIDE */
+
+    .right-section {
+      width: 250px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .right-title {
       color: #c62828;
+      font-size: 17px;
       font-weight: bold;
-      font-size: 14px;
+      margin-bottom: 15px;
     }
 
-    .verification-link:hover {
-      text-decoration: underline;
+    .right-info {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 11px;
     }
 
-    .footer {
+    .right-info strong {
+      color: #222;
+    }
+
+    /* VERIFICATION BUTTON */
+
+    .verification-button {
+      display: block;
+      margin-top: 8px;
+      padding: 10px 12px;
       text-align: center;
-      padding: 30px;
+      text-decoration: none;
+      background: #c62828;
+      color: white;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .verification-button:hover {
+      background: #a91f1f;
+    }
+
+    .no-verification {
+      display: block;
+      margin-top: 8px;
+      padding: 10px 12px;
+      text-align: center;
+      background: #eeeeee;
+      color: #999;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    /* TOP RANK GLOWS */
+
+    /* #1 GOLD */
+
+    .rank-1 {
+      border-color: #d4af37;
+      box-shadow:
+        0 0 20px rgba(212,175,55,0.65),
+        0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .rank-1 .rank {
+      background: #fffaf0;
+      color: #b8860b;
+    }
+
+    /* #2-#3 SILVER */
+
+    .rank-silver {
+      border-color: #b8b8b8;
+      box-shadow:
+        0 0 18px rgba(180,180,180,0.7),
+        0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .rank-silver .rank {
+      background: #fafafa;
+      color: #777;
+    }
+
+    /* #4-#10 WHITE/GREY */
+
+    .rank-top {
+      border-color: #dddddd;
+      box-shadow:
+        0 0 15px rgba(180,180,180,0.55),
+        0 3px 10px rgba(0,0,0,0.07);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: white;
+      border-top: 1px solid #dddddd;
+      padding: 30px 20px;
+      text-align: center;
       color: #777;
       font-size: 14px;
     }
 
-    @media (max-width: 750px) {
-      header {
-        padding: 15px 5%;
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .level-card {
+        flex-wrap: wrap;
       }
 
+      .rank {
+        width: 60px;
+      }
+
+      .left-section {
+        width: calc(100% - 60px);
+      }
+
+      .divider {
+        width: calc(100% - 32px);
+        height: 1px;
+        margin: 0 16px;
+      }
+
+      .right-section {
+        width: 100%;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 700px) {
       .logo {
-        font-size: 22px;
+        font-size: 35px;
       }
 
-      nav a {
-        padding: 8px 10px;
-        font-size: 13px;
+      main {
+        padding: 25px 12px 50px;
       }
 
       .level-card {
+        display: block;
+      }
+
+      .rank {
+        width: 100%;
+        height: 48px;
+        border-right: none;
+        border-bottom: 1px solid #dddddd;
+      }
+
+      .left-section {
+        width: 100%;
         flex-direction: column;
       }
 
@@ -205,15 +359,12 @@
         aspect-ratio: 16 / 9;
       }
 
-      .level-title {
-        padding-right: 0;
-        font-size: 23px;
+      .divider {
+        width: calc(100% - 32px);
       }
 
-      .verification-link {
-        position: static;
-        display: inline-block;
-        margin-bottom: 12px;
+      .right-section {
+        width: 100%;
       }
     }
   </style>
@@ -222,300 +373,1201 @@
 <body>
 
   <header>
-    <div class="logo">Demon<span>Verse</span></div>
+    <div class="header-content">
 
-    <nav>
-      <a href="#list">Demon List</a>
-      <a href="stats.html">Stats Viewer</a>
+      <div class="logo">
+        <span>Demon</span>Verse
+      </div>
 
-      <!-- CHANGE THIS TO YOUR DISCORD INVITE LINK -->
-      <a href="YOUR_DISCORD_LINK_HERE" target="_blank">Discord</a>
-    </nav>
+      <div class="subtitle">
+        COMMUNITY GEOMETRY DASH DEMON LIST
+      </div>
+
+    </div>
   </header>
 
+  <main>
 
-  <section class="hero">
-    <h1>DemonVerse Demon List</h1>
+    <div class="search-container">
+      <input
+        type="text"
+        id="search"
+        placeholder="Search for a level..."
+      >
+    </div>
 
-    <p>Ranking the Top 75 Hardest Geometry Dash Demons.</p>
+    <div class="list-title">
+      Demon List
+    </div>
 
-    <input
-      type="text"
-      id="search"
-      placeholder="Search for a level..."
-    >
-  </section>
+    <div id="level-list"></div>
 
+  </main>
 
-  <main class="list" id="list"></main>
-
-
-  <div class="footer">
+  <footer>
     DemonVerse • Community Geometry Dash Demon List
-  </div>
-
+  </footer>
 
   <script>
 
     /*
-    ============================================================
-    EDIT YOUR LEVELS HERE
-    ============================================================
+    ==========================================================
+                        LEVEL DATA
+    ==========================================================
 
-    Each level has:
+    Edit ONLY the information inside the quotation marks.
 
-{
-    name:
-    host:
-    verifier:
-    points:
     thumbnail:
+    Put your image link inside ""
+
     verification:
-}
+    Put the YouTube verification link inside ""
 
-    THUMBNAIL:
-    Put an image link inside the quotation marks.
-
-    VERIFICATION:
-    Put the YouTube verification link inside the quotation marks.
-
-    Example:
-
-    {
-      name: "Society",
-      host: "Neomorbian",
-      verifier: "Zoink",
-      points: 1000,
-      thumbnail: "https://example.com/image.jpg",
-      verification: "https://youtube.com/..."
-    },
-
-    ============================================================
+    ==========================================================
     */
-
 
     const levels = [
 
-      // ====================
-      // TOP 1
-      // ====================
+      /* ================= LEVEL #1 ================= */
 
       {
-        name: "Society",
-        host: "Neomarbilan",
-        verifier: "wPopoff",
-        points: 1000,
-        thumbnail: "https://zkoswea.github.io/demonverse/tt9fnfisaq0h1.jpeg",
-        verification: "https://www.youtube.com/watch?v=3CoEaH1CM7o"
-      },
-
-
-      // ====================
-      // TOP 2
-      // ====================
-
-      {
-        name: "Amethyst",
-        host: "iMist",
-        verifier: "wPopoff",
-        points: 950,
-        thumbnail: "https://zkoswea.github.io/demonverse/maxresdefault%20(3).jpg",
-        verification: "https://www.youtube.com/watch?v=4lfkzz1VCbA"
-      },
-
-
-      // ====================
-      // TOP 3
-      // ====================
-
-      {
-        name: "Thinking Space II",
-        host: "CairoX",
-        verifier: "Zoink",
-        points: 900,
-        thumbnail: "https://zkoswea.github.io/demonverse/hq720.jpg",
-        verification: "https://www.youtube.com/watch?v=CELNmHwln_c"
-      },
-
-    /*
-    ============================================================
-    AUTOMATICALLY CREATE THE REST OF THE 75 LEVELS
-    ============================================================
-
-    You do NOT need to touch this section.
-
-    The website will automatically create empty spots
-    until there are exactly 75 levels.
-    */
-
-
-    while (levels.length < 75) {
-
-      const rank = levels.length + 1;
-
-      levels.push({
-
-        name: `Level #${rank}`,
-        host: "Unknown",
-        verifier: "Unknown",
-        points: Math.max(1, 1000 - ((rank - 1) * 12)),
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: ""
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
 
-      });
+      /* ================= LEVEL #2 ================= */
 
-    }
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #3 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #4 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #5 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #6 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #7 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #8 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #9 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #10 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #11 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #12 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #13 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #14 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #15 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #16 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #17 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #18 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #19 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #20 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #21 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #22 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #23 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #24 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #25 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #26 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #27 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #28 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #29 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #30 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #31 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #32 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #33 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #34 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #35 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #36 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #37 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #38 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #39 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #40 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #41 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #42 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #43 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #44 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #45 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #46 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #47 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #48 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #49 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #50 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #51 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #52 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #53 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #54 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #55 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #56 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #57 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #58 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #59 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #60 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #61 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #62 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #63 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #64 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #65 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #66 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #67 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #68 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #69 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #70 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #71 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #72 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #73 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #74 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      },
+
+      /* ================= LEVEL #75 ================= */
+
+      {
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
+      }
+
+    ];
 
 
-    const list = document.getElementById("list");
+    /* ======================================================
+                    WEBSITE CODE BELOW
+                 DO NOT NEED TO EDIT
+    ====================================================== */
 
 
-    function renderLevels(levelArray) {
-
-      list.innerHTML = "";
-
-      levelArray.forEach((level, index) => {
-
-        const rank = levels.indexOf(level) + 1;
+    const levelList =
+      document.getElementById("level-list");
 
 
-        const card = document.createElement("div");
+    function createLevelCard(level, index) {
 
-        card.className = "level-card";
+      const rank = index + 1;
 
+      const card =
+        document.createElement("div");
 
-        let thumbnailHTML;
-
-
-        if (level.thumbnail && level.thumbnail.trim() !== "") {
-
-          thumbnailHTML = `
-            <img
-              class="thumbnail"
-              src="${level.thumbnail}"
-              alt="${level.name}"
-            >
-          `;
-
-        } else {
-
-          thumbnailHTML = `
-            <div class="thumbnail-placeholder">
-              Level Thumbnail
-            </div>
-          `;
-
-        }
+      card.className = "level-card";
 
 
-        let verificationHTML = "";
+      /* RANK GLOWS */
+
+      if (rank === 1) {
+
+        card.classList.add("rank-1");
+
+      }
+
+      else if (rank === 2 || rank === 3) {
+
+        card.classList.add("rank-silver");
+
+      }
+
+      else if (rank >= 4 && rank <= 10) {
+
+        card.classList.add("rank-top");
+
+      }
 
 
-        if (
-          level.verification &&
-          level.verification.trim() !== ""
-        ) {
+      /* THUMBNAIL */
 
-          verificationHTML = `
-            <a
-              class="verification-link"
-              href="${level.verification}"
-              target="_blank"
-            >
-              ▶ Verification ↗
-            </a>
-          `;
+      let thumbnailHTML;
 
-        }
+      if (
+        level.thumbnail &&
+        level.thumbnail.trim() !== ""
+      ) {
+
+        thumbnailHTML = `
+          <img
+            class="thumbnail"
+            src="${level.thumbnail}"
+            alt="${level.name}"
+          >
+        `;
+
+      }
+
+      else {
+
+        thumbnailHTML = `
+          <div class="thumbnail-placeholder">
+            No Thumbnail
+          </div>
+        `;
+
+      }
 
 
-        card.innerHTML = `
+      /* VERIFICATION */
 
-          ${verificationHTML}
+      let verificationHTML;
+
+      if (
+        level.verification &&
+        level.verification.trim() !== ""
+      ) {
+
+        verificationHTML = `
+          <a
+            href="${level.verification}"
+            target="_blank"
+            class="verification-button"
+          >
+            ▶ Verification Video
+          </a>
+        `;
+
+      }
+
+      else {
+
+        verificationHTML = `
+          <div class="no-verification">
+            No Verification Link
+          </div>
+        `;
+
+      }
+
+
+      /* CARD */
+
+      card.innerHTML = `
+
+        <div class="rank">
+          #${rank}
+        </div>
+
+
+        <div class="left-section">
 
           ${thumbnailHTML}
 
-          <div class="level-info">
 
-            <h2 class="level-title">
+          <div class="level-details">
 
-              <span class="rank">
-                #${rank}
-              </span>
-
+            <div class="level-name">
               ${level.name}
+            </div>
 
-            </h2>
 
-
-            <p>
-
+            <div class="detail-line">
               <strong>Hosted by:</strong>
-
               ${level.host}
+            </div>
 
-            </p>
 
-
-            <p>
-
+            <div class="detail-line">
               <strong>Verified by:</strong>
-
               ${level.verifier}
-
-            </p>
-
-
-            <div class="points">
-
-              ${level.points} Points
-
             </div>
 
           </div>
 
-        `;
+        </div>
 
 
-        list.appendChild(card);
+        <div class="divider"></div>
 
-      });
+
+        <div class="right-section">
+
+          <div class="right-title">
+            Level Info
+          </div>
+
+
+          <div class="right-info">
+            <strong>Level ID:</strong>
+            ${level.levelID}
+          </div>
+
+
+          <div class="right-info">
+            <strong>Length:</strong>
+            ${level.length}
+          </div>
+
+
+          ${verificationHTML}
+
+        </div>
+
+      `;
+
+
+      return card;
 
     }
 
 
-    renderLevels(levels);
+    /* DISPLAY LEVELS */
+
+    function displayLevels(levelArray) {
+
+      levelList.innerHTML = "";
 
 
-    /*
-    ============================================================
-    SEARCH BAR
-    ============================================================
-    */
+      levelArray.forEach(
+        (level, index) => {
+
+          const originalIndex =
+            levels.indexOf(level);
 
 
-    document
-      .getElementById("search")
-      .addEventListener("input", function () {
+          const card =
+            createLevelCard(
+              level,
+              originalIndex
+            );
+
+
+          levelList.appendChild(card);
+
+        }
+      );
+
+    }
+
+
+    /* SEARCH */
+
+    const search =
+      document.getElementById("search");
+
+
+    search.addEventListener(
+      "input",
+      function() {
 
         const searchText =
-          this.value.toLowerCase();
+          search.value
+            .toLowerCase()
+            .trim();
 
 
         const filteredLevels =
-          levels.filter(level =>
-
-            level.name
-              .toLowerCase()
-              .includes(searchText)
-
+          levels.filter(
+            level =>
+              level.name
+                .toLowerCase()
+                .includes(searchText)
           );
 
 
-        renderLevels(filteredLevels);
+        displayLevels(filteredLevels);
 
-      });
+      }
+    );
 
+
+    /* START WEBSITE */
+
+    displayLevels(levels);
 
   </script>
 
