@@ -14,20 +14,34 @@
     }
     
     .discord-button {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 16px;
-  background: #c62828;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  transition: background 0.2s;
-}
+      position: absolute;
+      top: 24px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 14px 24px;
+      background: #5865F2;
+      color: white;
+      text-decoration: none;
+      font-size: 21px;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
 
-.discord-button:hover {
-  background: #a91f1f;
-}
+    .discord-button:hover {
+      background: #4752C4;
+      transform: translateY(-1px);
+    }
+
+    .discord-button svg {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      fill: white;
+    }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -46,6 +60,8 @@
     .header-content {
       max-width: 1250px;
       margin: auto;
+      position: relative;
+      min-height: 86px;
     }
 
     .logo {
@@ -382,6 +398,16 @@
       .right-section {
         width: 100%;
       }
+
+      .header-content {
+        padding-bottom: 74px;
+      }
+
+      .discord-button {
+        top: auto;
+        right: 20px;
+        bottom: 0;
+      }
     }
   </style>
 </head>
@@ -398,6 +424,13 @@
       <div class="subtitle">
         COMMUNITY GEOMETRY DASH DEMON LIST
       </div>
+
+      <a class="discord-button" href="https://discord.gg/FhpnfpVkP" target="_blank" rel="noopener noreferrer" aria-label="Join the DemonVerse Discord server">
+        <svg viewBox="0 0 640 512" aria-hidden="true">
+          <path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.105 1.712 1.712 0 0 0-.788.676C39.068 187.624 18.186 304.6 28.43 420.69a2.016 2.016 0 0 0 .765 1.388 487.666 487.666 0 0 0 146.825 74.189 1.869 1.869 0 0 0 2.027-.676 348.2 348.2 0 0 0 30.062-48.83 1.825 1.825 0 0 0-1-2.554 321.173 321.173 0 0 1-45.587-21.724 1.87 1.87 0 0 1-.188-3.137c3.055-2.286 6.111-4.666 9.029-7.055a1.819 1.819 0 0 1 1.91-.256c95.018 43.556 197.273 43.556 291.206 0a1.812 1.812 0 0 1 1.924.278c2.918 2.389 5.974 4.746 9.052 7.032a1.869 1.869 0 0 1-.164 3.141 301.407 301.407 0 0 1-45.636 21.746 1.88 1.88 0 0 0-1.024 2.542 391.055 391.055 0 0 0 30.061 48.804 1.864 1.864 0 0 0 2.05.7 486.048 486.048 0 0 0 147.03-74.189 1.867 1.867 0 0 0 .787-1.358c12.019-139.116-20.292-255.918-85.153-350.917zM222.222 337.58c-28.954 0-52.84-26.587-52.84-59.239s23.409-59.239 52.84-59.239c29.665 0 53.333 26.812 52.84 59.239 0 32.652-23.175 59.239-52.84 59.239zm195.491 0c-28.954 0-52.84-26.587-52.84-59.239s23.409-59.239 52.84-59.239c29.665 0 53.333 26.812 52.84 59.239 0 32.652-23.175 59.239-52.84 59.239z"/>
+        </svg>
+        Discord
+      </a>
 
     </div>
   </header>
@@ -462,7 +495,7 @@
         name: "Amethyst",
         host: "iMist",
         verifier: "wPopoff",
-        thumbnail: "maxresdefault (3).jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=4lfkzz1VCbA",
         levelID: "119550490",
         length: "1:42s"
@@ -474,7 +507,7 @@
         name: "Thinking Space II",
         host: "CairoX",
         verifier: "Zoink",
-        thumbnail: "maxresdefault (10).jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=CELNmHwln_c",
         levelID: "119544028",
         length: "1:10s"
@@ -483,13 +516,13 @@
       /* ================= LEVEL #4 ================= */
 
       {
-        name: "Artemis 13",
-        host: "mvngos",
-        verifier: "Zoink",
-        thumbnail: "maxresdefault (12).jpg",
-        verification: "https://www.youtube.com/watch?v=FgjOM0ef1N8",
-        levelID: "148598469",
-        length: "1:16s"
+        name: "Artimis 13",
+        host: "HOST",
+        verifier: "VERIFIER",
+        thumbnail: "",
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #5 ================= */
@@ -498,7 +531,7 @@
         name: "Flamewall",
         host: "Narwall",
         verifier: "Cautrocientos",
-        thumbnail: "flamewall.png",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=x4Io4zkWVRw",
         levelID: "126242564",
         length: "6:47s"
@@ -507,10 +540,10 @@
       /* ================= LEVEL #6 ================= */
 
       {
-        name: "Silent Circles",
+        name: "LEVEL NAME",
         host: "HOST",
-        verifier: "dewbbs",
-        thumbnail: "silent cirlces.jpg",
+        verifier: "VERIFIER",
+        thumbnail: "",
         verification: "",
         levelID: "LEVEL ID",
         length: "LENGTH"
@@ -522,7 +555,7 @@
         name: "Tidal Wave",
         host: "OniLink",
         verifier: "Zoink",
-        thumbnail: "maxresdefault (5).jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=9fsZ014qB3s",
         levelID: "86407629",
         length: "3:01s"
@@ -534,7 +567,7 @@
         name: "Green Bullet",
         host: "cherryteam",
         verifier: "nickname09",
-        thumbnail: "maxresdefault (6).jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=JG-qcvVkZFw",
         levelID: "142896409",
         length: "2:05s"
@@ -546,7 +579,7 @@
         name: "ORBIT",
         host: "MindCap",
         verifier: "Zoink",
-        thumbnail: "maxresdefault (7).jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=QKcv8DkNPd0",
         levelID: "133175713",
         length: "2:22s"
@@ -558,7 +591,7 @@
         name: "Nullscapes",
         host: "ItzKiba",
         verifier: "Zoink",
-        thumbnail: "nullscapes.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=EztneTPp5CU",
         levelID: "109780665",
         length: "1:26s"
@@ -570,7 +603,7 @@
         name: "Antarctic Lights",
         host: "declanlc",
         verifier: "Axinity",
-        thumbnail: "antarctic.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=Uue4ZRhVf-I",
         levelID: "144988390",
         length: "59s"
@@ -582,7 +615,7 @@
         name: "BOOBAWAMBA",
         host: "AkunAkunn",
         verifier: "EastShark1",
-        thumbnail: "boobawamba.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=20fYiqLAo_E",
         levelID: "110816181",
         length: "2:26s"
@@ -594,7 +627,7 @@
         name: "Quanteuse Processing",
         host: "Renn241",
         verifier: "Zoink",
-        thumbnail: "quanteuse.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=j5NC0u1Q91Q",
         levelID: "117692518",
         length: "1:42s"
@@ -606,7 +639,7 @@
         name: "Every End",
         host: "MindCap",
         verifier: "hqmy",
-        thumbnail: "every end.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=AO--mVVFtKI",
         levelID: "116174063",
         length: "7:20s"
@@ -618,7 +651,7 @@
         name: "Penumbral",
         host: "cherryteam",
         verifier: "w3rty",
-        thumbnail: "penumbral.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=nVHPFf13M-I",
         levelID: "134942736",
         length: "1:23s"
@@ -630,7 +663,7 @@
         name: "Ashley Wave Trials",
         host: "oddmod",
         verifier: "Zoink",
-        thumbnail: "awt.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=aTxt76U3e2Q",
         levelID: "62912799",
         length: "2:06s"
@@ -642,7 +675,7 @@
         name: "andromeda",
         host: "Insxne97",
         verifier: "Taiago",
-        thumbnail: "andromeda.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=mk3TDemdkC0",
         levelID: "114283297",
         length: "1:14s"
@@ -654,7 +687,7 @@
         name: "Ultra Paracosm",
         host: "declanlc",
         verifier: "Wity",
-        thumbnail: "ultra paracosm.png",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=4V24spYQWuE",
         levelID: "138074906",
         length: "1:11s"
@@ -666,7 +699,7 @@
         name: "The Bloop",
         host: "murkkat",
         verifier: "Zoink",
-        thumbnail: "bloop.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=ROuXHSKEhHA",
         levelID: "135661111",
         length: "1:46s"
@@ -678,7 +711,7 @@
         name: "Silent Clubstep",
         host: "TheRealSailent",
         verifier: "Zoink",
-        thumbnail: "silent clubstep.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=57aQ3EmSqQ4",
         levelID: "4125776",
         length: "1:27"
@@ -690,7 +723,7 @@
         name: "KILLSTEALER",
         host: "rynoxious",
         verifier: "kloone",
-        thumbnail: "killstealer.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=uhH4oqWrsfo",
         levelID: "138781722",
         length: "4:00s"
@@ -702,7 +735,7 @@
         name: "Subsuming Vortex",
         host: "SeptaGon7",
         verifier: "Cursed",
-        thumbnail: "subsuming.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=0eYG1ogJpIQ",
         levelID: "127997391",
         length: "1:00s"
@@ -714,7 +747,7 @@
         name: "Anathema",
         host: "nikroplays",
         verifier: "WhizKid05",
-        thumbnail: "anathema.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=_uKwmjHmySI",
         levelID: "112313819",
         length: "2:30s"
@@ -726,7 +759,7 @@
         name: "Avernus",
         host: "PockeWindfish",
         verifier: "Zoink",
-        thumbnail: "avernus.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=16Zh8jssanc",
         levelID: "89496627",
         length: "1:18s"
@@ -738,7 +771,7 @@
         name: "Spectre",
         host: "xander",
         verifier: "PersonHuman42",
-        thumbnail: "spectre.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=MzsSLKJrLSI",
         levelID: "110815379",
         length: "2:45s"
@@ -750,7 +783,7 @@
         name: "Acheron",
         host: "Riot",
         verifier: "Zoink",
-        thumbnail: "acheron.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=sBKR6aUorzA",
         levelID: "73667628",
         length: "1:07s"
@@ -762,7 +795,7 @@
         name: "Menace",
         host: "Arraegen",
         verifier: "WhizKid05",
-        thumbnail: "menace.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=nnkgghxxsEE",
         levelID: "107805281",
         length: "3:05s"
@@ -774,7 +807,7 @@
         name: "Defeated Circles",
         host: "GXQ",
         verifier: "Zoink",
-        thumbnail: "defeated circles.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=nU5AQPzd2YA",
         levelID: "120012581",
         length: "1:00s"
@@ -786,7 +819,7 @@
         name: "Abyss of Darkness",
         host: "Exen",
         verifier: "Cursed",
-        thumbnail: "aod.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=ejJkpqcMMCY",
         levelID: "49896559",
         length: "2:05s"
@@ -798,7 +831,7 @@
         name: "Forst of Spikes",
         host: "Bimms",
         verifier: "Brain Cheese",
-        thumbnail: "forest of spikes.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=WJYh3dW8Bfo",
         levelID: "145709435",
         length: "1:49s"
@@ -810,7 +843,7 @@
         name: "Tunnel of Despair",
         host: "Exen",
         verifier: "Zoink",
-        thumbnail: "tunnel of despair.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=LpS4JREhW98",
         levelID: "91351939",
         length: "1:45s"
@@ -822,7 +855,7 @@
         name: "Based After Based",
         host: "AkunAkunn",
         verifier: "DiamondSplash",
-        thumbnail: "based after based.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=yQBFyUvB3lY",
         levelID: "110534288",
         length: "1:28s"
@@ -834,7 +867,7 @@
         name: "Kyouki",
         host: "Demishio",
         verifier: "Demishio",
-        thumbnail: "kyouki.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=KDa5c0CJTHs",
         levelID: "86018142",
         length: "1:38s"
@@ -846,7 +879,7 @@
         name: "The Lightning Rod",
         host: "LavaTrex",
         verifier: "LavaTrex",
-        thumbnail: "the lightning rod.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=nQDTi077O6M",
         levelID: "93917076",
         length: "1:37s"
@@ -858,7 +891,7 @@
         name: "Cognitohazard",
         host: "MercuryDT⁩",
         verifier: "WhizKid05",
-        thumbnail: "cognitohazard.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=T5g0r16X_ZA",
         levelID: "130891319",
         length: "1:41s"
@@ -870,7 +903,7 @@
         name: "Subterminal Point",
         host: "SyQual",
         verifier: "PoCle",
-        thumbnail: "subterminal.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=h2wmRMgACH4",
         levelID: "113599729",
         length: "1:09s"
@@ -882,7 +915,7 @@
         name: "BEING HOME",
         host: "turtl123",
         verifier: "goobs47",
-        thumbnail: "being home.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=kt7FnUzK8CY",
         levelID: "130327668",
         length: "1:42s"
@@ -894,7 +927,7 @@
         name: "Slaughterhouse",
         host: "icedcave",
         verifier: "Doggie",
-        thumbnail: "slh.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=kpcF1-QAHQc",
         levelID: "27690100",
         length: "1:10s"
@@ -906,7 +939,7 @@
         name: "KOCMOC",
         host: "cherryteam",
         verifier: "Zoink",
-        thumbnail: "kocmoc.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=2CxE-UWCIG4",
         levelID: "87665224",
         length: "1:27s"
@@ -918,7 +951,7 @@
         name: "Maniacal Chains",
         host: "LordDivinity",
         verifier: "spcreat",
-        thumbnail: "manical chains.jpg",
+        thumbnail: "",
         verification: "https://www.youtube.com/watch?v=TzeMJeIu6bY",
         levelID: "48991380",
         length: "1:56s"
@@ -1119,175 +1152,175 @@
       /* ================= LEVEL #57 ================= */
 
       {
-        name: "CONVULSION",
-        host: "stellar",
-        verifier: "WhizKid05",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=qeRKuyU3eGI",
-        levelID: "113322063",
-        length: "1:06s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #58 ================= */
 
       {
-        name: "poocubed",
-        host: "Liisp",
-        verifier: "kyass",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=fzL31vai1ms",
-        levelID: "85133223",
-        length: "1:22s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #59 ================= */
 
       {
-        name: "Calibrate",
-        host: "Bamvie",
-        verifier: "블베",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=6WYnZryX_mg",
-        levelID: "136981369",
-        length: "1:16s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #60 ================= */
 
       {
-        name: "MINUSdry",
-        host: "CDMusic",
-        verifier: "Varium",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=YvA8ehhzz0Q",
-        levelID: "89414220",
-        length: "1:22s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #61 ================= */
 
       {
-        name: "Saul Goodman",
-        host: "Renn241",
-        verifier: "bloom",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=hjs5PjUaw9k",
-        levelID: "90477539",
-        length: "1:26s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #62 ================= */
 
       {
-        name: "Apocalyptic Trilogy",
-        host: "APTeamOfficial",
-        verifier: "polterghast",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=RUBbpsTR5eU",
-        levelID: "113443235",
-        length: "4:27s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #63 ================= */
 
       {
-        name: "Sevvend Clubstep",
-        host: "cherryteam",
-        verifier: "Vorten",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=TvA8EJTJFCc",
-        levelID: "120255728",
-        length: "1:14s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #64 ================= */
 
       {
-        name: "Haunted Ship",
-        host: "awesomeme360",
-        verifier: "Gnamolor",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=22l59QGmL48",
-        levelID: "143523624",
-        length: "1:50s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #65 ================= */
 
       {
-        name: "Deadlier CLubstep",
-        host: "HeroZombie80",
-        verifier: "Jenath",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=eRhgaF0r5Q0",
-        levelID: "96314787",
-        length: "1:44s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #66 ================= */
 
       {
-        name: "The Hallucination",
-        host: "SyQual",
-        verifier: "VoTcHi",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=tYbXsNkO9HE",
-        levelID: "81139702",
-        length: "2:05s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #67 ================= */
 
       {
-        name: "Pinnacle of Life",
-        host: "skzyl",
-        verifier: "vonic",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=gQl5iY1ekyE",
-        levelID: "144012996",
-        length: "1:58s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #68 ================= */
 
       {
-        name: "COMBUSTION",
-        host: "Cersia",
-        verifier: "Slithium",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=3cTR4XUcA28",
-        levelID: "94359172",
-        length: "58s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #69 ================= */
 
       {
-        name: "Loops of Fury",
-        host: "Enfur",
-        verifier: "xCork",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=9HBG3i5zbw8",
-        levelID: "126571887",
-        length: "2:12s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #70 ================= */
 
       {
-        name: "Stellar Night",
-        host: "icedcave",
-        verifier: "Tuggy",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=XpBY-eMYZTE",
-        levelID: "83244159",
-        length: "1:03s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #71 ================= */
 
       {
-        name: "",
+        name: "LEVEL NAME",
         host: "HOST",
         verifier: "VERIFIER",
         thumbnail: "",
@@ -1299,49 +1332,49 @@
       /* ================= LEVEL #72 ================= */
 
       {
-        name: "Prismline",
-        host: "ItsHarryy",
-        verifier: "Wain",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=pIHOHz3i0Rw",
-        levelID: "135148907",
-        length: "1:25s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #73 ================= */
 
       {
-        name: "Lossing Your Mind",
-        host: "GDgalaxygaming",
-        verifier: "iIiLaseriIi",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=LXp7t5gjyX8",
-        levelID: "139508889",
-        length: "1:36s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #74 ================= */
 
       {
-        name: "The Catacombs",
-        host: "Cersia",
-        verifier: "Slithium",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=T9-75lfKVQg",
-        levelID: "104232191",
-        length: "1:13s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
       /* ================= LEVEL #75 ================= */
 
       {
-        name: "LIMBO",
-        host: "MindCap",
-        verifier: "BGram",
+        name: "LEVEL NAME",
+        host: "HOST",
+        verifier: "VERIFIER",
         thumbnail: "",
-        verification: "https://www.youtube.com/watch?v=kXYMbaMVOZg",
-        levelID: "86084399",
-        length: "3:27s"
+        verification: "",
+        levelID: "LEVEL ID",
+        length: "LENGTH"
       },
 
     ];
