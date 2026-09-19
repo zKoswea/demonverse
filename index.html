@@ -733,6 +733,15 @@ header .site-nav {
         justify-content: flex-start;
       }
     }
+
+    /* THUMBNAIL IMAGE ZOOM */
+    .image-modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.88);align-items:center;justify-content:center;padding:30px}
+    .image-modal.active{display:flex}
+    .image-modal img{max-width:92vw;max-height:90vh;width:auto;height:auto;object-fit:contain;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.45)}
+    .thumbnail{cursor:zoom-in}
+    .image-modal-close{position:absolute;top:18px;right:24px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.95);color:#222;font-size:30px;line-height:44px;text-align:center;cursor:pointer;font-weight:bold}
+    .image-modal-close:hover{background:white}
+    @media(max-width:700px){.image-modal{padding:15px}.image-modal img{max-width:96vw;max-height:84vh}}
 </style>
 </head>
 <body>
@@ -1294,76 +1303,76 @@ header .site-nav {
           <option value="Thinking Space II">#3 — Thinking Space II</option>
           <option value="Artemis 13">#4 — Artemis 13</option>
           <option value="Flamewall">#5 — Flamewall</option>
-          <option value="Silent Circles">#6 — Silent Circles</option>
-          <option value="Tidal Wave">#7 — Tidal Wave</option>
-          <option value="Green Bullet">#8 — Green Bullet</option>
-          <option value="ORBIT">#9 — ORBIT</option>
-          <option value="Nullscapes">#10 — Nullscapes</option>
-          <option value="Antarctic Lights">#11 — Antarctic Lights</option>
-          <option value="BOOBAWAMBA">#12 — BOOBAWAMBA</option>
-          <option value="LESOPOWAL">#13 — LESOPOWAL</option>
-          <option value="Quanteuse Processing">#14 — Quanteuse Processing</option>
-          <option value="Every End">#15 — Every End</option>
-          <option value="Herr Machine">#16 — Herr Machine</option>
+          <option value="Tidal Wave">#6 — Tidal Wave</option>
+          <option value="Green Bullet">#7 — Green Bullet</option>
+          <option value="ORBIT">#8 — ORBIT</option>
+          <option value="Nullscapes">#9 — Nullscapes</option>
+          <option value="Antarctic Lights">#10 — Antarctic Lights</option>
+          <option value="BOOBAWAMBA">#11 — BOOBAWAMBA</option>
+          <option value="LESOPOWAL">#12 — LESOPOWAL</option>
+          <option value="Quanteuse Processing">#13 — Quanteuse Processing</option>
+          <option value="Every End">#14 — Every End</option>
+          <option value="Herr Machine">#15 — Herr Machine</option>
+          <option value="andromeda">#16 — andromeda</option>
           <option value="Penumbral">#17 — Penumbral</option>
           <option value="Ashley Wave Trials">#18 — Ashley Wave Trials</option>
-          <option value="andromeda">#19 — andromeda</option>
-          <option value="Ultra Paracosm">#20 — Ultra Paracosm</option>
-          <option value="The Bloop">#21 — The Bloop</option>
-          <option value="Silent Clubstep">#22 — Silent Clubstep</option>
-          <option value="KILLSTEALER">#23 — KILLSTEALER</option>
-          <option value="Subsuming Vortex">#24 — Subsuming Vortex</option>
-          <option value="Anathema">#25 — Anathema</option>
-          <option value="Avernus">#26 — Avernus</option>
-          <option value="Spectre">#27 — Spectre</option>
-          <option value="Acheron">#28 — Acheron</option>
-          <option value="Menace">#29 — Menace</option>
-          <option value="Defeated Circles">#30 — Defeated Circles</option>
-          <option value="Abyss of Darkness">#31 — Abyss of Darkness</option>
-          <option value="FOREST OF SPIKES">#32 — FOREST OF SPIKES</option>
-          <option value="Tunnel of Despair">#33 — Tunnel of Despair</option>
-          <option value="Based After Based">#34 — Based After Based</option>
-          <option value="Kyouki">#35 — Kyouki</option>
-          <option value="The Lightning Rod">#36 — The Lightning Rod</option>
-          <option value="Cognitohazard">#37 — Cognitohazard</option>
-          <option value="Subterminal Point">#38 — Subterminal Point</option>
-          <option value="BEING HOME">#39 — BEING HOME</option>
-          <option value="Slaughterhouse">#40 — Slaughterhouse</option>
-          <option value="KOCMOC">#41 — KOCMOC</option>
-          <option value="Maniacal Chains">#42 — Maniacal Chains</option>
-          <option value="Deimos">#43 — Deimos</option>
-          <option value="Sacrifice">#44 — Sacrifice</option>
-          <option value="KOSETSU">#45 — KOSETSU</option>
-          <option value="Eyes in the Water">#46 — Eyes in the Water</option>
-          <option value="Voltage">#47 — Voltage</option>
-          <option value="Silentlocked">#48 — Silentlocked</option>
-          <option value="The Salt Factory">#49 — The Salt Factory</option>
-          <option value="CHIL">#50 — CHIL</option>
-          <option value="Sakupen Circles">#51 — Sakupen Circles</option>
-          <option value="zorin">#52 — zorin</option>
-          <option value="Master of Puppets">#53 — Master of Puppets</option>
-          <option value="Through The Gates">#54 — Through The Gates</option>
-          <option value="Snowbound">#55 — Snowbound</option>
-          <option value="NervHell">#56 — NervHell</option>
-          <option value="Firework">#57 — Firework</option>
-          <option value="NOMAD">#58 — NOMAD</option>
-          <option value="poocubed">#59 — poocubed</option>
-          <option value="Calibrate">#60 — Calibrate</option>
-          <option value="MINUSdry">#61 — MINUSdry</option>
-          <option value="Saul Goodman">#62 — Saul Goodman</option>
-          <option value="Apocalyptic Trilogy">#63 — Apocalyptic Trilogy</option>
-          <option value="Sevvend Clubstep">#64 — Sevvend Clubstep</option>
-          <option value="Haunted Ship">#65 — Haunted Ship</option>
-          <option value="Deadlier Clubstep">#66 — Deadlier Clubstep</option>
-          <option value="The Hallucination">#67 — The Hallucination</option>
-          <option value="Pinnacle of Life">#68 — Pinnacle of Life</option>
-          <option value="COMBUSTION">#69 — COMBUSTION</option>
-          <option value="Loops of Fury">#70 — Loops of Fury</option>
-          <option value="Stellar Night">#71 — Stellar Night</option>
-          <option value="Prismline">#72 — Prismline</option>
-          <option value="Losing Your Mind">#73 — Losing Your Mind</option>
-          <option value="Edge of Destiny">#74 — Edge of Destiny</option>
-          <option value="Solar Flare">#75 — Solar Flare</option>
+          <option value="Ultra Paracosm">#19 — Ultra Paracosm</option>
+          <option value="The Bloop">#20 — The Bloop</option>
+          <option value="Silent Clubstep">#21 — Silent Clubstep</option>
+          <option value="KILLSTEALER">#22 — KILLSTEALER</option>
+          <option value="Subsuming Vortex">#23 — Subsuming Vortex</option>
+          <option value="Anathema">#24 — Anathema</option>
+          <option value="Avernus">#25 — Avernus</option>
+          <option value="Spectre">#26 — Spectre</option>
+          <option value="Acheron">#27 — Acheron</option>
+          <option value="Menace">#28 — Menace</option>
+          <option value="Defeated Circles">#29 — Defeated Circles</option>
+          <option value="Abyss of Darkness">#30 — Abyss of Darkness</option>
+          <option value="FOREST OF SPIKES">#31 — FOREST OF SPIKES</option>
+          <option value="Tunnel of Despair">#32 — Tunnel of Despair</option>
+          <option value="Based After Based">#33 — Based After Based</option>
+          <option value="Kyouki">#34 — Kyouki</option>
+          <option value="The Lightning Rod">#35 — The Lightning Rod</option>
+          <option value="Cognitohazard">#36 — Cognitohazard</option>
+          <option value="Subterminal Point">#37 — Subterminal Point</option>
+          <option value="BEING HOME">#38 — BEING HOME</option>
+          <option value="Slaughterhouse">#39 — Slaughterhouse</option>
+          <option value="KOCMOC">#40 — KOCMOC</option>
+          <option value="Maniacal Chains">#41 — Maniacal Chains</option>
+          <option value="Deimos">#42 — Deimos</option>
+          <option value="Sacrifice">#43 — Sacrifice</option>
+          <option value="KOSETSU">#44 — KOSETSU</option>
+          <option value="Eyes in the Water">#45 — Eyes in the Water</option>
+          <option value="Voltage">#46 — Voltage</option>
+          <option value="Silentlocked">#47 — Silentlocked</option>
+          <option value="The Salt Factory">#48 — The Salt Factory</option>
+          <option value="CHIL">#49 — CHIL</option>
+          <option value="Sakupen Circles">#50 — Sakupen Circles</option>
+          <option value="zorin">#51 — zorin</option>
+          <option value="Master of Puppets">#52 — Master of Puppets</option>
+          <option value="Through The Gates">#53 — Through The Gates</option>
+          <option value="Snowbound">#54 — Snowbound</option>
+          <option value="NervHell">#55 — NervHell</option>
+          <option value="Firework">#56 — Firework</option>
+          <option value="NOMAD">#57 — NOMAD</option>
+          <option value="poocubed">#58 — poocubed</option>
+          <option value="Calibrate">#59 — Calibrate</option>
+          <option value="MINUSdry">#60 — MINUSdry</option>
+          <option value="Saul Goodman">#61 — Saul Goodman</option>
+          <option value="Apocalyptic Trilogy">#62 — Apocalyptic Trilogy</option>
+          <option value="Sevvend Clubstep">#63 — Sevvend Clubstep</option>
+          <option value="Haunted Ship">#64 — Haunted Ship</option>
+          <option value="Deadlier Clubstep">#65 — Deadlier Clubstep</option>
+          <option value="The Hallucination">#66 — The Hallucination</option>
+          <option value="Pinnacle of Life">#67 — Pinnacle of Life</option>
+          <option value="COMBUSTION">#68 — COMBUSTION</option>
+          <option value="Loops of Fury">#69 — Loops of Fury</option>
+          <option value="Stellar Night">#70 — Stellar Night</option>
+          <option value="Prismline">#71 — Prismline</option>
+          <option value="Losing Your Mind">#72 — Losing Your Mind</option>
+          <option value="Edge of Destiny">#73 — Edge of Destiny</option>
+          <option value="Solar Flare">#74 — Solar Flare</option>
+          <option value="LIMBO">#75 — LIMBO</option>
     </select>
   </div>
 
@@ -1390,6 +1399,8 @@ header .site-nav {
 
 </section>
 
+<div id="imageModal" class="image-modal" aria-hidden="true"><button type="button" class="image-modal-close" id="imageModalClose" aria-label="Close image">&times;</button><img id="imageModalImage" src="" alt=""></div>
+
 <script>
 
 
@@ -1411,12 +1422,12 @@ header .site-nav {
 
     const levels = [
 
-/* ================= LEVEL #1 ================= */
+      /* ================= LEVEL #1 ================= */
 
-      {
+{
         name: "Society",
         points: 1000,
-        host: "Neomarbilan",
+                host: "Neomarbilan",
         verifier: "wPopoff",
         thumbnail: "society.jpg",
         verification: "https://www.youtube.com/watch?v=3CoEaH1CM7o",
@@ -1424,12 +1435,12 @@ header .site-nav {
         length: "1:37s"
       },
 
-/* ================= LEVEL #2 ================= */
+      /* ================= LEVEL #2 ================= */
 
-      {
+{
         name: "Amethyst",
-        points: 975,
-        host: "iMist",
+        points: 988,
+                host: "iMist",
         verifier: "wPopoff",
         thumbnail: "maxresdefault (3).jpg",
         verification: "https://www.youtube.com/watch?v=4lfkzz1VCbA",
@@ -1437,12 +1448,12 @@ header .site-nav {
         length: "1:42s"
       },
 
-/* ================= LEVEL #3 ================= */
+      /* ================= LEVEL #3 ================= */
 
-      {
+{
         name: "Thinking Space II",
-        points: 950,
-        host: "CairoX",
+        points: 976,
+                host: "CairoX",
         verifier: "Zoink",
         thumbnail: "maxresdefault (10).jpg",
         verification: "https://www.youtube.com/watch?v=CELNmHwln_c",
@@ -1450,12 +1461,12 @@ header .site-nav {
         length: "1:10s"
       },
 
-/* ================= LEVEL #4 ================= */
+      /* ================= LEVEL #4 ================= */
 
-      {
+{
         name: "Artemis 13",
-        points: 925,
-        host: "mvngo",
+        points: 964,
+                host: "mvngo",
         verifier: "Zoink",
         thumbnail: "maxresdefault (12).jpg",
         verification: "https://www.youtube.com/watch?v=FgjOM0ef1N8",
@@ -1463,12 +1474,12 @@ header .site-nav {
         length: "1:16s"
       },
 
-/* ================= LEVEL #5 ================= */
+      /* ================= LEVEL #5 ================= */
 
-      {
+{
         name: "Flamewall",
-        points: 900,
-        host: "Narwall",
+        points: 952,
+                host: "Narwall",
         verifier: "Cautrocientos",
         thumbnail: "flamewall.png",
         verification: "https://www.youtube.com/watch?v=x4Io4zkWVRw",
@@ -1476,12 +1487,12 @@ header .site-nav {
         length: "6:47s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #6 ================= */
 
-      {
+{
         name: "Tidal Wave",
-        points: 875,
-        host: "OniLink",
+        points: 940,
+                host: "OniLink",
         verifier: "Zoink",
         thumbnail: "maxresdefault (5).jpg",
         verification: "https://www.youtube.com/watch?v=9fsZ014qB3s",
@@ -1489,12 +1500,12 @@ header .site-nav {
         length: "3:01s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #7 ================= */
 
-      {
+{
         name: "Green Bullet",
-        points: 850,
-        host: "cherryteam",
+        points: 927,
+                host: "cherryteam",
         verifier: "nickname09",
         thumbnail: "maxresdefault (6).jpg",
         verification: "https://www.youtube.com/watch?v=JG-qcvVkZFw",
@@ -1502,12 +1513,12 @@ header .site-nav {
         length: "2:05s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #8 ================= */
 
-      {
+{
         name: "ORBIT",
-        points: 825,
-        host: "MindCap",
+        points: 915,
+                host: "MindCap",
         verifier: "Zoink",
         thumbnail: "maxresdefault (7).jpg",
         verification: "https://www.youtube.com/watch?v=QKcv8DkNPd0",
@@ -1515,12 +1526,12 @@ header .site-nav {
         length: "2:22s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #9 ================= */
 
-      {
+{
         name: "Nullscapes",
-        points: 800,
-        host: "ItzKiba",
+        points: 903,
+                host: "ItzKiba",
         verifier: "Zoink",
         thumbnail: "nullscapes.jpg",
         verification: "https://www.youtube.com/watch?v=EztneTPp5CU",
@@ -1528,12 +1539,12 @@ header .site-nav {
         length: "1:26s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #10 ================= */
 
-      {
+{
         name: "Antarctic Lights",
-        points: 775,
-        host: "declanlc",
+        points: 891,
+                host: "declanlc",
         verifier: "Axinity",
         thumbnail: "antarctic.jpg",
         verification: "https://www.youtube.com/watch?v=Uue4ZRhVf-I",
@@ -1541,12 +1552,12 @@ header .site-nav {
         length: "59s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #11 ================= */
 
-      {
+{
         name: "BOOBAWAMBA",
-        points: 750,
-        host: "AkunAkunn",
+        points: 879,
+                host: "AkunAkunn",
         verifier: "EastShark1",
         thumbnail: "boobawamba.jpg",
         verification: "https://www.youtube.com/watch?v=20fYiqLAo_E",
@@ -1554,12 +1565,12 @@ header .site-nav {
         length: "2:26s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #12 ================= */
 
-      {
+{
         name: "LESOPOWAL",
-        points: 725,
-        host: "cherryteam",
+        points: 867,
+                host: "cherryteam",
         verifier: "Bacon",
         thumbnail: "lesopowal.jpg",
         verification: "https://www.youtube.com/watch?v=RTXnFHkGO_g",
@@ -1567,12 +1578,12 @@ header .site-nav {
         length: "1:39s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #13 ================= */
 
-      {
+{
         name: "Quanteuse Processing",
-        points: 700,
-        host: "Renn241",
+        points: 854,
+                host: "Renn241",
         verifier: "Zoink",
         thumbnail: "quanteuse.jpg",
         verification: "https://www.youtube.com/watch?v=j5NC0u1Q91Q",
@@ -1580,12 +1591,12 @@ header .site-nav {
         length: "1:42s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #14 ================= */
 
-      {
+{
         name: "Every End",
-        points: 675,
-        host: "MindCap",
+        points: 842,
+                host: "MindCap",
         verifier: "hqmy",
         thumbnail: "every end.jpg",
         verification: "https://www.youtube.com/watch?v=AO--mVVFtKI",
@@ -1593,12 +1604,12 @@ header .site-nav {
         length: "7:20s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #15 ================= */
 
-      {
+{
         name: "Herr Machine",
-        points: 650,
-        host: "herrteam",
+        points: 830,
+                host: "herrteam",
         verifier: "BONN GD",
         thumbnail: "herr machine.jpg",
         verification: "https://www.youtube.com/watch?v=CBcQqmqWFo4",
@@ -1606,38 +1617,12 @@ header .site-nav {
         length: "1:46s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #16 ================= */
 
-      {
-        name: "Penumbral",
-        points: 625,
-        host: "cherryteam",
-        verifier: "w3rty",
-        thumbnail: "penumbral.jpg",
-        verification: "https://www.youtube.com/watch?v=nVHPFf13M-I",
-        levelID: "134942736",
-        length: "1:23s"
-      },
-
-/* ================= LEVEL #6 ================= */
-
-      {
-        name: "Ashley Wave Trials",
-        points: 600,
-        host: "oddmod",
-        verifier: "Zoink",
-        thumbnail: "awt.jpg",
-        verification: "https://www.youtube.com/watch?v=aTxt76U3e2Q",
-        levelID: "62912799",
-        length: "2:06s"
-      },
-
-/* ================= LEVEL #6 ================= */
-
-      {
+{
         name: "andromeda",
-        points: 575,
-        host: "Insxne97",
+        points: 818,
+                host: "Insxne97",
         verifier: "Taiago",
         thumbnail: "andromeda.jpg",
         verification: "https://www.youtube.com/watch?v=mk3TDemdkC0",
@@ -1645,12 +1630,38 @@ header .site-nav {
         length: "1:14s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #17 ================= */
 
-      {
+{
+        name: "Penumbral",
+        points: 806,
+                host: "cherryteam",
+        verifier: "w3rty",
+        thumbnail: "penumbral.jpg",
+        verification: "https://www.youtube.com/watch?v=nVHPFf13M-I",
+        levelID: "134942736",
+        length: "1:23s"
+      },
+
+      /* ================= LEVEL #18 ================= */
+
+{
+        name: "Ashley Wave Trials",
+        points: 794,
+                host: "oddmod",
+        verifier: "Zoink",
+        thumbnail: "awt.jpg",
+        verification: "https://www.youtube.com/watch?v=aTxt76U3e2Q",
+        levelID: "62912799",
+        length: "2:06s"
+      },
+
+      /* ================= LEVEL #19 ================= */
+
+{
         name: "Ultra Paracosm",
-        points: 550,
-        host: "declanlc",
+        points: 781,
+                host: "declanlc",
         verifier: "Wity",
         thumbnail: "ultra paracosm.png",
         verification: "https://www.youtube.com/watch?v=4V24spYQWuE",
@@ -1658,12 +1669,12 @@ header .site-nav {
         length: "1:11s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #20 ================= */
 
-      {
+{
         name: "The Bloop",
-        points: 525,
-        host: "murkkat",
+        points: 769,
+                host: "murkkat",
         verifier: "Zoink",
         thumbnail: "bloop.jpg",
         verification: "https://www.youtube.com/watch?v=ROuXHSKEhHA",
@@ -1671,12 +1682,12 @@ header .site-nav {
         length: "1:46s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #21 ================= */
 
-      {
+{
         name: "Silent Clubstep",
-        points: 500,
-        host: "TheRealSailent",
+        points: 757,
+                host: "TheRealSailent",
         verifier: "Zoink",
         thumbnail: "silent clubstep.jpg",
         verification: "https://www.youtube.com/watch?v=57aQ3EmSqQ4",
@@ -1684,12 +1695,12 @@ header .site-nav {
         length: "1:27"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #22 ================= */
 
-      {
+{
         name: "KILLSTEALER",
-        points: 475,
-        host: "rynoxious",
+        points: 745,
+                host: "rynoxious",
         verifier: "kloone",
         thumbnail: "killstealer.jpg",
         verification: "https://www.youtube.com/watch?v=uhH4oqWrsfo",
@@ -1697,12 +1708,12 @@ header .site-nav {
         length: "4:00s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #23 ================= */
 
-      {
+{
         name: "Subsuming Vortex",
-        points: 450,
-        host: "SeptaGon7",
+        points: 733,
+                host: "SeptaGon7",
         verifier: "Cursed",
         thumbnail: "subsuming.jpg",
         verification: "https://www.youtube.com/watch?v=0eYG1ogJpIQ",
@@ -1710,12 +1721,12 @@ header .site-nav {
         length: "1:00s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #24 ================= */
 
-      {
+{
         name: "Anathema",
-        points: 425,
-        host: "nikroplays",
+        points: 721,
+                host: "nikroplays",
         verifier: "WhizKid05",
         thumbnail: "anathema.jpg",
         verification: "https://www.youtube.com/watch?v=_uKwmjHmySI",
@@ -1723,12 +1734,12 @@ header .site-nav {
         length: "2:30s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #25 ================= */
 
-      {
+{
         name: "Avernus",
-        points: 400,
-        host: "PockeWindfish",
+        points: 708,
+                host: "PockeWindfish",
         verifier: "Zoink",
         thumbnail: "avernus.jpg",
         verification: "https://www.youtube.com/watch?v=16Zh8jssanc",
@@ -1736,12 +1747,12 @@ header .site-nav {
         length: "1:18s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #26 ================= */
 
-      {
+{
         name: "Spectre",
-        points: 375,
-        host: "xander",
+        points: 696,
+                host: "xander",
         verifier: "PersonHuman42",
         thumbnail: "spectre.jpg",
         verification: "https://www.youtube.com/watch?v=MzsSLKJrLSI",
@@ -1749,12 +1760,12 @@ header .site-nav {
         length: "2:45s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #27 ================= */
 
-      {
+{
         name: "Acheron",
-        points: 350,
-        host: "Riot",
+        points: 684,
+                host: "Riot",
         verifier: "Zoink",
         thumbnail: "acheron.jpg",
         verification: "https://www.youtube.com/watch?v=sBKR6aUorzA",
@@ -1762,12 +1773,12 @@ header .site-nav {
         length: "1:07s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #28 ================= */
 
-      {
+{
         name: "Menace",
-        points: 325,
-        host: "Arraegen",
+        points: 672,
+                host: "Arraegen",
         verifier: "WhizKid05",
         thumbnail: "menace.jpg",
         verification: "https://www.youtube.com/watch?v=nnkgghxxsEE",
@@ -1775,12 +1786,12 @@ header .site-nav {
         length: "3:05s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #29 ================= */
 
-      {
+{
         name: "Defeated Circles",
-        points: 300,
-        host: "GXQ",
+        points: 660,
+                host: "GXQ",
         verifier: "Zoink",
         thumbnail: "defeated circles.jpg",
         verification: "https://www.youtube.com/watch?v=nU5AQPzd2YA",
@@ -1788,12 +1799,12 @@ header .site-nav {
         length: "1:00s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #30 ================= */
 
-      {
+{
         name: "Abyss of Darkness",
-        points: 275,
-        host: "Exen",
+        points: 648,
+                host: "Exen",
         verifier: "Cursed",
         thumbnail: "aod.jpg",
         verification: "https://www.youtube.com/watch?v=ejJkpqcMMCY",
@@ -1801,12 +1812,12 @@ header .site-nav {
         length: "2:05s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #31 ================= */
 
-      {
+{
         name: "FOREST OF SPIKES",
-        points: 250,
-        host: "Bimms",
+        points: 635,
+                host: "Bimms",
         verifier: "Brain Cheese",
         thumbnail: "forest of spikes.jpg",
         verification: "https://www.youtube.com/watch?v=WJYh3dW8Bfo",
@@ -1814,12 +1825,12 @@ header .site-nav {
         length: "1:49s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #32 ================= */
 
-      {
+{
         name: "Tunnel of Despair",
-        points: 225,
-        host: "Exen",
+        points: 623,
+                host: "Exen",
         verifier: "Zoink",
         thumbnail: "tunnel of despair.jpg",
         verification: "https://www.youtube.com/watch?v=LpS4JREhW98",
@@ -1827,12 +1838,12 @@ header .site-nav {
         length: "1:45s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #33 ================= */
 
-      {
+{
         name: "Based After Based",
-        points: 200,
-        host: "AkunAkunn",
+        points: 611,
+                host: "AkunAkunn",
         verifier: "DiamondSplash",
         thumbnail: "based after based.jpg",
         verification: "https://www.youtube.com/watch?v=yQBFyUvB3lY",
@@ -1840,12 +1851,12 @@ header .site-nav {
         length: "1:28s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #34 ================= */
 
-      {
+{
         name: "Kyouki",
-        points: 175,
-        host: "出見塩",
+        points: 599,
+                host: "出見塩",
         verifier: "出見塩",
         thumbnail: "kyouki.jpg",
         verification: "https://www.youtube.com/watch?v=KDa5c0CJTHs",
@@ -1853,12 +1864,12 @@ header .site-nav {
         length: "1:38s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #35 ================= */
 
-      {
+{
         name: "The Lightning Rod",
-        points: 150,
-        host: "LavaTrex",
+        points: 587,
+                host: "LavaTrex",
         verifier: "LavaTrex",
         thumbnail: "the lightning rod.jpg",
         verification: "https://www.youtube.com/watch?v=nQDTi077O6M",
@@ -1866,12 +1877,12 @@ header .site-nav {
         length: "1:37s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #36 ================= */
 
-      {
+{
         name: "Cognitohazard",
-        points: 125,
-        host: "MercuryDT⁩",
+        points: 575,
+                host: "MercuryDT⁩",
         verifier: "WhizKid05",
         thumbnail: "cognitohazard.jpg",
         verification: "https://www.youtube.com/watch?v=T5g0r16X_ZA",
@@ -1879,12 +1890,12 @@ header .site-nav {
         length: "1:41s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #37 ================= */
 
-      {
+{
         name: "Subterminal Point",
-        points: 100,
-        host: "SyQual",
+        points: 562,
+                host: "SyQual",
         verifier: "PoCle",
         thumbnail: "subterminal.jpg",
         verification: "https://www.youtube.com/watch?v=h2wmRMgACH4",
@@ -1892,12 +1903,12 @@ header .site-nav {
         length: "1:09s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #38 ================= */
 
-      {
+{
         name: "BEING HOME",
-        points: 75,
-        host: "turtl123",
+        points: 550,
+                host: "turtl123",
         verifier: "goobs47",
         thumbnail: "being home.jpg",
         verification: "https://www.youtube.com/watch?v=kt7FnUzK8CY",
@@ -1905,12 +1916,12 @@ header .site-nav {
         length: "1:42s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #39 ================= */
 
-      {
+{
         name: "Slaughterhouse",
-        points: 50,
-        host: "icedcave",
+        points: 538,
+                host: "icedcave",
         verifier: "Doggie",
         thumbnail: "slh.jpg",
         verification: "https://www.youtube.com/watch?v=kpcF1-QAHQc",
@@ -1918,12 +1929,12 @@ header .site-nav {
         length: "1:10s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #40 ================= */
 
-      {
+{
         name: "KOCMOC",
-        points: 25,
-        host: "cherryteam",
+        points: 526,
+                host: "cherryteam",
         verifier: "Zoink",
         thumbnail: "kocmoc.jpg",
         verification: "https://www.youtube.com/watch?v=2CxE-UWCIG4",
@@ -1931,12 +1942,12 @@ header .site-nav {
         length: "1:27s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #41 ================= */
 
-      {
+{
         name: "Maniacal Chains",
-        points: 0,
-        host: "LordDivinity",
+        points: 514,
+                host: "LordDivinity",
         verifier: "spcreat",
         thumbnail: "manical chains.jpg",
         verification: "https://www.youtube.com/watch?v=TzeMJeIu6bY",
@@ -1944,12 +1955,12 @@ header .site-nav {
         length: "1:56s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #42 ================= */
 
-      {
+{
         name: "Deimos",
-        points: -25,
-        host: "ItsHybrid",
+        points: 502,
+                host: "ItsHybrid",
         verifier: "Doggie",
         thumbnail: "deimos.png",
         verification: "https://www.youtube.com/watch?v=b2yHaIk5zio",
@@ -1957,12 +1968,12 @@ header .site-nav {
         length: "2:57s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #43 ================= */
 
-      {
+{
         name: "Sacrifice",
-        points: -50,
-        host: "⁨Laniakea",
+        points: 489,
+                host: "⁨Laniakea",
         verifier: "Laniakea",
         thumbnail: "sacrifice.jpg",
         verification: "https://www.youtube.com/watch?v=Sth67PA8XBU",
@@ -1970,12 +1981,12 @@ header .site-nav {
         length: "2:28s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #44 ================= */
 
-      {
+{
         name: "KOSETSU",
-        points: -75,
-        host: "fwe",
+        points: 477,
+                host: "fwe",
         verifier: "Taiago",
         thumbnail: "kosetsu.jpg",
         verification: "https://www.youtube.com/watch?v=hZ8vFX8z_BU",
@@ -1983,12 +1994,12 @@ header .site-nav {
         length: "1:12s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #45 ================= */
 
-      {
+{
         name: "Eyes in the Water",
-        points: -100,
-        host: "hawkyre",
+        points: 465,
+                host: "hawkyre",
         verifier: "LordVadercraft",
         thumbnail: "eyes in the water.jpg",
         verification: "https://www.youtube.com/watch?v=yvLwiOy3KEA",
@@ -1996,12 +2007,12 @@ header .site-nav {
         length: "1:32s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #46 ================= */
 
-      {
+{
         name: "Voltage",
-        points: -125,
-        host: "⁨ThePurgatory",
+        points: 453,
+                host: "⁨ThePurgatory",
         verifier: "maybee",
         thumbnail: "voltage.jpg",
         verification: "https://www.youtube.com/watch?v=wBRvBN9tmlc",
@@ -2009,12 +2020,12 @@ header .site-nav {
         length: "1:08s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #47 ================= */
 
-      {
+{
         name: "Silentlocked",
-        points: -150,
-        host: "GDSkele",
+        points: 441,
+                host: "GDSkele",
         verifier: "TFIBB",
         thumbnail: "silentlocked.jpg",
         verification: "https://www.youtube.com/watch?v=O-IQeUdEGvI",
@@ -2022,12 +2033,12 @@ header .site-nav {
         length: "1:44s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #48 ================= */
 
-      {
+{
         name: "The Salt Factory",
-        points: -175,
-        host: "nickname09",
+        points: 429,
+                host: "nickname09",
         verifier: "nickname09",
         thumbnail: "the salt factory.jpg",
         verification: "https://www.youtube.com/watch?v=lQ7M-Sgov24",
@@ -2035,12 +2046,12 @@ header .site-nav {
         length: "1:35s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #49 ================= */
 
-      {
+{
         name: "CHIL",
-        points: -200,
-        host: "McCoco",
+        points: 416,
+                host: "McCoco",
         verifier: "McCoco",
         thumbnail: "chil.jpg",
         verification: "https://www.youtube.com/watch?v=DROMiCc2ZRM",
@@ -2048,12 +2059,12 @@ header .site-nav {
         length: "1:01s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #50 ================= */
 
-      {
+{
         name: "Sakupen Circles",
-        points: -225,
-        host: "Diamond",
+        points: 404,
+                host: "Diamond",
         verifier: "Diamond",
         thumbnail: "skc.jpg",
         verification: "https://www.youtube.com/watch?v=ofG2mJi9kEA",
@@ -2061,12 +2072,12 @@ header .site-nav {
         length: "50s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #51 ================= */
 
-      {
+{
         name: "zorin",
-        points: -250,
-        host: "태리",
+        points: 392,
+                host: "태리",
         verifier: "9i",
         thumbnail: "zorin.jpg",
         verification: "https://www.youtube.com/watch?v=U19vmpenb9g",
@@ -2074,12 +2085,12 @@ header .site-nav {
         length: "2:56s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #52 ================= */
 
-      {
+{
         name: "Master of Puppets",
-        points: -275,
-        host: "TheZinkYT",
+        points: 380,
+                host: "TheZinkYT",
         verifier: "Scotchtape",
         thumbnail: "master of pupets.jpg",
         verification: "https://www.youtube.com/watch?v=JBZ-lrBgkl0",
@@ -2087,12 +2098,12 @@ header .site-nav {
         length: "8:35s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #53 ================= */
 
-      {
+{
         name: "Through The Gates",
-        points: -300,
-        host: "TeamTheDashers",
+        points: 368,
+                host: "TeamTheDashers",
         verifier: "Zoink",
         thumbnail: "through the gates.png",
         verification: "https://www.youtube.com/watch?v=4yHA6jux5UI",
@@ -2100,12 +2111,12 @@ header .site-nav {
         length: "1:38s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #54 ================= */
 
-      {
+{
         name: "Snowbound",
-        points: -325,
-        host: "Amplitron",
+        points: 356,
+                host: "Amplitron",
         verifier: "Amplitron",
         thumbnail: "snowbound.jpg",
         verification: "https://www.youtube.com/watch?v=cjHwgbtAkXU",
@@ -2113,12 +2124,12 @@ header .site-nav {
         length: "2:20"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #55 ================= */
 
-      {
+{
         name: "NervHell",
-        points: -350,
-        host: "ASVTeam",
+        points: 343,
+                host: "ASVTeam",
         verifier: "ChopBlox",
         thumbnail: "nervhell.jpe",
         verification: "https://www.youtube.com/watch?v=1zrvPgDAoaA",
@@ -2126,12 +2137,12 @@ header .site-nav {
         length: "3:20s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #56 ================= */
 
-      {
+{
         name: "Firework",
-        points: -375,
-        host: "cherryteam",
+        points: 331,
+                host: "cherryteam",
         verifier: "Trick",
         thumbnail: "firework.jpe",
         verification: "https://www.youtube.com/watch?v=QBe5x2o9v2w",
@@ -2139,12 +2150,12 @@ header .site-nav {
         length: "2:07"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #57 ================= */
 
-      {
+{
         name: "NOMAD",
-        points: -400,
-        host: "ReeseVT",
+        points: 319,
+                host: "ReeseVT",
         verifier: "Laniakea",
         thumbnail: "nomad.jpg",
         verification: "https://www.youtube.com/watch?v=H2TkHbEX__A",
@@ -2152,12 +2163,12 @@ header .site-nav {
         length: "55s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #58 ================= */
 
-      {
+{
         name: "poocubed",
-        points: -425,
-        host: "Liisp",
+        points: 307,
+                host: "Liisp",
         verifier: "kyass",
         thumbnail: "poo3.jpg",
         verification: "https://www.youtube.com/watch?v=fzL31vai1ms",
@@ -2165,12 +2176,12 @@ header .site-nav {
         length: "1:22s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #59 ================= */
 
-      {
+{
         name: "Calibrate",
-        points: -450,
-        host: "Bamvie",
+        points: 295,
+                host: "Bamvie",
         verifier: "블베",
         thumbnail: "calibrate.jpg",
         verification: "https://www.youtube.com/watch?v=6WYnZryX_mg",
@@ -2178,12 +2189,12 @@ header .site-nav {
         length: "1:16s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #60 ================= */
 
-      {
+{
         name: "MINUSdry",
-        points: -475,
-        host: "CDMusic",
+        points: 283,
+                host: "CDMusic",
         verifier: "Varium",
         thumbnail: "minusdry.jpg",
         verification: "https://www.youtube.com/watch?v=YvA8ehhzz0Q",
@@ -2191,12 +2202,12 @@ header .site-nav {
         length: "1:22s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #61 ================= */
 
-      {
+{
         name: "Saul Goodman",
-        points: -500,
-        host: "Renn241",
+        points: 270,
+                host: "Renn241",
         verifier: "bloom",
         thumbnail: "saul goodman.jpg",
         verification: "https://www.youtube.com/watch?v=hjs5PjUaw9k",
@@ -2204,12 +2215,12 @@ header .site-nav {
         length: "1:26s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #62 ================= */
 
-      {
+{
         name: "Apocalyptic Trilogy",
-        points: -525,
-        host: "APTeamOfficial",
+        points: 258,
+                host: "APTeamOfficial",
         verifier: "polterghast",
         thumbnail: "at.jpg",
         verification: "https://www.youtube.com/watch?v=RUBbpsTR5eU",
@@ -2217,12 +2228,12 @@ header .site-nav {
         length: "4:27s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #63 ================= */
 
-      {
+{
         name: "Sevvend Clubstep",
-        points: -550,
-        host: "cherryteam",
+        points: 246,
+                host: "cherryteam",
         verifier: "Vorten",
         thumbnail: "sevvend.jpg",
         verification: "https://www.youtube.com/watch?v=TvA8EJTJFCc",
@@ -2230,12 +2241,12 @@ header .site-nav {
         length: "1:14s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #64 ================= */
 
-      {
+{
         name: "Haunted Ship",
-        points: -575,
-        host: "awesomeme360",
+        points: 234,
+                host: "awesomeme360",
         verifier: "Gnamolor",
         thumbnail: "haunted ship.jpg",
         verification: "https://www.youtube.com/watch?v=22l59QGmL48",
@@ -2243,12 +2254,12 @@ header .site-nav {
         length: "1:50s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #65 ================= */
 
-      {
+{
         name: "Deadlier Clubstep",
-        points: -600,
-        host: "HeroZombie80",
+        points: 222,
+                host: "HeroZombie80",
         verifier: "Jenath",
         thumbnail: "deadlier clubstep.jpg",
         verification: "https://www.youtube.com/watch?v=eRhgaF0r5Q0",
@@ -2256,12 +2267,12 @@ header .site-nav {
         length: "1:44s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #66 ================= */
 
-      {
+{
         name: "The Hallucination",
-        points: -625,
-        host: "SyQual",
+        points: 210,
+                host: "SyQual",
         verifier: "VoTcHi",
         thumbnail: "the hallucination.jpg",
         verification: "https://www.youtube.com/watch?v=tYbXsNkO9HE",
@@ -2269,12 +2280,12 @@ header .site-nav {
         length: "2:05s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #67 ================= */
 
-      {
+{
         name: "Pinnacle of Life",
-        points: -650,
-        host: "skyzl",
+        points: 197,
+                host: "skyzl",
         verifier: "vonic",
         thumbnail: "pinnacle of life.png",
         verification: "https://www.youtube.com/watch?v=gQl5iY1ekyE",
@@ -2282,12 +2293,12 @@ header .site-nav {
         length: "1:58s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #68 ================= */
 
-      {
+{
         name: "COMBUSTION",
-        points: -675,
-        host: "Cersia",
+        points: 185,
+                host: "Cersia",
         verifier: "Slithium",
         thumbnail: "combustion.jpg",
         verification: "https://www.youtube.com/watch?v=3cTR4XUcA28",
@@ -2295,12 +2306,12 @@ header .site-nav {
         length: "58s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #69 ================= */
 
-      {
+{
         name: "Loops of Fury",
-        points: -700,
-        host: "Enfur",
+        points: 173,
+                host: "Enfur",
         verifier: "xCork",
         thumbnail: "loops of fury.jpg",
         verification: "https://www.youtube.com/watch?v=9HBG3i5zbw8",
@@ -2308,12 +2319,12 @@ header .site-nav {
         length: "2:12s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #70 ================= */
 
-      {
+{
         name: "Stellar Night",
-        points: -725,
-        host: "icedcave",
+        points: 161,
+                host: "icedcave",
         verifier: "Tuggy",
         thumbnail: "stellar night.jpg",
         verification: "https://www.youtube.com/watch?v=XpBY-eMYZTE",
@@ -2321,12 +2332,12 @@ header .site-nav {
         length: "1:03s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #71 ================= */
 
-      {
+{
         name: "Prismline",
-        points: -750,
-        host: "ItsHarryy",
+        points: 149,
+                host: "ItsHarryy",
         verifier: "Wain",
         thumbnail: "prismline.jpg",
         verification: "https://www.youtube.com/watch?v=pIHOHz3i0Rw",
@@ -2334,12 +2345,12 @@ header .site-nav {
         length: "1:25s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #72 ================= */
 
-      {
+{
         name: "Losing Your Mind",
-        points: -775,
-        host: "GDgalaxygaming",
+        points: 137,
+                host: "GDgalaxygaming",
         verifier: "iIiLaseriIi",
         thumbnail: "losing your mind.png",
         verification: "https://www.youtube.com/watch?v=LXp7t5gjyX8",
@@ -2347,12 +2358,12 @@ header .site-nav {
         length: "1:36s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #73 ================= */
 
-      {
+{
         name: "Edge of Destiny",
-        points: -800,
-        host: "CDMusic",
+        points: 124,
+                host: "CDMusic",
         verifier: "polterghast",
         thumbnail: "eod.jpg",
         verification: "https://www.youtube.com/watch?v=rUphe3H59yU",
@@ -2360,12 +2371,12 @@ header .site-nav {
         length: "2:06s"
       },
 
-/* ================= LEVEL #6 ================= */
+      /* ================= LEVEL #74 ================= */
 
-      {
+{
         name: "Solar Flare",
-        points: -825,
-        host: "Linear",
+        points: 112,
+                host: "Linear",
         verifier: "swiborg",
         thumbnail: "solar flare.jpg",
         verification: "https://www.youtube.com/watch?v=eHQNgty8ypY",
@@ -2375,18 +2386,16 @@ header .site-nav {
 
       /* ================= LEVEL #75 ================= */
 
-      {
+{
         name: "LIMBO",
-        points: -850,
-        host: "MindCap",
+        points: 100,
+                host: "MindCap",
         verifier: "BGram",
         thumbnail: "limbo.jpg",
         verification: "https://www.youtube.com/watch?v=kXYMbaMVOZg",
         levelID: "86084399",
         length: "3:27s"
       },
-
-
 
     ];
 
@@ -2849,6 +2858,20 @@ const startingPage = window.location.hash.substring(1);
 if (['list','stats','account','submit'].includes(startingPage)) {
   showPage(startingPage);
 }
+
+
+/* THUMBNAIL ZOOM VIEWER */
+const imageModal=document.getElementById("imageModal");
+const imageModalImage=document.getElementById("imageModalImage");
+const imageModalClose=document.getElementById("imageModalClose");
+function openImageModal(src,alt){imageModalImage.src=src;imageModalImage.alt=alt||"Level thumbnail";imageModal.classList.add("active");imageModal.setAttribute("aria-hidden","false");}
+function closeImageModal(){imageModal.classList.remove("active");imageModal.setAttribute("aria-hidden","true");imageModalImage.src="";}
+document.addEventListener("click",function(event){const thumbnail=event.target.closest(".thumbnail");if(thumbnail)openImageModal(thumbnail.src,thumbnail.alt);});
+imageModalClose.addEventListener("click",closeImageModal);
+imageModal.addEventListener("click",function(event){if(event.target===imageModal)closeImageModal();});
+document.addEventListener("keydown",function(event){if(event.key==="Escape"&&imageModal.classList.contains("active"))closeImageModal();});
 </script>
+
+
 </body>
 </html>
