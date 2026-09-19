@@ -615,6 +615,139 @@ input:focus,select:focus { outline:none; border-color:#c62828; box-shadow:0 0 0 
   flex: 0 0 250px;
 }
 </style>
+
+<style>
+/* FINAL HEADER — CLEAN BUTTON DESIGN */
+header .top-row {
+  align-items: flex-start;
+}
+
+header .site-nav {
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 0;
+}
+
+header .nav-button,
+header .site-nav .discord-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 11px 16px;
+  min-height: 42px;
+  box-sizing: border-box;
+  border-radius: 9px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.10);
+}
+
+header .nav-button svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  fill: currentColor;
+}
+
+header .red-button {
+  background: #e3262e;
+}
+
+header .red-button:hover {
+  background: #c91e26;
+  transform: translateY(-1px);
+}
+
+header .site-nav .discord-button {
+  background: #5865f2;
+}
+
+header .site-nav .discord-button:hover {
+  background: #4752c4;
+  transform: translateY(-1px);
+}
+
+header .site-nav .discord-button svg {
+  width: 19px;
+  height: 19px;
+}
+
+@media (max-width: 900px) {
+  header .top-row {
+    align-items: flex-start;
+  }
+
+  header .site-nav {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+</style>
+
+<style>
+/* FINAL HEADER POSITION — NAV LOCKED TO TOP RIGHT */
+header .header-content {
+  position: relative;
+}
+
+header .top-row {
+  display: block;
+  position: relative;
+}
+
+header .site-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+@media (max-width: 1050px) {
+  header .site-nav {
+    position: static;
+    width: 100%;
+    margin-top: 18px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+    /* FINAL HEADER POSITION FIX */
+    header {
+      position: relative;
+    }
+
+    .site-nav {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (max-width: 1050px) {
+      .site-nav {
+        position: static;
+        width: 100%;
+        margin-top: 18px;
+        justify-content: flex-start;
+      }
+    }
+</style>
 </head>
 <body>
 
@@ -632,12 +765,25 @@ input:focus,select:focus { outline:none; border-color:#c62828; box-shadow:0 0 0 
         </div>
 
         <nav class="site-nav">
-          <a href="#list" class="nav-button red-button">Demon List</a>
-          <a href="#stats" class="nav-button red-button">Stats Viewer</a>
-          <a href="#account" class="nav-button red-button">Sign Up / Log In</a>
-          <a href="#submit" class="nav-button red-button">Submit a Record</a>
+          <a href="#list" class="nav-button red-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v2H4V5zm0 6h16v2H4v-2zm0 6h16v2H4v-2zM2 5h1v2H2V5zm0 6h1v2H2v-2zm0 6h1v2H2v-2z"/></svg>
+            Demon List
+          </a>
+          <a href="#stats" class="nav-button red-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19h3V10H5v9zm5 0h3V5h-3v14zm5 0h3v-7h-3v7z"/></svg>
+            Stats Viewer
+          </a>
+          <a href="#account" class="nav-button red-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-7 8a7 7 0 0 1 14 0H5z"/></svg>
+            Sign Up / Log In
+          </a>
           <a href="https://discord.gg/FhpnfpVkP" target="_blank" rel="noopener noreferrer" class="nav-button discord-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.54 5.3A16.2 16.2 0 0 0 15.5 4l-.5 1.02a14.1 14.1 0 0 0-6 0L8.5 4a16.2 16.2 0 0 0-4.04 1.3C1.9 9.16 1.2 12.9 1.55 16.58A16.3 16.3 0 0 0 6.5 19l1.2-1.65a9.8 9.8 0 0 1-1.9-.92l.46-.35a11.5 11.5 0 0 0 11.48 0l.46.35a9.8 9.8 0 0 1-1.9.92L17.5 19a16.3 16.3 0 0 0 4.95-2.42c.42-4.26-.72-7.96-2.91-11.28zM8.9 14.75c-1.1 0-2-1-2-2.2s.88-2.2 2-2.2c1.1 0 2 1 2 2.2s-.88 2.2-2 2.2zm6.2 0c-1.1 0-2-1-2-2.2s.88-2.2 2-2.2c1.1 0 2 1 2 2.2s-.88 2.2-2 2.2z"/></svg>
             Discord
+          </a>
+          <a href="#submit" class="nav-button red-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z"/></svg>
+            Submit a Record
           </a>
         </nav>
       </div>
