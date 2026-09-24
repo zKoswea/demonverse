@@ -750,14 +750,33 @@ header .site-nav {
       }
     }
 
+    /* FINAL DISCORD BUTTON + THUMBNAIL MODAL SIZING */
+    .site-nav {
+      top: 10px;
+      right: 10px;
+    }
+
+    .site-nav .discord-button {
+      padding: 15px 26px;
+      font-size: 20px;
+      gap: 11px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(88,101,242,.35);
+    }
+
+    .site-nav .discord-button svg {
+      width: 30px;
+      height: 30px;
+    }
+
     /* THUMBNAIL IMAGE ZOOM */
     .image-modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.88);align-items:center;justify-content:center;padding:30px}
     .image-modal.active{display:flex}
-    .image-modal img{max-width:92vw;max-height:90vh;width:auto;height:auto;object-fit:contain;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.45)}
+    .image-modal img{width:min(1100px,90vw);height:min(700px,80vh);object-fit:contain;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.45)}
     .thumbnail{cursor:zoom-in}
     .image-modal-close{position:absolute;top:18px;right:24px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.95);color:#222;font-size:30px;line-height:44px;text-align:center;cursor:pointer;font-weight:bold}
     .image-modal-close:hover{background:white}
-    @media(max-width:700px){.image-modal{padding:15px}.image-modal img{max-width:96vw;max-height:84vh}}
+    @media(max-width:700px){.image-modal{padding:15px}.image-modal img{width:94vw;height:72vh}}
 </style>
 </head>
 <body>
@@ -776,10 +795,6 @@ header .site-nav {
         </div>
 
         <nav class="site-nav">
-          <a href="#list" class="nav-button red-button">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v2H4V5zm0 6h16v2H4v-2zm0 6h16v2H4v-2zM2 5h1v2H2V5zm0 6h1v2H2v-2zm0 6h1v2H2v-2z"/></svg>
-            Demon List
-          </a>
           <a href="https://discord.gg/FhpnfpVkP" target="_blank" rel="noopener noreferrer" class="nav-button discord-button">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.54 5.3A16.2 16.2 0 0 0 15.5 4l-.5 1.02a14.1 14.1 0 0 0-6 0L8.5 4a16.2 16.2 0 0 0-4.04 1.3C1.9 9.16 1.2 12.9 1.55 16.58A16.3 16.3 0 0 0 6.5 19l1.2-1.65a9.8 9.8 0 0 1-1.9-.92l.46-.35a11.5 11.5 0 0 0 11.48 0l.46.35a9.8 9.8 0 0 1-1.9.92L17.5 19a16.3 16.3 0 0 0 4.95-2.42c.42-4.26-.72-7.96-2.91-11.28zM8.9 14.75c-1.1 0-2-1-2-2.2s.88-2.2 2-2.2c1.1 0 2 1 2 2.2s-.88 2.2-2 2.2zm6.2 0c-1.1 0-2-1-2-2.2s.88-2.2 2-2.2c1.1 0 2 1 2 2.2s-.88 2.2-2 2.2z"/></svg>
             Discord
@@ -846,7 +861,6 @@ header .site-nav {
 
 {
         name: "Society",
-        points: 1000,
                 host: "Neomarbilan",
         verifier: "wPopoff",
         thumbnail: "society.jpg",
@@ -859,7 +873,6 @@ header .site-nav {
 
 {
         name: "Amethyst",
-        points: 988,
                 host: "iMist",
         verifier: "wPopoff",
         thumbnail: "maxresdefault (3).jpg",
@@ -872,7 +885,6 @@ header .site-nav {
 
 {
         name: "Thinking Space II",
-        points: 976,
                 host: "CairoX",
         verifier: "Zoink",
         thumbnail: "maxresdefault (10).jpg",
@@ -885,7 +897,6 @@ header .site-nav {
 
 {
         name: "Artemis 13",
-        points: 964,
                 host: "mvngo",
         verifier: "Zoink",
         thumbnail: "maxresdefault (12).jpg",
@@ -898,7 +909,6 @@ header .site-nav {
 
 {
         name: "Flamewall",
-        points: 952,
                 host: "Narwall",
         verifier: "Cautrocientos",
         thumbnail: "flamewall.png",
@@ -911,7 +921,6 @@ header .site-nav {
 
 {
         name: "Tidal Wave",
-        points: 940,
                 host: "OniLink",
         verifier: "Zoink",
         thumbnail: "maxresdefault (5).jpg",
@@ -924,7 +933,6 @@ header .site-nav {
 
 {
         name: "Green Bullet",
-        points: 927,
                 host: "cherryteam",
         verifier: "nickname09",
         thumbnail: "maxresdefault (6).jpg",
@@ -937,7 +945,6 @@ header .site-nav {
 
 {
         name: "ORBIT",
-        points: 915,
                 host: "MindCap",
         verifier: "Zoink",
         thumbnail: "maxresdefault (7).jpg",
@@ -950,7 +957,6 @@ header .site-nav {
 
 {
         name: "Nullscapes",
-        points: 903,
                 host: "ItzKiba",
         verifier: "Zoink",
         thumbnail: "nullscapes.jpg",
@@ -963,7 +969,6 @@ header .site-nav {
 
 {
         name: "Antarctic Lights",
-        points: 891,
                 host: "declanlc",
         verifier: "Axinity",
         thumbnail: "antarctic.jpg",
@@ -976,7 +981,6 @@ header .site-nav {
 
 {
         name: "BOOBAWAMBA",
-        points: 879,
                 host: "AkunAkunn",
         verifier: "EastShark1",
         thumbnail: "boobawamba.jpg",
@@ -989,7 +993,6 @@ header .site-nav {
 
 {
         name: "LESOPOWAL",
-        points: 867,
                 host: "cherryteam",
         verifier: "Bacon",
         thumbnail: "lesopowal.jpg",
@@ -1002,7 +1005,6 @@ header .site-nav {
 
 {
         name: "Quanteuse Processing",
-        points: 854,
                 host: "Renn241",
         verifier: "Zoink",
         thumbnail: "quanteuse.jpg",
@@ -1015,7 +1017,6 @@ header .site-nav {
 
 {
         name: "Every End",
-        points: 842,
                 host: "MindCap",
         verifier: "hqmy",
         thumbnail: "every end.jpg",
@@ -1028,7 +1029,6 @@ header .site-nav {
 
 {
         name: "Herr Machine",
-        points: 830,
                 host: "herrteam",
         verifier: "BONN GD",
         thumbnail: "herr machine.jpg",
@@ -1041,7 +1041,6 @@ header .site-nav {
 
 {
         name: "andromeda",
-        points: 818,
                 host: "Insxne97",
         verifier: "Taiago",
         thumbnail: "andromeda.jpg",
@@ -1054,7 +1053,6 @@ header .site-nav {
 
 {
         name: "Penumbral",
-        points: 806,
                 host: "cherryteam",
         verifier: "w3rty",
         thumbnail: "penumbral.jpg",
@@ -1067,7 +1065,6 @@ header .site-nav {
 
 {
         name: "Ashley Wave Trials",
-        points: 794,
                 host: "oddmod",
         verifier: "Zoink",
         thumbnail: "awt.jpg",
@@ -1080,7 +1077,6 @@ header .site-nav {
 
 {
         name: "Ultra Paracosm",
-        points: 781,
                 host: "declanlc",
         verifier: "Wity",
         thumbnail: "ultra paracosm.png",
@@ -1093,7 +1089,6 @@ header .site-nav {
 
 {
         name: "The Bloop",
-        points: 769,
                 host: "murkkat",
         verifier: "Zoink",
         thumbnail: "bloop.jpg",
@@ -1106,7 +1101,6 @@ header .site-nav {
 
 {
         name: "Silent Clubstep",
-        points: 757,
                 host: "TheRealSailent",
         verifier: "Zoink",
         thumbnail: "silent clubstep.jpg",
@@ -1119,7 +1113,6 @@ header .site-nav {
 
 {
         name: "KILLSTEALER",
-        points: 745,
                 host: "rynoxious",
         verifier: "kloone",
         thumbnail: "killstealer.jpg",
@@ -1130,24 +1123,20 @@ header .site-nav {
 
       /* ================= LEVEL #23 ================= */
 
-
 {
         name: "Azure Flare",
-        points: "",
         host: "ItzHybrid",
         verifier: "Diamond",
         thumbnail: "azure flare.jpe",
         verification: "https://www.youtube.com/watch?v=r6hQ5Se2i8U",
-        levelID: "149290595",
+        levelID: "142929059",
         length: "1:05s"
-
       },
 
       /* ================= LEVEL #24 ================= */
 
 {
         name: "Subsuming Vortex",
-        points: 721,
                 host: "SeptaGon7",
         verifier: "Cursed",
         thumbnail: "subsuming.jpg",
@@ -1160,7 +1149,6 @@ header .site-nav {
 
 {
         name: "Anathema",
-        points: 708,
                 host: "nikroplays",
         verifier: "WhizKid05",
         thumbnail: "anathema.jpg",
@@ -1173,7 +1161,6 @@ header .site-nav {
 
 {
         name: "Avernus",
-        points: 696,
                 host: "PockeWindfish",
         verifier: "Zoink",
         thumbnail: "avernus.jpg",
@@ -1186,7 +1173,6 @@ header .site-nav {
 
 {
         name: "Spectre",
-        points: 684,
                 host: "xander",
         verifier: "PersonHuman42",
         thumbnail: "spectre.jpg",
@@ -1199,7 +1185,6 @@ header .site-nav {
 
 {
         name: "Acheron",
-        points: 672,
                 host: "Riot",
         verifier: "Zoink",
         thumbnail: "acheron.jpg",
@@ -1212,7 +1197,6 @@ header .site-nav {
 
 {
         name: "Menace",
-        points: 660,
                 host: "Arraegen",
         verifier: "WhizKid05",
         thumbnail: "menace.jpg",
@@ -1225,7 +1209,6 @@ header .site-nav {
 
 {
         name: "Defeated Circles",
-        points: 648,
                 host: "GXQ",
         verifier: "Zoink",
         thumbnail: "defeated circles.jpg",
@@ -1237,86 +1220,7 @@ header .site-nav {
       /* ================= LEVEL #31 ================= */
 
 {
-        name: "Abyss of Darkness",
-        points: 635,
-                host: "Exen",
-        verifier: "Cursed",
-        thumbnail: "aod.jpg",
-        verification: "https://www.youtube.com/watch?v=ejJkpqcMMCY",
-        levelID: "49896559",
-        length: "2:05s"
-      },
-
-      /* ================= LEVEL #32 ================= */
-
-{
-        name: "FOREST OF SPIKES",
-        points: 623,
-                host: "Bimms",
-        verifier: "Brain Cheese",
-        thumbnail: "forest of spikes.jpg",
-        verification: "https://www.youtube.com/watch?v=WJYh3dW8Bfo",
-        levelID: "145709435",
-        length: "1:49s"
-      },
-
-      /* ================= LEVEL #33 ================= */
-
-{
-        name: "Tunnel of Despair",
-        points: 611,
-                host: "Exen",
-        verifier: "Zoink",
-        thumbnail: "tunnel of despair.jpg",
-        verification: "https://www.youtube.com/watch?v=LpS4JREhW98",
-        levelID: "91351939",
-        length: "1:45s"
-      },
-
-      /* ================= LEVEL #34 ================= */
-
-{
-        name: "Based After Based",
-        points: 599,
-                host: "AkunAkunn",
-        verifier: "DiamondSplash",
-        thumbnail: "based after based.jpg",
-        verification: "https://www.youtube.com/watch?v=yQBFyUvB3lY",
-        levelID: "110534288",
-        length: "1:28s"
-      },
-
-      /* ================= LEVEL #35 ================= */
-
-{
-        name: "Kyouki",
-        points: 587,
-                host: "出見塩",
-        verifier: "出見塩",
-        thumbnail: "kyouki.jpg",
-        verification: "https://www.youtube.com/watch?v=KDa5c0CJTHs",
-        levelID: "86018142",
-        length: "1:38s"
-      },
-
-      /* ================= LEVEL #36 ================= */
-
-{
-        name: "The Lightning Rod",
-        points: 575,
-                host: "LavaTrex",
-        verifier: "LavaTrex",
-        thumbnail: "the lightning rod.jpg",
-        verification: "https://www.youtube.com/watch?v=nQDTi077O6M",
-        levelID: "93917076",
-        length: "1:37s"
-      },
-
-      /* ================= LEVEL #37 ================= */
-
-{
         name: "Cognitohazard",
-        points: 562,
                 host: "MercuryDT⁩",
         verifier: "WhizKid05",
         thumbnail: "cognitohazard.jpg",
@@ -1325,11 +1229,82 @@ header .site-nav {
         length: "1:41s"
       },
 
+      /* ================= LEVEL #32 ================= */
+
+{
+        name: "Abyss of Darkness",
+                host: "Exen",
+        verifier: "Cursed",
+        thumbnail: "aod.jpg",
+        verification: "https://www.youtube.com/watch?v=ejJkpqcMMCY",
+        levelID: "49896559",
+        length: "2:05s"
+      },
+
+      /* ================= LEVEL #33 ================= */
+
+{
+        name: "FOREST OF SPIKES",
+                host: "Bimms",
+        verifier: "Brain Cheese",
+        thumbnail: "forest of spikes.jpg",
+        verification: "https://www.youtube.com/watch?v=WJYh3dW8Bfo",
+        levelID: "145709435",
+        length: "1:49s"
+      },
+
+      /* ================= LEVEL #34 ================= */
+
+{
+        name: "Tunnel of Despair",
+                host: "Exen",
+        verifier: "Zoink",
+        thumbnail: "tunnel of despair.jpg",
+        verification: "https://www.youtube.com/watch?v=LpS4JREhW98",
+        levelID: "91351939",
+        length: "1:45s"
+      },
+
+      /* ================= LEVEL #35 ================= */
+
+{
+        name: "Based After Based",
+                host: "AkunAkunn",
+        verifier: "DiamondSplash",
+        thumbnail: "based after based.jpg",
+        verification: "https://www.youtube.com/watch?v=yQBFyUvB3lY",
+        levelID: "110534288",
+        length: "1:28s"
+      },
+
+      /* ================= LEVEL #36 ================= */
+
+{
+        name: "Kyouki",
+                host: "出見塩",
+        verifier: "出見塩",
+        thumbnail: "kyouki.jpg",
+        verification: "https://www.youtube.com/watch?v=KDa5c0CJTHs",
+        levelID: "86018142",
+        length: "1:38s"
+      },
+
+      /* ================= LEVEL #37 ================= */
+
+{
+        name: "The Lightning Rod",
+                host: "LavaTrex",
+        verifier: "LavaTrex",
+        thumbnail: "the lightning rod.jpg",
+        verification: "https://www.youtube.com/watch?v=nQDTi077O6M",
+        levelID: "93917076",
+        length: "1:37s"
+      },
+
       /* ================= LEVEL #38 ================= */
 
 {
         name: "Subterminal Point",
-        points: 550,
                 host: "SyQual",
         verifier: "PoCle",
         thumbnail: "subterminal.jpg",
@@ -1342,7 +1317,6 @@ header .site-nav {
 
 {
         name: "BEING HOME",
-        points: 538,
                 host: "turtl123",
         verifier: "goobs47",
         thumbnail: "being home.jpg",
@@ -1355,7 +1329,6 @@ header .site-nav {
 
 {
         name: "Slaughterhouse",
-        points: 526,
                 host: "icedcave",
         verifier: "Doggie",
         thumbnail: "slh.jpg",
@@ -1368,7 +1341,6 @@ header .site-nav {
 
 {
         name: "KOCMOC",
-        points: 514,
                 host: "cherryteam",
         verifier: "Zoink",
         thumbnail: "kocmoc.jpg",
@@ -1381,7 +1353,6 @@ header .site-nav {
 
 {
         name: "Maniacal Chains",
-        points: 502,
                 host: "LordDivinity",
         verifier: "spcreat",
         thumbnail: "manical chains.jpg",
@@ -1394,7 +1365,6 @@ header .site-nav {
 
 {
         name: "CHIL",
-        points: 489,
                 host: "McCoco",
         verifier: "McCoco",
         thumbnail: "chil.jpg",
@@ -1407,7 +1377,6 @@ header .site-nav {
 
 {
         name: "Eyes in the Water",
-        points: 477,
                 host: "hawkyre",
         verifier: "LordVadercraft",
         thumbnail: "eyes in the water.jpg",
@@ -1420,7 +1389,6 @@ header .site-nav {
 
 {
         name: "Sakupen Circles",
-        points: 465,
                 host: "Diamond",
         verifier: "Diamond",
         thumbnail: "skc.jpg",
@@ -1433,7 +1401,6 @@ header .site-nav {
 
 {
         name: "Deimos",
-        points: 453,
                 host: "ItsHybrid",
         verifier: "Doggie",
         thumbnail: "deimos.png",
@@ -1446,7 +1413,6 @@ header .site-nav {
 
 {
         name: "Sacrifice",
-        points: 441,
                 host: "⁨Laniakea",
         verifier: "Laniakea",
         thumbnail: "sacrifice.jpg",
@@ -1459,7 +1425,6 @@ header .site-nav {
 
 {
         name: "KOSETSU",
-        points: 429,
                 host: "fwe",
         verifier: "Taiago",
         thumbnail: "kosetsu.jpg",
@@ -1472,7 +1437,6 @@ header .site-nav {
 
 {
         name: "Voltage",
-        points: 416,
                 host: "⁨ThePurgatory",
         verifier: "maybee",
         thumbnail: "voltage.jpg",
@@ -1485,7 +1449,6 @@ header .site-nav {
 
 {
         name: "Silentlocked",
-        points: 404,
                 host: "GDSkele",
         verifier: "TFIBB",
         thumbnail: "silentlocked.jpg",
@@ -1498,7 +1461,6 @@ header .site-nav {
 
 {
         name: "The Salt Factory",
-        points: 392,
                 host: "nickname09",
         verifier: "nickname09",
         thumbnail: "the salt factory.jpg",
@@ -1511,7 +1473,6 @@ header .site-nav {
 
 {
         name: "zorin",
-        points: 380,
                 host: "태리",
         verifier: "9i",
         thumbnail: "zorin.jpg",
@@ -1524,7 +1485,6 @@ header .site-nav {
 
 {
         name: "Master of Puppets",
-        points: 368,
                 host: "TheZinkYT",
         verifier: "Scotchtape",
         thumbnail: "master of pupets.jpg",
@@ -1537,7 +1497,6 @@ header .site-nav {
 
 {
         name: "Through The Gates",
-        points: 356,
                 host: "TeamTheDashers",
         verifier: "Zoink",
         thumbnail: "through the gates.png",
@@ -1550,7 +1509,6 @@ header .site-nav {
 
 {
         name: "Snowbound",
-        points: 343,
                 host: "Amplitron",
         verifier: "Amplitron",
         thumbnail: "snowbound.jpg",
@@ -1563,7 +1521,6 @@ header .site-nav {
 
 {
         name: "NervHell",
-        points: 331,
                 host: "ASVTeam",
         verifier: "ChopBlox",
         thumbnail: "nervhell.jpe",
@@ -1576,7 +1533,6 @@ header .site-nav {
 
 {
         name: "Firework",
-        points: 319,
                 host: "cherryteam",
         verifier: "Trick",
         thumbnail: "firework.jpe",
@@ -1589,7 +1545,6 @@ header .site-nav {
 
 {
         name: "MINUSdry",
-        points: 307,
                 host: "CDMusic",
         verifier: "Varium",
         thumbnail: "minusdry.jpg",
@@ -1602,7 +1557,6 @@ header .site-nav {
 
 {
         name: "Deadlier Clubstep",
-        points: 295,
                 host: "HeroZombie80",
         verifier: "Jenath",
         thumbnail: "deadlier clubstep.jpg",
@@ -1615,7 +1569,6 @@ header .site-nav {
 
 {
         name: "NOMAD",
-        points: 283,
                 host: "ReeseVT",
         verifier: "Laniakea",
         thumbnail: "nomad.jpg",
@@ -1628,7 +1581,6 @@ header .site-nav {
 
 {
         name: "poocubed",
-        points: 270,
                 host: "Liisp",
         verifier: "kyass",
         thumbnail: "poo3.jpg",
@@ -1641,7 +1593,6 @@ header .site-nav {
 
 {
         name: "Calibrate",
-        points: 258,
                 host: "Bamvie",
         verifier: "블베",
         thumbnail: "calibrate.jpg",
@@ -1654,7 +1605,6 @@ header .site-nav {
 
 {
         name: "Saul Goodman",
-        points: 246,
                 host: "Renn241",
         verifier: "bloom",
         thumbnail: "saul goodman.jpg",
@@ -1667,7 +1617,6 @@ header .site-nav {
 
 {
         name: "Apocalyptic Trilogy",
-        points: 234,
                 host: "APTeamOfficial",
         verifier: "polterghast",
         thumbnail: "at.jpg",
@@ -1680,7 +1629,6 @@ header .site-nav {
 
 {
         name: "Sevvend Clubstep",
-        points: 222,
                 host: "cherryteam",
         verifier: "Vorten",
         thumbnail: "sevvend.jpg",
@@ -1693,7 +1641,6 @@ header .site-nav {
 
 {
         name: "Haunted Ship",
-        points: 210,
                 host: "awesomeme360",
         verifier: "Gnamolor",
         thumbnail: "haunted ship.jpg",
@@ -1706,7 +1653,6 @@ header .site-nav {
 
 {
         name: "The Hallucination",
-        points: 197,
                 host: "SyQual",
         verifier: "VoTcHi",
         thumbnail: "the hallucination.jpg",
@@ -1719,7 +1665,6 @@ header .site-nav {
 
 {
         name: "Pinnacle of Life",
-        points: 185,
                 host: "skyzl",
         verifier: "vonic",
         thumbnail: "pinnacle of life.png",
@@ -1732,7 +1677,6 @@ header .site-nav {
 
 {
         name: "COMBUSTION",
-        points: 173,
                 host: "Cersia",
         verifier: "Slithium",
         thumbnail: "combustion.jpg",
@@ -1745,7 +1689,6 @@ header .site-nav {
 
 {
         name: "Loops of Fury",
-        points: 161,
                 host: "Enfur",
         verifier: "xCork",
         thumbnail: "loops of fury.jpg",
@@ -1758,7 +1701,6 @@ header .site-nav {
 
 {
         name: "Stellar Night",
-        points: 149,
                 host: "icedcave",
         verifier: "Tuggy",
         thumbnail: "stellar night.jpg",
@@ -1771,7 +1713,6 @@ header .site-nav {
 
 {
         name: "Prismline",
-        points: 137,
                 host: "ItsHarryy",
         verifier: "Wain",
         thumbnail: "prismline.jpg",
@@ -1784,7 +1725,6 @@ header .site-nav {
 
 {
         name: "Losing Your Mind",
-        points: 124,
                 host: "GDgalaxygaming",
         verifier: "iIiLaseriIi",
         thumbnail: "losing your mind.png",
@@ -1797,7 +1737,6 @@ header .site-nav {
 
 {
         name: "Edge of Destiny",
-        points: 112,
                 host: "CDMusic",
         verifier: "polterghast",
         thumbnail: "eod.jpg",
@@ -1810,7 +1749,6 @@ header .site-nav {
 
 {
         name: "Solar Flare",
-        points: 100,
                 host: "Linear",
         verifier: "swiborg",
         thumbnail: "solar flare.jpg",
@@ -1819,19 +1757,7 @@ header .site-nav {
         length: "1:05s"
       },
 
-      /* ================= LEVEL #76 ================= */
-
-{
-        name: "LIMBO",
-        points: 88,
-                host: "MindCap",
-        verifier: "BGram",
-        thumbnail: "limbo.jpg",
-        verification: "https://www.youtube.com/watch?v=kXYMbaMVOZg",
-        levelID: "86084399",
-        length: "3:27s"
-      },
-
+      
 ];
 
     /* ======================================================
@@ -1973,8 +1899,6 @@ header .site-nav {
 
 
             <div class="detail-line">
-              <strong>Points:</strong>
-              ${level.points} pts
             </div>
 
           </div>
