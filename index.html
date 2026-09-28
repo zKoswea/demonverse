@@ -54,37 +54,27 @@
 
     .discord-button {
       margin-left: auto;
-      background: #5865f2;
-      color: white;
-      text-decoration: none;
-      padding: 10px 16px;
+      width: 180px;
+      height: 60px;
+      display: block;
+      flex-shrink: 0;
       border-radius: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      white-space: nowrap;
-
-      display: flex;
-      align-items: center;
-      gap: 8px;
-
-      box-shadow:
-        0 0 5px rgba(255, 255, 255, 0.18);
-      transition:
-        background 0.2s ease,
-        box-shadow 0.2s ease;
+      overflow: hidden;
+      background: #5865f2;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.18);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
     }
 
     .discord-button img {
-      width: 18px;
-      height: 18px;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: fill;
     }
 
     .discord-button:hover {
-      background: #4752c4;
-
-      box-shadow:
-        0 0 7px rgba(255, 255, 255, 0.28);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.30);
+      transform: translateY(-1px);
     }
 
     /* SEARCH */
@@ -143,15 +133,15 @@
       overflow: hidden;
       box-shadow: 0 2px 5px rgba(0,0,0,0.08);
       margin-bottom: 18px;
-      min-height: 215px;
+      min-height: 190px;
     }
 
     .left-side {
-      width: 68%;
-      padding: 24px 28px;
+      width: 79%;
+      padding: 8px 28px;
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
     }
 
     .rank {
@@ -202,8 +192,8 @@
     /* RIGHT SIDE */
 
     .right-side {
-      width: 32%;
-      padding: 28px 30px;
+      width: 21%;
+      padding: 20px 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -385,9 +375,9 @@
       class="discord-button"
       href="https://discord.gg/FhpnfpVkP"
       target="_blank"
+      aria-label="Join the DemonVerse Discord server"
     >
-      <img src="discord.png" alt="Discord">
-      DISCORD
+      <img src="discord-button.png" alt="Discord">
     </a>
 
   </header>
