@@ -54,27 +54,37 @@
 
     .discord-button {
       margin-left: auto;
-      width: 180px;
-      height: 60px;
-      display: block;
-      flex-shrink: 0;
-      border-radius: 6px;
-      overflow: hidden;
       background: #5865f2;
-      box-shadow: 0 0 5px rgba(255, 255, 255, 0.18);
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      color: white;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      box-shadow:
+        0 0 5px rgba(255, 255, 255, 0.18);
+      transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .discord-button img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: fill;
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
     }
 
     .discord-button:hover {
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.30);
-      transform: translateY(-1px);
+      background: #4752c4;
+
+      box-shadow:
+        0 0 7px rgba(255, 255, 255, 0.28);
     }
 
     /* SEARCH */
@@ -133,7 +143,7 @@
       overflow: hidden;
       box-shadow: 0 2px 5px rgba(0,0,0,0.08);
       margin-bottom: 18px;
-      min-height: 190px;
+      min-height: 215px;
     }
 
     .left-side {
@@ -158,6 +168,12 @@
       border-radius: 6px;
       cursor: pointer;
       flex-shrink: 0;
+    }
+
+    .blank-thumbnail {
+      background: #f5f5f5;
+      border: 1px dashed #ccc;
+      cursor: default;
     }
 
     .level-details {
@@ -375,9 +391,9 @@
       class="discord-button"
       href="https://discord.gg/FhpnfpVkP"
       target="_blank"
-      aria-label="Join the DemonVerse Discord server"
     >
-      <img src="discord-button.png" alt="Discord">
+      <img src="discord.png" alt="Discord">
+      DISCORD
     </a>
 
   </header>
@@ -432,7 +448,6 @@
   <script>
 
     const levels = [
-
       {
         name: "Society",
         host: "Neomarbilan",
@@ -443,7 +458,6 @@
         length: "1:37s",
         objects: "167368"
       },
-
       {
         name: "Amethyst",
         host: "iMist",
@@ -454,7 +468,6 @@
         length: "1:42s",
         objects: "NA"
       },
-
       {
         name: "Thinking Space II",
         host: "CairoX",
@@ -465,7 +478,6 @@
         length: "1:10s",
         objects: "139569"
       },
-
       {
         name: "Artemis 13",
         host: "mvngo",
@@ -476,7 +488,6 @@
         length: "1:16s",
         objects: "51880"
       },
-
       {
         name: "Flamewall",
         host: "Narwall",
@@ -487,7 +498,6 @@
         length: "6:47s",
         objects: "NA"
       },
-
       {
         name: "Tidal Wave",
         host: "OniLink",
@@ -498,7 +508,6 @@
         length: "3:01s",
         objects: "NA"
       },
-
       {
         name: "Green Bullet",
         host: "cherryteam",
@@ -509,7 +518,6 @@
         length: "2:05s",
         objects: "197826"
       },
-
       {
         name: "ORBIT",
         host: "MindCap",
@@ -520,7 +528,6 @@
         length: "2:22s",
         objects: "NA"
       },
-
       {
         name: "Nullscapes",
         host: "ItzKiba",
@@ -531,7 +538,6 @@
         length: "1:26s",
         objects: "63304"
       },
-
       {
         name: "BOOBAWAMBA",
         host: "AkunAkunn",
@@ -542,7 +548,6 @@
         length: "2:26s",
         objects: "92584"
       },
-
       {
         name: "Antarctic Lights",
         host: "declanlc",
@@ -553,7 +558,6 @@
         length: "59s",
         objects: "54901"
       },
-
       {
         name: "LESOPOWAL",
         host: "cherryteam",
@@ -564,7 +568,6 @@
         length: "1:39s",
         objects: "111519"
       },
-
       {
         name: "Quanteuse Processing",
         host: "Renn241",
@@ -575,7 +578,6 @@
         length: "1:42s",
         objects: "45623"
       },
-
       {
         name: "Every End",
         host: "MindCap",
@@ -586,7 +588,6 @@
         length: "7:20s",
         objects: "NA"
       },
-
       {
         name: "Herr Machine",
         host: "herrteam",
@@ -597,7 +598,6 @@
         length: "1:46s",
         objects: "33068"
       },
-
       {
         name: "andromeda",
         host: "Insxne97",
@@ -608,7 +608,6 @@
         length: "1:14s",
         objects: "179344"
       },
-
       {
         name: "Penumbral",
         host: "cherryteam",
@@ -619,7 +618,6 @@
         length: "1:23s",
         objects: "87888"
       },
-
       {
         name: "Ashley Wave Trials",
         host: "oddmod",
@@ -630,7 +628,6 @@
         length: "2:06s",
         objects: "37726"
       },
-
       {
         name: "Ultra Paracosm",
         host: "declanlc",
@@ -641,7 +638,6 @@
         length: "1:11s",
         objects: "69426"
       },
-
       {
         name: "The Bloop",
         host: "murkkat",
@@ -652,7 +648,6 @@
         length: "1:46s",
         objects: "108909"
       },
-
       {
         name: "Silent Clubstep",
         host: "TheRealSailent",
@@ -663,7 +658,6 @@
         length: "1:27",
         objects: "10907"
       },
-
       {
         name: "KILLSTEALER",
         host: "rynoxious",
@@ -674,7 +668,6 @@
         length: "4:00s",
         objects: "NA"
       },
-
       {
         name: "Azure Flare",
         host: "ItzHybrid",
@@ -685,7 +678,6 @@
         length: "1:05s",
         objects: "70235"
       },
-
       {
         name: "Subsuming Vortex",
         host: "SeptaGon7",
@@ -696,7 +688,6 @@
         length: "1:00s",
         objects: "71249"
       },
-
       {
         name: "Anathema",
         host: "nikroplays",
@@ -707,7 +698,6 @@
         length: "2:30s",
         objects: "NA"
       },
-
       {
         name: "Avernus",
         host: "PockeWindfish",
@@ -718,7 +708,6 @@
         length: "1:18s",
         objects: "163918"
       },
-
       {
         name: "Spectre",
         host: "xander",
@@ -729,7 +718,6 @@
         length: "2:45s",
         objects: "NA"
       },
-
       {
         name: "Acheron",
         host: "Riot",
@@ -740,7 +728,6 @@
         length: "1:07s",
         objects: "47985"
       },
-
       {
         name: "Menace",
         host: "Arraegen",
@@ -751,7 +738,6 @@
         length: "3:05s",
         objects: "77610"
       },
-
       {
         name: "Defeated Circles",
         host: "GXQ",
@@ -762,7 +748,6 @@
         length: "1:00s",
         objects: "84293"
       },
-
       {
         name: "Cognitohazard",
         host: "MercuryDT⁩",
@@ -773,7 +758,6 @@
         length: "1:41s",
         objects: "55545"
       },
-
       {
         name: "Abyss of Darkness",
         host: "Exen",
@@ -784,7 +768,6 @@
         length: "2:05s",
         objects: "113274"
       },
-
       {
         name: "FOREST OF SPIKES",
         host: "Bimms",
@@ -795,7 +778,6 @@
         length: "1:49s",
         objects: "83474"
       },
-
       {
         name: "Tunnel of Despair",
         host: "Exen",
@@ -806,7 +788,6 @@
         length: "1:45s",
         objects: "75302"
       },
-
       {
         name: "Based After Based",
         host: "AkunAkunn",
@@ -817,7 +798,6 @@
         length: "1:28s",
         objects: "99070"
       },
-
       {
         name: "Kyouki",
         host: "出見塩",
@@ -828,7 +808,6 @@
         length: "1:38s",
         objects: "220721"
       },
-
       {
         name: "The Lightning Rod",
         host: "LavaTrex",
@@ -839,7 +818,6 @@
         length: "1:37s",
         objects: "44709"
       },
-
       {
         name: "Subterminal Point",
         host: "SyQual",
@@ -850,7 +828,6 @@
         length: "1:09s",
         objects: "40968"
       },
-
       {
         name: "BEING HOME",
         host: "turtl123",
@@ -861,7 +838,6 @@
         length: "1:42s",
         objects: "72633"
       },
-
       {
         name: "Slaughterhouse",
         host: "icedcave",
@@ -872,7 +848,6 @@
         length: "1:10s",
         objects: "147242"
       },
-
       {
         name: "Sacrifice",
         host: "Laniakea",
@@ -883,7 +858,6 @@
         length: "2:28s",
         objects: "170420"
       },
-
       {
         name: "KOCMOC",
         host: "cherryteam",
@@ -894,7 +868,6 @@
         length: "1:27s",
         objects: "NA"
       },
-
       {
         name: "Maniacal Chains",
         host: "LordDivinity",
@@ -905,7 +878,6 @@
         length: "1:56s",
         objects: "94904"
       },
-
       {
         name: "CHIL",
         host: "McCoco",
@@ -916,7 +888,6 @@
         length: "1:01s",
         objects: "69175"
       },
-
       {
         name: "Eyes in the Water",
         host: "hawkyre",
@@ -927,7 +898,6 @@
         length: "1:32s",
         objects: "91424"
       },
-
       {
         name: "Sakupen Circles",
         host: "Diamond",
@@ -938,7 +908,6 @@
         length: "50s",
         objects: "70028"
       },
-
       {
         name: "Deimos",
         host: "ItsHybrid",
@@ -949,7 +918,6 @@
         length: "2:57s",
         objects: "157646"
       },
-
       {
         name: "KOSETSU",
         host: "fwe",
@@ -960,7 +928,6 @@
         length: "1:12s",
         objects: "81898"
       },
-
       {
         name: "Prismline",
         host: "ItsHarryy",
@@ -971,7 +938,6 @@
         length: "1:25s",
         objects: "87900"
       },
-
       {
         name: "Snowbound",
         host: "Amplitron",
@@ -982,7 +948,6 @@
         length: "2:20",
         objects: "140669"
       },
-
       {
         name: "Voltage",
         host: "ThePurgatory",
@@ -993,7 +958,6 @@
         length: "1:08s",
         objects: "65729"
       },
-
       {
         name: "Silentlocked",
         host: "GDSkele",
@@ -1004,7 +968,6 @@
         length: "1:44s",
         objects: "109255"
       },
-
       {
         name: "NervHell",
         host: "ASVTeam",
@@ -1015,7 +978,6 @@
         length: "3:20s",
         objects: "NA"
       },
-
       {
         name: "Apocalyptic Trilogy",
         host: "APTeamOfficial",
@@ -1026,7 +988,6 @@
         length: "4:27s",
         objects: "NA"
       },
-
       {
         name: "The Salt Factory",
         host: "nickname09",
@@ -1037,7 +998,6 @@
         length: "1:35s",
         objects: "76834"
       },
-
       {
         name: "zorin",
         host: "태리",
@@ -1048,7 +1008,6 @@
         length: "2:56s",
         objects: "148320"
       },
-
       {
         name: "Master of Puppets",
         host: "TheZinkYT",
@@ -1059,7 +1018,6 @@
         length: "8:35s",
         objects: "NA"
       },
-
       {
         name: "Through The Gates",
         host: "TeamTheDashers",
@@ -1070,7 +1028,6 @@
         length: "1:38s",
         objects: "78672"
       },
-
       {
         name: "Firework",
         host: "cherryteam",
@@ -1081,7 +1038,6 @@
         length: "2:07",
         objects: "165171"
       },
-
       {
         name: "MINUSdry",
         host: "CDMusic",
@@ -1092,7 +1048,6 @@
         length: "1:22s",
         objects: "44994"
       },
-
       {
         name: "Deadlier Clubstep",
         host: "HeroZombie80",
@@ -1103,7 +1058,6 @@
         length: "1:44s",
         objects: "159793"
       },
-
       {
         name: "NOMAD",
         host: "ReeseVT",
@@ -1114,7 +1068,6 @@
         length: "55s",
         objects: "9767"
       },
-
       {
         name: "poocubed",
         host: "Liisp",
@@ -1125,7 +1078,6 @@
         length: "1:22s",
         objects: "105788"
       },
-
       {
         name: "Calibrate",
         host: "Bamvie",
@@ -1136,7 +1088,6 @@
         length: "1:16s",
         objects: "83435"
       },
-
       {
         name: "Saul Goodman",
         host: "Renn241",
@@ -1147,7 +1098,6 @@
         length: "1:26s",
         objects: "102000"
       },
-
       {
         name: "Sevvend Clubstep",
         host: "cherryteam",
@@ -1158,7 +1108,6 @@
         length: "1:14s",
         objects: "61131"
       },
-
       {
         name: "Haunted Ship",
         host: "awesomeme360",
@@ -1169,7 +1118,6 @@
         length: "1:50s",
         objects: "123462"
       },
-
       {
         name: "The Hallucination",
         host: "SyQual",
@@ -1179,6 +1127,19 @@
         id: "81139702",
         length: "2:05s",
         objects: "159616"
+      },
+
+      /* #69 — BLANK SPOT */
+
+      {
+        name: "BRITNEY NO SCLEARS",
+        host: "wabas",
+        verifier: "Scotchtape",
+        image: "bns.jpg",
+        verification: "https://www.youtube.com/watch?v=ff_mQSXwjhU",
+        id: "125317359",
+        length: "1:17s",
+        objects: "46316"
       },
 
       {
@@ -1191,7 +1152,6 @@
         length: "1:58s",
         objects: "94922"
       },
-
       {
         name: "COMBUSTION",
         host: "Cersia",
@@ -1200,9 +1160,8 @@
         verification: "https://www.youtube.com/watch?v=3cTR4XUcA28",
         id: "94359172",
         length: "58s",
-        objects: "79779"
+        objects: ""
       },
-
       {
         name: "Loops of Fury",
         host: "Enfur",
@@ -1213,7 +1172,6 @@
         length: "2:12s",
         objects: "134788"
       },
-
       {
         name: "Stellar Night",
         host: "icedcave",
@@ -1224,7 +1182,6 @@
         length: "1:03s",
         objects: "66011"
       },
-
       {
         name: "Losing Your Mind",
         host: "GDgalaxygaming",
@@ -1235,7 +1192,6 @@
         length: "1:36s",
         objects: "36722"
       },
-
       {
         name: "Edge of Destiny",
         host: "CDMusic",
@@ -1245,21 +1201,11 @@
         id: "89187968",
         length: "2:06s",
         objects: "192318"
-      },
-
-      {
-        name: "Solar Flare",
-        host: "Linear",
-        verifier: "swiborg",
-        image: "solar flare.jpg",
-        verification: "https://www.youtube.com/watch?v=eHQNgty8ypY",
-        id: "90390075",
-        length: "1:05s",
-        objects: "68261"
       }
-
     ];
-/* =========================================
+
+
+    /* =========================================
        FIRST VICTORS
     ========================================= */
 
@@ -1276,10 +1222,10 @@
       9: "spookkd",
       10: "agonom",
       11: "Weyolll3",
-      12: "lanx",
+      12: "NONE",
       13: "dovvin",
       14: "Zoink",
-      15: "lanx",
+      15: "NONE",
       16: "Zoink",
       17: "dovvin",
       18: "nickname09",
@@ -1333,12 +1279,12 @@
       66: "xalval",
       67: "Jyvl01",
       68: "cobrablitz",
-      69: "aubbie",
-      70: "Zoink",
-      71: "tteokk",
-      72: "zSquidKnight",
-      73: "Whizkid05",
-      74: "Zoink",
+      69: "sawyer",
+      70: "aubbie",
+      71: "Zoink",
+      72: "tteokk",
+      73: "zSquidKnight",
+      74: "Whizkid05",
       75: "Zoink"
 
     };
@@ -1365,6 +1311,9 @@
       const firstVictor =
         firstVictors[rank] || "Not added";
 
+      const displayValue = value =>
+        value || "Not added";
+
       const objects =
         level.objects || "Not added";
 
@@ -1380,12 +1329,12 @@
             </div>
 
 
-            <img
-              src="${level.image}"
-              alt="${level.name}"
-              class="thumbnail"
-              onclick="openModal('${level.image}')"
-            >
+            <div
+              class="thumbnail blank-thumbnail"
+              style="${level.image ? `background-image: url('${level.image}');` : ''}"
+              onclick="${level.image ? `openModal('${level.image}')` : ''}"
+              aria-label="${level.name || 'Blank level slot'}"
+            ></div>
 
 
             <div class="level-details">
@@ -1397,13 +1346,13 @@
 
               <div class="detail-line">
                 <strong>Hosted by:</strong>
-                ${level.host}
+                ${displayValue(level.host)}
               </div>
 
 
               <div class="detail-line">
                 <strong>Verified by:</strong>
-                ${level.verifier}
+                ${displayValue(level.verifier)}
               </div>
 
 
@@ -1429,13 +1378,13 @@
 
             <div class="right-info">
               <strong>Level ID:</strong>
-              ${level.id}
+              ${displayValue(level.id)}
             </div>
 
 
             <div class="right-info">
               <strong>Length:</strong>
-              ${level.length}
+              ${displayValue(level.length)}
             </div>
 
 
