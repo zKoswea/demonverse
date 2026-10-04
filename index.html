@@ -136,7 +136,8 @@
     }
 
     .left-side {
-      width: 65%;
+      flex: 1;
+      min-width: 0;
       padding: 8px 28px;
       display: flex;
       align-items: center;
@@ -198,12 +199,14 @@
     }
 
     .right-side {
-      width: 35%;
-      padding: 25px 30px;
+      width: 260px;
+      flex-shrink: 0;
+      padding: 25px 20px 25px 10px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+      text-align: left;
       margin-left: auto;
     }
 
@@ -318,6 +321,8 @@
         width: 100%;
         padding: 20px 18px 25px;
         margin-left: 0;
+        align-items: flex-start;
+        text-align: left;
       }
 
       .level-card {
