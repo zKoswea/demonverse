@@ -255,6 +255,11 @@
         0 0 15px rgba(190, 190, 190, 0.25);
     }
 
+    .blank-level .level-details,
+    .blank-level .right-side {
+      visibility: hidden;
+    }
+
     footer {
       text-align: center;
       padding: 30px;
@@ -423,6 +428,17 @@
   <script>
 
     const levels = [
+      {
+        blank: true,
+        name: "GRIEF",
+        host: "icedcave",
+        verifier: "Doggie",
+        image: "grief.jpg",
+        verification: "",
+        id: "149992717",
+        length: "2:46s",
+        objects: "189417"
+      },
       {
         name: "Society",
         host: "Neomarbilan",
@@ -1162,96 +1178,86 @@
         id: "139508889",
         length: "1:36s",
         objects: "36722"
-      },
-      {
-        name: "Edge of Destiny",
-        host: "CDMusic",
-        verifier: "polterghast",
-        image: "eod.jpg",
-        verification: "https://www.youtube.com/watch?v=rUphe3H59yU",
-        id: "89187968",
-        length: "2:06s",
-        objects: "192318"
-      }
-    ];
+      },];
 
     const firstVictors = {
 
-      1: "Zoink",
+      // Rank #1 is intentionally empty.
+      1: "NONE",
       2: "Zoink",
-      3: "wPopoff",
-      4: "NONE",
-      5: "Zoink",
-      6: "Trick",
-      7: "NONE",
-      8: "dovvin",
-      9: "spookkd",
-      10: "agonom",
-      11: "Weyoul113",
-      12: "lanx",
-      13: "dovvin",
-      14: "Zoink",
-      15: "lanx",
-      16: "Zoink",
-      17: "dovvin",
-      18: "nickname09",
-      19: "Zoink",
-      20: "nickname09",
-      21: "Trick",
-      22: "zLevii",
-      23: "NONE",
-      24: "wPopoff",
-      25: "A6",
-      26: "Diamond",
-      27: "Trick",
-      28: "Doggie",
-      29: "Thnnder",
-      30: "Tazik",
-      31: "XenBlem",
-      32: "Trick",
-      33: "luno",
-      34: "wPopoff",
-      35: "whfyre",
-      36: "Zoink",
+      3: "Zoink",
+      4: "wPopoff",
+      5: "NONE",
+      6: "Zoink",
+      7: "Trick",
+      8: "NONE",
+      9: "dovvin",
+      10: "spookkd",
+      11: "agonom",
+      12: "Weyoul113",
+      13: "lanx",
+      14: "dovvin",
+      15: "Zoink",
+      16: "lanx",
+      17: "Zoink",
+      18: "dovvin",
+      19: "nickname09",
+      20: "Zoink",
+      21: "nickname09",
+      22: "Trick",
+      23: "zLevii",
+      24: "NONE",
+      25: "wPopoff",
+      26: "A6",
+      27: "Diamond",
+      28: "Trick",
+      29: "Doggie",
+      30: "Thnnder",
+      31: "Tazik",
+      32: "XenBlem",
+      33: "Trick",
+      34: "luno",
+      35: "wPopoff",
+      36: "whfyre",
       37: "Zoink",
       38: "Zoink",
-      39: "Tunax",
-      40: "Zoink",
-      41: "muno",
-      42: "Trick",
-      43: "agonom",
-      44: "Abdieldevil",
-      45: "Netermind",
-      46: "Cursed",
-      47: "Zoink",
-      48: "hqmy",
-      49: "YeldA",
-      50: "SuperJavicon",
-      51: "Cuatrocientos",
-      52: "wPopoff",
-      53: "kula",
-      54: "Trick",
-      55: "BONN GD",
-      56: "Chayok",
-      57: "agonom",
-      58: "SeptaGon7",
-      59: "Crisis",
-      60: "ViperVenom95",
-      61: "Zoink",
-      62: "Gigaprox",
-      63: "Zoink",
-      64: "TGM05",
-      65: "Zoink",
-      66: "xalval",
-      67: "Jyvl01",
-      68: "cobrablitz",
-      69: "sawyer",
-      70: "aubbie",
-      71: "Zoink",
-      72: "tteokk",
-      73: "zSquidKnight",
-      74: "WhizKid05",
-      75: "Zoink"
+      39: "Zoink",
+      40: "Tunax",
+      41: "Zoink",
+      42: "muno",
+      43: "Trick",
+      44: "agonom",
+      45: "Abdieldevil",
+      46: "Netermind",
+      47: "Cursed",
+      48: "Zoink",
+      49: "hqmy",
+      50: "YeldA",
+      51: "SuperJavicon",
+      52: "Cuatrocientos",
+      53: "wPopoff",
+      54: "kula",
+      55: "Trick",
+      56: "BONN GD",
+      57: "Chayok",
+      58: "agonom",
+      59: "SeptaGon7",
+      60: "Crisis",
+      61: "ViperVenom95",
+      62: "Zoink",
+      63: "Gigaprox",
+      64: "Zoink",
+      65: "TGM05",
+      66: "Zoink",
+      67: "xalval",
+      68: "Jyvl01",
+      69: "cobrablitz",
+      70: "sawyer",
+      71: "aubbie",
+      72: "Zoink",
+      73: "tteokk",
+      74: "zSquidKnight",
+      75: "WhizKid05",
 
     };
 
@@ -1262,7 +1268,7 @@
 
       let glowClass = "";
 
-      if (rank === 1) {
+      if (rank === 1 && !level.blank) {
         glowClass = "gold-glow";
       }
 
@@ -1282,7 +1288,7 @@
 
       return `
 
-        <div class="level-card ${glowClass}">
+        <div class="level-card ${glowClass} ${level.blank ? "blank-level" : ""}">
 
           <div class="left-side">
 
@@ -1302,25 +1308,22 @@
             <div class="level-details">
 
               <div class="level-name">
-                ${level.name}
+                ${level.blank ? "" : level.name}
               </div>
 
 
               <div class="detail-line">
-                <strong>Hosted by:</strong>
-                ${displayValue(level.host)}
+                ${level.blank ? "" : `<strong>Hosted by:</strong> ${displayValue(level.host)}`}
               </div>
 
 
               <div class="detail-line">
-                <strong>Verified by:</strong>
-                ${displayValue(level.verifier)}
+                ${level.blank ? "" : `<strong>Verified by:</strong> ${displayValue(level.verifier)}`}
               </div>
 
 
               <div class="detail-line">
-                <strong>First Victor:</strong>
-                ${firstVictor}
+                ${level.blank ? "" : `<strong>First Victor:</strong> ${firstVictor}`}
               </div>
 
             </div>
