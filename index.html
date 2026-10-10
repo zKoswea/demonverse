@@ -236,15 +236,29 @@
     }
 
     .verification-button {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
       margin-top: 5px;
-      padding: 12px 28px;
+      padding: 12px 20px;
       background: #d22b2b;
       color: white;
       text-decoration: none;
       border-radius: 6px;
       font-size: 15px;
       font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .verification-button .play-icon {
+      display: inline-block;
+      flex: 0 0 auto;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 9px solid #fff;
     }
 
     .verification-button:hover {
@@ -287,9 +301,13 @@
     }
 
     .image-modal img {
-      max-width: 90%;
-      max-height: 90%;
+      width: min(90vw, 1200px);
+      height: min(82vh, 760px);
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       border-radius: 8px;
+      background: rgba(0, 0, 0, 0.15);
     }
 
     .image-modal .close {
@@ -370,22 +388,19 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 46px;
+        gap: 9px;
         min-height: 42px;
-        padding: 10px 14px;
+        padding: 10px 16px;
+        max-width: 100%;
+        white-space: nowrap;
       }
 
       .verification-button .play-icon {
         display: inline-block;
-        width: 0;
-        height: 0;
-        border-top: 6px solid transparent;
-        border-bottom: 6px solid transparent;
-        border-left: 9px solid #fff;
       }
 
       .verification-button .verification-label {
-        display: none;
+        display: inline;
       }
 
       .left-side {
@@ -471,7 +486,7 @@
         verification: "https://www.youtube.com/watch?v=gB8slBPlOjc",
         id: "149992717",
         length: "2:46s",
-        objects: "189606"
+        objects: "189417"
       },
       {
         name: "Society",
@@ -531,7 +546,7 @@
         verification: "https://www.youtube.com/watch?v=9fsZ014qB3s",
         id: "86407629",
         length: "3:01s",
-        objects: "220117"
+        objects: "NA"
       },
       {
         name: "Green Bullet",
@@ -1224,7 +1239,7 @@
       5: "NONE",
       6: "Zoink",
       7: "Trick",
-      8: "Fill GD",
+      8: "NONE",
       9: "dovvin",
       10: "spookkd",
       11: "agonom",
@@ -1476,6 +1491,9 @@
 
 
       modalImage.src = image;
+      modalImage.style.width = "min(90vw, 1200px)";
+      modalImage.style.height = "min(82vh, 760px)";
+      modalImage.style.objectFit = "contain";
 
       modal.style.display = "flex";
 
