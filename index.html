@@ -478,6 +478,7 @@
   <script>
 
     const levels = [
+
       {
         name: "GRIEF",
         host: "icedcave",
@@ -506,7 +507,7 @@
         verification: "https://www.youtube.com/watch?v=4lfkzz1VCbA",
         id: "119550490",
         length: "1:42s",
-        objects: "147424"
+        objects: "NA"
       },
       {
         name: "Thinking Space II",
@@ -536,7 +537,7 @@
         verification: "https://www.youtube.com/watch?v=x4Io4zkWVRw",
         id: "126242564",
         length: "6:47s",
-        objects: "413737"
+        objects: "NA"
       },
       {
         name: "Tidal Wave",
@@ -756,7 +757,7 @@
         verification: "https://www.youtube.com/watch?v=MzsSLKJrLSI",
         id: "110815379",
         length: "2:45s",
-        objects: "298843"
+        objects: "NA"
       },
       {
         name: "Acheron",
@@ -879,16 +880,6 @@
         objects: "44709"
       },
       {
-        name: "Subterminal Point",
-        host: "SyQual",
-        verifier: "PoCle",
-        image: "subterminal.jpg",
-        verification: "https://www.youtube.com/watch?v=h2wmRMgACH4",
-        id: "113599729",
-        length: "1:09s",
-        objects: "40968"
-      },
-      {
         name: "Slaughterhouse",
         host: "icedcave",
         verifier: "Doggie",
@@ -899,6 +890,16 @@
         objects: "147242"
       },
       {
+        name: "Centipede",
+        host: "zander12",
+        verifier: "LordVadercraft",
+        image: "centipede.jpg",
+        verfication: "https://www.youtube.com/watch?v=UFpfgXBQzhY",
+        id: "141320499",
+        length: "1:49s",
+        objects: "113880"
+      },
+      {
         name: "KOCMOC",
         host: "cherryteam",
         verifier: "Zoink",
@@ -907,6 +908,16 @@
         id: "87665224",
         length: "1:27s",
         objects: "159361"
+      },
+      {
+        name: "Subterminal Point",
+        host: "SyQual",
+        verifier: "PoCle",
+        image: "subterminal.jpg",
+        verification: "https://www.youtube.com/watch?v=h2wmRMgACH4",
+        id: "113599729",
+        length: "1:09s",
+        objects: "40968"
       },
       {
         name: "Maniacal Chains",
@@ -1026,7 +1037,7 @@
         verification: "https://www.youtube.com/watch?v=RUBbpsTR5eU",
         id: "113443235",
         length: "4:27s",
-        objects: "409846"
+        objects: "NA"
       },
       {
         name: "The Salt Factory",
@@ -1056,7 +1067,7 @@
         verification: "https://www.youtube.com/watch?v=JBZ-lrBgkl0",
         id: "136396693",
         length: "8:35s",
-        objects: "472214"
+        objects: "NA"
       },
       {
         name: "Through The Gates",
@@ -1217,17 +1228,8 @@
         id: "83244159",
         length: "1:03s",
         objects: "66011"
-      },
-      {
-        name: "Losing Your Mind",
-        host: "GDgalaxygaming",
-        verifier: "iIiLaseriIi",
-        image: "losing your mind.png",
-        verification: "https://www.youtube.com/watch?v=LXp7t5gjyX8",
-        id: "139508889",
-        length: "1:36s",
-        objects: "36722"
-      },];
+      }
+  ];
 
     const firstVictors = {
 
@@ -1273,43 +1275,42 @@
       39: "Zoink",
       40: "Tunax",
       41: "Zoink",
-      42: "muno",
-      43: "Trick",
-      44: "agonom",
-      45: "Abdieldevil",
-      46: "Netermind",
-      47: "Cursed",
-      48: "Zoink",
-      49: "hqmy",
-      50: "YeldA",
-      51: "SuperJavicon",
-      52: "Cuatrocientos",
-      53: "wPopoff",
-      54: "kula",
-      55: "Trick",
-      56: "BONN GD",
-      57: "Chayok",
-      58: "agonom",
-      59: "SeptaGon7",
-      60: "Crisis",
-      61: "ViperVenom95",
-      62: "Zoink",
-      63: "Gigaprox",
-      64: "Zoink",
-      65: "TGM05",
-      66: "Zoink",
-      67: "xalval",
-      68: "Jyvl01",
-      69: "cobrablitz",
-      70: "sawyer",
-      71: "aubbie",
-      72: "Zoink",
-      73: "tteokk",
-      74: "zSquidKnight",
-      75: "WhizKid05",
+      42: "Trick",
+      43: "muno",
+      44: "Trick",
+      45: "agonom",
+      46: "Abdieldevil",
+      47: "Netermind",
+      48: "Cursed",
+      49: "Zoink",
+      50: "hqmy",
+      51: "YeldA",
+      52: "SuperJavicon",
+      53: "Cuatrocientos",
+      54: "wPopoff",
+      55: "kula",
+      56: "Trick",
+      57: "BONN GD",
+      58: "Chayok",
+      59: "agonom",
+      60: "SeptaGon7",
+      61: "Crisis",
+      62: "ViperVenom95",
+      63: "Zoink",
+      64: "Gigaprox",
+      65: "Zoink",
+      66: "TGM05",
+      67: "Zoink",
+      68: "xalval",
+      69: "Jyvl01",
+      70: "cobrablitz",
+      71: "sawyer",
+      72: "aubbie",
+      73: "Zoink",
+      74: "tteokk",
+      75: "zSquidKnight",
 
     };
-
 
     function createLevelCard(level, index) {
 
