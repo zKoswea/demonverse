@@ -1,1580 +1,1582 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>DemonVerse</title>
+<title>DemonVerse</title>
 
-  <link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap');
 
-    * {
-      box-sizing: border-box;
-    }
+* {
+box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f5;
-      color: #111;
-    }
+body {
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+background: #f5f5f5;
+color: #111;
+}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      transition: transform 0.22s ease;
-      background: white;
-      border-bottom: 1px solid #ddd;
-      padding: 18px 30px;
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
+header {
+position: sticky;
+top: 0;
+z-index: 100;
+transition: transform 0.22s ease;
+background: white;
+border-bottom: 1px solid #ddd;
+padding: 18px 30px;
+display: flex;
+align-items: center;
+gap: 25px;
+}
 
-    header.header-hidden {
-      transform: translateY(-110%);
-    }
+header.header-hidden {
+transform: translateY(-110%);
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
+.logo {
+font-size: 28px;
+font-weight: 800;
+white-space: nowrap;
+}
 
-    .logo .red {
-      color: #d62828;
-    }
+.logo .red {
+color: #d62828;
+}
 
-    .subtitle {
-      font-size: 13px;
-      font-weight: 500;
-      color: #777;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-    }
+.subtitle {
+font-size: 13px;
+font-weight: 500;
+color: #777;
+letter-spacing: 0.5px;
+white-space: nowrap;
+}
 
-    .discord-button {
-      margin-left: auto;
-      background: #5865f2;
-      color: white;
-      text-decoration: none;
-      padding: 13px 22px;
-      border-radius: 6px;
-      font-family: "Orbitron", "Arial Black", Arial, sans-serif;
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: 0.8px;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      box-shadow:
-        0 0 5px rgba(255, 255, 255, 0.18);
-      transition:
-        background 0.2s ease,
-        box-shadow 0.2s ease;
-    }
+.discord-button {
+margin-left: auto;
+background: #5865f2;
+color: white;
+text-decoration: none;
+padding: 13px 22px;
+border-radius: 6px;
+font-family: "Orbitron", "Arial Black", Arial, sans-serif;
+font-size: 15px;
+font-weight: 800;
+letter-spacing: 0.8px;
+white-space: nowrap;
+display: flex;
+align-items: center;
+box-shadow:
+0 0 5px rgba(255, 255, 255, 0.18);
+transition:
+background 0.2s ease,
+box-shadow 0.2s ease;
+}
 
-    .discord-button img {
-      width: 18px;
-      height: 18px;
-      object-fit: contain;
-    }
+.discord-button img {
+width: 18px;
+height: 18px;
+object-fit: contain;
+}
 
-    .discord-button:hover {
-      background: #4752c4;
-      box-shadow:
-        0 0 7px rgba(255, 255, 255, 0.28);
-    }
+.discord-button:hover {
+background: #4752c4;
+box-shadow:
+0 0 7px rgba(255, 255, 255, 0.28);
+}
 
-    .search-container {
-      max-width: 1200px;
-      margin: 25px auto 0;
-      padding: 0 20px;
-    }
+.search-container {
+max-width: 1200px;
+margin: 25px auto 0;
+padding: 0 20px;
+}
 
-    #search {
-      width: 100%;
-      padding: 13px 15px;
-      border: 1px solid #ccc;
-      border-radius: 7px;
-      font-size: 15px;
-      outline: none;
-      background: white;
-      color: #111;
-      color-scheme: light;
-      -webkit-appearance: none;
-      appearance: none;
-    }
+#search {
+width: 100%;
+padding: 13px 15px;
+border: 1px solid #ccc;
+border-radius: 7px;
+font-size: 15px;
+outline: none;
+background: white;
+color: #111;
+color-scheme: light;
+-webkit-appearance: none;
+appearance: none;
+}
 
-    #search::placeholder {
-      color: #777;
-      opacity: 1;
-    }
+#search::placeholder {
+color: #777;
+opacity: 1;
+}
 
-    #search:focus {
-      border-color: #999;
-    }
+#search:focus {
+border-color: #999;
+}
 
-    .list-container {
-      max-width: 1260px;
-      margin: 20px auto 50px;
-      padding: 0 20px;
-    }
+.list-container {
+max-width: 1260px;
+margin: 20px auto 50px;
+padding: 0 20px;
+}
 
-    .list-title {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
+.list-title {
+font-size: 22px;
+font-weight: 700;
+margin-bottom: 18px;
+}
 
-    .level-card {
-      display: flex;
-      width: 100%;
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-      margin-bottom: 18px;
-      min-height: 215px;
-    }
+.level-card {
+display: flex;
+width: 100%;
+background: white;
+border: 1px solid #ddd;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+margin-bottom: 18px;
+min-height: 215px;
+}
 
-    .left-side {
-      flex: 1;
-      min-width: 0;
-      padding: 8px 28px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+.left-side {
+flex: 1;
+min-width: 0;
+padding: 8px 28px;
+display: flex;
+align-items: center;
+gap: 20px;
+}
 
-    .rank {
-      font-size: 18px;
-      font-weight: 700;
-      min-width: 35px;
-      text-align: center;
-    }
+.rank {
+font-size: 18px;
+font-weight: 700;
+min-width: 35px;
+text-align: center;
+}
 
-    /* THUMBNAILS — FULL IMAGE, NO CROPPING/ZOOMING */
+/* THUMBNAILS — FULL IMAGE, NO CROPPING/ZOOMING */
 
-    .thumbnail {
-      width: 300px;
-      height: 175px;
-      border-radius: 6px;
-      cursor: pointer;
-      flex-shrink: 0;
-      background-size: contain !important;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-color: #eee;
-    }
+.thumbnail {
+width: 300px;
+height: 175px;
+border-radius: 6px;
+cursor: pointer;
+flex-shrink: 0;
+background-size: contain !important;
+background-repeat: no-repeat;
+background-position: center;
+background-color: #eee;
+}
 
-    .blank-thumbnail {
-      background: #f5f5f5;
-      border: 1px dashed #ccc;
-      cursor: default;
-    }
+.blank-thumbnail {
+background: #f5f5f5;
+border: 1px dashed #ccc;
+cursor: default;
+}
 
-    .level-details {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+.level-details {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
 
-    .level-name {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
+.level-name {
+font-size: 28px;
+font-weight: 700;
+margin-bottom: 2px;
+}
 
-    .detail-line {
-      font-size: 16px;
-      font-weight: 500;
-    }
+.detail-line {
+font-size: 16px;
+font-weight: 500;
+}
 
-    .detail-line strong {
-      font-weight: 600;
-    }
+.detail-line strong {
+font-weight: 600;
+}
 
-    .divider {
-      width: 1px;
-      background: #ddd;
-      margin: 20px 0;
-    }
+.divider {
+width: 1px;
+background: #ddd;
+margin: 20px 0;
+}
 
-    .right-side {
-      width: 260px;
-      flex-shrink: 0;
-      padding: 25px 20px 25px 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      text-align: left;
-      margin-left: auto;
-    }
+.right-side {
+width: 260px;
+flex-shrink: 0;
+padding: 25px 20px 25px 10px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+text-align: left;
+margin-left: auto;
+}
 
-    .right-title {
-      color: #d22b2b;
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
+.right-title {
+color: #d22b2b;
+font-size: 16px;
+font-weight: 600;
+margin-bottom: 16px;
+}
 
-    .right-info {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
+.right-info {
+font-size: 15px;
+font-weight: 500;
+margin-bottom: 12px;
+}
 
-    .right-info strong {
-      font-weight: 600;
-    }
+.right-info strong {
+font-weight: 600;
+}
 
-    .verification-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      margin-top: 5px;
-      padding: 12px 20px;
-      background: #d22b2b;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 15px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
+.verification-button {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 9px;
+margin-top: 5px;
+padding: 12px 20px;
+background: #d22b2b;
+color: white;
+text-decoration: none;
+border-radius: 6px;
+font-size: 15px;
+font-weight: 600;
+white-space: nowrap;
+}
 
-    .verification-button .play-icon {
-      display: inline-block;
-      flex: 0 0 auto;
-      width: 0;
-      height: 0;
-      border-top: 6px solid transparent;
-      border-bottom: 6px solid transparent;
-      border-left: 9px solid #fff;
-    }
+.verification-button .play-icon {
+display: inline-block;
+flex: 0 0 auto;
+width: 0;
+height: 0;
+border-top: 6px solid transparent;
+border-bottom: 6px solid transparent;
+border-left: 9px solid #fff;
+}
 
-    .verification-button:hover {
-      background: #b92323;
-    }
+.verification-button:hover {
+background: #b92323;
+}
 
-    .gold-glow {
-      box-shadow:
-        0 0 8px rgba(255, 196, 0, 0.55),
-        0 0 18px rgba(255, 196, 0, 0.35);
-    }
+.gold-glow {
+box-shadow:
+0 0 8px rgba(255, 196, 0, 0.55),
+0 0 18px rgba(255, 196, 0, 0.35);
+}
 
-    .white-glow {
-      box-shadow:
-        0 0 7px rgba(150, 150, 150, 0.45),
-        0 0 15px rgba(190, 190, 190, 0.25);
-    }
+.white-glow {
+box-shadow:
+0 0 7px rgba(150, 150, 150, 0.45),
+0 0 15px rgba(190, 190, 190, 0.25);
+}
 
-    .blank-level .level-details,
-    .blank-level .right-side {
-      visibility: hidden;
-    }
+.blank-level .level-details,
+.blank-level .right-side {
+visibility: hidden;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #888;
-      font-size: 13px;
-    }
+footer {
+text-align: center;
+padding: 30px;
+color: #888;
+font-size: 13px;
+}
 
-    .image-modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-    }
+.image-modal {
+display: none;
+position: fixed;
+z-index: 1000;
+inset: 0;
+background: rgba(0,0,0,0.85);
+align-items: center;
+justify-content: center;
+padding: 30px;
+}
 
-    .image-modal img {
-      width: min(90vw, 1200px);
-      height: min(82vh, 760px);
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border-radius: 8px;
-      background: rgba(0, 0, 0, 0.15);
-    }
+.image-modal img {
+width: min(90vw, 1200px);
+height: min(82vh, 760px);
+max-width: 100%;
+max-height: 100%;
+object-fit: contain;
+border-radius: 8px;
+background: rgba(0, 0, 0, 0.15);
+}
 
-    .image-modal .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 40px;
-      cursor: pointer;
-      font-weight: 300;
-    }
+.image-modal .close {
+position: absolute;
+top: 20px;
+right: 30px;
+color: white;
+font-size: 40px;
+cursor: pointer;
+font-weight: 300;
+}
 
-    @media (max-width: 900px) {
+@media (max-width: 900px) {
 
-      header {
-        flex-wrap: wrap;
-        gap: 12px;
-      }
+header {
+flex-wrap: wrap;
+gap: 12px;
+}
 
-      .subtitle {
-        width: 100%;
-        order: 3;
-      }
+.subtitle {
+width: 100%;
+order: 3;
+}
 
-      .discord-button {
-        margin-left: auto;
-      }
+.discord-button {
+margin-left: auto;
+}
 
-      .left-side {
-        width: 100%;
-        flex-wrap: wrap;
-        padding: 18px;
-      }
+.left-side {
+width: 100%;
+flex-wrap: wrap;
+padding: 18px;
+}
 
-      .divider {
-        width: calc(100% - 36px);
-        height: 1px;
-        margin: 0 18px;
-      }
+.divider {
+width: calc(100% - 36px);
+height: 1px;
+margin: 0 18px;
+}
 
-      .right-side {
-        width: 100%;
-        padding: 20px 18px 25px;
-        margin-left: 0;
-        align-items: flex-start;
-        text-align: left;
-      }
+.right-side {
+width: 100%;
+padding: 20px 18px 25px;
+margin-left: 0;
+align-items: flex-start;
+text-align: left;
+}
 
-      .level-card {
-        flex-wrap: wrap;
-      }
+.level-card {
+flex-wrap: wrap;
+}
 
-      .thumbnail {
-        width: 250px;
-        height: 145px;
-      }
-    }
+.thumbnail {
+width: 250px;
+height: 145px;
+}
+}
 
-    @media (max-width: 600px) {
+@media (max-width: 600px) {
 
-      .level-name {
-        font-size: 23px;
-      }
+.level-name {
+font-size: 23px;
+}
 
-      .thumbnail {
-        display: block;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        min-height: 120px;
-        max-height: 220px;
-        background-size: contain !important;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
+.thumbnail {
+display: block;
+width: 100%;
+height: auto;
+aspect-ratio: 16 / 9;
+min-height: 120px;
+max-height: 220px;
+background-size: contain !important;
+background-repeat: no-repeat;
+background-position: center;
+}
 
-      .verification-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 9px;
-        min-height: 42px;
-        padding: 10px 16px;
-        max-width: 100%;
-        white-space: nowrap;
-      }
+.verification-button {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 9px;
+min-height: 42px;
+padding: 10px 16px;
+max-width: 100%;
+white-space: nowrap;
+}
 
-      .verification-button .play-icon {
-        display: inline-block;
-      }
+.verification-button .play-icon {
+display: inline-block;
+}
 
-      .verification-button .verification-label {
-        display: inline;
-      }
+.verification-button .verification-label {
+display: inline;
+}
 
-      .left-side {
-        align-items: flex-start;
-      }
+.left-side {
+align-items: flex-start;
+}
 
-      .rank {
-        min-width: 30px;
-      }
-    }
-  </style>
+.rank {
+min-width: 30px;
+}
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-
-    <div class="logo">
-      Demon<span class="red">Verse</span>
-    </div>
-
-    <div class="subtitle">
-      COMMUNITY GEOMETRY DASH DEMON LIST
-    </div>
-
-    <a
-      class="discord-button"
-      href="https://discord.gg/ye8whxz52"
-      target="_blank"
-    >
-      DISCORD
-    </a>
-
-  </header>
-
-
-  <div class="search-container">
-
-    <input
-      type="text"
-      id="search"
-      placeholder="Search levels..."
-    >
-
-  </div>
-
-
-  <main class="list-container">
-
-    <div class="list-title">
-      Top 75 Demons
-    </div>
-
-    <div id="level-list"></div>
-
-  </main>
-
-
-  <footer>
-    DemonVerse • Community Geometry Dash Demon List
-  </footer>
-
-
-  <div class="image-modal" id="imageModal">
-
-    <span class="close" id="closeModal">
-      &times;
-    </span>
-
-    <img id="modalImage" src="" alt="">
-
-  </div>
-
-
-  <script>
-
-    const levels = [      {
-              name: "GRIEF",
-              host: "icedcave",
-              verifier: "Doggie",
-              image: "grief 2.png",
-              verification: "https://www.youtube.com/watch?v=gB8slBPlOjc",
-              id: "149992717",
-              length: "2:46s",
-              objects: "189606"
-            },
-      {
-              name: "Society",
-              host: "Neomarbilan",
-              verifier: "wPopoff",
-              image: "society.jpg",
-              verification: "https://www.youtube.com/watch?v=3CoEaH1CM7o",
-              id: "127323087",
-              length: "1:37s",
-              objects: "167368"
-            },
-      {
-              name: "Amethyst",
-              host: "iMist",
-              verifier: "wPopoff",
-              image: "maxresdefault (3).jpg",
-              verification: "https://www.youtube.com/watch?v=4lfkzz1VCbA",
-              id: "119550490",
-              length: "1:42s",
-              objects: "NA"
-            },
-      {
-              name: "Thinking Space II",
-              host: "CairoX",
-              verifier: "Zoink",
-              image: "maxresdefault (10).jpg",
-              verification: "https://www.youtube.com/watch?v=CELNmHwln_c",
-              id: "119544028",
-              length: "1:10s",
-              objects: "139569"
-            },
-      {
-              name: "Artemis 13",
-              host: "mvngo",
-              verifier: "Zoink",
-              image: "maxresdefault (12).jpg",
-              verification: "https://www.youtube.com/watch?v=FgjOM0ef1N8",
-              id: "148598469",
-              length: "1:16s",
-              objects: "51880"
-            },
-      {
-              name: "Flamewall",
-              host: "Narwall",
-              verifier: "Cautrocientos",
-              image: "flamewall.png",
-              verification: "https://www.youtube.com/watch?v=x4Io4zkWVRw",
-              id: "126242564",
-              length: "6:47s",
-              objects: "NA"
-            },
-      {
-              name: "Tidal Wave",
-              host: "OniLink",
-              verifier: "Zoink",
-              image: "maxresdefault (5).jpg",
-              verification: "https://www.youtube.com/watch?v=9fsZ014qB3s",
-              id: "86407629",
-              length: "3:01s",
-              objects: "220117"
-            },
-      {
-              name: "Green Bullet",
-              host: "cherryteam",
-              verifier: "nickname09",
-              image: "maxresdefault (6).jpg",
-              verification: "https://www.youtube.com/watch?v=JG-qcvVkZFw",
-              id: "142896409",
-              length: "2:05s",
-              objects: "197826"
-            },
-      {
-              name: "ORBIT",
-              host: "MindCap",
-              verifier: "Zoink",
-              image: "maxresdefault (7).jpg",
-              verification: "https://www.youtube.com/watch?v=QKcv8DkNPd0",
-              id: "133175713",
-              length: "2:22s",
-              objects: "310487"
-            },
-      {
-              name: "Nullscapes",
-              host: "ItzKiba",
-              verifier: "Zoink",
-              image: "nullscapes.jpg",
-              verification: "https://www.youtube.com/watch?v=EztneTPp5CU",
-              id: "109780665",
-              length: "1:26s",
-              objects: "63304"
-            },
-      {
-              name: "BOOBAWAMBA",
-              host: "AkunAkunn",
-              verifier: "EastShark1",
-              image: "boobawamba.jpg",
-              verification: "https://www.youtube.com/watch?v=20fYiqLAo_E",
-              id: "110816181",
-              length: "2:26s",
-              objects: "92584"
-            },
-      {
-              name: "Antarctic Lights",
-              host: "declanlc",
-              verifier: "Axinity",
-              image: "antarctic.jpg",
-              verification: "https://www.youtube.com/watch?v=Uue4ZRhVf-I",
-              id: "144988390",
-              length: "59s",
-              objects: "54901"
-            },
-      {
-              name: "LESOPOWAL",
-              host: "cherryteam",
-              verifier: "Bacon",
-              image: "lesopowal.jpg",
-              verification: "https://www.youtube.com/watch?v=RTXnFHkGO_g",
-              id: "137886942",
-              length: "1:39s",
-              objects: "111519"
-            },
-      {
-              name: "Quanteuse Processing",
-              host: "Renn241",
-              verifier: "Zoink",
-              image: "quanteuse.jpg",
-              verification: "https://www.youtube.com/watch?v=j5NC0u1Q91Q",
-              id: "117692518",
-              length: "1:42s",
-              objects: "45623"
-            },
-      {
-              name: "Every End",
-              host: "MindCap",
-              verifier: "hqmy",
-              image: "every end.jpg",
-              verification: "https://www.youtube.com/watch?v=AO--mVVFtKI",
-              id: "116174063",
-              length: "7:20s",
-              objects: "326381"
-            },
-      {
-              name: "Herr Machine",
-              host: "herrteam",
-              verifier: "BONN GD",
-              image: "herr machine.jpg",
-              verification: "https://www.youtube.com/watch?v=CBcQqmqWFo4",
-              id: "142529115",
-              length: "1:46s",
-              objects: "33068"
-            },
-      {
-              name: "andromeda",
-              host: "Insxne97",
-              verifier: "Taiago",
-              image: "andromeda.jpg",
-              verification: "https://www.youtube.com/watch?v=mk3TDemdkC0",
-              id: "114283297",
-              length: "1:14s",
-              objects: "179344"
-            },
-      {
-              name: "Penumbral",
-              host: "cherryteam",
-              verifier: "w3rty",
-              image: "penumbral.jpg",
-              verification: "https://www.youtube.com/watch?v=nVHPFf13M-I",
-              id: "134942736",
-              length: "1:23s",
-              objects: "87888"
-            },
-      {
-              name: "Ashley Wave Trials",
-              host: "oddmod",
-              verifier: "Zoink",
-              image: "awt.jpg",
-              verification: "https://www.youtube.com/watch?v=aTxt76U3e2Q",
-              id: "62912799",
-              length: "2:06s",
-              objects: "37726"
-            },
-      {
-              name: "Ultra Paracosm",
-              host: "declanlc",
-              verifier: "Wity",
-              image: "ultra paracosm.png",
-              verification: "https://www.youtube.com/watch?v=4V24spYQWuE",
-              id: "138074906",
-              length: "1:11s",
-              objects: "69426"
-            },
-      {
-              name: "The Bloop",
-              host: "murkkat",
-              verifier: "Zoink",
-              image: "bloop.jpg",
-              verification: "https://www.youtube.com/watch?v=ROuXHSKEhHA",
-              id: "135661111",
-              length: "1:46s",
-              objects: "108909"
-            },
-      {
-              name: "Silent Clubstep",
-              host: "TheRealSailent",
-              verifier: "Zoink",
-              image: "silent clubstep.jpg",
-              verification: "https://www.youtube.com/watch?v=57aQ3EmSqQ4",
-              id: "4125776",
-              length: "1:27",
-              objects: "10907"
-            },
-      {
-              name: "KILLSTEALER",
-              host: "rynoxious",
-              verifier: "kloone",
-              image: "killstealer.jpg",
-              verification: "https://www.youtube.com/watch?v=uhH4oqWrsfo",
-              id: "138781722",
-              length: "4:00s",
-              objects: "NA"
-            },
-      {
-              name: "Azure Flare",
-              host: "ItzHybrid",
-              verifier: "Diamond",
-              image: "azure flare.jpe",
-              verification: "https://www.youtube.com/watch?v=r6hQ5Se2i8U",
-              id: "142929059",
-              length: "1:05s",
-              objects: "70235"
-            },
-      {
-              name: "Subsuming Vortex",
-              host: "SeptaGon7",
-              verifier: "Cursed",
-              image: "subsuming.jpg",
-              verification: "https://www.youtube.com/watch?v=0eYG1ogJpIQ",
-              id: "127997391",
-              length: "1:00s",
-              objects: "71249"
-            },
-      {
-              name: "Anathema",
-              host: "nikroplays",
-              verifier: "WhizKid05",
-              image: "anathema.jpg",
-              verification: "https://www.youtube.com/watch?v=_uKwmjHmySI",
-              id: "112313819",
-              length: "2:30s",
-              objects: "287446"
-            },
-      {
-              name: "Avernus",
-              host: "PockeWindfish",
-              verifier: "Zoink",
-              image: "avernus.jpg",
-              verification: "https://www.youtube.com/watch?v=16Zh8jssanc",
-              id: "89496627",
-              length: "1:18s",
-              objects: "163918"
-            },
-      {
-              name: "Spectre",
-              host: "xander",
-              verifier: "PersonHuman42",
-              image: "spectre.jpg",
-              verification: "https://www.youtube.com/watch?v=MzsSLKJrLSI",
-              id: "110815379",
-              length: "2:45s",
-              objects: "NA"
-            },
-      {
-              name: "Acheron",
-              host: "Riot",
-              verifier: "Zoink",
-              image: "acheron.jpg",
-              verification: "https://www.youtube.com/watch?v=sBKR6aUorzA",
-              id: "73667628",
-              length: "1:07s",
-              objects: "47985"
-            },
-      {
-              name: "Menace",
-              host: "Arraegen",
-              verifier: "WhizKid05",
-              image: "menace.jpg",
-              verification: "https://www.youtube.com/watch?v=nnkgghxxsEE",
-              id: "107805281",
-              length: "3:05s",
-              objects: "77610"
-            },
-      {
-              name: "Defeated Circles",
-              host: "GXQ",
-              verifier: "Zoink",
-              image: "defeated circles.jpg",
-              verification: "https://www.youtube.com/watch?v=nU5AQPzd2YA",
-              id: "120012581",
-              length: "1:00s",
-              objects: "84293"
-            },
-      {
-              name: "Cognitohazard",
-              host: "MercuryDT⁩",
-              verifier: "WhizKid05",
-              image: "cognitohazard.jpg",
-              verification: "https://www.youtube.com/watch?v=T5g0r16X_ZA",
-              id: "130891319",
-              length: "1:41s",
-              objects: "55545"
-            },
-      {
-              name: "Abyss of Darkness",
-              host: "Exen",
-              verifier: "Cursed",
-              image: "aod.jpg",
-              verification: "https://www.youtube.com/watch?v=ejJkpqcMMCY",
-              id: "49896559",
-              length: "2:05s",
-              objects: "113274"
-            },
-      {
-              name: "Sacrifice",
-              host: "Laniakea",
-              verifier: "Laniakea",
-              image: "sacrifice.jpg",
-              verification: "https://www.youtube.com/watch?v=Sth67PA8XBU",
-              id: "141052363",
-              length: "2:28s",
-              objects: "170420"
-            },
-      {
-              name: "FOREST OF SPIKES",
-              host: "Bimms",
-              verifier: "Brain Cheese",
-              image: "forest of spikes.jpg",
-              verification: "https://www.youtube.com/watch?v=WJYh3dW8Bfo",
-              id: "145709435",
-              length: "1:49s",
-              objects: "83474"
-            },
-      {
-              name: "Tunnel of Despair",
-              host: "Exen",
-              verifier: "Zoink",
-              image: "tunnel of despair.jpg",
-              verification: "https://www.youtube.com/watch?v=LpS4JREhW98",
-              id: "91351939",
-              length: "1:45s",
-              objects: "75302"
-            },
-      {
-              name: "Kyouki",
-              host: "出見塩",
-              verifier: "出見塩",
-              image: "kyouki.jpg",
-              verification: "https://www.youtube.com/watch?v=KDa5c0CJTHs",
-              id: "86018142",
-              length: "1:38s",
-              objects: "220721"
-            },
-      {
-              name: "Based After Based",
-              host: "AkunAkunn",
-              verifier: "DiamondSplash",
-              image: "based after based.jpg",
-              verification: "https://www.youtube.com/watch?v=yQBFyUvB3lY",
-              id: "110534288",
-              length: "1:28s",
-              objects: "99070"
-            },
-      {
-              name: "BEING HOME",
-              host: "turtl123",
-              verifier: "goobs47",
-              image: "being home.jpg",
-              verification: "https://www.youtube.com/watch?v=kt7FnUzK8CY",
-              id: "130327668",
-              length: "1:42s",
-              objects: "72633"
-            },
-      {
-              name: "The Lightning Rod",
-              host: "LavaTrex",
-              verifier: "LavaTrex",
-              image: "the lightning rod.jpg",
-              verification: "https://www.youtube.com/watch?v=nQDTi077O6M",
-              id: "93917076",
-              length: "1:37s",
-              objects: "44709"
-            },
-      {
-              name: "Slaughterhouse",
-              host: "icedcave",
-              verifier: "Doggie",
-              image: "slh.jpg",
-              verification: "https://www.youtube.com/watch?v=kpcF1-QAHQc",
-              id: "27690100",
-              length: "1:10s",
-              objects: "147242"
-            },
-      {
-              name: "Centipede",
-              host: "zander12",
-              verifier: "LordVadercraft",
-              image: "centipedee.jpg",
-              verfication: "https://www.youtube.com/watch?v=UFpfgXBQzhY",
-              id: "141320499",
-              length: "1:49s",
-              objects: "113880"
-            },
-      {
-              name: "KOCMOC",
-              host: "cherryteam",
-              verifier: "Zoink",
-              image: "kocmoc.jpg",
-              verification: "https://www.youtube.com/watch?v=2CxE-UWCIG4",
-              id: "87665224",
-              length: "1:27s",
-              objects: "159361"
-            },
-      {
-              name: "Ace",
-              host: "TheBigCheese69",
-              verifier: "Aidsen",
-              image: "ace.jpg",
-              verification: "https://www.youtube.com/watch?v=7uYghOdos8I",
-              id: "138215607",
-              length: "1:08s",
-              objects: "35658"
-            },
-      {
-              name: "Subterminal Point",
-              host: "SyQual",
-              verifier: "PoCle",
-              image: "subterminal.jpg",
-              verification: "https://www.youtube.com/watch?v=h2wmRMgACH4",
-              id: "113599729",
-              length: "1:09s",
-              objects: "40968"
-            },
-      {
-              name: "Master of Puppets",
-              host: "TheZinkYT",
-              verifier: "Scotchtape",
-              image: "master of pupets.jpg",
-              verification: "https://www.youtube.com/watch?v=JBZ-lrBgkl0",
-              id: "136396693",
-              length: "8:35s",
-              objects: "NA"
-            },
-      {
-              name: "Maniacal Chains",
-              host: "LordDivinity",
-              verifier: "spcreat",
-              image: "manical chains.jpg",
-              verification: "https://www.youtube.com/watch?v=TzeMJeIu6bY",
-              id: "48991380",
-              length: "1:56s",
-              objects: "94904"
-            },
-      {
-              name: "CHIL",
-              host: "McCoco",
-              verifier: "McCoco",
-              image: "chil.jpg",
-              verification: "https://www.youtube.com/watch?v=DROMiCc2ZRM",
-              id: "114281093",
-              length: "1:01s",
-              objects: "69175"
-            },
-      {
-              name: "Eyes in the Water",
-              host: "hawkyre",
-              verifier: "LordVadercraft",
-              image: "eyes in the water.jpg",
-              verification: "https://www.youtube.com/watch?v=yvLwiOy3KEA",
-              id: "95851008",
-              length: "1:32s",
-              objects: "91424"
-            },
-      {
-              name: "Sakupen Circles",
-              host: "Diamond",
-              verifier: "Diamond",
-              image: "skc.jpg",
-              verification: "https://www.youtube.com/watch?v=ofG2mJi9kEA",
-              id: "76962930",
-              length: "50s",
-              objects: "70028"
-            },
-      {
-              name: "Deimos",
-              host: "ItsHybrid",
-              verifier: "Doggie",
-              image: "deimos.png",
-              verification: "https://www.youtube.com/watch?v=b2yHaIk5zio",
-              id: "93091893",
-              length: "2:57s",
-              objects: "157646"
-            },
-      {
-              name: "KOSETSU",
-              host: "fwe",
-              verifier: "Taiago",
-              image: "kosetsu.jpg",
-              verification: "https://www.youtube.com/watch?v=hZ8vFX8z_BU",
-              id: "109439644",
-              length: "1:12s",
-              objects: "81898"
-            },
-      {
-              name: "Prismline",
-              host: "ItsHarryy",
-              verifier: "Wain",
-              image: "prismline.jpg",
-              verification: "https://www.youtube.com/watch?v=pIHOHz3i0Rw",
-              id: "135148907",
-              length: "1:25s",
-              objects: "87900"
-            },
-      {
-              name: "Snowbound",
-              host: "Amplitron",
-              verifier: "Amplitron",
-              image: "snowbound.jpg",
-              verification: "https://www.youtube.com/watch?v=cjHwgbtAkXU",
-              id: "120289520",
-              length: "2:20",
-              objects: "140669"
-            },
-      {
-              name: "Wild Roses",
-              host: "cherryteam",
-              verifier: "Eiriley",
-              image: "wild roses.jpe",
-              verification: "https://www.youtube.com/watch?v=MnOSbQQV_wA",
-              id: "145494348",
-              length: "1:04s",
-              objects: "118598"
-            },
-      {
-              name: "Voltage",
-              host: "ThePurgatory",
-              verifier: "maybee",
-              image: "voltage.jpg",
-              verification: "https://www.youtube.com/watch?v=wBRvBN9tmlc",
-              id: "131599104",
-              length: "1:08s",
-              objects: "65729"
-            },
-      {
-              name: "Silentlocked",
-              host: "GDSkele",
-              verifier: "TFIBB",
-              image: "silentlocked.jpg",
-              verification: "https://www.youtube.com/watch?v=O-IQeUdEGvI",
-              id: "113959291",
-              length: "1:44s",
-              objects: "109255"
-            },
-      {
-              name: "NervHell",
-              host: "ASVTeam",
-              verifier: "ChopBlox",
-              image: "nervhell.jpe",
-              verification: "https://www.youtube.com/watch?v=1zrvPgDAoaA",
-              id: "143718114",
-              length: "3:20s",
-              objects: "178675"
-            },
-      {
-              name: "Apocalyptic Trilogy",
-              host: "APTeamOfficial",
-              verifier: "polterghast",
-              image: "at.jpg",
-              verification: "https://www.youtube.com/watch?v=RUBbpsTR5eU",
-              id: "113443235",
-              length: "4:27s",
-              objects: "NA"
-            },
-      {
-              name: "The Salt Factory",
-              host: "nickname09",
-              verifier: "nickname09",
-              image: "the salt factory.jpg",
-              verification: "https://www.youtube.com/watch?v=lQ7M-Sgov24",
-              id: "113045735",
-              length: "1:35s",
-              objects: "76834"
-            },
-      {
-              name: "zorin",
-              host: "태리",
-              verifier: "9i",
-              image: "zorin.jpg",
-              verification: "https://www.youtube.com/watch?v=U19vmpenb9g",
-              id: "134541844",
-              length: "2:56s",
-              objects: "148320"
-            },
-      {
-              name: "BASSLINE JUNKIE",
-              host: "MCBIGMACPLAYZ",
-              verifier: "Karma",
-              image: "bassline junkie.jpg",
-              verification: "https://www.youtube.com/watch?v=db_V19gW0rI&t=7s",
-              id: "143300771",
-              length: "1:53s",
-              objects: "105243"
-            },
-      {
-              name: "Through The Gates",
-              host: "TeamTheDashers",
-              verifier: "Zoink",
-              image: "through the gates.png",
-              verification: "https://www.youtube.com/watch?v=4yHA6jux5UI",
-              id: "49072489",
-              length: "1:38s",
-              objects: "78672"
-            },
-      {
-              name: "Firework",
-              host: "cherryteam",
-              verifier: "Trick",
-              image: "firework.jpe",
-              verification: "https://www.youtube.com/watch?v=QBe5x2o9v2w",
-              id: "75206202",
-              length: "2:07",
-              objects: "165171"
-            },
-      {
-              name: "MINUSdry",
-              host: "CDMusic",
-              verifier: "Varium",
-              image: "minusdry.jpg",
-              verification: "https://www.youtube.com/watch?v=YvA8ehhzz0Q",
-              id: "89414220",
-              length: "1:22s",
-              objects: "44994"
-            },
-      {
-              name: "Deadlier Clubstep",
-              host: "HeroZombie80",
-              verifier: "Jenath",
-              image: "deadlier clubstep.jpg",
-              verification: "https://www.youtube.com/watch?v=eRhgaF0r5Q0",
-              id: "96314787",
-              length: "1:44s",
-              objects: "159793"
-            },
-      {
-              name: "NOMAD",
-              host: "ReeseVT",
-              verifier: "Laniakea",
-              image: "nomad.jpg",
-              verification: "https://www.youtube.com/watch?v=H2TkHbEX__A",
-              id: "115077305",
-              length: "55s",
-              objects: "9767"
-            },
-      {
-              name: "poocubed",
-              host: "Liisp",
-              verifier: "kyass",
-              image: "poo3.jpg",
-              verification: "https://www.youtube.com/watch?v=fzL31vai1ms",
-              id: "85133223",
-              length: "1:22s",
-              objects: "105788"
-            },
-      {
-              name: "Calibrate",
-              host: "Bamvie",
-              verifier: "블베",
-              image: "calibrate.jpg",
-              verification: "https://www.youtube.com/watch?v=6WYnZryX_mg",
-              id: "136981369",
-              length: "1:16s",
-              objects: "83435"
-            },
-      {
-              name: "Saul Goodman",
-              host: "Renn241",
-              verifier: "bloom",
-              image: "saul goodman.jpg",
-              verification: "https://www.youtube.com/watch?v=hjs5PjUaw9k",
-              id: "90477539",
-              length: "1:26s",
-              objects: "102000"
-            },
-      {
-              name: "Sevvend Clubstep",
-              host: "cherryteam",
-              verifier: "Vorten",
-              image: "sevvend.jpg",
-              verification: "https://www.youtube.com/watch?v=TvA8EJTJFCc",
-              id: "120255728",
-              length: "1:14s",
-              objects: "61131"
-            },
-      {
-              name: "Haunted Ship",
-              host: "awesomeme360",
-              verifier: "Gnamolor",
-              image: "haunted ship.jpg",
-              verification: "https://www.youtube.com/watch?v=22l59QGmL48",
-              id: "143523624",
-              length: "1:50s",
-              objects: "123462"
-            },
-      {
-              name: "HAZARD DUTY PAY",
-              host: "Unbipentium",
-              verifier: "w3rty",
-              image: "hdp.jpg",
-              verification: "https://www.youtube.com/watch?v=kpbE1vJXUos",
-              id: "104359956",
-              length: "1:03s",
-              objects: "53909"
-            },
-      {
-              name: "The Hallucination",
-              host: "SyQual",
-              verifier: "VoTcHi",
-              image: "the hallucination.jpg",
-              verification: "https://www.youtube.com/watch?v=tYbXsNkO9HE",
-              id: "81139702",
-              length: "2:05s",
-              objects: "159616"
-            },
-      {
-              name: "BRITNEY NO SCLEARS",
-              host: "wabas",
-              verifier: "Scotchtape",
-              image: "bns.jpg",
-              verification: "https://www.youtube.com/watch?v=ff_mQSXwjhU",
-              id: "125317359",
-              length: "1:17s",
-              objects: "46316"
-            }
-  ];
-
-    const firstVictors = {
-      // Rank #1 is intentionally empty.
-      1: "NONE",
-      2: "Zoink",
-      3: "Zoink",
-      4: "wPopoff",
-      5: "NONE",
-      6: "Zoink",
-      7: "Trick",
-      8: "Fill GD",
-      9: "dovvin",
-      10: "spookkd",
-      11: "agonom",
-      12: "Weyoul113",
-      13: "lanx",
-      14: "dovvin",
-      15: "Zoink",
-      16: "lanx",
-      17: "Zoink",
-      18: "dovvin",
-      19: "nickname09",
-      20: "Zoink",
-      21: "nickname09",
-      22: "Trick",
-      23: "zLevii",
-      24: "NONE",
-      25: "wPopoff",
-      26: "A6",
-      27: "Diamond",
-      28: "Trick",
-      29: "Doggie",
-      30: "Thnnder",
-      31: "Tazik",
-      32: "XenBlem",
-      33: "Trick",
-      34: "luno",
-      35: "wPopoff",
-      36: "whfyre",
-      37: "Zoink",
-      38: "Zoink",
-      39: "Zoink",
-      40: "Tunax",
-      41: "Zoink",
-      42: "Trick",
-      43: "muno",
-      44: "Electrx",
-      45: "Trick",
-      46: "agonom",
-      47: "agonom",
-      48: "Abdieldevil",
-      49: "Netermind",
-      50: "Cursed",
-      51: "Zoink",
-      52: "hqmy",
-      53: "YeldA",
-      54: "SuperJavicon",
-      55: "theopex58",
-      56: "Cuatrocientos",
-      57: "wPopoff",
-      58: "kula",
-      59: "Trick",
-      60: "BONN GD",
-      61: "Chayok",
-      62: "Axinity",
-      63: "SeptaGon7",
-      64: "Crisis",
-      65: "ViperVenom95",
-      66: "Zoink",
-      67: "Gigaprox",
-      68: "Zoink",
-      69: "xalval",
-      70: "Zoink",
-      71: "TGM05",
-      72: "Jyvl01",
-      73: "NONE",
-      74: "cobrablitz",
-      75: "sawyer",
-    };
-
-    function createLevelCard(level, index) {
-
-      const rank = index + 1;
-
-      let glowClass = "";
-
-      if (rank === 1 && !level.blank) {
-        glowClass = "gold-glow";
-      }
-
-      if (rank >= 4 && rank <= 10) {
-        glowClass = "white-glow";
-      }
-
-      const firstVictor =
-        firstVictors[rank] || "Not added";
-
-      const displayValue = value =>
-        value || "Not added";
-
-      const objects =
-        level.objects || "Not added";
-
-
-      return `
-
-        <div class="level-card ${glowClass} ${level.blank ? "blank-level" : ""}">
-
-          <div class="left-side">
-
-            <div class="rank">
-              #${rank}
-            </div>
-
-
-            <div
-              class="thumbnail ${level.image ? "" : "blank-thumbnail"}"
-              style="${level.image ? `background-image: url('${level.image}');` : ''}"
-              onclick="${level.image ? `openModal('${level.image}')` : ''}"
-              aria-label="${level.name || 'Blank level slot'}"
-            ></div>
-
-
-            <div class="level-details">
-
-              <div class="level-name">
-                ${level.blank ? "" : level.name}
-              </div>
-
-
-              <div class="detail-line">
-                ${level.blank ? "" : `<strong>Hosted by:</strong> ${displayValue(level.host)}`}
-              </div>
-
-
-              <div class="detail-line">
-                ${level.blank ? "" : `<strong>Verified by:</strong> ${displayValue(level.verifier)}`}
-              </div>
-
-
-              <div class="detail-line">
-                ${level.blank ? "" : `<strong>First Victor:</strong> ${firstVictor}`}
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="divider"></div>
-
-
-          <div class="right-side">
-
-            <div class="right-title">
-              LEVEL INFO
-            </div>
-
-
-            <div class="right-info">
-              <strong>Level ID:</strong>
-              ${displayValue(level.id)}
-            </div>
-
-
-            <div class="right-info">
-              <strong>Length:</strong>
-              ${displayValue(level.length)}
-            </div>
-
-
-            <div class="right-info">
-              <strong>Objects:</strong>
-              ${objects}
-            </div>
-
-
-            <a
-              href="${level.verification}"
-              target="_blank"
-              class="verification-button"
-            >
-              <span class="play-icon" aria-hidden="true"></span>
-              <span class="verification-label">Verification Video</span>
-            </a>
-
-          </div>
-
-        </div>
-
-      `;
-
-    }
-
-
-    function displayLevels(levelArray) {
-
-      const list =
-        document.getElementById("level-list");
-
-      list.innerHTML = "";
-
-
-      levelArray.forEach(level => {
-
-        const originalIndex =
-          levels.indexOf(level);
-
-        list.innerHTML +=
-          createLevelCard(
-            level,
-            originalIndex
-          );
-
-      });
-
-    }
-
-
-    document
-      .getElementById("search")
-      .addEventListener(
-        "input",
-        function() {
-
-          const searchTerm =
-            this.value.toLowerCase();
-
-
-          const filteredLevels =
-            levels.filter(level =>
-              level.name
-                .toLowerCase()
-                .includes(searchTerm)
-            );
-
-
-          displayLevels(
-            filteredLevels
-          );
-
-        }
-      );
-
-
-    function openModal(image) {
-
-      const modal =
-        document.getElementById(
-          "imageModal"
-        );
-
-
-      const modalImage =
-        document.getElementById(
-          "modalImage"
-        );
-
-
-      modalImage.src = image;
-      modalImage.style.width = "min(90vw, 1200px)";
-      modalImage.style.height = "min(82vh, 760px)";
-      modalImage.style.objectFit = "contain";
-
-      modal.style.display = "flex";
-
-    }
-
-
-    function closeModal() {
-
-      document.getElementById(
-        "imageModal"
-      ).style.display = "none";
-
-    }
-
-
-    document
-      .getElementById("closeModal")
-      .addEventListener(
-        "click",
-        closeModal
-      );
-
-
-    document
-      .getElementById("imageModal")
-      .addEventListener(
-        "click",
-        function(event) {
-
-          if (
-            event.target === this
-          ) {
-
-            closeModal();
-
-          }
-
-        }
-      );
-
-
-    document.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (
-          event.key === "Escape"
-        ) {
-
-          closeModal();
-
-        }
-
-      }
-    );
-
-
-    displayLevels(levels);
-
-    // Hide the sticky header while scrolling down; reveal it when scrolling up.
-    (() => {
-      const siteHeader = document.querySelector("header");
-      if (!siteHeader) return;
-      let lastScrollY = window.scrollY;
-      let ticking = false;
-      const updateHeader = () => {
-        const currentY = window.scrollY;
-        if (currentY <= 10 || currentY < lastScrollY) {
-          siteHeader.classList.remove("header-hidden");
-        } else if (currentY > lastScrollY) {
-          siteHeader.classList.add("header-hidden");
-        }
-        lastScrollY = currentY;
-        ticking = false;
-      };
-      window.addEventListener("scroll", () => {
-        if (!ticking) {
-          window.requestAnimationFrame(updateHeader);
-          ticking = true;
-        }
-      }, { passive: true });
-    })();
-
-  </script>
+<header>
+
+<div class="logo">
+Demon<span class="red">Verse</span>
+</div>
+
+<div class="subtitle">
+COMMUNITY GEOMETRY DASH DEMON LIST
+</div>
+
+<a
+class="discord-button"
+href="https://discord.gg/ye8whxz52"
+target="_blank"
+>
+DISCORD
+</a>
+
+</header>
+
+
+<div class="search-container">
+
+<input
+type="text"
+id="search"
+placeholder="Search levels..."
+>
+
+</div>
+
+
+<main class="list-container">
+
+<div class="list-title">
+Top 75 Demons
+</div>
+
+<div id="level-list"></div>
+
+</main>
+
+
+<footer>
+DemonVerse • Community Geometry Dash Demon List
+</footer>
+
+
+<div class="image-modal" id="imageModal">
+
+<span class="close" id="closeModal">
+×
+</span>
+
+<img id="modalImage" src="" alt="">
+
+</div>
+
+
+<script>
+
+const levels = [
+{
+name: "GRIEF",
+host: "icedcave",
+verifier: "Doggie",
+image: "grief 2.png",
+verification: "https://www.youtube.com/watch?v=gB8slBPlOjc",
+id: "149992717",
+length: "2:46s",
+objects: "189606"
+},
+{
+name: "Society",
+host: "Neomarbilan",
+verifier: "wPopoff",
+image: "society.jpg",
+verification: "https://www.youtube.com/watch?v=3CoEaH1CM7o",
+id: "127323087",
+length: "1:37s",
+objects: "167368"
+},
+{
+name: "Amethyst",
+host: "iMist",
+verifier: "wPopoff",
+image: "maxresdefault (3).jpg",
+verification: "https://www.youtube.com/watch?v=4lfkzz1VCbA",
+id: "119550490",
+length: "1:42s",
+objects: "NA"
+},
+{
+name: "Artemis 13",
+host: "mvngo",
+verifier: "Zoink",
+image: "maxresdefault (12).jpg",
+verification: "https://www.youtube.com/watch?v=FgjOM0ef1N8",
+id: "148598469",
+length: "1:16s",
+objects: "51880"
+},
+{
+name: "Thinking Space II",
+host: "CairoX",
+verifier: "Zoink",
+image: "maxresdefault (10).jpg",
+verification: "https://www.youtube.com/watch?v=CELNmHwln_c",
+id: "119544028",
+length: "1:10s",
+objects: "139569"
+},
+{
+name: "Flamewall",
+host: "Narwall",
+verifier: "Cautrocientos",
+image: "flamewall.png",
+verification: "https://www.youtube.com/watch?v=x4Io4zkWVRw",
+id: "126242564",
+length: "6:47s",
+objects: "NA"
+},
+{
+name: "Green Bullet",
+host: "cherryteam",
+verifier: "nickname09",
+image: "maxresdefault (6).jpg",
+verification: "https://www.youtube.com/watch?v=JG-qcvVkZFw",
+id: "142896409",
+length: "2:05s",
+objects: "197826"
+},
+{
+name: "Tidal Wave",
+host: "OniLink",
+verifier: "Zoink",
+image: "maxresdefault (5).jpg",
+verification: "https://www.youtube.com/watch?v=9fsZ014qB3s",
+id: "86407629",
+length: "3:01s",
+objects: "220117"
+},
+{
+name: "ORBIT",
+host: "MindCap",
+verifier: "Zoink",
+image: "maxresdefault (7).jpg",
+verification: "https://www.youtube.com/watch?v=QKcv8DkNPd0",
+id: "133175713",
+length: "2:22s",
+objects: "310487"
+},
+{
+name: "Nullscapes",
+host: "ItzKiba",
+verifier: "Zoink",
+image: "nullscapes.jpg",
+verification: "https://www.youtube.com/watch?v=EztneTPp5CU",
+id: "109780665",
+length: "1:26s",
+objects: "63304"
+},
+{
+name: "BOOBAWAMBA",
+host: "AkunAkunn",
+verifier: "EastShark1",
+image: "boobawamba.jpg",
+verification: "https://www.youtube.com/watch?v=20fYiqLAo_E",
+id: "110816181",
+length: "2:26s",
+objects: "92584"
+},
+{
+name: "Antarctic Lights",
+host: "declanlc",
+verifier: "Axinity",
+image: "antarctic.jpg",
+verification: "https://www.youtube.com/watch?v=Uue4ZRhVf-I",
+id: "144988390",
+length: "59s",
+objects: "54901"
+},
+{
+name: "LESOPOWAL",
+host: "cherryteam",
+verifier: "Bacon",
+image: "lesopowal.jpg",
+verification: "https://www.youtube.com/watch?v=RTXnFHkGO_g",
+id: "137886942",
+length: "1:39s",
+objects: "111519"
+},
+{
+name: "Quanteuse Processing",
+host: "Renn241",
+verifier: "Zoink",
+image: "quanteuse.jpg",
+verification: "https://www.youtube.com/watch?v=j5NC0u1Q91Q",
+id: "117692518",
+length: "1:42s",
+objects: "45623"
+},
+{
+name: "Every End",
+host: "MindCap",
+verifier: "hqmy",
+image: "every end.jpg",
+verification: "https://www.youtube.com/watch?v=AO--mVVFtKI",
+id: "116174063",
+length: "7:20s",
+objects: "326381"
+},
+{
+name: "Herr Machine",
+host: "herrteam",
+verifier: "BONN GD",
+image: "herr machine.jpg",
+verification: "https://www.youtube.com/watch?v=CBcQqmqWFo4",
+id: "142529115",
+length: "1:46s",
+objects: "33068"
+},
+{
+name: "andromeda",
+host: "Insxne97",
+verifier: "Taiago",
+image: "andromeda.jpg",
+verification: "https://www.youtube.com/watch?v=mk3TDemdkC0",
+id: "114283297",
+length: "1:14s",
+objects: "179344"
+},
+{
+name: "Penumbral",
+host: "cherryteam",
+verifier: "w3rty",
+image: "penumbral.jpg",
+verification: "https://www.youtube.com/watch?v=nVHPFf13M-I",
+id: "134942736",
+length: "1:23s",
+objects: "87888"
+},
+{
+name: "Ashley Wave Trials",
+host: "oddmod",
+verifier: "Zoink",
+image: "awt.jpg",
+verification: "https://www.youtube.com/watch?v=aTxt76U3e2Q",
+id: "62912799",
+length: "2:06s",
+objects: "37726"
+},
+{
+name: "Ultra Paracosm",
+host: "declanlc",
+verifier: "Wity",
+image: "ultra paracosm.png",
+verification: "https://www.youtube.com/watch?v=4V24spYQWuE",
+id: "138074906",
+length: "1:11s",
+objects: "69426"
+},
+{
+name: "The Bloop",
+host: "murkkat",
+verifier: "Zoink",
+image: "bloop.jpg",
+verification: "https://www.youtube.com/watch?v=ROuXHSKEhHA",
+id: "135661111",
+length: "1:46s",
+objects: "108909"
+},
+{
+name: "Silent Clubstep",
+host: "TheRealSailent",
+verifier: "Zoink",
+image: "silent clubstep.jpg",
+verification: "https://www.youtube.com/watch?v=57aQ3EmSqQ4",
+id: "4125776",
+length: "1:27",
+objects: "10907"
+},
+{
+name: "KILLSTEALER",
+host: "rynoxious",
+verifier: "kloone",
+image: "killstealer.jpg",
+verification: "https://www.youtube.com/watch?v=uhH4oqWrsfo",
+id: "138781722",
+length: "4:00s",
+objects: "NA"
+},
+{
+name: "Azure Flare",
+host: "ItzHybrid",
+verifier: "Diamond",
+image: "azure flare.jpe",
+verification: "https://www.youtube.com/watch?v=r6hQ5Se2i8U",
+id: "142929059",
+length: "1:05s",
+objects: "70235"
+},
+{
+name: "Subsuming Vortex",
+host: "SeptaGon7",
+verifier: "Cursed",
+image: "subsuming.jpg",
+verification: "https://www.youtube.com/watch?v=0eYG1ogJpIQ",
+id: "127997391",
+length: "1:00s",
+objects: "71249"
+},
+{
+name: "Anathema",
+host: "nikroplays",
+verifier: "WhizKid05",
+image: "anathema.jpg",
+verification: "https://www.youtube.com/watch?v=_uKwmjHmySI",
+id: "112313819",
+length: "2:30s",
+objects: "287446"
+},
+{
+name: "Avernus",
+host: "PockeWindfish",
+verifier: "Zoink",
+image: "avernus.jpg",
+verification: "https://www.youtube.com/watch?v=16Zh8jssanc",
+id: "89496627",
+length: "1:18s",
+objects: "163918"
+},
+{
+name: "Spectre",
+host: "xander",
+verifier: "PersonHuman42",
+image: "spectre.jpg",
+verification: "https://www.youtube.com/watch?v=MzsSLKJrLSI",
+id: "110815379",
+length: "2:45s",
+objects: "NA"
+},
+{
+name: "SILENTMAN ADVENTURES",
+host: "ThePurgatory",
+verifier: "nickname09",
+image: "silentman adventures.jpg",
+verification: "https://www.youtube.com/watch?v=NE89R0tA8fU&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fudl.pages.dev%2F",
+id: "147442928",
+length: "1:26s",
+objects: "66467"
+},
+{
+name: "Acheron",
+host: "Riot",
+verifier: "Zoink",
+image: "acheron.jpg",
+verification: "https://www.youtube.com/watch?v=sBKR6aUorzA",
+id: "73667628",
+length: "1:07s",
+objects: "47985"
+},
+{
+name: "Menace",
+host: "Arraegen",
+verifier: "WhizKid05",
+image: "menace.jpg",
+verification: "https://www.youtube.com/watch?v=nnkgghxxsEE",
+id: "107805281",
+length: "3:05s",
+objects: "77610"
+},
+{
+name: "Defeated Circles",
+host: "GXQ",
+verifier: "Zoink",
+image: "defeated circles.jpg",
+verification: "https://www.youtube.com/watch?v=nU5AQPzd2YA",
+id: "120012581",
+length: "1:00s",
+objects: "84293"
+},
+{
+name: "Cognitohazard",
+host: "MercuryDT⁩",
+verifier: "WhizKid05",
+image: "cognitohazard.jpg",
+verification: "https://www.youtube.com/watch?v=T5g0r16X_ZA",
+id: "130891319",
+length: "1:41s",
+objects: "55545"
+},
+{
+name: "Abyss of Darkness",
+host: "Exen",
+verifier: "Cursed",
+image: "aod.jpg",
+verification: "https://www.youtube.com/watch?v=ejJkpqcMMCY",
+id: "49896559",
+length: "2:05s",
+objects: "113274"
+},
+{
+name: "Kyouki",
+host: "出見塩",
+verifier: "出見塩",
+image: "kyouki.jpg",
+verification: "https://www.youtube.com/watch?v=KDa5c0CJTHs",
+id: "86018142",
+length: "1:38s",
+objects: "220721"
+},
+{
+name: "Sacrifice",
+host: "Laniakea",
+verifier: "Laniakea",
+image: "sacrifice.jpg",
+verification: "https://www.youtube.com/watch?v=Sth67PA8XBU",
+id: "141052363",
+length: "2:28s",
+objects: "170420"
+},
+{
+name: "FOREST OF SPIKES",
+host: "Bimms",
+verifier: "Brain Cheese",
+image: "forest of spikes.jpg",
+verification: "https://www.youtube.com/watch?v=WJYh3dW8Bfo",
+id: "145709435",
+length: "1:49s",
+objects: "83474"
+},
+{
+name: "Tunnel of Despair",
+host: "Exen",
+verifier: "Zoink",
+image: "tunnel of despair.jpg",
+verification: "https://www.youtube.com/watch?v=LpS4JREhW98",
+id: "91351939",
+length: "1:45s",
+objects: "75302"
+},
+{
+name: "Based After Based",
+host: "AkunAkunn",
+verifier: "DiamondSplash",
+image: "based after based.jpg",
+verification: "https://www.youtube.com/watch?v=yQBFyUvB3lY",
+id: "110534288",
+length: "1:28s",
+objects: "99070"
+},
+{
+name: "BEING HOME",
+host: "turtl123",
+verifier: "goobs47",
+image: "being home.jpg",
+verification: "https://www.youtube.com/watch?v=kt7FnUzK8CY",
+id: "130327668",
+length: "1:42s",
+objects: "72633"
+},
+{
+name: "The Lightning Rod",
+host: "LavaTrex",
+verifier: "LavaTrex",
+image: "the lightning rod.jpg",
+verification: "https://www.youtube.com/watch?v=nQDTi077O6M",
+id: "93917076",
+length: "1:37s",
+objects: "44709"
+},
+{
+name: "Slaughterhouse",
+host: "icedcave",
+verifier: "Doggie",
+image: "slh.jpg",
+verification: "https://www.youtube.com/watch?v=kpcF1-QAHQc",
+id: "27690100",
+length: "1:10s",
+objects: "147242"
+},
+{
+name: "Centipede",
+host: "zander12",
+verifier: "LordVadercraft",
+image: "centipedee.jpg",
+verfication: "https://www.youtube.com/watch?v=UFpfgXBQzhY",
+id: "141320499",
+length: "1:49s",
+objects: "113880"
+},
+{
+name: "KOCMOC",
+host: "cherryteam",
+verifier: "Zoink",
+image: "kocmoc.jpg",
+verification: "https://www.youtube.com/watch?v=2CxE-UWCIG4",
+id: "87665224",
+length: "1:27s",
+objects: "159361"
+},
+{
+name: "Ace",
+host: "TheBigCheese69",
+verifier: "Aidsen",
+image: "ace.jpg",
+verification: "https://www.youtube.com/watch?v=7uYghOdos8I",
+id: "138215607",
+length: "1:08s",
+objects: "35658"
+},
+{
+name: "Subterminal Point",
+host: "SyQual",
+verifier: "PoCle",
+image: "subterminal.jpg",
+verification: "https://www.youtube.com/watch?v=h2wmRMgACH4",
+id: "113599729",
+length: "1:09s",
+objects: "40968"
+},
+{
+name: "Master of Puppets",
+host: "TheZinkYT",
+verifier: "Scotchtape",
+image: "master of pupets.jpg",
+verification: "https://www.youtube.com/watch?v=JBZ-lrBgkl0",
+id: "136396693",
+length: "8:35s",
+objects: "NA"
+},
+{
+name: "zorin",
+host: "태리",
+verifier: "9i",
+image: "zorin.jpg",
+verification: "https://www.youtube.com/watch?v=U19vmpenb9g",
+id: "134541844",
+length: "2:56s",
+objects: "148320"
+},
+{
+name: "Maniacal Chains",
+host: "LordDivinity",
+verifier: "spcreat",
+image: "manical chains.jpg",
+verification: "https://www.youtube.com/watch?v=TzeMJeIu6bY",
+id: "48991380",
+length: "1:56s",
+objects: "94904"
+},
+{
+name: "CHIL",
+host: "McCoco",
+verifier: "McCoco",
+image: "chil.jpg",
+verification: "https://www.youtube.com/watch?v=DROMiCc2ZRM",
+id: "114281093",
+length: "1:01s",
+objects: "69175"
+},
+{
+name: "Eyes in the Water",
+host: "hawkyre",
+verifier: "LordVadercraft",
+image: "eyes in the water.jpg",
+verification: "https://www.youtube.com/watch?v=yvLwiOy3KEA",
+id: "95851008",
+length: "1:32s",
+objects: "91424"
+},
+{
+name: "Sakupen Circles",
+host: "Diamond",
+verifier: "Diamond",
+image: "skc.jpg",
+verification: "https://www.youtube.com/watch?v=ofG2mJi9kEA",
+id: "76962930",
+length: "50s",
+objects: "70028"
+},
+{
+name: "Deimos",
+host: "ItsHybrid",
+verifier: "Doggie",
+image: "deimos.png",
+verification: "https://www.youtube.com/watch?v=b2yHaIk5zio",
+id: "93091893",
+length: "2:57s",
+objects: "157646"
+},
+{
+name: "KOSETSU",
+host: "fwe",
+verifier: "Taiago",
+image: "kosetsu.jpg",
+verification: "https://www.youtube.com/watch?v=hZ8vFX8z_BU",
+id: "109439644",
+length: "1:12s",
+objects: "81898"
+},
+{
+name: "Prismline",
+host: "ItsHarryy",
+verifier: "Wain",
+image: "prismline.jpg",
+verification: "https://www.youtube.com/watch?v=pIHOHz3i0Rw",
+id: "135148907",
+length: "1:25s",
+objects: "87900"
+},
+{
+name: "Snowbound",
+host: "Amplitron",
+verifier: "Amplitron",
+image: "snowbound.jpg",
+verification: "https://www.youtube.com/watch?v=cjHwgbtAkXU",
+id: "120289520",
+length: "2:20",
+objects: "140669"
+},
+{
+name: "Wild Roses",
+host: "cherryteam",
+verifier: "Eiriley",
+image: "wild roses.jpe",
+verification: "https://www.youtube.com/watch?v=MnOSbQQV_wA",
+id: "145494348",
+length: "1:04s",
+objects: "118598"
+},
+{
+name: "Voltage",
+host: "ThePurgatory",
+verifier: "maybee",
+image: "voltage.jpg",
+verification: "https://www.youtube.com/watch?v=wBRvBN9tmlc",
+id: "131599104",
+length: "1:08s",
+objects: "65729"
+},
+{
+name: "Silentlocked",
+host: "GDSkele",
+verifier: "TFIBB",
+image: "silentlocked.jpg",
+verification: "https://www.youtube.com/watch?v=O-IQeUdEGvI",
+id: "113959291",
+length: "1:44s",
+objects: "109255"
+},
+{
+name: "NervHell",
+host: "ASVTeam",
+verifier: "ChopBlox",
+image: "nervhell.jpe",
+verification: "https://www.youtube.com/watch?v=1zrvPgDAoaA",
+id: "143718114",
+length: "3:20s",
+objects: "178675"
+},
+{
+name: "Apocalyptic Trilogy",
+host: "APTeamOfficial",
+verifier: "polterghast",
+image: "at.jpg",
+verification: "https://www.youtube.com/watch?v=RUBbpsTR5eU",
+id: "113443235",
+length: "4:27s",
+objects: "NA"
+},
+{
+name: "SUBCONCIOUS",
+host: "Lunarria",
+verifier: "apu",
+image: "subconcious.jpg",
+verification: "https://www.youtube.com/watch?v=lBXO2CTEMfs",
+id: "",
+length: "1:13s",
+objects: "238737"
+},
+{
+name: "The Salt Factory",
+host: "nickname09",
+verifier: "nickname09",
+image: "the salt factory.jpg",
+verification: "https://www.youtube.com/watch?v=lQ7M-Sgov24",
+id: "113045735",
+length: "1:35s",
+objects: "76834"
+},
+{
+name: "BASSLINE JUNKIE",
+host: "MCBIGMACPLAYZ",
+verifier: "Karma",
+image: "bassline junkie.jpg",
+verification: "https://www.youtube.com/watch?v=db_V19gW0rI&t=7s",
+id: "143300771",
+length: "1:53s",
+objects: "105243"
+},
+{
+name: "Through The Gates",
+host: "TeamTheDashers",
+verifier: "Zoink",
+image: "through the gates.png",
+verification: "https://www.youtube.com/watch?v=4yHA6jux5UI",
+id: "49072489",
+length: "1:38s",
+objects: "78672"
+},
+{
+name: "Firework",
+host: "cherryteam",
+verifier: "Trick",
+image: "firework.jpe",
+verification: "https://www.youtube.com/watch?v=QBe5x2o9v2w",
+id: "75206202",
+length: "2:07",
+objects: "165171"
+},
+{
+name: "MINUSdry",
+host: "CDMusic",
+verifier: "Varium",
+image: "minusdry.jpg",
+verification: "https://www.youtube.com/watch?v=YvA8ehhzz0Q",
+id: "89414220",
+length: "1:22s",
+objects: "44994"
+},
+{
+name: "Deadlier Clubstep",
+host: "HeroZombie80",
+verifier: "Jenath",
+image: "deadlier clubstep.jpg",
+verification: "https://www.youtube.com/watch?v=eRhgaF0r5Q0",
+id: "96314787",
+length: "1:44s",
+objects: "159793"
+},
+{
+name: "Lunatic Eyes",
+host: "SyQual",
+verifier: "DNM121",
+image: "lunatic eyes.png",
+verification: "https://www.youtube.com/watch?v=lBXO2CTEMfs",
+id: "123417713",
+length: "1:25s",
+objects: "78024"
+},
+{
+name: "NOMAD",
+host: "ReeseVT",
+verifier: "Laniakea",
+image: "nomad.jpg",
+verification: "https://www.youtube.com/watch?v=H2TkHbEX__A",
+id: "115077305",
+length: "55s",
+objects: "9767"
+},
+{
+name: "poocubed",
+host: "Liisp",
+verifier: "kyass",
+image: "poo3.jpg",
+verification: "https://www.youtube.com/watch?v=fzL31vai1ms",
+id: "85133223",
+length: "1:22s",
+objects: "105788"
+},
+{
+name: "Calibrate",
+host: "Bamvie",
+verifier: "블베",
+image: "calibrate.jpg",
+verification: "https://www.youtube.com/watch?v=6WYnZryX_mg",
+id: "136981369",
+length: "1:16s",
+objects: "83435"
+},
+{
+name: "Sevvend Clubstep",
+host: "cherryteam",
+verifier: "Vorten",
+image: "sevvend.jpg",
+verification: "https://www.youtube.com/watch?v=TvA8EJTJFCc",
+id: "120255728",
+length: "1:14s",
+objects: "61131"
+},
+{
+name: "Kintetsu",
+host: "Dundermuffin",
+verifier: "jupi",
+image: "kintetsu.jpg",
+verification: "https://www.youtube.com/watch?v=JQDw15tJR58",
+id: "138659441",
+length: "1:07s",
+objects: "150609"
+},
+{
+name: "Haunted Ship",
+host: "awesomeme360",
+verifier: "Gnamolor",
+image: "haunted ship.jpg",
+verification: "https://www.youtube.com/watch?v=22l59QGmL48",
+id: "143523624",
+length: "1:50s",
+objects: "123462"
+}
+
+];
+
+const firstVictors = {
+// New spots are intentionally blank; existing first-victor values follow their levels.
+1: "NONE",
+2: "Zoink",
+3: "Zoink",
+4: "NONE",
+5: "wPopoff",
+6: "Zoink",
+7: "Fill GD",
+8: "Trick",
+9: "dovvin",
+10: "spookkd",
+11: "agonom",
+12: "Weyoul113",
+13: "lanx",
+14: "dovvin",
+15: "Zoink",
+16: "lanx",
+17: "Zoink",
+18: "dovvin",
+19: "nickname09",
+20: "Zoink",
+21: "nickname09",
+22: "Trick",
+23: "zLevii",
+24: "NONE",
+25: "wPopoff",
+26: "A6",
+27: "Diamond",
+28: "Trick",
+29: "NONE",
+30: "Doggie",
+31: "Thnnder",
+32: "Tazik",
+33: "XenBlem",
+34: "Trick",
+35: "Zoink",
+36: "luno",
+37: "wPopoff",
+38: "whfyre",
+39: "Zoink",
+40: "Zoink",
+41: "Tunax",
+42: "Zoink",
+43: "Trick",
+44: "muno",
+45: "Electrx",
+46: "Trick",
+47: "agonom",
+48: "Chayok",
+49: "agonom",
+50: "Abdieldevil",
+51: "Netermind",
+52: "Cursed",
+53: "Zoink",
+54: "hqmy",
+55: "YeldA",
+56: "SuperJavicon",
+57: "theopex58",
+58: "Cuatrocientos",
+59: "wPopoff",
+60: "kula",
+61: "Trick",
+62: "NONE",
+63: "BONN GD",
+64: "Axinity",
+65: "SeptaGon7",
+66: "Crisis",
+67: "ViperVenom95",
+68: "Zoink",
+69: "NONE",
+70: "Gigaprox",
+71: "Zoink",
+72: "xalval",
+73: "TGM05",
+74: "Tyreek Bigs",
+75: "Jyvl01"
+};
+
+function createLevelCard(level, index) {
+
+const rank = index + 1;
+
+let glowClass = "";
+
+if (rank === 1 && !level.blank) {
+glowClass = "gold-glow";
+}
+
+if (rank >= 4 && rank <= 10) {
+glowClass = "white-glow";
+}
+
+const firstVictor =
+firstVictors[rank] || "Not added";
+
+const displayValue = value =>
+value || "Not added";
+
+const objects =
+level.objects || "Not added";
+
+
+return `
+
+<div class="level-card ${glowClass} ${level.blank ? "blank-level" : ""}">
+
+<div class="left-side">
+
+<div class="rank">
+#${rank}
+</div>
+
+
+<div
+class="thumbnail ${level.image ? "" : "blank-thumbnail"}"
+style="${level.image ? `background-image: url('${level.image}');` : ''}"
+onclick="${level.image ? `openModal('${level.image}')` : ''}"
+aria-label="${level.name || 'Blank level slot'}"
+></div>
+
+
+<div class="level-details">
+
+<div class="level-name">
+${level.blank ? "" : level.name}
+</div>
+
+
+<div class="detail-line">
+${level.blank ? "" : `<strong>Hosted by:</strong> ${displayValue(level.host)}`}
+</div>
+
+
+<div class="detail-line">
+${level.blank ? "" : `<strong>Verified by:</strong> ${displayValue(level.verifier)}`}
+</div>
+
+
+<div class="detail-line">
+${level.blank ? "" : `<strong>First Victor:</strong> ${firstVictor}`}
+</div>
+
+</div>
+
+</div>
+
+
+<div class="divider"></div>
+
+
+<div class="right-side">
+
+<div class="right-title">
+LEVEL INFO
+</div>
+
+
+<div class="right-info">
+<strong>Level ID:</strong>
+${displayValue(level.id)}
+</div>
+
+
+<div class="right-info">
+<strong>Length:</strong>
+${displayValue(level.length)}
+</div>
+
+
+<div class="right-info">
+<strong>Objects:</strong>
+${objects}
+</div>
+
+
+<a
+href="${level.verification}"
+target="_blank"
+class="verification-button"
+>
+<span class="play-icon" aria-hidden="true"></span>
+<span class="verification-label">Verification Video</span>
+</a>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+function displayLevels(levelArray) {
+
+const list =
+document.getElementById("level-list");
+
+list.innerHTML = "";
+
+
+levelArray.forEach(level => {
+
+const originalIndex =
+levels.indexOf(level);
+
+list.innerHTML +=
+createLevelCard(
+level,
+originalIndex
+);
+
+});
+
+}
+
+
+document
+.getElementById("search")
+.addEventListener(
+"input",
+function() {
+
+const searchTerm =
+this.value.toLowerCase();
+
+
+const filteredLevels =
+levels.filter(level =>
+level.name
+.toLowerCase()
+.includes(searchTerm)
+);
+
+
+displayLevels(
+filteredLevels
+);
+
+}
+);
+
+
+function openModal(image) {
+
+const modal =
+document.getElementById(
+"imageModal"
+);
+
+
+const modalImage =
+document.getElementById(
+"modalImage"
+);
+
+
+modalImage.src = image;
+modalImage.style.width = "min(90vw, 1200px)";
+modalImage.style.height = "min(82vh, 760px)";
+modalImage.style.objectFit = "contain";
+
+modal.style.display = "flex";
+
+}
+
+
+function closeModal() {
+
+document.getElementById(
+"imageModal"
+).style.display = "none";
+
+}
+
+
+document
+.getElementById("closeModal")
+.addEventListener(
+"click",
+closeModal
+);
+
+
+document
+.getElementById("imageModal")
+.addEventListener(
+"click",
+function(event) {
+
+if (
+event.target === this
+) {
+
+closeModal();
+
+}
+
+}
+);
+
+
+document.addEventListener(
+"keydown",
+function(event) {
+
+if (
+event.key === "Escape"
+) {
+
+closeModal();
+
+}
+
+}
+);
+
+
+displayLevels(levels);
+
+// Hide the sticky header while scrolling down; reveal it when scrolling up.
+(() => {
+const siteHeader = document.querySelector("header");
+if (!siteHeader) return;
+let lastScrollY = window.scrollY;
+let ticking = false;
+const updateHeader = () => {
+const currentY = window.scrollY;
+if (currentY <= 10 || currentY < lastScrollY) {
+siteHeader.classList.remove("header-hidden");
+} else if (currentY > lastScrollY) {
+siteHeader.classList.add("header-hidden");
+}
+lastScrollY = currentY;
+ticking = false;
+};
+window.addEventListener("scroll", () => {
+if (!ticking) {
+window.requestAnimationFrame(updateHeader);
+ticking = true;
+}
+}, { passive: true });
+})();
+
+</script>
 
 </body>
 </html>
