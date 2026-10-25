@@ -320,6 +320,50 @@ cursor: pointer;
 font-weight: 300;
 }
 
+    .theme-toggle {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 1px solid #d5d5d5;
+      border-radius: 50%;
+      background: #f4f4f4;
+      cursor: pointer;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .theme-toggle:hover { transform: rotate(-8deg) scale(1.05); }
+    .theme-toggle svg { width: 22px; height: 22px; display: block; }
+    .theme-toggle .moon-icon { display: block; fill: #000; }
+    .theme-toggle .sun-icon { display: none; fill: #fff; }
+
+    body.dark-mode {
+      background: #101010;
+      color: #f3f3f3;
+      color-scheme: dark;
+    }
+    body.dark-mode header { background: #171717; border-bottom-color: #333; }
+    body.dark-mode .subtitle { color: #aaa; }
+    body.dark-mode .theme-toggle { background: #090909; border-color: #555; }
+    body.dark-mode .theme-toggle .moon-icon { display: none; }
+    body.dark-mode .theme-toggle .sun-icon { display: block; }
+    body.dark-mode #search { background: #1d1d1d; color: #f5f5f5; border-color: #444; color-scheme: dark; }
+    body.dark-mode #search::placeholder { color: #aaa; }
+    body.dark-mode .level-card { background: #191919; border-color: #383838; box-shadow: 0 2px 8px rgba(0,0,0,.28); }
+    /* Keep the #1 gold glow visible in dark mode too. */
+    body.dark-mode .level-card.gold-glow {
+      box-shadow:
+        0 0 8px rgba(255, 196, 0, 0.65),
+        0 0 18px rgba(255, 196, 0, 0.45),
+        0 0 30px rgba(255, 196, 0, 0.22);
+    }
+    body.dark-mode .thumbnail { background-color: #252525; }
+    body.dark-mode .blank-thumbnail { background: #202020; border-color: #555; }
+    body.dark-mode .divider { background: #393939; }
+    body.dark-mode footer { color: #999; }
+
 @media (max-width: 900px) {
 
 header {
@@ -421,6 +465,11 @@ min-width: 30px;
 <div class="logo">
 Demon<span class="red">Verse</span>
 </div>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+  <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.8 8.8 0 0 1 8.9 3.8 9.2 9.2 0 1 0 20.2 15.1Z"/></svg>
+  <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6ZM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.22 5.64l1.42-1.42 2.12 2.12-1.42 1.42zm12.02 12.02 1.42-1.42 2.12 2.12-1.42 1.42zM18.36 4.22l1.42 1.42-2.12 2.12-1.42-1.42zM6.34 16.24l1.42 1.42-2.12 2.12-1.42-1.42z"/></svg>
+</button>
 
 <div class="subtitle">
 COMMUNITY GEOMETRY DASH DEMON LIST
@@ -1576,6 +1625,19 @@ ticking = true;
 }, { passive: true });
 })();
 
+
+// Black crescent switches to a white sun and enables the site-wide dark theme.
+(() => {
+  const toggle = document.getElementById('themeToggle');
+  if (!toggle) return;
+  const setDarkMode = (enabled) => {
+    document.body.classList.toggle('dark-mode', enabled);
+    toggle.setAttribute('aria-pressed', String(enabled));
+    toggle.setAttribute('aria-label', enabled ? 'Switch to light mode' : 'Switch to dark mode');
+    toggle.title = enabled ? 'Switch to light mode' : 'Switch to dark mode';
+  };
+  toggle.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
+})();
 </script>
 
 </body>
