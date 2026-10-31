@@ -49,6 +49,10 @@ white-space: nowrap;
 color: #d62828;
 }
 
+.logo .purple {
+color: #713cff;
+}
+
 .subtitle {
 font-size: 13px;
 font-weight: 500;
@@ -130,6 +134,40 @@ font-size: 22px;
 font-weight: 700;
 margin-bottom: 18px;
 }
+
+.view-switch {
+  max-width: 1260px;
+  margin: 18px auto 0;
+  padding: 0 20px;
+  display: flex;
+  gap: 10px;
+}
+.view-button {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  color: #222;
+  padding: 10px 16px;
+  font: 700 12px "Orbitron", Arial, sans-serif;
+  letter-spacing: .5px;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.view-button.active { background: #222; color: #fff; border-color: #222; }
+.view-button[data-view="upcoming"].active { background: #713cff; border-color: #713cff; }
+body.dark-mode .view-button { background: #191919; color: #eee; border-color: #444; }
+body.dark-mode .view-button.active { background: #eee; color: #111; border-color: #eee; }
+body.dark-mode .view-button[data-view="upcoming"].active { background: #8b5cff; color: #fff; border-color: #8b5cff; }
+.upcoming-card { border-color: rgba(113,60,255,.42); }
+.upcoming-card .right-title { color: #713cff; }
+.upcoming-card .verification-button { background: #713cff; }
+.upcoming-card .verification-button:hover { background: #5c2bd8; }
+body.dark-mode .upcoming-card { border-color: rgba(151,112,255,.55); }
+body.dark-mode .upcoming-card .right-title { color: #ad8cff; }
+body.dark-mode .upcoming-card .verification-button { background: #7542ed; }
+body.dark-mode .upcoming-card .verification-button:hover { background: #6334d2; }
+.upcoming-card .progress-value { color: #713cff; font-weight: 800; }
+body.dark-mode .upcoming-card .progress-value { color: #b79aff; }
 
 .level-card {
 display: flex;
@@ -411,6 +449,8 @@ height: 145px;
 }
 
 @media (max-width: 600px) {
+  .view-switch { gap: 8px; }
+  .view-button { flex: 1; padding: 10px 8px; font-size: 10px; }
 
 .level-name {
 font-size: 23px;
@@ -494,6 +534,11 @@ id="search"
 placeholder="Search levels..."
 >
 
+</div>
+
+<div class="view-switch" role="group" aria-label="Choose leaderboard">
+  <button class="view-button active" id="mainViewButton" data-view="main" type="button">MAIN LIST</button>
+  <button class="view-button" id="upcomingViewButton" data-view="upcoming" type="button">UP AND COMING</button>
 </div>
 
 
@@ -1280,6 +1325,233 @@ objects: "150609"
 
 ];
 
+
+
+// One demonstration entry for the new Up and Coming section.
+// Replace these placeholder details when adding the first real level.
+const upcomingLevels = [
+  {
+    name: "Sweeping Demon 2",
+    host: "",
+    verifier: "Taiago",
+    image: "sweeping demon 2.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "87%",
+  },
+  {
+    name: "Silent Acropolis",
+    host: "The Purgatory",
+    verifier: "Not added",
+    image: "silent acropolis.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "99%",
+  },
+  {
+    name: "KOCMOC UNLEASED",
+    host: "cherryteam",
+    verifier: "Not added",
+    image: "kocmoc unleased.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "69%"
+  },
+  {
+    name: "Eternal Silence",
+    host: "Not added",
+    verifier: "TBD",
+    image: "eternal silence.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "4-100%",
+  },
+  {
+    name: "Heliopolis",
+    host: "MindCap",
+    verifier: "Zoink",
+    image: "heliopolis.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "85%",
+  },
+  {
+    name: "Silent Circles",
+    host: "Not added",
+    verifier: "dewbbs",
+    image: "silent circles.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "82%",
+  },
+  {
+    name: "IT MEANS EVERYTING",
+    host: "Not added",
+    verifier: "Waltty",
+    image: "it means everything.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "95%",
+  },
+  {
+    name: "exasperation",
+    host: "Thyket",
+    verifier: "TBD",
+    image: "exasperation.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "67%",
+  },
+  {
+    name: "Laybrinth",
+    host: "Not added",
+    verifier: "Not added",
+    image: "labyrinth.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "13%-100%",
+  },
+  {
+    name: "ESCALATOR",
+    host: "Not added",
+    verifier: "teraaa",
+    image: "escalator.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "83%",
+  },
+  {
+    name: "i n j u r y",
+    host: "Not added",
+    verifier: "Not added",
+    image: "i n j u r y.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "74%",
+  },
+  {
+    name: "FLASHBANG",
+    host: "Not added",
+    verifier: "LordVadercraft",
+    image: "flashbang.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "22-96%",",
+  },
+  {
+    name: "SILENT HELHEIM",
+    host: "Not added",
+    verifier: "Kopyedz",
+    image: "silent helheim.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "78%",
+  },
+  {
+    name: "ECHO",
+    host: "Not added",
+    verifier: "hqmy",
+    image: "echo.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "86%",
+  },
+  {
+    name: "NIGHTFALL",
+    host: "Not added",
+    verifier: "nei_gmd",
+    image: "nightfall.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "97%",
+  },
+  {
+    name: "FIBERGLASS",
+    host: "Not added",
+    verifier: "Duv",
+    image: "fiberglass.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "8-100%",
+  },
+  {
+    name: "Apollyon",
+    host: "Not added",
+    verifier: "katzen",
+    image: "apollyon.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "97%",
+  },
+  {
+    name: "Diffraction",
+    host: "Not added",
+    verifier: "Gamingbyte",
+    image: "diffraction.png",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "74%",
+  },
+  {
+    name: "ARE",
+    host: "Not added",
+    verifier: "BONNGD",
+    image: "are.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "36-100%",
+  },
+  {
+    name: "Banshee",
+    host: "Not added",
+    verifier: "TBD",
+    image: "banshee.jpg",
+    verification: "#",
+    id: "Not added",
+    length: "Not added",
+    objects: "Not added",
+    progress: "21-100%",
+  }
+];
+
 const firstVictors = {
  1: "NONE",
  2: "Zoink",
@@ -1356,7 +1628,7 @@ const firstVictors = {
  74: "xalval",
 };
 
-function createLevelCard(level, index) {
+function createLevelCard(level, index, isUpcoming = false) {
 
 const rank = index + 1;
 
@@ -1382,7 +1654,7 @@ level.objects || "Not added";
 
 return `
 
-<div class="level-card ${glowClass} ${level.blank ? "blank-level" : ""}">
+<div class="level-card ${glowClass} ${isUpcoming ? "upcoming-card" : ""} ${level.blank ? "blank-level" : ""}">
 
 <div class="left-side">
 
@@ -1417,7 +1689,7 @@ ${level.blank ? "" : `<strong>Verified by:</strong> ${displayValue(level.verifie
 
 
 <div class="detail-line">
-${level.blank ? "" : `<strong>First Victor:</strong> ${firstVictor}`}
+${level.blank ? "" : (isUpcoming ? `<strong>Progress:</strong> <span class="progress-value">${level.progress === null || level.progress === undefined || level.progress === "" ? "Not added" : `${level.progress}%`}</span>` : `<strong>First Victor:</strong> ${firstVictor}`)}
 </div>
 
 </div>
@@ -1471,28 +1743,37 @@ class="verification-button"
 }
 
 
-function displayLevels(levelArray) {
+let currentView = "main";
 
-const list =
-document.getElementById("level-list");
-
-list.innerHTML = "";
-
-
-levelArray.forEach(level => {
-
-const originalIndex =
-levels.indexOf(level);
-
-list.innerHTML +=
-createLevelCard(
-level,
-originalIndex
-);
-
-});
-
+function displayLevels(levelArray, view = currentView) {
+  const list = document.getElementById("level-list");
+  list.innerHTML = "";
+  levelArray.forEach((level, index) => {
+    const originalIndex = view === "main" ? levels.indexOf(level) : index;
+    list.innerHTML += createLevelCard(level, originalIndex >= 0 ? originalIndex : index, view === "upcoming");
+  });
 }
+
+function switchView(view) {
+  currentView = view;
+  const isUpcoming = view === "upcoming";
+  const title = document.querySelector(".list-title");
+  const search = document.getElementById("search");
+  title.textContent = isUpcoming ? "Up and Coming" : "Top 75 Demons";
+  const logoAccent = document.querySelector(".logo span");
+  logoAccent.classList.toggle("purple", isUpcoming);
+  logoAccent.classList.toggle("red", !isUpcoming);
+  search.placeholder = isUpcoming ? "Search upcoming levels..." : "Search levels...";
+  document.getElementById("mainViewButton").classList.toggle("active", !isUpcoming);
+  document.getElementById("upcomingViewButton").classList.toggle("active", isUpcoming);
+  document.getElementById("mainViewButton").setAttribute("aria-pressed", String(!isUpcoming));
+  document.getElementById("upcomingViewButton").setAttribute("aria-pressed", String(isUpcoming));
+  search.value = "";
+  displayLevels(isUpcoming ? [...upcomingLevels].sort((a, b) => (Number(b.progress) || -1) - (Number(a.progress) || -1)) : levels, view);
+}
+
+document.getElementById("mainViewButton").addEventListener("click", () => switchView("main"));
+document.getElementById("upcomingViewButton").addEventListener("click", () => switchView("upcoming"));
 
 
 document
@@ -1505,17 +1786,12 @@ const searchTerm =
 this.value.toLowerCase();
 
 
-const filteredLevels =
-levels.filter(level =>
-level.name
-.toLowerCase()
-.includes(searchTerm)
+const sourceLevels = currentView === "upcoming" ? [...upcomingLevels].sort((a, b) => (Number(b.progress) || -1) - (Number(a.progress) || -1)) : levels;
+const filteredLevels = sourceLevels.filter(level =>
+  (level.name || "").toLowerCase().includes(searchTerm)
 );
 
-
-displayLevels(
-filteredLevels
-);
+displayLevels(filteredLevels, currentView);
 
 }
 );
@@ -1596,7 +1872,7 @@ closeModal();
 );
 
 
-displayLevels(levels);
+displayLevels(levels, "main");
 
 // Hide the sticky header while scrolling down; reveal it when scrolling up.
 (() => {
