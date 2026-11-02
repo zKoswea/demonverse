@@ -168,6 +168,11 @@ body.dark-mode .upcoming-card .verification-button { background: #7542ed; }
 body.dark-mode .upcoming-card .verification-button:hover { background: #6334d2; }
 .upcoming-card .progress-value { color: #713cff; font-weight: 800; }
 body.dark-mode .upcoming-card .progress-value { color: #b79aff; }
+.upcoming-card .left-side { flex-wrap: wrap; }
+@media (max-width: 900px) {
+}
+@media (max-width: 600px) {
+}
 
 .level-card {
 display: flex;
@@ -495,6 +500,95 @@ align-items: flex-start;
 min-width: 30px;
 }
 }
+
+/* Language selector and flag icons */
+.language-picker {
+  position: relative;
+  flex: 0 0 auto;
+  z-index: 150;
+}
+.language-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 7px 10px;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  background: #fff;
+  color: #222;
+  font: 800 12px "Orbitron", Arial, sans-serif;
+  letter-spacing: .5px;
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease;
+}
+.language-trigger:hover { background: #ededed; }
+.language-trigger .flag-icon,
+.language-option .flag-icon {
+  display: block;
+  width: 25px;
+  height: 17px;
+  flex: 0 0 auto;
+  border-radius: 1px;
+  overflow: hidden;
+}
+.language-trigger .chevron {
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
+  transition: transform .18s ease;
+}
+.language-picker.open .chevron { transform: rotate(180deg); }
+.language-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 7px);
+  right: 0;
+  min-width: 118px;
+  padding: 5px;
+  border: 1px solid #3c414c;
+  border-radius: 6px;
+  background: #252b37;
+  box-shadow: 0 8px 22px rgba(0,0,0,.22);
+}
+.language-picker.open .language-menu { display: block; }
+.language-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 8px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+  text-align: left;
+  font: 800 12px "Orbitron", Arial, sans-serif;
+  letter-spacing: .4px;
+  cursor: pointer;
+}
+.language-option:hover,
+.language-option[aria-selected="true"] { background: #414958; }
+.language-option[aria-selected="true"]::after {
+  content: "✓";
+  margin-left: auto;
+  color: #c7b4ff;
+}
+body.dark-mode .language-trigger {
+  background: #191919;
+  color: #eee;
+  border-color: #444;
+}
+body.dark-mode .language-trigger:hover { background: #292929; }
+@media (max-width: 900px) {
+  .language-picker { order: 4; }
+}
+@media (max-width: 600px) {
+  .language-trigger { min-height: 36px; padding: 6px 9px; }
+  .language-menu { right: auto; left: 0; }
+}
+
 </style>
 </head>
 
@@ -514,6 +608,23 @@ Demon<span class="red">Verse</span>
 <div class="subtitle">
 COMMUNITY GEOMETRY DASH DEMON LIST
 </div>
+
+
+<div class="language-picker" id="languagePicker">
+  <button class="language-trigger" id="languageTrigger" type="button"
+          aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
+    <span id="currentLanguageFlag" aria-hidden="true"></span>
+    <span id="currentLanguageCode">ENG</span>
+    <svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 3.5 6 8.5 11 3.5Z"/></svg>
+  </button>
+  <div class="language-menu" id="languageMenu" role="menu" aria-label="Languages">
+    <button class="language-option" type="button" role="menuitemradio" data-language="en" aria-selected="true"><span class="flag-icon" aria-hidden="true"></span><span>ENG</span></button>
+    <button class="language-option" type="button" role="menuitemradio" data-language="ru" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>RUS</span></button>
+    <button class="language-option" type="button" role="menuitemradio" data-language="es" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>ESP</span></button>
+    <button class="language-option" type="button" role="menuitemradio" data-language="fr" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>FRE</span></button>
+  </div>
+</div>
+
 
 <a
 class="discord-button"
@@ -570,6 +681,154 @@ DemonVerse • Community Geometry Dash Demon List
 
 
 <script>
+
+// Inline SVG flags: transparent backgrounds, no external image dependencies.
+const languageFlags = {
+  en: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="United Kingdom flag">
+    <clipPath id="ukClip"><rect width="60" height="40" rx="1"/></clipPath>
+    <g clip-path="url(#ukClip)">
+      <path fill="#012169" d="M0 0h60v40H0z"/>
+      <path stroke="#fff" stroke-width="9" d="M0 0 60 40M60 0 0 40"/>
+      <path stroke="#C8102E" stroke-width="4" d="M0 0 60 40M60 0 0 40"/>
+      <path stroke="#fff" stroke-width="14" d="M30 0v40M0 20h60"/>
+      <path stroke="#C8102E" stroke-width="8" d="M30 0v40M0 20h60"/>
+    </g></svg>`,
+  ru: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="Russian flag"><path fill="#fff" d="M0 0h60v40H0z"/><path fill="#0039A6" d="M0 13.33h60v13.34H0z"/><path fill="#D52B1E" d="M0 26.67h60V40H0z"/></svg>`,
+  es: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="Spanish flag"><path fill="#AA151B" d="M0 0h60v40H0z"/><path fill="#F1BF00" d="M0 10h60v20H0z"/><path fill="#AA151B" d="M0 0h60v10H0z"/></svg>`,
+  fr: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="French flag"><path fill="#0055A4" d="M0 0h20v40H0z"/><path fill="#fff" d="M20 0h20v40H20z"/><path fill="#EF4135" d="M40 0h20v40H40z"/></svg>`
+};
+
+const translations = {
+  en: {
+    subtitle: "COMMUNITY GEOMETRY DASH DEMON LIST",
+    mainList: "MAIN LIST", upcomingButton: "UP AND COMING",
+    mainTitle: "Top 75 Demons", upcomingTitle: "Up and Coming",
+    searchMain: "Search levels...", searchUpcoming: "Search upcoming levels...",
+    hostedBy: "Hosted by:", verifiedBy: "Verified by:",
+    currentVerifier: "Current Verifier:", firstVictor: "First Victor:",
+    bestProgress: "Best Progress:", notAdded: "Not added",
+    levelInfo: "LEVEL INFO", levelId: "Level ID:", length: "Length:",
+    objects: "Objects:", verificationVideo: "Verification Video",
+    footer: "DemonVerse • Community Geometry Dash Demon List",
+    chooseLanguage: "Choose language",
+    switchDark: "Switch to dark mode", switchLight: "Switch to light mode",
+    blankSlot: "Blank level slot"
+  },
+  ru: {
+    subtitle: "СООБЩЕСТВЕННЫЙ СПИСОК ДЕМОНОВ GEOMETRY DASH",
+    mainList: "ОСНОВНОЙ СПИСОК", upcomingButton: "НА ПОДХОДЕ",
+    mainTitle: "Топ 75 демонов", upcomingTitle: "На подходе",
+    searchMain: "Поиск уровней...", searchUpcoming: "Поиск будущих уровней...",
+    hostedBy: "Организатор:", verifiedBy: "Подтвердил:",
+    currentVerifier: "Текущий верификатор:", firstVictor: "Первый победитель:",
+    bestProgress: "Лучший прогресс:", notAdded: "Не добавлено",
+    levelInfo: "ИНФОРМАЦИЯ ОБ УРОВНЕ", levelId: "ID уровня:", length: "Длительность:",
+    objects: "Объекты:", verificationVideo: "Видео верификации",
+    footer: "DemonVerse • Сообщественный список демонов Geometry Dash",
+    chooseLanguage: "Выбрать язык",
+    switchDark: "Включить тёмную тему", switchLight: "Включить светлую тему",
+    blankSlot: "Пустое место уровня"
+  },
+  es: {
+    subtitle: "LISTA COMUNITARIA DE DEMONIOS DE GEOMETRY DASH",
+    mainList: "LISTA PRINCIPAL", upcomingButton: "PRÓXIMAMENTE",
+    mainTitle: "Los 75 mejores demonios", upcomingTitle: "Próximamente",
+    searchMain: "Buscar niveles...", searchUpcoming: "Buscar próximos niveles...",
+    hostedBy: "Organizado por:", verifiedBy: "Verificado por:",
+    currentVerifier: "Verificador actual:", firstVictor: "Primer vencedor:",
+    bestProgress: "Mejor progreso:", notAdded: "Sin añadir",
+    levelInfo: "INFORMACIÓN DEL NIVEL", levelId: "ID del nivel:", length: "Duración:",
+    objects: "Objetos:", verificationVideo: "Vídeo de verificación",
+    footer: "DemonVerse • Lista comunitaria de demonios de Geometry Dash",
+    chooseLanguage: "Elegir idioma",
+    switchDark: "Activar modo oscuro", switchLight: "Activar modo claro",
+    blankSlot: "Espacio de nivel vacío"
+  },
+  fr: {
+    subtitle: "LISTE COMMUNAUTAIRE DES DÉMONS DE GEOMETRY DASH",
+    mainList: "LISTE PRINCIPALE", upcomingButton: "À VENIR",
+    mainTitle: "Top 75 des démons", upcomingTitle: "À venir",
+    searchMain: "Rechercher des niveaux...", searchUpcoming: "Rechercher les niveaux à venir...",
+    hostedBy: "Organisé par :", verifiedBy: "Vérifié par :",
+    currentVerifier: "Vérificateur actuel :", firstVictor: "Premier vainqueur :",
+    bestProgress: "Meilleure progression :", notAdded: "Non renseigné",
+    levelInfo: "INFOS DU NIVEAU", levelId: "ID du niveau :", length: "Durée :",
+    objects: "Objets :", verificationVideo: "Vidéo de vérification",
+    footer: "DemonVerse • Liste communautaire des démons de Geometry Dash",
+    chooseLanguage: "Choisir la langue",
+    switchDark: "Activer le mode sombre", switchLight: "Activer le mode clair",
+    blankSlot: "Emplacement de niveau vide"
+  }
+};
+
+let currentLanguage = "en";
+const tr = key => translations[currentLanguage][key] || translations.en[key] || key;
+
+function updateLanguageInterface() {
+  document.documentElement.lang = currentLanguage;
+  document.querySelector(".subtitle").textContent = tr("subtitle");
+  document.getElementById("mainViewButton").textContent = tr("mainList");
+  document.getElementById("upcomingViewButton").textContent = tr("upcomingButton");
+  document.querySelector("footer").textContent = tr("footer");
+  document.getElementById("search").placeholder =
+    currentView === "upcoming" ? tr("searchUpcoming") : tr("searchMain");
+
+  const codes = { en: "ENG", ru: "RUS", es: "ESP", fr: "FRE" };
+  document.getElementById("currentLanguageCode").textContent = codes[currentLanguage];
+  document.getElementById("currentLanguageFlag").innerHTML = languageFlags[currentLanguage];
+  document.getElementById("languageTrigger").setAttribute("aria-label", tr("chooseLanguage"));
+
+  document.querySelectorAll(".language-option").forEach(option => {
+    const selected = option.dataset.language === currentLanguage;
+    option.setAttribute("aria-selected", String(selected));
+    option.querySelector(".flag-icon").outerHTML = languageFlags[option.dataset.language];
+  });
+
+  const dark = document.body.classList.contains("dark-mode");
+  const themeToggle = document.getElementById("themeToggle");
+  themeToggle.setAttribute("aria-label", dark ? tr("switchLight") : tr("switchDark"));
+  themeToggle.title = dark ? tr("switchLight") : tr("switchDark");
+
+  const isUpcoming = currentView === "upcoming";
+  document.querySelector(".list-title").textContent =
+    isUpcoming ? tr("upcomingTitle") : tr("mainTitle");
+
+  displayLevels(
+    isUpcoming ? sortedUpcomingLevels() : levels,
+    currentView
+  );
+}
+
+(() => {
+  const picker = document.getElementById("languagePicker");
+  const trigger = document.getElementById("languageTrigger");
+  const closePicker = () => {
+    picker.classList.remove("open");
+    trigger.setAttribute("aria-expanded", "false");
+  };
+
+  trigger.addEventListener("click", () => {
+    const opening = !picker.classList.contains("open");
+    picker.classList.toggle("open", opening);
+    trigger.setAttribute("aria-expanded", String(opening));
+  });
+
+  picker.querySelectorAll(".language-option").forEach(option => {
+    option.addEventListener("click", () => {
+      currentLanguage = option.dataset.language;
+      closePicker();
+      updateLanguageInterface();
+    });
+  });
+
+  document.addEventListener("click", event => {
+    if (!picker.contains(event.target)) closePicker();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closePicker();
+  });
+})();
+
 
 const levels = [
 {
@@ -1327,8 +1586,7 @@ objects: "150609"
 
 
 
-// One demonstration entry for the new Up and Coming section.
-// Replace these placeholder details when adding the first real level.
+// Up and Coming entries. Keep progress values/ranges exactly as entered.
 const upcomingLevels = [
   {
     name: "Sweeping Demon 2",
@@ -1549,6 +1807,136 @@ const upcomingLevels = [
     length: "Not added",
     objects: "Not added",
     progress: "21-100%",
+  },
+  {
+    // Editable Up and Coming placeholder 21
+    name: "",
+    host: "",
+    verifier: "",
+    image: "",
+    verification: "#",
+    id: "",
+    length: "",
+    objects: "",
+    progress: "",
+    blank: true,
+  },
+  {
+    // Editable Up and Coming placeholder 22
+    name: "",
+    host: "",
+    verifier: "",
+    image: "",
+    verification: "#",
+    id: "",
+    length: "",
+    objects: "",
+    progress: "",
+    blank: true,
+  },
+  {
+    // Editable Up and Coming placeholder 23
+    name: "",
+    host: "",
+    verifier: "",
+    image: "",
+    verification: "#",
+    id: "",
+    length: "",
+    objects: "",
+    progress: "",
+    blank: true,
+  },
+  {
+    // Editable Up and Coming placeholder 24
+    name: "",
+    host: "",
+    verifier: "",
+    image: "",
+    verification: "#",
+    id: "",
+    length: "",
+    objects: "",
+    progress: "",
+    blank: true,
+  },
+  {
+    // Editable Up and Coming placeholder 25
+    name: "",
+    host: "",
+    verifier: "",
+    image: "",
+    verification: "#",
+    id: "",
+    length: "",
+    objects: "",
+    progress: "",
+    blank: true,
+  },
+  {
+    // Editable Up and Coming placeholder 26
+    name: "",
+    host: "",
+    verifier: "",
+    image: "",
+    verification: "#",
+    id: "",
+    length: "",
+    objects: "",
+    progress: "",
+    blank: true,
+  },
+  {
+    // Editable Up and Coming placeholder 27
+    name: "",
+    host: "",
+    verifier: "",
+    image: "",
+    verification: "#",
+    id: "",
+    length: "",
+    objects: "",
+    progress: "",
+    blank: true,
+  },
+  {
+    // Editable Up and Coming placeholder 28
+    name: "",
+    host: "",
+    verifier: "",
+    image: "",
+    verification: "#",
+    id: "",
+    length: "",
+    objects: "",
+    progress: "",
+    blank: true,
+  },
+  {
+    // Editable Up and Coming placeholder 29
+    name: "",
+    host: "",
+    verifier: "",
+    image: "",
+    verification: "#",
+    id: "",
+    length: "",
+    objects: "",
+    progress: "",
+    blank: true,
+  },
+  {
+    // Editable Up and Coming placeholder 30
+    name: "",
+    host: "",
+    verifier: "",
+    image: "",
+    verification: "#",
+    id: "",
+    length: "",
+    objects: "",
+    progress: "",
+    blank: true,
   }
 ];
 
@@ -1643,13 +2031,13 @@ glowClass = "white-glow";
 }
 
 const firstVictor =
-firstVictors[rank] || "Not added";
+firstVictors[rank] || tr("notAdded");
 
 const displayValue = value =>
-value || "Not added";
+(!value || String(value).trim().toLowerCase() === "not added") ? tr("notAdded") : value;
 
 const objects =
-level.objects || "Not added";
+(!level.objects || String(level.objects).trim().toLowerCase() === "not added") ? tr("notAdded") : level.objects;
 
 
 return `
@@ -1667,7 +2055,7 @@ return `
 class="thumbnail ${level.image ? "" : "blank-thumbnail"}"
 style="${level.image ? `background-image: url('${level.image}');` : ''}"
 onclick="${level.image ? `openModal('${level.image}')` : ''}"
-aria-label="${level.name || 'Blank level slot'}"
+aria-label="${level.name || tr('blankSlot')}"
 ></div>
 
 
@@ -1679,62 +2067,55 @@ ${level.blank ? "" : level.name}
 
 
 <div class="detail-line">
-${level.blank ? "" : `<strong>Hosted by:</strong> ${displayValue(level.host)}`}
+${level.blank ? "" : `<strong>${tr("hostedBy")}</strong> ${displayValue(level.host)}`}
 </div>
 
 
 <div class="detail-line">
-${level.blank ? "" : `<strong>Verified by:</strong> ${displayValue(level.verifier)}`}
+${level.blank ? "" : `<strong>${isUpcoming ? tr("currentVerifier") : tr("verifiedBy")}</strong> ${displayValue(level.verifier)}`}
 </div>
 
 
 <div class="detail-line">
-${level.blank ? "" : (isUpcoming ? `<strong>Progress:</strong> <span class="progress-value">${level.progress === null || level.progress === undefined || level.progress === "" ? "Not added" : `${level.progress}%`}</span>` : `<strong>First Victor:</strong> ${firstVictor}`)}
+${level.blank ? "" : (isUpcoming ? `<strong>${tr("bestProgress")}</strong> <span class="progress-value">${level.progress === null || level.progress === undefined || level.progress === "" ? tr("notAdded") : level.progress}</span>` : `<strong>${tr("firstVictor")}</strong> ${firstVictor}`)}
 </div>
 
 </div>
 
+
+
 </div>
 
 
-<div class="divider"></div>
-
+${isUpcoming ? "" : `<div class="divider"></div>
 
 <div class="right-side">
 
 <div class="right-title">
-LEVEL INFO
+${tr("levelInfo")}
 </div>
 
-
 <div class="right-info">
-<strong>Level ID:</strong>
+<strong>${tr("levelId")}</strong>
 ${displayValue(level.id)}
 </div>
 
-
 <div class="right-info">
-<strong>Length:</strong>
+<strong>${tr("length")}</strong>
 ${displayValue(level.length)}
 </div>
 
-
 <div class="right-info">
-<strong>Objects:</strong>
+<strong>${tr("objects")}</strong>
 ${objects}
 </div>
 
-
-<a
-href="${level.verification}"
-target="_blank"
-class="verification-button"
->
+<a href="${level.verification}" target="_blank" class="verification-button">
 <span class="play-icon" aria-hidden="true"></span>
-<span class="verification-label">Verification Video</span>
+<span class="verification-label">${tr("verificationVideo")}</span>
 </a>
 
-</div>
+</div>`}
 
 </div>
 
@@ -1742,6 +2123,27 @@ class="verification-button"
 
 }
 
+
+function progressAmount(progress) {
+  // A run such as 4-100 represents 96 percentage points of progress.
+  // Keep the original range text for display; use only the calculated amount to rank.
+  const values = String(progress ?? "").match(/\d+(?:\.\d+)?/g);
+  if (!values || !values.length) return -1;
+  const numbers = values.map(Number);
+  return numbers.length >= 2 ? numbers[numbers.length - 1] - numbers[0] : numbers[0];
+}
+
+function sortedUpcomingLevels() {
+  // Stable sorting keeps the existing order when two levels have equal progress.
+  return upcomingLevels
+    .map((level, originalIndex) => ({ level, originalIndex }))
+    .sort((a, b) => {
+      if (a.level.blank) return b.level.blank ? a.originalIndex - b.originalIndex : 1;
+      if (b.level.blank) return -1;
+      return progressAmount(b.level.progress) - progressAmount(a.level.progress) || a.originalIndex - b.originalIndex;
+    })
+    .map(entry => entry.level);
+}
 
 let currentView = "main";
 
@@ -1759,17 +2161,17 @@ function switchView(view) {
   const isUpcoming = view === "upcoming";
   const title = document.querySelector(".list-title");
   const search = document.getElementById("search");
-  title.textContent = isUpcoming ? "Up and Coming" : "Top 75 Demons";
+  title.textContent = isUpcoming ? tr("upcomingTitle") : tr("mainTitle");
   const logoAccent = document.querySelector(".logo span");
   logoAccent.classList.toggle("purple", isUpcoming);
   logoAccent.classList.toggle("red", !isUpcoming);
-  search.placeholder = isUpcoming ? "Search upcoming levels..." : "Search levels...";
+  search.placeholder = isUpcoming ? tr("searchUpcoming") : tr("searchMain");
   document.getElementById("mainViewButton").classList.toggle("active", !isUpcoming);
   document.getElementById("upcomingViewButton").classList.toggle("active", isUpcoming);
   document.getElementById("mainViewButton").setAttribute("aria-pressed", String(!isUpcoming));
   document.getElementById("upcomingViewButton").setAttribute("aria-pressed", String(isUpcoming));
   search.value = "";
-  displayLevels(isUpcoming ? [...upcomingLevels].sort((a, b) => (Number(b.progress) || -1) - (Number(a.progress) || -1)) : levels, view);
+  displayLevels(isUpcoming ? sortedUpcomingLevels() : levels, view);
 }
 
 document.getElementById("mainViewButton").addEventListener("click", () => switchView("main"));
@@ -1786,7 +2188,7 @@ const searchTerm =
 this.value.toLowerCase();
 
 
-const sourceLevels = currentView === "upcoming" ? [...upcomingLevels].sort((a, b) => (Number(b.progress) || -1) - (Number(a.progress) || -1)) : levels;
+const sourceLevels = currentView === "upcoming" ? sortedUpcomingLevels() : levels;
 const filteredLevels = sourceLevels.filter(level =>
   (level.name || "").toLowerCase().includes(searchTerm)
 );
@@ -1873,6 +2275,7 @@ closeModal();
 
 
 displayLevels(levels, "main");
+updateLanguageInterface();
 
 // Hide the sticky header while scrolling down; reveal it when scrolling up.
 (() => {
@@ -1906,8 +2309,8 @@ ticking = true;
   const setDarkMode = (enabled) => {
     document.body.classList.toggle('dark-mode', enabled);
     toggle.setAttribute('aria-pressed', String(enabled));
-    toggle.setAttribute('aria-label', enabled ? 'Switch to light mode' : 'Switch to dark mode');
-    toggle.title = enabled ? 'Switch to light mode' : 'Switch to dark mode';
+    toggle.setAttribute('aria-label', enabled ? tr('switchLight') : tr('switchDark'));
+    toggle.title = enabled ? tr('switchLight') : tr('switchDark');
   };
   toggle.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
 })();
