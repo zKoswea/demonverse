@@ -589,6 +589,75 @@ body.dark-mode .language-trigger:hover { background: #292929; }
   .language-menu { right: auto; left: 0; }
 }
 
+
+/* Submit a Record */
+.submit-area { max-width:1260px; margin:0 auto; padding:0 20px; }
+.header-actions { margin-left:auto; display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+.header-actions .discord-button { margin-left:0; }
+.submit-toggle,.submit-button {
+  border:1px solid #a91f1f; border-radius:7px; background:linear-gradient(135deg,#e13a3a,#a91f1f); color:#fff; padding:12px 16px;
+  font:800 12px "Orbitron",Arial,sans-serif; letter-spacing:.45px; cursor:pointer;
+  box-shadow:0 3px 10px rgba(198,40,40,.2),inset 0 1px 0 rgba(255,255,255,.18);
+  transition:background .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+.submit-toggle:hover,.submit-button:hover { background:linear-gradient(135deg,#ef4a4a,#b51f1f); transform:translateY(-2px); box-shadow:0 6px 15px rgba(198,40,40,.3); }
+.submit-panel { margin:0; padding:0 24px; background:#fff; color:#171717; border:1px solid #ddd; border-radius:10px; box-shadow:0 3px 12px rgba(0,0,0,.07); opacity:0; transform:translateY(-12px) scale(.985); transform-origin:top center; max-height:0; overflow:hidden; transition:max-height .42s cubic-bezier(.2,.75,.25,1),opacity .28s ease,transform .35s cubic-bezier(.2,.75,.25,1),padding .3s ease,margin .3s ease; }
+.submit-panel[hidden] { display:none; }
+.submit-panel.is-open { opacity:1; transform:translateY(0) scale(1); max-height:2400px; margin:12px 0 18px; padding:24px; }
+.device-select-wrap select { min-height:48px; border:1px solid #d4b0b0; border-radius:7px; background:linear-gradient(180deg,#fff,#f6eeee); color:#292020; font:800 13px "Orbitron",Arial,sans-serif; letter-spacing:.35px; cursor:pointer; box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 2px 6px rgba(198,40,40,.06); transition:border-color .2s ease,box-shadow .2s ease,background .2s ease; }
+.device-select-wrap select:hover,.device-select-wrap select:focus { border-color:#c62828; box-shadow:0 0 0 3px rgba(198,40,40,.11),0 3px 10px rgba(198,40,40,.08); }
+.submit-panel h2 { margin:0 0 20px; font:800 22px "Orbitron",Arial,sans-serif; }
+.submit-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.submit-field { display:flex; flex-direction:column; gap:8px; min-width:0; font-size:14px; font-weight:700; }
+.submit-field-wide { grid-column:1/-1; }
+.submit-field label,.submit-field span { line-height:1.35; }
+.submit-field b { color:#c62828; }
+.submit-field input,.submit-field select,.submit-field textarea,.level-select-trigger,.level-select-menu input {
+  width:100%; min-width:0; border:1px solid #d4d4d4; border-radius:6px; background:#f7f7f7;
+  color:#171717; padding:12px 13px; font:14px Arial,sans-serif; outline:none;
+}
+.submit-field textarea { resize:vertical; }
+.submit-field input:focus,.submit-field select:focus,.submit-field textarea:focus,.level-select-trigger:focus { border-color:#c62828; box-shadow:0 0 0 2px rgba(198,40,40,.12); }
+.select-wrap,.level-select-wrap { position:relative; }
+.select-wrap select { appearance:none; padding-right:42px; }
+.field-chevron { position:absolute; right:14px; top:50%; transform:translateY(-50%); color:#c62828; pointer-events:none; font-size:19px; line-height:1; }
+.level-select-trigger { display:flex; align-items:center; justify-content:space-between; text-align:left; padding-right:42px; cursor:pointer; }
+.level-select-trigger .field-chevron { right:14px; }
+.level-select-menu { position:absolute; z-index:300; top:calc(100% + 6px); left:0; right:0; padding:8px; background:#fff; border:1px solid #ccc; border-radius:8px; box-shadow:0 10px 28px rgba(0,0,0,.18); }
+.level-select-menu[hidden] { display:none; }
+.level-select-menu input { margin-bottom:8px; }
+.level-select-options { max-height:300px; overflow:auto; }
+.level-option { width:100%; display:flex; align-items:center; gap:11px; padding:8px; border:0; border-radius:5px; background:transparent; color:inherit; text-align:left; cursor:pointer; font:600 14px Arial,sans-serif; }
+.level-option:hover,.level-option[aria-selected="true"] { background:rgba(198,40,40,.1); }
+.level-option img { width:76px; height:43px; flex:0 0 76px; object-fit:cover; border-radius:4px; background:#eee; }
+.field-error { min-height:0; color:#c62828; font-size:12px; font-weight:600; }
+.field-error:not(:empty) { min-height:14px; }
+.submit-field.invalid input,.submit-field.invalid select,.submit-field.invalid textarea,.submit-field.invalid .level-select-trigger { border-color:#c62828; }
+.notes-field { margin-top:16px; }
+.submit-guidelines { margin:17px 0 10px; color:#666; text-align:center; font-size:13px; }
+.submit-guidelines a { color:#c62828; font-weight:700; }
+.submit-status { min-height:18px; margin:8px 0; color:#c62828; text-align:center; font-size:13px; font-weight:700; }
+.submit-button { display:block; width:100%; margin-top:8px; padding:14px; font-size:15px; }
+body.dark-mode .submit-panel { background:#191919; color:#f2f2f2; border-color:#383838; box-shadow:0 3px 12px rgba(0,0,0,.3); }
+body.dark-mode .submit-field input,body.dark-mode .submit-field select,body.dark-mode .submit-field textarea,body.dark-mode .level-select-trigger,body.dark-mode .level-select-menu input { background:#252525; color:#f2f2f2; border-color:#484848; color-scheme:dark; }
+body.dark-mode .level-select-menu { background:#202020; border-color:#484848; }
+body.dark-mode .level-option:hover,body.dark-mode .level-option[aria-selected="true"] { background:rgba(198,40,40,.22); }
+body.dark-mode .submit-guidelines { color:#aaa; }
+@media(max-width:900px) {
+  .header-actions { order:5; margin-left:auto; }
+  .header-actions .submit-toggle,.header-actions .discord-button { padding:10px 12px; font-size:11px; }
+}
+@media(max-width:600px) {
+  .submit-area { padding:0 14px; }
+  .submit-panel.is-open { padding:17px; }
+  .submit-grid { grid-template-columns:1fr; gap:13px; }
+  .submit-field-wide { grid-column:auto; }
+  .header-actions { gap:7px; }
+  .header-actions .submit-toggle,.header-actions .discord-button { padding:9px 10px; font-size:10px; letter-spacing:.2px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .submit-panel,.submit-toggle,}
+
 </style>
 </head>
 
@@ -626,13 +695,10 @@ COMMUNITY GEOMETRY DASH DEMON LIST
 </div>
 
 
-<a
-class="discord-button"
-href="https://discord.gg/ye8whxz52"
-target="_blank"
->
-DISCORD
-</a>
+<div class="header-actions">
+  <button type="button" class="submit-toggle" id="openSubmitForm" aria-controls="submitPanel" aria-expanded="false">SUBMIT A RECORD</button>
+  <a class="discord-button" href="https://discord.gg/ye8whxz52" target="_blank" rel="noopener noreferrer">DISCORD</a>
+</div>
 
 </header>
 
@@ -652,6 +718,70 @@ placeholder="Search levels..."
   <button class="view-button" id="upcomingViewButton" data-view="upcoming" type="button">UP AND COMING</button>
 </div>
 
+
+
+<section class="submit-area" aria-labelledby="submitHeading">
+  <div class="submit-panel" id="submitPanel" hidden>
+    <h2 id="submitHeading">Submit a Record</h2>
+    <form id="recordForm" novalidate>
+      <div class="submit-grid">
+        <label class="submit-field submit-field-wide">
+          <span>Level <b>*</b></span>
+          <div class="level-select-wrap">
+            <button type="button" class="level-select-trigger" id="levelSelectTrigger" aria-expanded="false">
+              <span id="selectedLevelLabel">Select a level</span><span class="field-chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="level-select-menu" id="levelSelectMenu" hidden>
+              <input type="search" id="levelSelectSearch" placeholder="Search levels..." aria-label="Search levels">
+              <div class="level-select-options" id="levelSelectOptions"></div>
+            </div>
+            <input type="hidden" id="selectedLevel" name="level" required>
+          </div>
+          <small class="field-error" data-error="level"></small>
+        </label>
+        <label class="submit-field">
+          <span>Holder Name <b>*</b></span>
+          <input type="text" id="holderName" name="holderName" maxlength="24" placeholder="Your display name" required>
+          <small class="field-error" data-error="holderName"></small>
+        </label>
+        <label class="submit-field">
+          <span>Completion Link <b>*</b></span>
+          <input type="url" id="completionLink" name="completionLink" placeholder="https://..." required>
+          <small class="field-error" data-error="completionLink"></small>
+        </label>
+        <label class="submit-field">
+          <span>Device <b>*</b></span>
+          <div class="select-wrap device-select-wrap">
+            <select id="device" name="device" required aria-label="Pick device">
+              <option value="">Select a device</option>
+              <option value="PC">PC</option>
+              <option value="Mobile">Mobile</option>
+            </select>
+            <span class="field-chevron" aria-hidden="true">⌄</span>
+          </div>
+          <small class="field-error" data-error="device"></small>
+        </label>
+        <label class="submit-field">
+          <span>Custom ID <b>*</b></span>
+          <input type="text" id="customId" name="customId" placeholder="ID of the level copy used" required>
+          <small class="field-error" data-error="customId"></small>
+        </label>
+        <label class="submit-field">
+          <span>Raw Footage <b>*</b></span>
+          <input type="url" id="rawFootage" name="rawFootage" placeholder="Link to your raw footage" required>
+          <small class="field-error" data-error="rawFootage"></small>
+        </label>
+      </div>
+      <label class="submit-field notes-field">
+        <span>Additional Notes</span>
+        <textarea id="additionalNotes" name="additionalNotes" rows="3" placeholder="Anything you'd like the staff to know..."></textarea>
+      </label>
+      <p class="submit-guidelines">By submitting this record, you acknowledge that it follows the <a href="#" id="guidelinesLink">submission guidelines</a>.</p>
+      <p class="submit-status" id="submitStatus" role="status" aria-live="polite"></p>
+      <button type="submit" class="submit-button">Submit Record</button>
+    </form>
+  </div>
+</section>
 
 <main class="list-container">
 
@@ -2262,6 +2392,160 @@ closeModal();
 
 }
 );
+
+
+
+// Submit form: level choices are sourced exclusively from the 75 Main List entries.
+(() => {
+  const panel = document.getElementById("submitPanel");
+  const toggle = document.getElementById("openSubmitForm");
+  const trigger = document.getElementById("levelSelectTrigger");
+  const menu = document.getElementById("levelSelectMenu");
+  const options = document.getElementById("levelSelectOptions");
+  const search = document.getElementById("levelSelectSearch");
+  const selected = document.getElementById("selectedLevel");
+  const selectedLabel = document.getElementById("selectedLevelLabel");
+  const form = document.getElementById("recordForm");
+  const status = document.getElementById("submitStatus");
+  const nameInput = document.getElementById("holderName");
+  const deviceSelect = document.getElementById("device");
+  deviceSelect.addEventListener("change",() => clearError("device"));
+
+  // Animate the panel without changing its form contents or validation behavior.
+  toggle.addEventListener("click", () => {
+    const opening = panel.hidden;
+    if (opening) {
+      panel.hidden = false;
+      toggle.setAttribute("aria-expanded","true");
+      toggle.textContent = "CLOSE FORM";
+      requestAnimationFrame(() => {
+        panel.classList.add("is-open");
+        panel.scrollIntoView({behavior:"smooth",block:"nearest"});
+      });
+    } else {
+      panel.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded","false");
+      toggle.textContent = "SUBMIT A RECORD";
+      const finishClose = event => {
+        if (event.target !== panel || event.propertyName !== "max-height") return;
+        panel.hidden = true;
+        panel.removeEventListener("transitionend",finishClose);
+      };
+      panel.addEventListener("transitionend",finishClose);
+      // Fallback for reduced-motion or interrupted transitions.
+      setTimeout(() => { if (!panel.classList.contains("is-open")) panel.hidden = true; },450);
+    }
+  });
+
+  // Basic client-side screening only. Production submissions must repeat moderation server-side.
+  const blockedTerms = ["nigger","faggot","retard","kys"];
+  const normalize = value => value.toLowerCase().replace(/[^a-z0-9]/g,"");
+  const imageUrl = value => {
+    if (!value || value === "#") return "";
+    if (/^(https?:|data:)/i.test(value)) return value;
+    return value;
+  };
+
+  function renderOptions(query = "") {
+    const q = query.trim().toLowerCase();
+    options.innerHTML = "";
+    levels.forEach(level => {
+      if (!level.name.toLowerCase().includes(q)) return;
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "level-option";
+      button.setAttribute("role","option");
+      button.setAttribute("aria-selected",String(selected.value === level.name));
+      const img = document.createElement("img");
+      img.alt = "";
+      img.loading = "lazy";
+      img.src = imageUrl(level.image);
+      img.onerror = () => { img.style.visibility = "hidden"; };
+      const name = document.createElement("span");
+      name.textContent = level.name;
+      button.append(img,name);
+      button.addEventListener("click", () => {
+        selected.value = level.name;
+        selectedLabel.textContent = level.name;
+        menu.hidden = true;
+        trigger.setAttribute("aria-expanded","false");
+        clearError("level");
+        renderOptions(search.value);
+      });
+      options.appendChild(button);
+    });
+  }
+  renderOptions();
+
+  // Keep one click handler only: the animated handler above controls opening and closing.
+  trigger.addEventListener("click", () => {
+    menu.hidden = !menu.hidden;
+    trigger.setAttribute("aria-expanded",String(!menu.hidden));
+    if (!menu.hidden) { search.value = ""; renderOptions(); search.focus(); }
+  });
+  search.addEventListener("input", () => renderOptions(search.value));
+  document.addEventListener("click", event => {
+    if (!event.target.closest(".level-select-wrap")) {
+      menu.hidden = true;
+      trigger.setAttribute("aria-expanded","false");
+    }
+  });
+
+  function clearError(key) {
+    const field = document.querySelector(`[data-error="${key}"]`);
+    if (field) field.textContent = "";
+    const control = key === "level" ? trigger : document.getElementById(key);
+    if (control) control.closest(".submit-field")?.classList.remove("invalid");
+  }
+  function setError(key, message) {
+    const field = document.querySelector(`[data-error="${key}"]`);
+    if (field) field.textContent = message;
+    const control = key === "level" ? trigger : document.getElementById(key);
+    control?.closest(".submit-field")?.classList.add("invalid");
+  }
+
+  nameInput.addEventListener("input", () => {
+    const normalized = normalize(nameInput.value);
+    if (blockedTerms.some(term => normalized.includes(normalize(term)))) {
+      setError("holderName","This name is not allowed.");
+    } else clearError("holderName");
+  });
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    status.textContent = "";
+    ["level","holderName","completionLink","device","customId","rawFootage"].forEach(clearError);
+    let valid = true;
+    const required = [
+      ["level",selected.value,"Please select a Main List level."],
+      ["holderName",nameInput.value.trim(),"Please enter a Holder Name."],
+      ["completionLink",document.getElementById("completionLink").value.trim(),"Please enter a completion video link."],
+      ["device",document.getElementById("device").value,"Please select PC or Mobile."],
+      ["customId",document.getElementById("customId").value.trim(),"Please enter the Custom ID."],
+      ["rawFootage",document.getElementById("rawFootage").value.trim(),"Please enter a Raw Footage link."]
+    ];
+    required.forEach(([key,value,message]) => {
+      if (!value) { setError(key,message); valid = false; }
+    });
+    const normalized = normalize(nameInput.value);
+    if (normalized && blockedTerms.some(term => normalized.includes(normalize(term)))) {
+      setError("holderName","This name is not allowed."); valid = false;
+    }
+    ["completionLink","rawFootage"].forEach(key => {
+      const input = document.getElementById(key);
+      if (input.value.trim() && !/^https?:\/\//i.test(input.value.trim())) {
+        setError(key,"Please enter a valid http:// or https:// link."); valid = false;
+      }
+    });
+    if (!valid) {
+      status.textContent = "Please fix the highlighted fields before submitting.";
+      return;
+    }
+
+    // Front-end demo only: no server or moderator inbox is connected in this HTML file.
+    status.textContent = "Your form is valid! Submission storage and staff review need to be connected to a backend.";
+  });
+})();
 
 
 displayLevels(levels, "main");
