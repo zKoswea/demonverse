@@ -136,22 +136,22 @@ margin-bottom: 18px;
 }
 
 .view-switch {
-  max-width: 1260px;
-  margin: 18px auto 0;
-  padding: 0 20px;
-  display: flex;
-  gap: 10px;
+max-width: 1260px;
+margin: 18px auto 0;
+padding: 0 20px;
+display: flex;
+gap: 10px;
 }
 .view-button {
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fff;
-  color: #222;
-  padding: 10px 16px;
-  font: 700 12px "Orbitron", Arial, sans-serif;
-  letter-spacing: .5px;
-  cursor: pointer;
-  transition: background .2s ease, color .2s ease, border-color .2s ease;
+border: 1px solid #ccc;
+border-radius: 6px;
+background: #fff;
+color: #222;
+padding: 10px 16px;
+font: 700 12px "Orbitron", Arial, sans-serif;
+letter-spacing: .5px;
+cursor: pointer;
+transition: background .2s ease, color .2s ease, border-color .2s ease;
 }
 .view-button.active { background: #222; color: #fff; border-color: #222; }
 .view-button[data-view="upcoming"].active { background: #713cff; border-color: #713cff; }
@@ -363,49 +363,52 @@ cursor: pointer;
 font-weight: 300;
 }
 
-    .theme-toggle {
-      width: 38px;
-      height: 38px;
-      flex: 0 0 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      border: 1px solid #d5d5d5;
-      border-radius: 50%;
-      background: #f4f4f4;
-      cursor: pointer;
-      transition: background .2s ease, border-color .2s ease, transform .2s ease;
-    }
-    .theme-toggle:hover { transform: rotate(-8deg) scale(1.05); }
-    .theme-toggle svg { width: 22px; height: 22px; display: block; }
-    .theme-toggle .moon-icon { display: block; fill: #000; }
-    .theme-toggle .sun-icon { display: none; fill: #fff; }
+.theme-toggle {
+width: 38px;
+height: 38px;
+flex: 0 0 38px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 0;
+border: 1px solid #d5d5d5;
+border-radius: 50%;
+background: #f4f4f4;
+cursor: pointer;
+transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.theme-toggle:hover { transform: rotate(-8deg) scale(1.05); }
+.theme-toggle svg { width: 22px; height: 22px; display: block; }
+.theme-toggle .moon-icon { display: block; fill: #000; }
+.theme-toggle .sun-icon { display: none; fill: #fff; }
 
-    body.dark-mode {
-      background: #101010;
-      color: #f3f3f3;
-      color-scheme: dark;
-    }
-    body.dark-mode header { background: #171717; border-bottom-color: #333; }
-    body.dark-mode .subtitle { color: #aaa; }
-    body.dark-mode .theme-toggle { background: #090909; border-color: #555; }
-    body.dark-mode .theme-toggle .moon-icon { display: none; }
-    body.dark-mode .theme-toggle .sun-icon { display: block; }
-    body.dark-mode #search { background: #1d1d1d; color: #f5f5f5; border-color: #444; color-scheme: dark; }
-    body.dark-mode #search::placeholder { color: #aaa; }
-    body.dark-mode .level-card { background: #191919; border-color: #383838; box-shadow: 0 2px 8px rgba(0,0,0,.28); }
-    /* Keep the #1 gold glow visible in dark mode too. */
-    body.dark-mode .level-card.gold-glow {
-      box-shadow:
-        0 0 8px rgba(255, 196, 0, 0.65),
-        0 0 18px rgba(255, 196, 0, 0.45),
-        0 0 30px rgba(255, 196, 0, 0.22);
-    }
-    body.dark-mode .thumbnail { background-color: #252525; }
-    body.dark-mode .blank-thumbnail { background: #202020; border-color: #555; }
-    body.dark-mode .divider { background: #393939; }
-    body.dark-mode footer { color: #999; }
+body.dark-mode {
+background: #101010;
+color: #f3f3f3;
+color-scheme: dark;
+}
+body.dark-mode header { background: #171717; border-bottom-color: #333; }
+body.dark-mode .subtitle { color: #aaa; }
+body.dark-mode .theme-toggle { background: #090909; border-color: #555; }
+body.dark-mode .theme-toggle .moon-icon { display: none; }
+body.dark-mode .theme-toggle .sun-icon { display: block; }
+body.dark-mode #search { background: #1d1d1d; color: #f5f5f5; border-color: #444; color-scheme: dark; }
+body.dark-mode #search::placeholder { color: #aaa; }
+body.dark-mode .level-card { background: #191919; border-color: #383838; box-shadow: 0 2px 8px rgba(0,0,0,.28); }
+/* Keep the #1 gold glow visible in dark mode too. */
+body.dark-mode .level-card.gold-glow {
+box-shadow:
+0 0 8px rgba(255, 196, 0, 0.65),
+0 0 18px rgba(255, 196, 0, 0.45),
+0 0 30px rgba(255, 196, 0, 0.22);
+}
+body.dark-mode .thumbnail { background-color: #252525; }
+body.dark-mode .blank-thumbnail { background: #202020; border-color: #555; }
+body.dark-mode .divider { background: #393939; }
+.extended-divider { height:1px; background:#ddd; margin:30px 0 24px; }
+.extended-divider[hidden] { display:none; }
+body.dark-mode .extended-divider { background:#393939; }
+body.dark-mode footer { color: #999; }
 
 @media (max-width: 900px) {
 
@@ -454,8 +457,8 @@ height: 145px;
 }
 
 @media (max-width: 600px) {
-  .view-switch { gap: 8px; }
-  .view-button { flex: 1; padding: 10px 8px; font-size: 10px; }
+.view-switch { gap: 8px; }
+.view-button { flex: 1; padding: 10px 8px; font-size: 10px; }
 
 .level-name {
 font-size: 23px;
@@ -503,160 +506,133 @@ min-width: 30px;
 
 /* Language selector and flag icons */
 .language-picker {
-  position: relative;
-  flex: 0 0 auto;
-  z-index: 150;
+position: relative;
+flex: 0 0 auto;
+z-index: 150;
 }
 .language-trigger {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 38px;
-  padding: 7px 10px;
-  border: 1px solid #d5d5d5;
-  border-radius: 6px;
-  background: #fff;
-  color: #222;
-  font: 800 12px "Orbitron", Arial, sans-serif;
-  letter-spacing: .5px;
-  cursor: pointer;
-  transition: background .18s ease, border-color .18s ease;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+min-height: 38px;
+padding: 7px 10px;
+border: 1px solid #d5d5d5;
+border-radius: 6px;
+background: #fff;
+color: #222;
+font: 800 12px "Orbitron", Arial, sans-serif;
+letter-spacing: .5px;
+cursor: pointer;
+transition: background .18s ease, border-color .18s ease;
 }
 .language-trigger:hover { background: #ededed; }
 .language-trigger .flag-icon,
 .language-option .flag-icon {
-  display: block;
-  width: 25px;
-  height: 17px;
-  flex: 0 0 auto;
-  border-radius: 1px;
-  overflow: hidden;
+display: block;
+width: 25px;
+height: 17px;
+flex: 0 0 auto;
+border-radius: 1px;
+overflow: hidden;
 }
 .language-trigger .chevron {
-  width: 10px;
-  height: 10px;
-  fill: currentColor;
-  transition: transform .18s ease;
+width: 10px;
+height: 10px;
+fill: currentColor;
+transition: transform .18s ease;
 }
 .language-picker.open .chevron { transform: rotate(180deg); }
 .language-menu {
-  display: none;
-  position: absolute;
-  top: calc(100% + 7px);
-  right: 0;
-  min-width: 118px;
-  padding: 5px;
-  border: 1px solid #3c414c;
-  border-radius: 6px;
-  background: #252b37;
-  box-shadow: 0 8px 22px rgba(0,0,0,.22);
+display: none;
+position: absolute;
+top: calc(100% + 7px);
+right: 0;
+min-width: 118px;
+padding: 5px;
+border: 1px solid #3c414c;
+border-radius: 6px;
+background: #252b37;
+box-shadow: 0 8px 22px rgba(0,0,0,.22);
 }
 .language-picker.open .language-menu { display: block; }
 .language-option {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 9px 8px;
-  border: 0;
-  border-radius: 4px;
-  background: transparent;
-  color: #fff;
-  text-align: left;
-  font: 800 12px "Orbitron", Arial, sans-serif;
-  letter-spacing: .4px;
-  cursor: pointer;
+width: 100%;
+display: flex;
+align-items: center;
+gap: 9px;
+padding: 9px 8px;
+border: 0;
+border-radius: 4px;
+background: transparent;
+color: #fff;
+text-align: left;
+font: 800 12px "Orbitron", Arial, sans-serif;
+letter-spacing: .4px;
+cursor: pointer;
 }
 .language-option:hover,
 .language-option[aria-selected="true"] { background: #414958; }
 .language-option[aria-selected="true"]::after {
-  content: "✓";
-  margin-left: auto;
-  color: #c7b4ff;
+content: "✓";
+margin-left: auto;
+color: #c7b4ff;
 }
 body.dark-mode .language-trigger {
-  background: #191919;
-  color: #eee;
-  border-color: #444;
+background: #191919;
+color: #eee;
+border-color: #444;
 }
 body.dark-mode .language-trigger:hover { background: #292929; }
 @media (max-width: 900px) {
-  .language-picker { order: 4; }
+.language-picker { order: 4; }
 }
 @media (max-width: 600px) {
-  .language-trigger { min-height: 36px; padding: 6px 9px; }
-  .language-menu { right: auto; left: 0; }
+.language-trigger { min-height: 36px; padding: 6px 9px; }
+.language-menu { right: auto; left: 0; }
 }
 
 
-/* Submit a Record */
-.submit-area { max-width:1260px; margin:0 auto; padding:0 20px; }
-.header-actions { margin-left:auto; display:flex; align-items:center; gap:10px; flex:0 0 auto; }
-.header-actions .discord-button { margin-left:0; }
-.submit-toggle,.submit-button {
-  border:1px solid #a91f1f; border-radius:7px; background:linear-gradient(135deg,#e13a3a,#a91f1f); color:#fff; padding:12px 16px;
-  font:800 12px "Orbitron",Arial,sans-serif; letter-spacing:.45px; cursor:pointer;
-  box-shadow:0 3px 10px rgba(198,40,40,.2),inset 0 1px 0 rgba(255,255,255,.18);
-  transition:background .2s ease,transform .2s ease,box-shadow .2s ease;
-}
-.submit-toggle:hover,.submit-button:hover { background:linear-gradient(135deg,#ef4a4a,#b51f1f); transform:translateY(-2px); box-shadow:0 6px 15px rgba(198,40,40,.3); }
-.submit-panel { margin:0; padding:0 24px; background:#fff; color:#171717; border:1px solid #ddd; border-radius:10px; box-shadow:0 3px 12px rgba(0,0,0,.07); opacity:0; transform:translateY(-12px) scale(.985); transform-origin:top center; max-height:0; overflow:hidden; transition:max-height .42s cubic-bezier(.2,.75,.25,1),opacity .28s ease,transform .35s cubic-bezier(.2,.75,.25,1),padding .3s ease,margin .3s ease; }
-.submit-panel[hidden] { display:none; }
-.submit-panel.is-open { opacity:1; transform:translateY(0) scale(1); max-height:2400px; margin:12px 0 18px; padding:24px; }
-.device-select-wrap select { min-height:48px; border:1px solid #d4b0b0; border-radius:7px; background:linear-gradient(180deg,#fff,#f6eeee); color:#292020; font:800 13px "Orbitron",Arial,sans-serif; letter-spacing:.35px; cursor:pointer; box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 2px 6px rgba(198,40,40,.06); transition:border-color .2s ease,box-shadow .2s ease,background .2s ease; }
-.device-select-wrap select:hover,.device-select-wrap select:focus { border-color:#c62828; box-shadow:0 0 0 3px rgba(198,40,40,.11),0 3px 10px rgba(198,40,40,.08); }
-.submit-panel h2 { margin:0 0 20px; font:800 22px "Orbitron",Arial,sans-serif; }
-.submit-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
-.submit-field { display:flex; flex-direction:column; gap:8px; min-width:0; font-size:14px; font-weight:700; }
-.submit-field-wide { grid-column:1/-1; }
-.submit-field label,.submit-field span { line-height:1.35; }
-.submit-field b { color:#c62828; }
-.submit-field input,.submit-field select,.submit-field textarea,.level-select-trigger,.level-select-menu input {
-  width:100%; min-width:0; border:1px solid #d4d4d4; border-radius:6px; background:#f7f7f7;
-  color:#171717; padding:12px 13px; font:14px Arial,sans-serif; outline:none;
-}
-.submit-field textarea { resize:vertical; }
-.submit-field input:focus,.submit-field select:focus,.submit-field textarea:focus,.level-select-trigger:focus { border-color:#c62828; box-shadow:0 0 0 2px rgba(198,40,40,.12); }
-.select-wrap,.level-select-wrap { position:relative; }
-.select-wrap select { appearance:none; padding-right:42px; }
-.field-chevron { position:absolute; right:14px; top:50%; transform:translateY(-50%); color:#c62828; pointer-events:none; font-size:19px; line-height:1; }
-.level-select-trigger { display:flex; align-items:center; justify-content:space-between; text-align:left; padding-right:42px; cursor:pointer; }
-.level-select-trigger .field-chevron { right:14px; }
-.level-select-menu { position:absolute; z-index:300; top:calc(100% + 6px); left:0; right:0; padding:8px; background:#fff; border:1px solid #ccc; border-radius:8px; box-shadow:0 10px 28px rgba(0,0,0,.18); }
-.level-select-menu[hidden] { display:none; }
-.level-select-menu input { margin-bottom:8px; }
-.level-select-options { max-height:300px; overflow:auto; }
-.level-option { width:100%; display:flex; align-items:center; gap:11px; padding:8px; border:0; border-radius:5px; background:transparent; color:inherit; text-align:left; cursor:pointer; font:600 14px Arial,sans-serif; }
-.level-option:hover,.level-option[aria-selected="true"] { background:rgba(198,40,40,.1); }
-.level-option img { width:76px; height:43px; flex:0 0 76px; object-fit:cover; border-radius:4px; background:#eee; }
-.field-error { min-height:0; color:#c62828; font-size:12px; font-weight:600; }
-.field-error:not(:empty) { min-height:14px; }
-.submit-field.invalid input,.submit-field.invalid select,.submit-field.invalid textarea,.submit-field.invalid .level-select-trigger { border-color:#c62828; }
-.notes-field { margin-top:16px; }
-.submit-guidelines { margin:17px 0 10px; color:#666; text-align:center; font-size:13px; }
-.submit-guidelines a { color:#c62828; font-weight:700; }
-.submit-status { min-height:18px; margin:8px 0; color:#c62828; text-align:center; font-size:13px; font-weight:700; }
-.submit-button { display:block; width:100%; margin-top:8px; padding:14px; font-size:15px; }
-body.dark-mode .submit-panel { background:#191919; color:#f2f2f2; border-color:#383838; box-shadow:0 3px 12px rgba(0,0,0,.3); }
-body.dark-mode .submit-field input,body.dark-mode .submit-field select,body.dark-mode .submit-field textarea,body.dark-mode .level-select-trigger,body.dark-mode .level-select-menu input { background:#252525; color:#f2f2f2; border-color:#484848; color-scheme:dark; }
-body.dark-mode .level-select-menu { background:#202020; border-color:#484848; }
-body.dark-mode .level-option:hover,body.dark-mode .level-option[aria-selected="true"] { background:rgba(198,40,40,.22); }
-body.dark-mode .submit-guidelines { color:#aaa; }
+/* Header buttons: FAQ + Discord share the same class, so padding/font/height match.
+   The grid makes both buttons exactly the same width and height as well. */
+.header-actions { margin-left:auto; display:grid; grid-auto-flow:column; grid-auto-columns:1fr; align-items:stretch; gap:10px; flex:0 0 auto; }
+.header-actions .discord-button { margin-left:0; justify-content:center; text-align:center; }
+.faq-button { border:0; margin:0; cursor:pointer; background:#d22b2b; color:#fff; }
+.faq-button:hover { background:#b92323; }
+body.dark-mode .faq-button { background:#d22b2b; }
+body.dark-mode .faq-button:hover { background:#b92323; }
 @media(max-width:900px) {
-  .header-actions { order:5; margin-left:auto; }
-  .header-actions .submit-toggle,.header-actions .discord-button { padding:10px 12px; font-size:11px; }
+.header-actions { order:5; margin-left:auto; }
+.header-actions .discord-button { padding:10px 12px; font-size:11px; }
 }
 @media(max-width:600px) {
-  .submit-area { padding:0 14px; }
-  .submit-panel.is-open { padding:17px; }
-  .submit-grid { grid-template-columns:1fr; gap:13px; }
-  .submit-field-wide { grid-column:auto; }
-  .header-actions { gap:7px; }
-  .header-actions .submit-toggle,.header-actions .discord-button { padding:9px 10px; font-size:10px; letter-spacing:.2px; }
+.header-actions { gap:7px; }
+.header-actions .discord-button { padding:9px 10px; font-size:10px; letter-spacing:.2px; }
+}
+
+/* FAQ panel */
+.faq-area { max-width:1260px; margin:0 auto; padding:0 20px; }
+.faq-panel { margin:0; padding:0 24px; background:#fff; color:#171717; border:1px solid #ddd; border-radius:10px; box-shadow:0 3px 12px rgba(0,0,0,.07); opacity:0; transform:translateY(-12px) scale(.985); transform-origin:top center; max-height:0; overflow:hidden; transition:max-height .42s cubic-bezier(.2,.75,.25,1),opacity .28s ease,transform .35s cubic-bezier(.2,.75,.25,1),padding .3s ease,margin .3s ease; }
+.faq-panel[hidden] { display:none; }
+.faq-panel.is-open { opacity:1; transform:translateY(0) scale(1); max-height:6000px; margin:12px 0 18px; padding:24px; }
+.faq-panel h2 { margin:0 0 20px; font:800 22px "Orbitron",Arial,sans-serif; }
+.faq-item { padding:16px 0; border-top:1px solid #e2e2e2; }
+.faq-item:first-of-type { border-top:0; padding-top:0; }
+.faq-question { margin:0 0 8px; font-size:17px; font-weight:700; color:#d22b2b; }
+.faq-answer { margin:0; font-size:15px; line-height:1.55; color:#333; overflow-wrap:anywhere; }
+body.dark-mode .faq-panel { background:#191919; color:#f2f2f2; border-color:#383838; box-shadow:0 3px 12px rgba(0,0,0,.3); }
+body.dark-mode .faq-item { border-top-color:#383838; }
+body.dark-mode .faq-question { color:#ff6b6b; }
+body.dark-mode .faq-answer { color:#ddd; }
+@media(max-width:600px) {
+.faq-area { padding:0 14px; }
+.faq-panel.is-open { padding:17px; }
+.faq-panel h2 { font-size:19px; }
+.faq-question { font-size:16px; }
 }
 @media(prefers-reduced-motion:reduce) {
-  .submit-panel,.submit-toggle,}
+.faq-panel { transition:none; }
+}
 
 </style>
 </head>
@@ -670,8 +646,8 @@ Demon<span class="red">Verse</span>
 </div>
 
 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
-  <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.8 8.8 0 0 1 8.9 3.8 9.2 9.2 0 1 0 20.2 15.1Z"/></svg>
-  <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6ZM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.22 5.64l1.42-1.42 2.12 2.12-1.42 1.42zm12.02 12.02 1.42-1.42 2.12 2.12-1.42 1.42zM18.36 4.22l1.42 1.42-2.12 2.12-1.42-1.42zM6.34 16.24l1.42 1.42-2.12 2.12-1.42-1.42z"/></svg>
+<svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.8 8.8 0 0 1 8.9 3.8 9.2 9.2 0 1 0 20.2 15.1Z"/></svg>
+<svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6ZM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.22 5.64l1.42-1.42 2.12 2.12-1.42 1.42zm12.02 12.02 1.42-1.42 2.12 2.12-1.42 1.42zM18.36 4.22l1.42 1.42-2.12 2.12-1.42-1.42zM6.34 16.24l1.42 1.42-2.12 2.12-1.42-1.42z"/></svg>
 </button>
 
 <div class="subtitle">
@@ -680,24 +656,24 @@ COMMUNITY GEOMETRY DASH DEMON LIST
 
 
 <div class="language-picker" id="languagePicker">
-  <button class="language-trigger" id="languageTrigger" type="button"
-          aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
-    <span id="currentLanguageFlag" aria-hidden="true"></span>
-    <span id="currentLanguageCode">ENG</span>
-    <svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 3.5 6 8.5 11 3.5Z"/></svg>
-  </button>
-  <div class="language-menu" id="languageMenu" role="menu" aria-label="Languages">
-    <button class="language-option" type="button" role="menuitemradio" data-language="en" aria-selected="true"><span class="flag-icon" aria-hidden="true"></span><span>ENG</span></button>
-    <button class="language-option" type="button" role="menuitemradio" data-language="ru" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>RUS</span></button>
-    <button class="language-option" type="button" role="menuitemradio" data-language="es" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>ESP</span></button>
-    <button class="language-option" type="button" role="menuitemradio" data-language="fr" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>FRE</span></button>
-  </div>
+<button class="language-trigger" id="languageTrigger" type="button"
+aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
+<span id="currentLanguageFlag" aria-hidden="true"></span>
+<span id="currentLanguageCode">ENG</span>
+<svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 3.5 6 8.5 11 3.5Z"/></svg>
+</button>
+<div class="language-menu" id="languageMenu" role="menu" aria-label="Languages">
+<button class="language-option" type="button" role="menuitemradio" data-language="en" aria-selected="true"><span class="flag-icon" aria-hidden="true"></span><span>ENG</span></button>
+<button class="language-option" type="button" role="menuitemradio" data-language="ru" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>RUS</span></button>
+<button class="language-option" type="button" role="menuitemradio" data-language="es" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>ESP</span></button>
+<button class="language-option" type="button" role="menuitemradio" data-language="fr" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>FRE</span></button>
+</div>
 </div>
 
 
 <div class="header-actions">
-  <button type="button" class="submit-toggle" id="openSubmitForm" aria-controls="submitPanel" aria-expanded="false">SUBMIT A RECORD</button>
-  <a class="discord-button" href="https://discord.gg/ye8whxz52" target="_blank" rel="noopener noreferrer">DISCORD</a>
+<button type="button" class="discord-button faq-button" id="openFaq" aria-controls="faqPanel" aria-expanded="false">FAQ</button>
+<a class="discord-button" href="https://discord.gg/ye8whxz52" target="_blank" rel="noopener noreferrer">DISCORD</a>
 </div>
 
 </header>
@@ -714,73 +690,35 @@ placeholder="Search levels..."
 </div>
 
 <div class="view-switch" role="group" aria-label="Choose leaderboard">
-  <button class="view-button active" id="mainViewButton" data-view="main" type="button">MAIN LIST</button>
-  <button class="view-button" id="upcomingViewButton" data-view="upcoming" type="button">UP AND COMING</button>
+<button class="view-button active" id="mainViewButton" data-view="main" type="button">MAIN LIST</button>
+<button class="view-button" id="upcomingViewButton" data-view="upcoming" type="button">UP AND COMING</button>
 </div>
 
 
 
-<section class="submit-area" aria-labelledby="submitHeading">
-  <div class="submit-panel" id="submitPanel" hidden>
-    <h2 id="submitHeading">Submit a Record</h2>
-    <form id="recordForm" novalidate>
-      <div class="submit-grid">
-        <label class="submit-field submit-field-wide">
-          <span>Level <b>*</b></span>
-          <div class="level-select-wrap">
-            <button type="button" class="level-select-trigger" id="levelSelectTrigger" aria-expanded="false">
-              <span id="selectedLevelLabel">Select a level</span><span class="field-chevron" aria-hidden="true">⌄</span>
-            </button>
-            <div class="level-select-menu" id="levelSelectMenu" hidden>
-              <input type="search" id="levelSelectSearch" placeholder="Search levels..." aria-label="Search levels">
-              <div class="level-select-options" id="levelSelectOptions"></div>
-            </div>
-            <input type="hidden" id="selectedLevel" name="level" required>
-          </div>
-          <small class="field-error" data-error="level"></small>
-        </label>
-        <label class="submit-field">
-          <span>Holder Name <b>*</b></span>
-          <input type="text" id="holderName" name="holderName" maxlength="24" placeholder="Your display name" required>
-          <small class="field-error" data-error="holderName"></small>
-        </label>
-        <label class="submit-field">
-          <span>Completion Link <b>*</b></span>
-          <input type="url" id="completionLink" name="completionLink" placeholder="https://..." required>
-          <small class="field-error" data-error="completionLink"></small>
-        </label>
-        <label class="submit-field">
-          <span>Device <b>*</b></span>
-          <div class="select-wrap device-select-wrap">
-            <select id="device" name="device" required aria-label="Pick device">
-              <option value="">Select a device</option>
-              <option value="PC">PC</option>
-              <option value="Mobile">Mobile</option>
-            </select>
-            <span class="field-chevron" aria-hidden="true">⌄</span>
-          </div>
-          <small class="field-error" data-error="device"></small>
-        </label>
-        <label class="submit-field">
-          <span>Custom ID <b>*</b></span>
-          <input type="text" id="customId" name="customId" placeholder="ID of the level copy used" required>
-          <small class="field-error" data-error="customId"></small>
-        </label>
-        <label class="submit-field">
-          <span>Raw Footage <b>*</b></span>
-          <input type="url" id="rawFootage" name="rawFootage" placeholder="Link to your raw footage" required>
-          <small class="field-error" data-error="rawFootage"></small>
-        </label>
-      </div>
-      <label class="submit-field notes-field">
-        <span>Additional Notes</span>
-        <textarea id="additionalNotes" name="additionalNotes" rows="3" placeholder="Anything you'd like the staff to know..."></textarea>
-      </label>
-      <p class="submit-guidelines">By submitting this record, you acknowledge that it follows the <a href="#" id="guidelinesLink">submission guidelines</a>.</p>
-      <p class="submit-status" id="submitStatus" role="status" aria-live="polite"></p>
-      <button type="submit" class="submit-button">Submit Record</button>
-    </form>
-  </div>
+<!-- FAQ PANEL
+     EDIT HERE: change the text inside each .faq-question and .faq-answer.
+     To add another entry, copy one whole <div class="faq-item"> ... </div> block and paste it below the last one. -->
+<section class="faq-area" aria-labelledby="faqHeading">
+<div class="faq-panel" id="faqPanel" hidden>
+<h2 id="faqHeading">FAQ</h2>
+
+<div class="faq-item">
+<h3 class="faq-question">Question 1: Type your first question here</h3>
+<p class="faq-answer">Answer 1: Type your answer here.</p>
+</div>
+
+<div class="faq-item">
+<h3 class="faq-question">Question 2: Type your second question here</h3>
+<p class="faq-answer">Answer 2: Type your answer here.</p>
+</div>
+
+<div class="faq-item">
+<h3 class="faq-question">Question 3: Type your third question here</h3>
+<p class="faq-answer">Answer 3: Type your answer here.</p>
+</div>
+
+</div>
 </section>
 
 <main class="list-container">
@@ -790,6 +728,8 @@ Top 75 Demons
 </div>
 
 <div id="level-list"></div>
+
+<div id="extended-list"></div>
 
 </main>
 
@@ -814,149 +754,149 @@ DemonVerse • Community Geometry Dash Demon List
 
 // Inline SVG flags: transparent backgrounds, no external image dependencies.
 const languageFlags = {
-  en: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="United Kingdom flag">
-    <clipPath id="ukClip"><rect width="60" height="40" rx="1"/></clipPath>
-    <g clip-path="url(#ukClip)">
-      <path fill="#012169" d="M0 0h60v40H0z"/>
-      <path stroke="#fff" stroke-width="9" d="M0 0 60 40M60 0 0 40"/>
-      <path stroke="#C8102E" stroke-width="4" d="M0 0 60 40M60 0 0 40"/>
-      <path stroke="#fff" stroke-width="14" d="M30 0v40M0 20h60"/>
-      <path stroke="#C8102E" stroke-width="8" d="M30 0v40M0 20h60"/>
-    </g></svg>`,
-  ru: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="Russian flag"><path fill="#fff" d="M0 0h60v40H0z"/><path fill="#0039A6" d="M0 13.33h60v13.34H0z"/><path fill="#D52B1E" d="M0 26.67h60V40H0z"/></svg>`,
-  es: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="Spanish flag"><path fill="#AA151B" d="M0 0h60v40H0z"/><path fill="#F1BF00" d="M0 10h60v20H0z"/><path fill="#AA151B" d="M0 0h60v10H0z"/></svg>`,
-  fr: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="French flag"><path fill="#0055A4" d="M0 0h20v40H0z"/><path fill="#fff" d="M20 0h20v40H20z"/><path fill="#EF4135" d="M40 0h20v40H40z"/></svg>`
+en: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="United Kingdom flag">
+<clipPath id="ukClip"><rect width="60" height="40" rx="1"/></clipPath>
+<g clip-path="url(#ukClip)">
+<path fill="#012169" d="M0 0h60v40H0z"/>
+<path stroke="#fff" stroke-width="9" d="M0 0 60 40M60 0 0 40"/>
+<path stroke="#C8102E" stroke-width="4" d="M0 0 60 40M60 0 0 40"/>
+<path stroke="#fff" stroke-width="14" d="M30 0v40M0 20h60"/>
+<path stroke="#C8102E" stroke-width="8" d="M30 0v40M0 20h60"/>
+</g></svg>`,
+ru: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="Russian flag"><path fill="#fff" d="M0 0h60v40H0z"/><path fill="#0039A6" d="M0 13.33h60v13.34H0z"/><path fill="#D52B1E" d="M0 26.67h60V40H0z"/></svg>`,
+es: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="Spanish flag"><path fill="#AA151B" d="M0 0h60v40H0z"/><path fill="#F1BF00" d="M0 10h60v20H0z"/><path fill="#AA151B" d="M0 0h60v10H0z"/></svg>`,
+fr: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="French flag"><path fill="#0055A4" d="M0 0h20v40H0z"/><path fill="#fff" d="M20 0h20v40H20z"/><path fill="#EF4135" d="M40 0h20v40H40z"/></svg>`
 };
 
 const translations = {
-  en: {
-    subtitle: "COMMUNITY GEOMETRY DASH DEMON LIST",
-    mainList: "MAIN LIST", upcomingButton: "UP AND COMING",
-    mainTitle: "Top 75 Demons", upcomingTitle: "Up and Coming",
-    searchMain: "Search levels...", searchUpcoming: "Search upcoming levels...",
-    hostedBy: "Hosted by:", verifiedBy: "Verified by:",
-    currentVerifier: "Current Verifier:", firstVictor: "First Victor:",
-    bestProgress: "Best Progress:", notAdded: "Not added",
-    levelInfo: "LEVEL INFO", levelId: "Level ID:", length: "Length:",
-    objects: "Objects:", verificationVideo: "Verification Video",
-    footer: "DemonVerse • Community Geometry Dash Demon List",
-    chooseLanguage: "Choose language",
-    switchDark: "Switch to dark mode", switchLight: "Switch to light mode",
-    blankSlot: "Blank level slot"
-  },
-  ru: {
-    subtitle: "СООБЩЕСТВЕННЫЙ СПИСОК ДЕМОНОВ GEOMETRY DASH",
-    mainList: "ОСНОВНОЙ СПИСОК", upcomingButton: "НА ПОДХОДЕ",
-    mainTitle: "Топ 75 демонов", upcomingTitle: "На подходе",
-    searchMain: "Поиск уровней...", searchUpcoming: "Поиск будущих уровней...",
-    hostedBy: "Организатор:", verifiedBy: "Подтвердил:",
-    currentVerifier: "Текущий верификатор:", firstVictor: "Первый победитель:",
-    bestProgress: "Лучший прогресс:", notAdded: "Не добавлено",
-    levelInfo: "ИНФОРМАЦИЯ ОБ УРОВНЕ", levelId: "ID уровня:", length: "Длительность:",
-    objects: "Объекты:", verificationVideo: "Видео верификации",
-    footer: "DemonVerse • Сообщественный список демонов Geometry Dash",
-    chooseLanguage: "Выбрать язык",
-    switchDark: "Включить тёмную тему", switchLight: "Включить светлую тему",
-    blankSlot: "Пустое место уровня"
-  },
-  es: {
-    subtitle: "LISTA COMUNITARIA DE DEMONIOS DE GEOMETRY DASH",
-    mainList: "LISTA PRINCIPAL", upcomingButton: "PRÓXIMAMENTE",
-    mainTitle: "Los 75 mejores demonios", upcomingTitle: "Próximamente",
-    searchMain: "Buscar niveles...", searchUpcoming: "Buscar próximos niveles...",
-    hostedBy: "Organizado por:", verifiedBy: "Verificado por:",
-    currentVerifier: "Verificador actual:", firstVictor: "Primer vencedor:",
-    bestProgress: "Mejor progreso:", notAdded: "Sin añadir",
-    levelInfo: "INFORMACIÓN DEL NIVEL", levelId: "ID del nivel:", length: "Duración:",
-    objects: "Objetos:", verificationVideo: "Vídeo de verificación",
-    footer: "DemonVerse • Lista comunitaria de demonios de Geometry Dash",
-    chooseLanguage: "Elegir idioma",
-    switchDark: "Activar modo oscuro", switchLight: "Activar modo claro",
-    blankSlot: "Espacio de nivel vacío"
-  },
-  fr: {
-    subtitle: "LISTE COMMUNAUTAIRE DES DÉMONS DE GEOMETRY DASH",
-    mainList: "LISTE PRINCIPALE", upcomingButton: "À VENIR",
-    mainTitle: "Top 75 des démons", upcomingTitle: "À venir",
-    searchMain: "Rechercher des niveaux...", searchUpcoming: "Rechercher les niveaux à venir...",
-    hostedBy: "Organisé par :", verifiedBy: "Vérifié par :",
-    currentVerifier: "Vérificateur actuel :", firstVictor: "Premier vainqueur :",
-    bestProgress: "Meilleure progression :", notAdded: "Non renseigné",
-    levelInfo: "INFOS DU NIVEAU", levelId: "ID du niveau :", length: "Durée :",
-    objects: "Objets :", verificationVideo: "Vidéo de vérification",
-    footer: "DemonVerse • Liste communautaire des démons de Geometry Dash",
-    chooseLanguage: "Choisir la langue",
-    switchDark: "Activer le mode sombre", switchLight: "Activer le mode clair",
-    blankSlot: "Emplacement de niveau vide"
-  }
+en: {
+subtitle: "COMMUNITY GEOMETRY DASH DEMON LIST",
+mainList: "MAIN LIST", upcomingButton: "UP AND COMING",
+mainTitle: "Top 75 Demons", upcomingTitle: "Up and Coming",
+searchMain: "Search levels...", searchUpcoming: "Search upcoming levels...",
+hostedBy: "Hosted by:", verifiedBy: "Verified by:",
+currentVerifier: "Current Verifier:", firstVictor: "First Victor:",
+bestProgress: "Best Progress:", notAdded: "Not added",
+levelInfo: "LEVEL INFO", levelId: "Level ID:", length: "Length:",
+objects: "Objects:", verificationVideo: "Verification Video",
+footer: "DemonVerse • Community Geometry Dash Demon List",
+chooseLanguage: "Choose language",
+switchDark: "Switch to dark mode", switchLight: "Switch to light mode",
+blankSlot: "Blank level slot"
+},
+ru: {
+subtitle: "СООБЩЕСТВЕННЫЙ СПИСОК ДЕМОНОВ GEOMETRY DASH",
+mainList: "ОСНОВНОЙ СПИСОК", upcomingButton: "НА ПОДХОДЕ",
+mainTitle: "Топ 75 демонов", upcomingTitle: "На подходе",
+searchMain: "Поиск уровней...", searchUpcoming: "Поиск будущих уровней...",
+hostedBy: "Организатор:", verifiedBy: "Подтвердил:",
+currentVerifier: "Текущий верификатор:", firstVictor: "Первый победитель:",
+bestProgress: "Лучший прогресс:", notAdded: "Не добавлено",
+levelInfo: "ИНФОРМАЦИЯ ОБ УРОВНЕ", levelId: "ID уровня:", length: "Длительность:",
+objects: "Объекты:", verificationVideo: "Видео верификации",
+footer: "DemonVerse • Сообщественный список демонов Geometry Dash",
+chooseLanguage: "Выбрать язык",
+switchDark: "Включить тёмную тему", switchLight: "Включить светлую тему",
+blankSlot: "Пустое место уровня"
+},
+es: {
+subtitle: "LISTA COMUNITARIA DE DEMONIOS DE GEOMETRY DASH",
+mainList: "LISTA PRINCIPAL", upcomingButton: "PRÓXIMAMENTE",
+mainTitle: "Los 75 mejores demonios", upcomingTitle: "Próximamente",
+searchMain: "Buscar niveles...", searchUpcoming: "Buscar próximos niveles...",
+hostedBy: "Organizado por:", verifiedBy: "Verificado por:",
+currentVerifier: "Verificador actual:", firstVictor: "Primer vencedor:",
+bestProgress: "Mejor progreso:", notAdded: "Sin añadir",
+levelInfo: "INFORMACIÓN DEL NIVEL", levelId: "ID del nivel:", length: "Duración:",
+objects: "Objetos:", verificationVideo: "Vídeo de verificación",
+footer: "DemonVerse • Lista comunitaria de demonios de Geometry Dash",
+chooseLanguage: "Elegir idioma",
+switchDark: "Activar modo oscuro", switchLight: "Activar modo claro",
+blankSlot: "Espacio de nivel vacío"
+},
+fr: {
+subtitle: "LISTE COMMUNAUTAIRE DES DÉMONS DE GEOMETRY DASH",
+mainList: "LISTE PRINCIPALE", upcomingButton: "À VENIR",
+mainTitle: "Top 75 des démons", upcomingTitle: "À venir",
+searchMain: "Rechercher des niveaux...", searchUpcoming: "Rechercher les niveaux à venir...",
+hostedBy: "Organisé par :", verifiedBy: "Vérifié par :",
+currentVerifier: "Vérificateur actuel :", firstVictor: "Premier vainqueur :",
+bestProgress: "Meilleure progression :", notAdded: "Non renseigné",
+levelInfo: "INFOS DU NIVEAU", levelId: "ID du niveau :", length: "Durée :",
+objects: "Objets :", verificationVideo: "Vidéo de vérification",
+footer: "DemonVerse • Liste communautaire des démons de Geometry Dash",
+chooseLanguage: "Choisir la langue",
+switchDark: "Activer le mode sombre", switchLight: "Activer le mode clair",
+blankSlot: "Emplacement de niveau vide"
+}
 };
 
 let currentLanguage = "en";
 const tr = key => translations[currentLanguage][key] || translations.en[key] || key;
 
 function updateLanguageInterface() {
-  document.documentElement.lang = currentLanguage;
-  document.querySelector(".subtitle").textContent = tr("subtitle");
-  document.getElementById("mainViewButton").textContent = tr("mainList");
-  document.getElementById("upcomingViewButton").textContent = tr("upcomingButton");
-  document.querySelector("footer").textContent = tr("footer");
-  document.getElementById("search").placeholder =
-    currentView === "upcoming" ? tr("searchUpcoming") : tr("searchMain");
+document.documentElement.lang = currentLanguage;
+document.querySelector(".subtitle").textContent = tr("subtitle");
+document.getElementById("mainViewButton").textContent = tr("mainList");
+document.getElementById("upcomingViewButton").textContent = tr("upcomingButton");
+document.querySelector("footer").textContent = tr("footer");
+document.getElementById("search").placeholder =
+currentView === "upcoming" ? tr("searchUpcoming") : tr("searchMain");
 
-  const codes = { en: "ENG", ru: "RUS", es: "ESP", fr: "FRE" };
-  document.getElementById("currentLanguageCode").textContent = codes[currentLanguage];
-  document.getElementById("currentLanguageFlag").innerHTML = languageFlags[currentLanguage];
-  document.getElementById("languageTrigger").setAttribute("aria-label", tr("chooseLanguage"));
+const codes = { en: "ENG", ru: "RUS", es: "ESP", fr: "FRE" };
+document.getElementById("currentLanguageCode").textContent = codes[currentLanguage];
+document.getElementById("currentLanguageFlag").innerHTML = languageFlags[currentLanguage];
+document.getElementById("languageTrigger").setAttribute("aria-label", tr("chooseLanguage"));
 
-  document.querySelectorAll(".language-option").forEach(option => {
-    const selected = option.dataset.language === currentLanguage;
-    option.setAttribute("aria-selected", String(selected));
-    option.querySelector(".flag-icon").outerHTML = languageFlags[option.dataset.language];
-  });
+document.querySelectorAll(".language-option").forEach(option => {
+const selected = option.dataset.language === currentLanguage;
+option.setAttribute("aria-selected", String(selected));
+option.querySelector(".flag-icon").outerHTML = languageFlags[option.dataset.language];
+});
 
-  const dark = document.body.classList.contains("dark-mode");
-  const themeToggle = document.getElementById("themeToggle");
-  themeToggle.setAttribute("aria-label", dark ? tr("switchLight") : tr("switchDark"));
-  themeToggle.title = dark ? tr("switchLight") : tr("switchDark");
+const dark = document.body.classList.contains("dark-mode");
+const themeToggle = document.getElementById("themeToggle");
+themeToggle.setAttribute("aria-label", dark ? tr("switchLight") : tr("switchDark"));
+themeToggle.title = dark ? tr("switchLight") : tr("switchDark");
 
-  const isUpcoming = currentView === "upcoming";
-  document.querySelector(".list-title").textContent =
-    isUpcoming ? tr("upcomingTitle") : tr("mainTitle");
+const isUpcoming = currentView === "upcoming";
+document.querySelector(".list-title").textContent =
+isUpcoming ? tr("upcomingTitle") : tr("mainTitle");
 
-  displayLevels(
-    isUpcoming ? sortedUpcomingLevels() : levels,
-    currentView
-  );
+displayLevels(
+isUpcoming ? sortedUpcomingLevels() : levels,
+currentView
+);
 }
 
 (() => {
-  const picker = document.getElementById("languagePicker");
-  const trigger = document.getElementById("languageTrigger");
-  const closePicker = () => {
-    picker.classList.remove("open");
-    trigger.setAttribute("aria-expanded", "false");
-  };
+const picker = document.getElementById("languagePicker");
+const trigger = document.getElementById("languageTrigger");
+const closePicker = () => {
+picker.classList.remove("open");
+trigger.setAttribute("aria-expanded", "false");
+};
 
-  trigger.addEventListener("click", () => {
-    const opening = !picker.classList.contains("open");
-    picker.classList.toggle("open", opening);
-    trigger.setAttribute("aria-expanded", String(opening));
-  });
+trigger.addEventListener("click", () => {
+const opening = !picker.classList.contains("open");
+picker.classList.toggle("open", opening);
+trigger.setAttribute("aria-expanded", String(opening));
+});
 
-  picker.querySelectorAll(".language-option").forEach(option => {
-    option.addEventListener("click", () => {
-      currentLanguage = option.dataset.language;
-      closePicker();
-      updateLanguageInterface();
-    });
-  });
+picker.querySelectorAll(".language-option").forEach(option => {
+option.addEventListener("click", () => {
+currentLanguage = option.dataset.language;
+closePicker();
+updateLanguageInterface();
+});
+});
 
-  document.addEventListener("click", event => {
-    if (!picker.contains(event.target)) closePicker();
-  });
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") closePicker();
-  });
+document.addEventListener("click", event => {
+if (!picker.contains(event.target)) closePicker();
+});
+document.addEventListener("keydown", event => {
+if (event.key === "Escape") closePicker();
+});
 })();
 
 
@@ -1020,6 +960,18 @@ verification: "https://www.youtube.com/watch?v=x4Io4zkWVRw",
 id: "126242564",
 length: "6:47s",
 objects: "413737"
+},
+{
+// Moved here from Up and Coming. Edit id / length / objects / verification link below.
+// Its First Victor is entry 7 in the firstVictors list further down.
+name: "IT MEANS EVERYTING",
+host: "Velyt",
+verifier: "Waltty",
+image: "it means everythingg.jpg",
+verification: "https://www.youtube.com/watch?v=_QV11PEwiIo",
+id: "106165639",
+length: "1:08s",
+objects: "30336"
 },
 {
 name: "Green Bullet",
@@ -1502,6 +1454,19 @@ length: "2:57s",
 objects: "157646"
 },
 {
+// BLANK EDITABLE SPOT (between Deimos and Kosetsu).
+// To fill it in: delete the line "blank: true," then fill in the fields below.
+// Its First Victor is entry 56 in the firstVictors list further down.
+name: "BLAZEIT",
+host: "RollTheDice",
+verifier: "turtl",
+image: "blazeit.jpg",
+verification: "https://www.youtube.com/watch?v=WFUJ7Tc3FPM",
+id: "143757358",
+length: "1:11s",
+objects: "88615"
+},
+{
 name: "KOSETSU",
 host: "fwe",
 verifier: "Taiago",
@@ -1716,424 +1681,1305 @@ objects: "150609"
 
 
 
-// Up and Coming entries. Keep progress values/ranges exactly as entered.
-const upcomingLevels = [
-  {
-    name: "Silent Acropolis",
-    host: "The Purgatory",
-    verifier: "Hover",
-    image: "silent acropolis.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "99%",
-  },
-  {
-    name: "NIGHTFALL",
-    host: "MadisonYuko",
-    verifier: "nei_gmd",
-    image: "nightfall.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "97%",
-  },
-  {
-    name: "Apollyon",
-    host: "RicoLP",
-    verifier: "katzen",
-    image: "apollyon.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "97%",
-  },
-  {
-    name: "Eternal Silence",
-    host: "Realvet",
-    verifier: "TBD",
-    image: "eternal silence.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "4-100%",
-  },
-  {
-    name: "IT MEANS EVERYTING",
-    host: "Velyt",
-    verifier: "Waltty",
-    image: "it means everything.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "95%",
-  },
-  {
-    name: "FIBERGLASS",
-    host: "cherryteam",
-    verifier: "Duv",
-    image: "fiberglass.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "8-100%",
-  },
-  {
-    name: "Sweeping Demon 2",
-    host: "Temp",
-    verifier: "Taiago",
-    image: "sweeping demon 2.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "87%",
-  },
-  {
-    name: "Laybrinth",
-    host: "SyQual",
-    verifier: "GGonop",
-    image: "labyrinth.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "13%-100%",
-  },
-  {
-    name: "ECHO",
-    host: "Zeptoz",
-    verifier: "hqmy",
-    image: "echo.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "86%",
-  },
-  {
-    name: "Heliopolis",
-    host: "MindCap",
-    verifier: "Zoink",
-    image: "heliopolis.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "85%",
-  },
-  {
-    name: "ESCALATOR",
-    host: "Neomarbilan",
-    verifier: "teraaa",
-    image: "escalator.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "83%",
-  },
-  {
-    name: "Silent Circles",
-    host: "Starchman",
-    verifier: "dewbbs",
-    image: "silent circles.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "82%",
-  },
-  {
-    name: "Banshee",
-    host: "Komp",
-    verifier: "hstorm",
-    image: "banshee.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "21-100%",
-  },
-  {
-    name: "SILENT HELHEIM",
-    host: "Streamy450",
-    verifier: "TBD",
-    image: "silent helheim.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "78%",
-  },
-  {
-    name: "i n j u r y",
-    host: "greafer",
-    verifier: "KYWY",
-    image: "i n j u r y.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "74%",
-  },
-  {
-    name: "FLASHBANG",
-    host: "Insxne97",
-    verifier: "LordVadercraft",
-    image: "flashbang.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "22-96%",
-  },
-  {
-    name: "Diffraction",
-    host: "ggii",
-    verifier: "Gamingbyte",
-    image: "diffraction.png",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "74%",
-  },
-  {
-    // Editable Up and Coming placeholder 23
-    name: "Bad Tr1p",
-    host: "cherryteam",
-    verifier: "ROZE",
-    image: "bad tr1p.jpg",
-    verification: "#",
-    id: "",
-    length: "",
-    objects: "",
-    progress: "29-100%",
-  },
-  {
-    name: "KOCMOC UNLEASED",
-    host: "cherryteam",
-    verifier: "Arshadow",
-    image: "kocmoc unleased.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "69%"
-  },
-  {
-    // Editable Up and Coming placeholder 28
-    name: "ZANBOT",
-    host: "Ido26",
-    verifier: "GMitzy",
-    image: "zanbot.png",
-    verification: "#",
-    id: "",
-    length: "",
-    objects: "",
-    progress: "68%",
-  },
-  {
-    name: "exasperation",
-    host: "Thyket",
-    verifier: "TBD",
-    image: "exasperation.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "67%",
-  },
-  {
-    name: "ARE",
-    host: "Cinemat",
-    verifier: "BONNGD",
-    image: "are.jpg",
-    verification: "#",
-    id: "Not added",
-    length: "Not added",
-    objects: "Not added",
-    progress: "36-100%",
-  },
-  {
-    // Editable Up and Coming placeholder 25
-    name: "Dignity",
-    host: "San Andreas",
-    verifier: "Sevant",
-    image: "dignity.jpg",
-    verification: "#",
-    id: "",
-    length: "",
-    objects: "",
-    progress: "64%",
-  },
-  {
-    // Editable Up and Coming placeholder 26
-    name: "BANG BANG",
-    host: "Varse",
-    verifier: "Jori",
-    image: "bang bang.jpg",
-    verification: "#",
-    id: "",
-    length: "",
-    objects: "",
-    progress: "64%",
-  },
-  {
-    // Editable Up and Coming placeholder 29
-    name: "Ankou",
-    host: "Xukarns",
-    verifier: "BlueOrbe",
-    image: "ankou.jpg",
-    verification: "#",
-    id: "",
-    length: "",
-    objects: "",
-    progress: "64%",
-  },
-  {
-    // Editable Up and Coming placeholder 27
-    name: "You When Bee Crusher (Solo)",
-    host: "akunakun",
-    verifier: "Guit Guit",
-    image: "you when bee crusher.jpg",
-    verification: "#",
-    id: "",
-    length: "",
-    objects: "",
-    progress: "63%",
-  },
-  {
-    // Editable Up and Coming placeholder 21
-    name: "Eternal Night",
-    host: "Electro",
-    verifier: "Mizukii",
-    image: "eternal night.jpg",
-    verification: "#",
-    id: "",
-    length: "",
-    objects: "",
-    progress: "38-100%",
-  },
-  {
-    // Editable Up and Coming placeholder 30
-    name: "mysterycore",
-    host: "urge",
-    verifier: "Cyzyex",
-    image: "mystercore.jpg",
-    verification: "#",
-    id: "",
-    length: "",
-    objects: "",
-    progress: "61%",
-  },
-  {
-    // Editable Up and Coming placeholder 22
-    name: "Vehemence",
-    host: "MadisonYuko",
-    verifier: "A6",
-    image: "vehemence.jpg",
-    verification: "#",
-    id: "",
-    length: "",
-    objects: "",
-    progress: "40-100%",
-  },
-  {
-    // Editable Up and Coming placeholder 24
-    name: "MAX NRG",
-    host: "SaturMan",
-    verifier: "SaturMan",
-    image: "max nrg.jpg",
-    verification: "#",
-    id: "",
-    length: "",
-    objects: "",
-    progress: "40-100%",
-  }
+// EXTENDED LIST (#78 onward). Shown below the Main List. Ranks are assigned automatically after the last Main List slot.
+// First Victors for these go in the firstVictors list below (entries 78-150). image = thumbnail file name (e.g. "my level.jpg"), verification = video link.
+const extendedLevels = [
+{
+// Extended List #78: fill in the fields below (leave "" to show "Not added").
+name: "BRITTNEY NO SCLEARS",
+host: "wabas",
+verifier: "Scotchtape",
+image: "bns.jpg",
+verification: "https://www.youtube.com/watch?v=ff_mQSXwjhU",
+id: "125317359",
+length: "1:17s",
+objects: "46316"
+},
+{
+// Extended List #79: fill in the fields below (leave "" to show "Not added").
+name: "Gaggatronda",
+host: "JCMoon",
+verifier: "Zeronium",
+image: "gaggatronda.jpg",
+verification: "https://www.youtube.com/watch?v=A4G41vw6Cf0",
+id: "114990369",
+length: "1:00s",
+objects: "38524"
+},
+{
+// Extended List #80: fill in the fields below (leave "" to show "Not added").
+name: "Stellar Night",
+host: "icedcave",
+verifier: "",
+image: "stellar night.jpg",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #81: fill in the fields below (leave "" to show "Not added").
+name: "Edge of Destiny",
+host: "CDMusic",
+verifier: "polterghast",
+image: "eod.jpg",
+verification: "https://www.youtube.com/watch?v=rUphe3H59yU",
+id: "89187968",
+length: "2:06s",
+objects: "192318"
+},
+{
+// Extended List #82: fill in the fields below (leave "" to show "Not added").
+name: "Haunted Ship",
+host: "awesomeme360 ",
+verifier: "Gnamolor",
+image: "haunted ship.jpg",
+verification: "https://www.youtube.com/watch?v=22l59QGmL48&t=4s",
+id: "143523624",
+length: "1:50s",
+objects: "123462"
+},
+{
+// Extended List #83: fill in the fields below (leave "" to show "Not added").
+name: "Losing Your Mind",
+host: "ItzGalaxyGaming",
+verifier: "iIiLaseriIi",
+image: "losing your mind.png",
+verification: "https://www.youtube.com/watch?v=LXp7t5gjyX8",
+id: "139508889",
+length: "1:36s",
+objects: "36722"
+},
+{
+// Extended List #84: fill in the fields below (leave "" to show "Not added").
+name: "The Plunge",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #85: fill in the fields below (leave "" to show "Not added").
+name: "Solar Flare",
+host: "",
+verifier: "",
+image: "solar flare.jpg",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #86: fill in the fields below (leave "" to show "Not added").
+name: "The Catacombs",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #87: fill in the fields below (leave "" to show "Not added").
+name: "LIMBO",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #88: fill in the fields below (leave "" to show "Not added").
+name: "Make Paul Dance",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #89: fill in the fields below (leave "" to show "Not added").
+name: "Codependence",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #90: fill in the fields below (leave "" to show "Not added").
+name: "Collapse",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #91: fill in the fields below (leave "" to show "Not added").
+name: "Belladonna",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #92: fill in the fields below (leave "" to show "Not added").
+name: "Mayhem",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #93: fill in the fields below (leave "" to show "Not added").
+name: "CHROMACAVE",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #94: fill in the fields below (leave "" to show "Not added").
+name: "Operation Evolution",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #95: fill in the fields below (leave "" to show "Not added").
+name: "Wavterminal",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #96: fill in the fields below (leave "" to show "Not added").
+name: "walter white",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #97: fill in the fields below (leave "" to show "Not added").
+name: "Infinite Chaos",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #98: fill in the fields below (leave "" to show "Not added").
+name: "Damascus",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #99: fill in the fields below (leave "" to show "Not added").
+name: "SARYYX NEVER CLEAR",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #100: fill in the fields below (leave "" to show "Not added").
+name: "The Yangire",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #101: fill in the fields below (leave "" to show "Not added").
+name: "Decks Dark",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #102: fill in the fields below (leave "" to show "Not added").
+name: "ORDINARY",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #103: fill in the fields below (leave "" to show "Not added").
+name: "Climax",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #104: fill in the fields below (leave "" to show "Not added").
+name: "Sinister Silence",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #105: fill in the fields below (leave "" to show "Not added").
+name: "THE JET ENGINE",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #106: fill in the fields below (leave "" to show "Not added").
+name: "Coalescence",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #107: fill in the fields below (leave "" to show "Not added").
+name: "Trickshot",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #108: fill in the fields below (leave "" to show "Not added").
+name: "arcturus",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #109: fill in the fields below (leave "" to show "Not added").
+name: "PSYCHOPATH",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #110: fill in the fields below (leave "" to show "Not added").
+name: "Midnight",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #111: fill in the fields below (leave "" to show "Not added").
+name: "Cimmerian Shade",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #112: fill in the fields below (leave "" to show "Not added").
+name: "Doppler",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #113: fill in the fields below (leave "" to show "Not added").
+name: "TrakineS",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #114: fill in the fields below (leave "" to show "Not added").
+name: "Between Duality",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #115: fill in the fields below (leave "" to show "Not added").
+name: "Diabolic ClubStep",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #116: fill in the fields below (leave "" to show "Not added").
+name: "Tartarus",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #117: fill in the fields below (leave "" to show "Not added").
+name: "Sonic Wave Infinity",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #118: fill in the fields below (leave "" to show "Not added").
+name: "DreamStep",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #119: fill in the fields below (leave "" to show "Not added").
+name: "Waterfall",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #120: fill in the fields below (leave "" to show "Not added").
+name: "The Golden",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #121: fill in the fields below (leave "" to show "Not added").
+name: "Dualist",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #122: fill in the fields below (leave "" to show "Not added").
+name: "Natural Disaster",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #123: fill in the fields below (leave "" to show "Not added").
+name: "Jigsaw",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #124: fill in the fields below (leave "" to show "Not added").
+name: "Delta",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #125: fill in the fields below (leave "" to show "Not added").
+name: "BPATA MPAKA",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #126: fill in the fields below (leave "" to show "Not added").
+name: "The Wonder of You",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #127: fill in the fields below (leave "" to show "Not added").
+name: "Sanctity",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #128: fill in the fields below (leave "" to show "Not added").
+name: "Oblivion",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #129: fill in the fields below (leave "" to show "Not added").
+name: "Viprin UFO",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #130: fill in the fields below (leave "" to show "Not added").
+name: "ATOMIC CANNON Mk III",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #131: fill in the fields below (leave "" to show "Not added").
+name: "NETWORK",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #132: fill in the fields below (leave "" to show "Not added").
+name: "Levigo",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #133: fill in the fields below (leave "" to show "Not added").
+name: "Checked Steam",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #134: fill in the fields below (leave "" to show "Not added").
+name: "Terminal Rampancy",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #135: fill in the fields below (leave "" to show "Not added").
+name: "Verdant Landscape",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #136: fill in the fields below (leave "" to show "Not added").
+name: "limbo but uwu ig idk",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #137: fill in the fields below (leave "" to show "Not added").
+name: "Heavenly Sakupen",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #138: fill in the fields below (leave "" to show "Not added").
+name: "UNKNOWN",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #139: fill in the fields below (leave "" to show "Not added").
+name: "Breakcore",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #140: fill in the fields below (leave "" to show "Not added").
+name: "azure blast",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #141: fill in the fields below (leave "" to show "Not added").
+name: "Shukketsu",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #142: fill in the fields below (leave "" to show "Not added").
+name: "SPIRIT OVERCLOCK",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #143: fill in the fields below (leave "" to show "Not added").
+name: "idontknowwhatthisis",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #144: fill in the fields below (leave "" to show "Not added").
+name: "Critical Heat",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #145: fill in the fields below (leave "" to show "Not added").
+name: "WOBBLING MACHINE",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #146: fill in the fields below (leave "" to show "Not added").
+name: "Graceful",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #147: fill in the fields below (leave "" to show "Not added").
+name: "paranoia",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #148: fill in the fields below (leave "" to show "Not added").
+name: "Starlit Stroll",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #149: fill in the fields below (leave "" to show "Not added").
+name: "DISCONNECT",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
+{
+// Extended List #150: fill in the fields below (leave "" to show "Not added").
+name: "Ariel Gleam",
+host: "",
+verifier: "",
+image: "",
+verification: "#",
+id: "",
+length: "",
+objects: ""
+},
 ];
 
+
+
+// Up and Coming entries. Keep progress values/ranges exactly as entered.
+const upcomingLevels = [
+{
+name: "Silent Acropolis",
+host: "The Purgatory",
+verifier: "Hover",
+image: "silent acropolis.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "99%",
+},
+{
+name: "NIGHTFALL",
+host: "MadisonYuko",
+verifier: "nei_gmd",
+image: "nightfall.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "97%",
+},
+{
+name: "Apollyon",
+host: "RicoLP",
+verifier: "katzen",
+image: "apollyon.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "97%",
+},
+{
+name: "Eternal Silence",
+host: "Realvet",
+verifier: "TBD",
+image: "eternal silence.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "4-100%",
+},
+{
+name: "FIBERGLASS",
+host: "cherryteam",
+verifier: "Duv",
+image: "fiberglass.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "8-100%",
+},
+{
+name: "Sweeping Demon 2",
+host: "Temp",
+verifier: "Taiago",
+image: "sweeping demon 2.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "87%",
+},
+{
+name: "Laybrinth",
+host: "SyQual",
+verifier: "GGonop",
+image: "labyrinth.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "13%-100%",
+},
+{
+name: "ECHO",
+host: "Zeptoz",
+verifier: "hqmy",
+image: "echo.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "86%",
+},
+{
+name: "Heliopolis",
+host: "MindCap",
+verifier: "Zoink",
+image: "heliopolis.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "85%",
+},
+{
+name: "ESCALATOR",
+host: "Neomarbilan",
+verifier: "teraaa",
+image: "escalator.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "83%",
+},
+{
+name: "Silent Circles",
+host: "Starchman",
+verifier: "dewbbs",
+image: "silent circles.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "82%",
+},
+{
+name: "Banshee",
+host: "Komp",
+verifier: "hstorm",
+image: "banshee.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "21-100%",
+},
+{
+name: "SILENT HELHEIM",
+host: "Streamy450",
+verifier: "TBD",
+image: "silent helheim.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "78%",
+},
+{
+name: "i n j u r y",
+host: "greafer",
+verifier: "KYWY",
+image: "i n j u r y.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "74%",
+},
+{
+name: "FLASHBANG",
+host: "Insxne97",
+verifier: "LordVadercraft",
+image: "flashbang.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "22-96%",
+},
+{
+name: "Diffraction",
+host: "ggii",
+verifier: "Gamingbyte",
+image: "diffraction.png",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "74%",
+},
+{
+// Editable Up and Coming placeholder 23
+name: "Bad Tr1p",
+host: "cherryteam",
+verifier: "ROZE",
+image: "bad tr1p.jpg",
+verification: "#",
+id: "",
+length: "",
+objects: "",
+progress: "29-100%",
+},
+{
+name: "KOCMOC UNLEASED",
+host: "cherryteam",
+verifier: "Arshadow",
+image: "kocmoc unleased.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "69%"
+},
+{
+// Editable Up and Coming placeholder 28
+name: "ZANBOT",
+host: "Ido26",
+verifier: "GMitzy",
+image: "zanbot.png",
+verification: "#",
+id: "",
+length: "",
+objects: "",
+progress: "68%",
+},
+{
+name: "exasperation",
+host: "Thyket",
+verifier: "TBD",
+image: "exasperation.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "67%",
+},
+{
+name: "ARE",
+host: "Cinemat",
+verifier: "BONNGD",
+image: "are.jpg",
+verification: "#",
+id: "Not added",
+length: "Not added",
+objects: "Not added",
+progress: "36-100%",
+},
+{
+// Editable Up and Coming placeholder 25
+name: "Dignity",
+host: "San Andreas",
+verifier: "Sevant",
+image: "dignity.jpg",
+verification: "#",
+id: "",
+length: "",
+objects: "",
+progress: "64%",
+},
+{
+// Editable Up and Coming placeholder 26
+name: "BANG BANG",
+host: "Varse",
+verifier: "Jori",
+image: "bang bang.jpg",
+verification: "#",
+id: "",
+length: "",
+objects: "",
+progress: "64%",
+},
+{
+// Editable Up and Coming placeholder 29
+name: "Ankou",
+host: "Xukarns",
+verifier: "BlueOrbe",
+image: "ankou.jpg",
+verification: "#",
+id: "",
+length: "",
+objects: "",
+progress: "64%",
+},
+{
+// Editable Up and Coming placeholder 27
+name: "You When Bee Crusher (Solo)",
+host: "akunakun",
+verifier: "Guit Guit",
+image: "you when bee crusher.jpg",
+verification: "#",
+id: "",
+length: "",
+objects: "",
+progress: "63%",
+},
+{
+// Editable Up and Coming placeholder 21
+name: "Eternal Night",
+host: "Electro",
+verifier: "Mizukii",
+image: "eternal night.jpg",
+verification: "#",
+id: "",
+length: "",
+objects: "",
+progress: "38-100%",
+},
+{
+// Editable Up and Coming placeholder 30
+name: "mysterycore",
+host: "urge",
+verifier: "Cyzyex",
+image: "mystercore.jpg",
+verification: "#",
+id: "",
+length: "",
+objects: "",
+progress: "61%",
+},
+{
+// Editable Up and Coming placeholder 22
+name: "Vehemence",
+host: "MadisonYuko",
+verifier: "A6",
+image: "vehemence.jpg",
+verification: "#",
+id: "",
+length: "",
+objects: "",
+progress: "40-100%",
+},
+{
+// Editable Up and Coming placeholder 24
+name: "MAX NRG",
+host: "SaturMan",
+verifier: "SaturMan",
+image: "max nrg.jpg",
+verification: "#",
+id: "",
+length: "",
+objects: "",
+progress: "40-100%",
+}
+];
+
+// First Victors are matched to levels by RANK NUMBER (position in the Main List).
+// Because IT MEANS EVERYTING was inserted at #7 and a blank spot at #56,
+// every victor below those points was pushed down so each level keeps its own victor.
+// Entries 7 and 56 are empty on purpose: type a name between the quotes to fill them in.
+// Ranks with no entry (72 = Lunatic Eyes, 77 = Kintetsu) show "Not added", same as before.
 const firstVictors = {
- 1: "wPopoff",
- 2: "Zoink",
- 3: "Zoink",
- 4: "NONE",
- 5: "wPopoff",
- 6: "Zoink",
- 7: "NONE",
- 8: "Trick",
- 9: "dovvin",
- 10: "spookkd",
- 11: "agonom",
- 12: "Weyoul113",
- 13: "lanx",
- 14: "dovvin",
- 15: "Zoink",
- 16: "lanx",
- 17: "Zoink",
- 18: "dovvin",
- 19: "nickname09",
- 20: "Zoink",
- 21: "nickname09",
- 22: "Trick",
- 23: "zLevii",
- 24: "Zoink",
- 25: "wPopoff",
- 26: "A6",
- 27: "Tazik",
- 28: "Diamond",
- 29: "Trick",
- 30: "NONE",
- 31: "Doggie",
- 32: "Thnnder",
- 33: "XenBlem",
- 34: "Trick",
- 35: "Zoink",
- 36: "muno",
- 37: "Zoink",
- 38: "wPopoff",
- 39: "whfyre",
- 40: "Tunax",
- 41: "Zoink",
- 42: "Zoink",
- 43: "Trick",
- 44: "Trick",
- 45: "NONE",
- 46: "Electrx",
- 47: "Zoink",
- 48: "agonom",
- 49: "Chayok",
- 50: "agonom",
- 51: "Abdieldevil",
- 52: "Netermind",
- 53: "Cursed",
- 54: "Zoink",
- 55: "hqmy",
- 56: "YeldA",
- 57: "SuperJavicon",
- 58: "theopex58",
- 59: "Cuatrocientos",
- 60: "wPopoff",
- 61: "kula",
- 62: "Trick",
- 63: "NONE",
- 64: "BONN GD",
- 65: "Axinity",
- 66: "SeptaGon7",
- 67: "Crisis",
- 68: "ViperVenom95",
- 69: "Zoink",
- 71: "Gigaprox",
- 72: "Zoink",
- 73: "TGM05",
- 74: "xalval",
+1: "wPopoff",
+2: "Zoink",
+3: "Zoink",
+4: "NONE",
+5: "wPopoff",
+6: "Zoink",
+7: "",
+8: "NONE",
+9: "Trick",
+10: "dovvin",
+11: "spookkd",
+12: "agonom",
+13: "Weyoul113",
+14: "lanx",
+15: "dovvin",
+16: "Zoink",
+17: "lanx",
+18: "Zoink",
+19: "dovvin",
+20: "nickname09",
+21: "Zoink",
+22: "nickname09",
+23: "Trick",
+24: "zLevii",
+25: "Zoink",
+26: "wPopoff",
+27: "A6",
+28: "Tazik",
+29: "Diamond",
+30: "Trick",
+31: "NONE",
+32: "Doggie",
+33: "Thnnder",
+34: "XenBlem",
+35: "Trick",
+36: "Zoink",
+37: "muno",
+38: "Zoink",
+39: "wPopoff",
+40: "whfyre",
+41: "Tunax",
+42: "Zoink",
+43: "Zoink",
+44: "Trick",
+45: "Trick",
+46: "NONE",
+47: "Electrx",
+48: "Zoink",
+49: "agonom",
+50: "Chayok",
+51: "agonom",
+52: "Abdieldevil",
+53: "Netermind",
+54: "Cursed",
+55: "Zoink",
+56: "",
+57: "hqmy",
+58: "YeldA",
+59: "SuperJavicon",
+60: "theopex58",
+61: "Cuatrocientos",
+62: "wPopoff",
+63: "kula",
+64: "Trick",
+65: "NONE",
+66: "BONN GD",
+67: "Axinity",
+68: "SeptaGon7",
+69: "Crisis",
+70: "ViperVenom95",
+71: "Zoink",
+73: "Gigaprox",
+74: "Zoink",
+75: "TGM05",
+76: "xalval",
+// Kintetsu (#77) and the Extended List (#78-#150): type each First Victor between the quotes.
+77: "NONE",
+78: "sawyer",
+79: "Thnnder",
+80: "zSquidKnight",
+81: "Zoink",
+82: "Jyvl01",
+83: "Whizkid05",
+84: "",
+85: "",
+86: "",
+87: "",
+88: "",
+89: "",
+90: "",
+91: "",
+92: "",
+93: "",
+94: "",
+95: "",
+96: "",
+97: "",
+98: "",
+99: "",
+100: "",
+101: "",
+102: "",
+103: "",
+104: "",
+105: "",
+106: "",
+107: "",
+108: "",
+109: "",
+110: "",
+111: "",
+112: "",
+113: "",
+114: "",
+115: "",
+116: "",
+117: "",
+118: "",
+119: "",
+120: "",
+121: "",
+122: "",
+123: "",
+124: "",
+125: "",
+126: "",
+127: "",
+128: "",
+129: "",
+130: "",
+131: "",
+132: "",
+133: "",
+134: "",
+135: "",
+136: "",
+137: "",
+138: "",
+139: "",
+140: "",
+141: "",
+142: "",
+143: "",
+144: "",
+145: "",
+146: "",
+147: "",
+148: "",
+149: "",
+150: "",
 };
 
 function createLevelCard(level, index, isUpcoming = false) {
@@ -2151,7 +2997,7 @@ glowClass = "white-glow";
 }
 
 const firstVictor =
-firstVictors[rank] || tr("notAdded");
+level.firstVictor || firstVictors[rank] || tr("notAdded");
 
 const displayValue = value =>
 (!value || String(value).trim().toLowerCase() === "not added") ? tr("notAdded") : value;
@@ -2245,53 +3091,77 @@ ${objects}
 
 
 function progressAmount(progress) {
-  // A run such as 4-100 represents 96 percentage points of progress.
-  // Keep the original range text for display; use only the calculated amount to rank.
-  const values = String(progress ?? "").match(/\d+(?:\.\d+)?/g);
-  if (!values || !values.length) return -1;
-  const numbers = values.map(Number);
-  return numbers.length >= 2 ? numbers[numbers.length - 1] - numbers[0] : numbers[0];
+// A run such as 4-100 represents 96 percentage points of progress.
+// Keep the original range text for display; use only the calculated amount to rank.
+const values = String(progress ?? "").match(/\d+(?:\.\d+)?/g);
+if (!values || !values.length) return -1;
+const numbers = values.map(Number);
+return numbers.length >= 2 ? numbers[numbers.length - 1] - numbers[0] : numbers[0];
 }
 
 function sortedUpcomingLevels() {
-  // Stable sorting keeps the existing order when two levels have equal progress.
-  return upcomingLevels
-    .map((level, originalIndex) => ({ level, originalIndex }))
-    .sort((a, b) => {
-      if (a.level.blank) return b.level.blank ? a.originalIndex - b.originalIndex : 1;
-      if (b.level.blank) return -1;
-      return progressAmount(b.level.progress) - progressAmount(a.level.progress) || a.originalIndex - b.originalIndex;
-    })
-    .map(entry => entry.level);
+// Stable sorting keeps the existing order when two levels have equal progress.
+return upcomingLevels
+.map((level, originalIndex) => ({ level, originalIndex }))
+.sort((a, b) => {
+if (a.level.blank) return b.level.blank ? a.originalIndex - b.originalIndex : 1;
+if (b.level.blank) return -1;
+return progressAmount(b.level.progress) - progressAmount(a.level.progress) || a.originalIndex - b.originalIndex;
+})
+.map(entry => entry.level);
 }
 
 let currentView = "main";
 
 function displayLevels(levelArray, view = currentView) {
-  const list = document.getElementById("level-list");
-  list.innerHTML = "";
-  levelArray.forEach((level, index) => {
-    const originalIndex = view === "main" ? levels.indexOf(level) : index;
-    list.innerHTML += createLevelCard(level, originalIndex >= 0 ? originalIndex : index, view === "upcoming");
-  });
+const list = document.getElementById("level-list");
+list.innerHTML = "";
+let dividerPlaced = false;
+levelArray.forEach((level, index) => {
+const originalIndex = view === "main" ? levels.indexOf(level) : index;
+const rankIndex = originalIndex >= 0 ? originalIndex : index;
+// Thin grey divider sits between #75 and #76.
+if (view === "main" && !dividerPlaced && rankIndex >= 75) {
+if (index > 0) list.innerHTML += '<div class="extended-divider"></div>';
+dividerPlaced = true;
+}
+list.innerHTML += createLevelCard(level, rankIndex, view === "upcoming");
+});
+displayExtended(levelArray, view, dividerPlaced);
+}
+
+// Extended List: only shown in the Main List view, below the main cards, and filtered by the same search box.
+function displayExtended(levelArray, view, dividerPlaced) {
+const extList = document.getElementById("extended-list");
+extList.innerHTML = "";
+if (view !== "main") return;
+const term = levelArray === levels ? "" : document.getElementById("search").value.toLowerCase();
+let count = 0;
+extendedLevels.forEach((level, i) => {
+if (!(level.name || "").toLowerCase().includes(term)) return;
+extList.innerHTML += createLevelCard(level, levels.length + i, false);
+count++;
+});
+// If a search hid every card from #76 on in the Main List, still draw the divider before the Extended results.
+if (!dividerPlaced && count > 0 && document.getElementById("level-list").children.length > 0) extList.innerHTML = '<div class="extended-divider"></div>' + extList.innerHTML;
 }
 
 function switchView(view) {
-  currentView = view;
-  const isUpcoming = view === "upcoming";
-  const title = document.querySelector(".list-title");
-  const search = document.getElementById("search");
-  title.textContent = isUpcoming ? tr("upcomingTitle") : tr("mainTitle");
-  const logoAccent = document.querySelector(".logo span");
-  logoAccent.classList.toggle("purple", isUpcoming);
-  logoAccent.classList.toggle("red", !isUpcoming);
-  search.placeholder = isUpcoming ? tr("searchUpcoming") : tr("searchMain");
-  document.getElementById("mainViewButton").classList.toggle("active", !isUpcoming);
-  document.getElementById("upcomingViewButton").classList.toggle("active", isUpcoming);
-  document.getElementById("mainViewButton").setAttribute("aria-pressed", String(!isUpcoming));
-  document.getElementById("upcomingViewButton").setAttribute("aria-pressed", String(isUpcoming));
-  search.value = "";
-  displayLevels(isUpcoming ? sortedUpcomingLevels() : levels, view);
+currentView = view;
+const isUpcoming = view === "upcoming";
+const title = document.querySelector(".list-title");
+const search = document.getElementById("search");
+title.textContent = isUpcoming ? tr("upcomingTitle") : tr("mainTitle");
+const logoAccent = document.querySelector(".logo span");
+logoAccent.classList.toggle("purple", isUpcoming);
+logoAccent.classList.toggle("red", !isUpcoming);
+search.placeholder = isUpcoming ? tr("searchUpcoming") : tr("searchMain");
+document.getElementById("mainViewButton").classList.toggle("active", !isUpcoming);
+document.getElementById("upcomingViewButton").classList.toggle("active", isUpcoming);
+document.getElementById("mainViewButton").setAttribute("aria-pressed", String(!isUpcoming));
+document.getElementById("upcomingViewButton").setAttribute("aria-pressed", String(isUpcoming));
+search.value = "";
+displayLevels(isUpcoming ? sortedUpcomingLevels() : levels, view);
 }
 
 document.getElementById("mainViewButton").addEventListener("click", () => switchView("main"));
@@ -2310,7 +3180,7 @@ this.value.toLowerCase();
 
 const sourceLevels = currentView === "upcoming" ? sortedUpcomingLevels() : levels;
 const filteredLevels = sourceLevels.filter(level =>
-  (level.name || "").toLowerCase().includes(searchTerm)
+(level.name || "").toLowerCase().includes(searchTerm)
 );
 
 displayLevels(filteredLevels, currentView);
@@ -2395,156 +3265,38 @@ closeModal();
 
 
 
-// Submit form: level choices are sourced exclusively from the 75 Main List entries.
+// FAQ panel: opens/closes with the FAQ button in the header (Escape also closes it).
 (() => {
-  const panel = document.getElementById("submitPanel");
-  const toggle = document.getElementById("openSubmitForm");
-  const trigger = document.getElementById("levelSelectTrigger");
-  const menu = document.getElementById("levelSelectMenu");
-  const options = document.getElementById("levelSelectOptions");
-  const search = document.getElementById("levelSelectSearch");
-  const selected = document.getElementById("selectedLevel");
-  const selectedLabel = document.getElementById("selectedLevelLabel");
-  const form = document.getElementById("recordForm");
-  const status = document.getElementById("submitStatus");
-  const nameInput = document.getElementById("holderName");
-  const deviceSelect = document.getElementById("device");
-  deviceSelect.addEventListener("change",() => clearError("device"));
+const panel = document.getElementById("faqPanel");
+const toggle = document.getElementById("openFaq");
 
-  // Animate the panel without changing its form contents or validation behavior.
-  toggle.addEventListener("click", () => {
-    const opening = panel.hidden;
-    if (opening) {
-      panel.hidden = false;
-      toggle.setAttribute("aria-expanded","true");
-      toggle.textContent = "CLOSE FORM";
-      requestAnimationFrame(() => {
-        panel.classList.add("is-open");
-        panel.scrollIntoView({behavior:"smooth",block:"nearest"});
-      });
-    } else {
-      panel.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded","false");
-      toggle.textContent = "SUBMIT A RECORD";
-      const finishClose = event => {
-        if (event.target !== panel || event.propertyName !== "max-height") return;
-        panel.hidden = true;
-        panel.removeEventListener("transitionend",finishClose);
-      };
-      panel.addEventListener("transitionend",finishClose);
-      // Fallback for reduced-motion or interrupted transitions.
-      setTimeout(() => { if (!panel.classList.contains("is-open")) panel.hidden = true; },450);
-    }
-  });
+const openPanel = () => {
+panel.hidden = false;
+toggle.setAttribute("aria-expanded","true");
+requestAnimationFrame(() => {
+panel.classList.add("is-open");
+panel.scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+};
+const closePanel = () => {
+panel.classList.remove("is-open");
+toggle.setAttribute("aria-expanded","false");
+const finishClose = event => {
+if (event.target !== panel || event.propertyName !== "max-height") return;
+panel.hidden = true;
+panel.removeEventListener("transitionend",finishClose);
+};
+panel.addEventListener("transitionend",finishClose);
+// Fallback for reduced-motion or interrupted transitions.
+setTimeout(() => { if (!panel.classList.contains("is-open")) panel.hidden = true; },450);
+};
 
-  // Basic client-side screening only. Production submissions must repeat moderation server-side.
-  const blockedTerms = ["nigger","faggot","retard","kys"];
-  const normalize = value => value.toLowerCase().replace(/[^a-z0-9]/g,"");
-  const imageUrl = value => {
-    if (!value || value === "#") return "";
-    if (/^(https?:|data:)/i.test(value)) return value;
-    return value;
-  };
-
-  function renderOptions(query = "") {
-    const q = query.trim().toLowerCase();
-    options.innerHTML = "";
-    levels.forEach(level => {
-      if (!level.name.toLowerCase().includes(q)) return;
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "level-option";
-      button.setAttribute("role","option");
-      button.setAttribute("aria-selected",String(selected.value === level.name));
-      const img = document.createElement("img");
-      img.alt = "";
-      img.loading = "lazy";
-      img.src = imageUrl(level.image);
-      img.onerror = () => { img.style.visibility = "hidden"; };
-      const name = document.createElement("span");
-      name.textContent = level.name;
-      button.append(img,name);
-      button.addEventListener("click", () => {
-        selected.value = level.name;
-        selectedLabel.textContent = level.name;
-        menu.hidden = true;
-        trigger.setAttribute("aria-expanded","false");
-        clearError("level");
-        renderOptions(search.value);
-      });
-      options.appendChild(button);
-    });
-  }
-  renderOptions();
-
-  // Keep one click handler only: the animated handler above controls opening and closing.
-  trigger.addEventListener("click", () => {
-    menu.hidden = !menu.hidden;
-    trigger.setAttribute("aria-expanded",String(!menu.hidden));
-    if (!menu.hidden) { search.value = ""; renderOptions(); search.focus(); }
-  });
-  search.addEventListener("input", () => renderOptions(search.value));
-  document.addEventListener("click", event => {
-    if (!event.target.closest(".level-select-wrap")) {
-      menu.hidden = true;
-      trigger.setAttribute("aria-expanded","false");
-    }
-  });
-
-  function clearError(key) {
-    const field = document.querySelector(`[data-error="${key}"]`);
-    if (field) field.textContent = "";
-    const control = key === "level" ? trigger : document.getElementById(key);
-    if (control) control.closest(".submit-field")?.classList.remove("invalid");
-  }
-  function setError(key, message) {
-    const field = document.querySelector(`[data-error="${key}"]`);
-    if (field) field.textContent = message;
-    const control = key === "level" ? trigger : document.getElementById(key);
-    control?.closest(".submit-field")?.classList.add("invalid");
-  }
-
-  nameInput.addEventListener("input", () => {
-    const normalized = normalize(nameInput.value);
-    if (blockedTerms.some(term => normalized.includes(normalize(term)))) {
-      setError("holderName","This name is not allowed.");
-    } else clearError("holderName");
-  });
-
-  form.addEventListener("submit", event => {
-    event.preventDefault();
-    status.textContent = "";
-    ["level","holderName","completionLink","device","customId","rawFootage"].forEach(clearError);
-    let valid = true;
-    const required = [
-      ["level",selected.value,"Please select a Main List level."],
-      ["holderName",nameInput.value.trim(),"Please enter a Holder Name."],
-      ["completionLink",document.getElementById("completionLink").value.trim(),"Please enter a completion video link."],
-      ["device",document.getElementById("device").value,"Please select PC or Mobile."],
-      ["customId",document.getElementById("customId").value.trim(),"Please enter the Custom ID."],
-      ["rawFootage",document.getElementById("rawFootage").value.trim(),"Please enter a Raw Footage link."]
-    ];
-    required.forEach(([key,value,message]) => {
-      if (!value) { setError(key,message); valid = false; }
-    });
-    const normalized = normalize(nameInput.value);
-    if (normalized && blockedTerms.some(term => normalized.includes(normalize(term)))) {
-      setError("holderName","This name is not allowed."); valid = false;
-    }
-    ["completionLink","rawFootage"].forEach(key => {
-      const input = document.getElementById(key);
-      if (input.value.trim() && !/^https?:\/\//i.test(input.value.trim())) {
-        setError(key,"Please enter a valid http:// or https:// link."); valid = false;
-      }
-    });
-    if (!valid) {
-      status.textContent = "Please fix the highlighted fields before submitting.";
-      return;
-    }
-
-    // Front-end demo only: no server or moderator inbox is connected in this HTML file.
-    status.textContent = "Your form is valid! Submission storage and staff review need to be connected to a backend.";
-  });
+toggle.addEventListener("click", () => {
+if (panel.hidden) openPanel(); else closePanel();
+});
+document.addEventListener("keydown", event => {
+if (event.key === "Escape" && !panel.hidden) closePanel();
+});
 })();
 
 
@@ -2578,15 +3330,15 @@ ticking = true;
 
 // Black crescent switches to a white sun and enables the site-wide dark theme.
 (() => {
-  const toggle = document.getElementById('themeToggle');
-  if (!toggle) return;
-  const setDarkMode = (enabled) => {
-    document.body.classList.toggle('dark-mode', enabled);
-    toggle.setAttribute('aria-pressed', String(enabled));
-    toggle.setAttribute('aria-label', enabled ? tr('switchLight') : tr('switchDark'));
-    toggle.title = enabled ? tr('switchLight') : tr('switchDark');
-  };
-  toggle.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
+const toggle = document.getElementById('themeToggle');
+if (!toggle) return;
+const setDarkMode = (enabled) => {
+document.body.classList.toggle('dark-mode', enabled);
+toggle.setAttribute('aria-pressed', String(enabled));
+toggle.setAttribute('aria-label', enabled ? tr('switchLight') : tr('switchDark'));
+toggle.title = enabled ? tr('switchLight') : tr('switchDark');
+};
+toggle.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
 })();
 </script>
 
