@@ -17,10 +17,29 @@ box-sizing: border-box;
 
 body {
 margin: 0;
+position: relative;
 font-family: Arial, Helvetica, sans-serif;
 background: #f5f5f5;
 color: #111;
 }
+
+/* ===== Spike decoration down the far left and far right edges of the page =====
+   They sit behind everything (z-index -1), so the header, cards and menus always cover them.
+   Light mode = black spikes, dark mode = white spikes. */
+.spikes-side {
+position: absolute;
+top: 0;
+bottom: 0;
+width: clamp(44px, 8vw, 120px);
+z-index: -1;
+pointer-events: none;
+background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27100%27%20height%3D%271200%27%20viewBox%3D%270%200%20100%201200%27%3E%3Cg%20fill%3D%27%230b0b0b%27%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C28%2097%2C70%20-2%2C53%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1228%2097%2C1270%20-2%2C1253%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C66%2074%2C104%20-2%2C91%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C105%2073%2C114%20-2%2C126%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C133%2064%2C160%20-2%2C153%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C187%2072%2C232%20-2%2C209%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C213%2074%2C190%20-2%2C225%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C261%2090%2C261%20-2%2C278%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C301%2080%2C287%20-2%2C323%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C339%2088%2C327%20-2%2C355%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C385%2076%2C362%20-2%2C402%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C411%2068%2C424%20-2%2C435%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C447%2062%2C422%20-2%2C459%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C486%2087%2C487%20-2%2C509%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C534%2083%2C546%20-2%2C550%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C558%2069%2C541%20-2%2C576%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C582%2093%2C577%20-2%2C601%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C620%2070%2C641%20-2%2C635%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C647%2075%2C654%20-2%2C665%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C702%2075%2C683%20-2%2C714%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C727%2075%2C700%20-2%2C741%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C775%2080%2C757%20-2%2C792%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C801%2077%2C818%20-2%2C822%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C836%2070%2C877%20-2%2C855%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C886%2086%2C875%20-2%2C900%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C919%2077%2C914%20-2%2C934%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C966%2074%2C993%20-2%2C986%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1018%2067%2C1006%20-2%2C1039%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1045%2078%2C1067%20-2%2C1065%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1077%2093%2C1074%20-2%2C1102%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C-70%2070%2C-91%20-2%2C-57%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1130%2070%2C1109%20-2%2C1143%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C-38%2075%2C-48%20-2%2C-12%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1162%2075%2C1152%20-2%2C1188%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C-6%2077%2C-14%20-2%2C13%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1194%2077%2C1186%20-2%2C1213%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C16%2048%2C1%20-2%2C37%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1216%2048%2C1201%20-2%2C1237%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C55%2073%2C44%20-2%2C72%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1255%2073%2C1244%20-2%2C1272%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C87%2070%2C111%20-2%2C99%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C112%2041%2C94%20-2%2C124%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C141%2059%2C126%20-2%2C164%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C160%2063%2C191%20-2%2C180%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C195%2061%2C215%20-2%2C209%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C224%2066%2C206%20-2%2C237%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C262%2040%2C270%20-2%2C283%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C289%2078%2C268%20-2%2C301%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C322%2066%2C328%20-2%2C338%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C362%2077%2C373%20-2%2C385%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C400%2073%2C381%20-2%2C413%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C425%2070%2C443%20-2%2C438%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C445%2079%2C462%20-2%2C469%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C469%2063%2C488%20-2%2C481%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C501%2050%2C507%20-2%2C521%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C534%2071%2C539%20-2%2C553%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C561%2052%2C593%20-2%2C577%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C598%2053%2C613%20-2%2C613%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C638%2048%2C636%20-2%2C653%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C676%2044%2C674%20-2%2C688%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C713%2068%2C704%20-2%2C726%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C750%2080%2C774%20-2%2C768%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C775%2068%2C808%20-2%2C796%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C793%2042%2C794%20-2%2C814%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C824%2076%2C807%20-2%2C840%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C851%2041%2C849%20-2%2C866%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C874%2043%2C864%20-2%2C888%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C902%2074%2C938%20-2%2C924%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C928%2052%2C934%20-2%2C941%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C952%2040%2C973%20-2%2C975%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C987%2054%2C986%20-2%2C1001%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1017%2072%2C1048%20-2%2C1037%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1038%2054%2C1062%20-2%2C1062%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1065%2069%2C1099%20-2%2C1084%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1104%2075%2C1141%20-2%2C1122%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C-66%2069%2C-75%20-2%2C-49%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1134%2069%2C1125%20-2%2C1151%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C-46%2047%2C-43%20-2%2C-22%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1154%2047%2C1157%20-2%2C1178%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C-5%2074%2C-1%20-2%2C11%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1195%2074%2C1199%20-2%2C1211%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C0%2048%2C13%20-2%2C15%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1200%2048%2C1213%20-2%2C1215%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C17%2033%2C7%20-2%2C33%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1217%2033%2C1207%20-2%2C1233%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C32%2043%2C32%20-2%2C43%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1232%2043%2C1232%20-2%2C1243%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C52%2024%2C76%20-2%2C72%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1252%2024%2C1276%20-2%2C1272%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C78%2044%2C104%20-2%2C96%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C99%2021%2C122%20-2%2C120%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C119%2051%2C142%20-2%2C133%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C139%2032%2C151%20-2%2C157%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C166%2029%2C164%20-2%2C185%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C193%2033%2C196%20-2%2C211%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C211%2048%2C219%20-2%2C222%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C223%2049%2C246%20-2%2C233%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C247%2023%2C248%20-2%2C266%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C260%2045%2C275%20-2%2C278%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C276%2047%2C289%20-2%2C293%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C302%2049%2C302%20-2%2C319%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C320%2032%2C305%20-2%2C330%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C332%2030%2C334%20-2%2C344%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C349%2031%2C345%20-2%2C364%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C368%2023%2C379%20-2%2C387%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C391%2049%2C389%20-2%2C412%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C409%2049%2C434%20-2%2C425%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C424%2050%2C450%20-2%2C444%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C439%2055%2C438%20-2%2C457%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C454%2056%2C461%20-2%2C475%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C471%2028%2C469%20-2%2C486%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C497%2031%2C487%20-2%2C509%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C513%2043%2C528%20-2%2C524%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C533%2024%2C522%20-2%2C554%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C546%2038%2C565%20-2%2C565%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C559%2056%2C584%20-2%2C577%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C586%2020%2C575%20-2%2C599%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C598%2055%2C625%20-2%2C616%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C617%2027%2C613%20-2%2C630%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C642%2022%2C639%20-2%2C656%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C669%2020%2C682%20-2%2C686%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C687%2048%2C688%20-2%2C703%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C708%2056%2C708%20-2%2C718%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C722%2039%2C739%20-2%2C739%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C748%2026%2C734%20-2%2C767%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C765%2056%2C791%20-2%2C776%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C786%2053%2C798%20-2%2C804%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C802%2026%2C816%20-2%2C813%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C816%2050%2C834%20-2%2C831%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C840%2029%2C836%20-2%2C856%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C864%2046%2C871%20-2%2C878%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C891%2019%2C898%20-2%2C910%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C908%2041%2C934%20-2%2C928%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C921%2047%2C920%20-2%2C939%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C945%2017%2C938%20-2%2C964%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C968%2044%2C959%20-2%2C982%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C992%2040%2C994%20-2%2C1012%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1008%2051%2C1023%20-2%2C1023%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1035%2022%2C1032%20-2%2C1054%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1055%2018%2C1055%20-2%2C1075%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1073%2047%2C1064%20-2%2C1085%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1091%2042%2C1104%20-2%2C1108%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1112%2049%2C1116%20-2%2C1127%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C-68%2034%2C-68%20-2%2C-54%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1132%2034%2C1132%20-2%2C1146%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C-47%2026%2C-33%20-2%2C-27%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1153%2026%2C1167%20-2%2C1173%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C-35%2041%2C-30%20-2%2C-20%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1165%2041%2C1170%20-2%2C1180%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C-22%2043%2C-16%20-2%2C-9%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1178%2043%2C1184%20-2%2C1191%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+background-repeat: repeat-y;
+background-size: 100% 1200px;
+}
+.spikes-left { left: 0; }
+.spikes-right { right: 0; transform: scaleX(-1); background-position: 0 450px; }
+body.dark-mode .spikes-side { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27100%27%20height%3D%271200%27%20viewBox%3D%270%200%20100%201200%27%3E%3Cg%20fill%3D%27%23f4f4f4%27%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C28%2097%2C70%20-2%2C53%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1228%2097%2C1270%20-2%2C1253%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C66%2074%2C104%20-2%2C91%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C105%2073%2C114%20-2%2C126%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C133%2064%2C160%20-2%2C153%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C187%2072%2C232%20-2%2C209%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C213%2074%2C190%20-2%2C225%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C261%2090%2C261%20-2%2C278%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C301%2080%2C287%20-2%2C323%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C339%2088%2C327%20-2%2C355%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C385%2076%2C362%20-2%2C402%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C411%2068%2C424%20-2%2C435%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C447%2062%2C422%20-2%2C459%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C486%2087%2C487%20-2%2C509%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C534%2083%2C546%20-2%2C550%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C558%2069%2C541%20-2%2C576%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C582%2093%2C577%20-2%2C601%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C620%2070%2C641%20-2%2C635%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C647%2075%2C654%20-2%2C665%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C702%2075%2C683%20-2%2C714%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C727%2075%2C700%20-2%2C741%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C775%2080%2C757%20-2%2C792%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C801%2077%2C818%20-2%2C822%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C836%2070%2C877%20-2%2C855%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C886%2086%2C875%20-2%2C900%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C919%2077%2C914%20-2%2C934%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C966%2074%2C993%20-2%2C986%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1018%2067%2C1006%20-2%2C1039%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1045%2078%2C1067%20-2%2C1065%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1077%2093%2C1074%20-2%2C1102%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C-70%2070%2C-91%20-2%2C-57%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1130%2070%2C1109%20-2%2C1143%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C-38%2075%2C-48%20-2%2C-12%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1162%2075%2C1152%20-2%2C1188%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C-6%2077%2C-14%20-2%2C13%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.22%27%20points%3D%27-2%2C1194%2077%2C1186%20-2%2C1213%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C16%2048%2C1%20-2%2C37%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1216%2048%2C1201%20-2%2C1237%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C55%2073%2C44%20-2%2C72%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1255%2073%2C1244%20-2%2C1272%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C87%2070%2C111%20-2%2C99%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C112%2041%2C94%20-2%2C124%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C141%2059%2C126%20-2%2C164%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C160%2063%2C191%20-2%2C180%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C195%2061%2C215%20-2%2C209%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C224%2066%2C206%20-2%2C237%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C262%2040%2C270%20-2%2C283%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C289%2078%2C268%20-2%2C301%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C322%2066%2C328%20-2%2C338%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C362%2077%2C373%20-2%2C385%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C400%2073%2C381%20-2%2C413%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C425%2070%2C443%20-2%2C438%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C445%2079%2C462%20-2%2C469%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C469%2063%2C488%20-2%2C481%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C501%2050%2C507%20-2%2C521%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C534%2071%2C539%20-2%2C553%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C561%2052%2C593%20-2%2C577%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C598%2053%2C613%20-2%2C613%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C638%2048%2C636%20-2%2C653%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C676%2044%2C674%20-2%2C688%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C713%2068%2C704%20-2%2C726%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C750%2080%2C774%20-2%2C768%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C775%2068%2C808%20-2%2C796%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C793%2042%2C794%20-2%2C814%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C824%2076%2C807%20-2%2C840%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C851%2041%2C849%20-2%2C866%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C874%2043%2C864%20-2%2C888%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C902%2074%2C938%20-2%2C924%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C928%2052%2C934%20-2%2C941%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C952%2040%2C973%20-2%2C975%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C987%2054%2C986%20-2%2C1001%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1017%2072%2C1048%20-2%2C1037%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1038%2054%2C1062%20-2%2C1062%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1065%2069%2C1099%20-2%2C1084%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1104%2075%2C1141%20-2%2C1122%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C-66%2069%2C-75%20-2%2C-49%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1134%2069%2C1125%20-2%2C1151%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C-46%2047%2C-43%20-2%2C-22%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1154%2047%2C1157%20-2%2C1178%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C-5%2074%2C-1%20-2%2C11%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.42%27%20points%3D%27-2%2C1195%2074%2C1199%20-2%2C1211%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C0%2048%2C13%20-2%2C15%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1200%2048%2C1213%20-2%2C1215%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C17%2033%2C7%20-2%2C33%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1217%2033%2C1207%20-2%2C1233%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C32%2043%2C32%20-2%2C43%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1232%2043%2C1232%20-2%2C1243%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C52%2024%2C76%20-2%2C72%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1252%2024%2C1276%20-2%2C1272%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C78%2044%2C104%20-2%2C96%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C99%2021%2C122%20-2%2C120%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C119%2051%2C142%20-2%2C133%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C139%2032%2C151%20-2%2C157%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C166%2029%2C164%20-2%2C185%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C193%2033%2C196%20-2%2C211%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C211%2048%2C219%20-2%2C222%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C223%2049%2C246%20-2%2C233%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C247%2023%2C248%20-2%2C266%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C260%2045%2C275%20-2%2C278%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C276%2047%2C289%20-2%2C293%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C302%2049%2C302%20-2%2C319%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C320%2032%2C305%20-2%2C330%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C332%2030%2C334%20-2%2C344%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C349%2031%2C345%20-2%2C364%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C368%2023%2C379%20-2%2C387%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C391%2049%2C389%20-2%2C412%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C409%2049%2C434%20-2%2C425%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C424%2050%2C450%20-2%2C444%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C439%2055%2C438%20-2%2C457%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C454%2056%2C461%20-2%2C475%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C471%2028%2C469%20-2%2C486%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C497%2031%2C487%20-2%2C509%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C513%2043%2C528%20-2%2C524%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C533%2024%2C522%20-2%2C554%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C546%2038%2C565%20-2%2C565%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C559%2056%2C584%20-2%2C577%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C586%2020%2C575%20-2%2C599%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C598%2055%2C625%20-2%2C616%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C617%2027%2C613%20-2%2C630%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C642%2022%2C639%20-2%2C656%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C669%2020%2C682%20-2%2C686%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C687%2048%2C688%20-2%2C703%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C708%2056%2C708%20-2%2C718%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C722%2039%2C739%20-2%2C739%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C748%2026%2C734%20-2%2C767%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C765%2056%2C791%20-2%2C776%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C786%2053%2C798%20-2%2C804%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C802%2026%2C816%20-2%2C813%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C816%2050%2C834%20-2%2C831%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C840%2029%2C836%20-2%2C856%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C864%2046%2C871%20-2%2C878%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C891%2019%2C898%20-2%2C910%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C908%2041%2C934%20-2%2C928%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C921%2047%2C920%20-2%2C939%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C945%2017%2C938%20-2%2C964%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C968%2044%2C959%20-2%2C982%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C992%2040%2C994%20-2%2C1012%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1008%2051%2C1023%20-2%2C1023%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1035%2022%2C1032%20-2%2C1054%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1055%2018%2C1055%20-2%2C1075%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1073%2047%2C1064%20-2%2C1085%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1091%2042%2C1104%20-2%2C1108%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1112%2049%2C1116%20-2%2C1127%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C-68%2034%2C-68%20-2%2C-54%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1132%2034%2C1132%20-2%2C1146%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C-47%2026%2C-33%20-2%2C-27%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1153%2026%2C1167%20-2%2C1173%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C-35%2041%2C-30%20-2%2C-20%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1165%2041%2C1170%20-2%2C1180%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C-22%2043%2C-16%20-2%2C-9%27%2F%3E%3Cpolygon%20fill-opacity%3D%270.95%27%20points%3D%27-2%2C1178%2043%2C1184%20-2%2C1191%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
 
 header {
 position: sticky;
@@ -663,6 +682,9 @@ body.dark-mode .faq-answer { color:#ddd; }
 
 <body class="dark-mode">
 <script>try{var a=localStorage.getItem("demonverseAccent");if(/^(red|pink|purple|blue|green|orange|yellow|white)$/.test(a))document.body.setAttribute("data-accent",a)}catch(e){}</script>
+
+<div class="spikes-side spikes-left" aria-hidden="true"></div>
+<div class="spikes-side spikes-right" aria-hidden="true"></div>
 
 <header>
 
@@ -1415,6 +1437,16 @@ length: "1:27s",
 objects: "159361"
 },
 {
+name: "BASSLINE JUNKIE",
+host: "MCBIGMACPLAYZ",
+verifier: "Karma",
+image: "bassline junkie.jpg",
+verification: "https://www.youtube.com/watch?v=db_V19gW0rI&t=7s",
+id: "143300771",
+length: "1:53s",
+objects: "105243"
+},
+{
 name: "Lost in Time 2",
 host: "Zeronium",
 verifier: "Zeronium",
@@ -1425,14 +1457,14 @@ length: "2:43s",
 objects: "157442"
 },
 {
-name: "Ace",
-host: "TheBigCheese69",
-verifier: "Aidsen",
-image: "ace.jpg",
-verification: "https://www.youtube.com/watch?v=7uYghOdos8I",
-id: "138215607",
-length: "1:08s",
-objects: "35658"
+name: "Wild Roses",
+host: "cherryteam",
+verifier: "Eiriley",
+image: "wild roses.jpe",
+verification: "https://www.youtube.com/watch?v=MnOSbQQV_wA",
+id: "145494348",
+length: "1:04s",
+objects: "118598"
 },
 {
 name: "Subterminal Point",
@@ -1517,7 +1549,7 @@ objects: "157646"
 {
 // BLANK EDITABLE SPOT (between Deimos and Kosetsu).
 // To fill it in: delete the line "blank: true," then fill in the fields below.
-// Its First Victor is entry 57 in the firstVictors list further down.
+// Its First Victor is entry 58 in the firstVictors list further down.
 name: "BLAZEIT",
 host: "RollTheDice",
 verifier: "turtl",
@@ -1558,14 +1590,14 @@ length: "2:20",
 objects: "140669"
 },
 {
-name: "Wild Roses",
-host: "cherryteam",
-verifier: "Eiriley",
-image: "wild roses.jpe",
-verification: "https://www.youtube.com/watch?v=MnOSbQQV_wA",
-id: "145494348",
-length: "1:04s",
-objects: "118598"
+name: "Ace",
+host: "TheBigCheese69",
+verifier: "Aidsen",
+image: "ace.jpg",
+verification: "https://www.youtube.com/watch?v=7uYghOdos8I",
+id: "138215607",
+length: "1:08s",
+objects: "35658"
 },
 {
 name: "Voltage",
@@ -1626,16 +1658,6 @@ verification: "https://www.youtube.com/watch?v=lQ7M-Sgov24",
 id: "113045735",
 length: "1:35s",
 objects: "76834"
-},
-{
-name: "BASSLINE JUNKIE",
-host: "MCBIGMACPLAYZ",
-verifier: "Karma",
-image: "bassline junkie.jpg",
-verification: "https://www.youtube.com/watch?v=db_V19gW0rI&t=7s",
-id: "143300771",
-length: "1:53s",
-objects: "105243"
 },
 {
 name: "Through The Gates",
@@ -2542,9 +2564,9 @@ objects: ""
 
 
 // First Victors are matched to levels by RANK NUMBER (position in the list).
-// IT MEANS EVERYTING is #7, FIBERGLASS is #39 and the former blank spot (BLAZEIT) is #57.
+// IT MEANS EVERYTING is #7, FIBERGLASS is #39 and the former blank spot (BLAZEIT) is #58.
 // Every victor below each insert was pushed down one spot so each level keeps its own victor.
-// Entries 7, 39 and 57 are empty on purpose: type a name between the quotes to fill them in.
+// Entries 7, 39 and 58 are empty on purpose: type a name between the quotes to fill them in.
 // Ranks with no entry (73 = Lunatic Eyes) show "Not added", same as before.
 const firstVictors = {
 1: "wPopoff",
@@ -2593,28 +2615,28 @@ const firstVictors = {
 44: "Zoink",
 45: "Trick",
 46: "Trick",
-47: "NONE",
-48: "Electrx",
-49: "Zoink",
-50: "agonom",
-51: "Chayok",
-52: "agonom",
-53: "Abdieldevil",
-54: "Netermind",
-55: "Cursed",
-56: "Zoink",
-57: "JohnLikesDiamond",
-58: "hqmy",
-59: "YeldA",
-60: "SuperJavicon",
-61: "theopex58",
-62: "Cuatrocientos",
-63: "wPopoff",
-64: "kula",
-65: "Trick",
-66: "NONE",
-67: "BONN GD",
-68: "Axinity",
+47: "Axinity",
+48: "NONE",
+49: "theopex58",
+50: "Zoink",
+51: "agonom",
+52: "Chayok",
+53: "agonom",
+54: "Abdieldevil",
+55: "Netermind",
+56: "Cursed",
+57: "Zoink",
+58: "JohnLikesDiamond",
+59: "hqmy",
+60: "YeldA",
+61: "SuperJavicon",
+62: "Electrx",
+63: "Cuatrocientos",
+64: "wPopoff",
+65: "kula",
+66: "Trick",
+67: "NONE",
+68: "BONN GD",
 69: "SeptaGon7",
 70: "Crisis",
 71: "ViperVenom95",
