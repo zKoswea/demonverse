@@ -40,13 +40,14 @@ transform: translateY(-110%);
 }
 
 .logo {
+cursor: pointer;
 font-size: 28px;
 font-weight: 800;
 white-space: nowrap;
 }
 
 .logo .red {
-color: #d62828;
+color: var(--accent-logo);
 }
 
 .subtitle {
@@ -234,7 +235,7 @@ margin-left: auto;
 }
 
 .right-title {
-color: #d22b2b;
+color: var(--accent-text);
 font-size: 16px;
 font-weight: 600;
 margin-bottom: 16px;
@@ -257,8 +258,8 @@ justify-content: center;
 gap: 9px;
 margin-top: 5px;
 padding: 12px 20px;
-background: #d22b2b;
-color: white;
+background: var(--accent);
+color: var(--on-accent);
 text-decoration: none;
 border-radius: 6px;
 font-size: 15px;
@@ -273,11 +274,11 @@ width: 0;
 height: 0;
 border-top: 6px solid transparent;
 border-bottom: 6px solid transparent;
-border-left: 9px solid #fff;
+border-left: 9px solid var(--on-accent);
 }
 
 .verification-button:hover {
-background: #b92323;
+background: var(--accent-hover);
 }
 
 .gold-glow {
@@ -473,6 +474,63 @@ min-width: 30px;
 }
 }
 
+/* ===== Website colour (chosen in the gear menu). Red is the default. =====
+   --accent = button colour, --accent-hover = button hover, --on-accent = text on buttons,
+   --accent-text / --accent-text-2 = coloured text, --accent-logo = the "Verse" part of the logo. */
+:root {
+--accent: #d22b2b;
+--accent-hover: #b92323;
+--on-accent: #fff;
+--accent-text: #d22b2b;
+--accent-text-2: #d22b2b;
+--accent-logo: #d62828;
+}
+body.dark-mode { --accent-text-2: #ff6b6b; }
+body[data-accent="pink"] { --accent:#ec4899; --accent-hover:#db2777; --on-accent:#fff; --accent-text:#db2777; --accent-text-2:#db2777; --accent-logo:#db2777; }
+body.dark-mode[data-accent="pink"] { --accent-text:#f472b6; --accent-text-2:#f472b6; --accent-logo:#ec4899; }
+body[data-accent="purple"] { --accent:#7c3aed; --accent-hover:#6d28d9; --on-accent:#fff; --accent-text:#7c3aed; --accent-text-2:#7c3aed; --accent-logo:#7c3aed; }
+body.dark-mode[data-accent="purple"] { --accent-text:#a78bfa; --accent-text-2:#a78bfa; --accent-logo:#8b5cf6; }
+body[data-accent="blue"] { --accent:#2563eb; --accent-hover:#1d4ed8; --on-accent:#fff; --accent-text:#2563eb; --accent-text-2:#2563eb; --accent-logo:#2563eb; }
+body.dark-mode[data-accent="blue"] { --accent-text:#60a5fa; --accent-text-2:#60a5fa; --accent-logo:#3b82f6; }
+body[data-accent="green"] { --accent:#16a34a; --accent-hover:#15803d; --on-accent:#fff; --accent-text:#15803d; --accent-text-2:#15803d; --accent-logo:#16a34a; }
+body.dark-mode[data-accent="green"] { --accent-text:#4ade80; --accent-text-2:#4ade80; --accent-logo:#22c55e; }
+body[data-accent="orange"] { --accent:#f97316; --accent-hover:#ea580c; --on-accent:#fff; --accent-text:#ea580c; --accent-text-2:#ea580c; --accent-logo:#ea580c; }
+body.dark-mode[data-accent="orange"] { --accent-text:#fb923c; --accent-text-2:#fb923c; --accent-logo:#f97316; }
+body[data-accent="yellow"] { --accent:#facc15; --accent-hover:#eab308; --on-accent:#111; --accent-text:#a16207; --accent-text-2:#a16207; --accent-logo:#ca8a04; }
+body.dark-mode[data-accent="yellow"] { --accent-text:#fde047; --accent-text-2:#fde047; --accent-logo:#facc15; }
+body[data-accent="white"] { --accent:#222; --accent-hover:#000; --on-accent:#fff; --accent-text:#222; --accent-text-2:#222; --accent-logo:#222; }
+body.dark-mode[data-accent="white"] { --accent:#fff; --accent-hover:#d9d9d9; --on-accent:#111; --accent-text:#fff; --accent-text-2:#fff; --accent-logo:#fff; }
+
+/* Settings (gear) button + menu */
+.settings-picker { position:relative; flex:0 0 auto; z-index:150; margin-left:-15px; } /* sits closer to the light/dark button (normal gap is 25px, now 10px) */
+@media (max-width: 900px) { .settings-picker { margin-left:-6px; } } /* phones: gap 12px -> 6px */
+.settings-toggle svg { fill:#000; }
+body.dark-mode .settings-toggle svg { fill:#fff; }
+.settings-menu {
+position:absolute; top:calc(100% + 8px); left:0; width:250px; max-width:calc(100vw - 40px);
+padding:14px 16px; background:#fff; color:#222; border:1px solid #ddd; border-radius:8px;
+box-shadow:0 8px 22px rgba(0,0,0,.18);
+}
+.settings-menu[hidden] { display:none; }
+.settings-section { margin-top:16px; }
+.color-row { display:flex; flex-wrap:wrap; gap:8px; padding:2px; }
+.color-swatch { width:22px; height:22px; padding:0; border:0; border-radius:50%; background:var(--sw); color:inherit; cursor:pointer; box-shadow:inset 0 0 0 1px rgba(0,0,0,.3); }
+body.dark-mode .color-swatch { box-shadow:inset 0 0 0 1px rgba(255,255,255,.25); }
+.color-swatch[aria-checked="true"] { outline:2px solid currentColor; outline-offset:2px; }
+.settings-label { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px; font-size:13px; font-weight:700; }
+.settings-label #volumeValue { font-family:"Orbitron",Arial,sans-serif; font-size:12px; color:var(--accent-text-2); }
+/* Volume slider: thin bar with a small red circle that is a bit bigger than the bar. */
+#volumeSlider { -webkit-appearance:none; appearance:none; width:100%; height:18px; margin:0; background:transparent; cursor:pointer; outline:none; }
+#volumeSlider::-webkit-slider-runnable-track { height:6px; border-radius:3px; background:#d5d5d5; }
+#volumeSlider::-moz-range-track { height:6px; border-radius:3px; background:#d5d5d5; }
+#volumeSlider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:16px; height:16px; margin-top:-5px; border:0; border-radius:50%; background:var(--accent); }
+#volumeSlider::-moz-range-thumb { width:16px; height:16px; border:0; border-radius:50%; background:var(--accent); }
+#volumeSlider:focus-visible::-webkit-slider-thumb { box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent); }
+#volumeSlider:focus-visible::-moz-range-thumb { box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent); }
+body.dark-mode #volumeSlider::-webkit-slider-runnable-track { background:#444; }
+body.dark-mode #volumeSlider::-moz-range-track { background:#444; }
+body.dark-mode .settings-menu { background:#191919; color:#eee; border-color:#444; box-shadow:0 8px 22px rgba(0,0,0,.5); }
+
 /* Language selector and flag icons */
 .language-picker {
 position: relative;
@@ -566,10 +624,8 @@ body.dark-mode .language-trigger:hover { background: #292929; }
    The grid makes both buttons exactly the same width and height as well. */
 .header-actions { margin-left:auto; display:grid; grid-auto-flow:column; grid-auto-columns:1fr; align-items:stretch; gap:10px; flex:0 0 auto; }
 .header-actions .discord-button { margin-left:0; justify-content:center; text-align:center; }
-.faq-button { border:0; margin:0; cursor:pointer; background:#d22b2b; color:#fff; }
-.faq-button:hover { background:#b92323; }
-body.dark-mode .faq-button { background:#d22b2b; }
-body.dark-mode .faq-button:hover { background:#b92323; }
+.faq-button { border:0; margin:0; cursor:pointer; background:var(--accent); color:var(--on-accent); }
+.faq-button:hover { background:var(--accent-hover); }
 @media(max-width:900px) {
 .header-actions { order:5; margin-left:auto; }
 .header-actions .discord-button { padding:10px 12px; font-size:11px; }
@@ -587,11 +643,10 @@ body.dark-mode .faq-button:hover { background:#b92323; }
 .faq-panel h2 { margin:0 0 20px; font:800 22px "Orbitron",Arial,sans-serif; }
 .faq-item { padding:16px 0; border-top:1px solid #e2e2e2; }
 .faq-item:first-of-type { border-top:0; padding-top:0; }
-.faq-question { margin:0 0 8px; font-size:17px; font-weight:700; color:#d22b2b; }
+.faq-question { margin:0 0 8px; font-size:17px; font-weight:700; color:var(--accent-text-2); }
 .faq-answer { margin:0; font-size:15px; line-height:1.55; color:#333; overflow-wrap:anywhere; }
 body.dark-mode .faq-panel { background:#191919; color:#f2f2f2; border-color:#383838; box-shadow:0 3px 12px rgba(0,0,0,.3); }
 body.dark-mode .faq-item { border-top-color:#383838; }
-body.dark-mode .faq-question { color:#ff6b6b; }
 body.dark-mode .faq-answer { color:#ddd; }
 @media(max-width:600px) {
 .faq-area { padding:0 14px; }
@@ -607,10 +662,11 @@ body.dark-mode .faq-answer { color:#ddd; }
 </head>
 
 <body class="dark-mode">
+<script>try{var a=localStorage.getItem("demonverseAccent");if(/^(red|pink|purple|blue|green|orange|yellow|white)$/.test(a))document.body.setAttribute("data-accent",a)}catch(e){}</script>
 
 <header>
 
-<div class="logo">
+<div class="logo" id="logo" role="button" tabindex="0">
 Demon<span class="red">Verse</span>
 </div>
 
@@ -618,6 +674,29 @@ Demon<span class="red">Verse</span>
 <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.8 8.8 0 0 1 8.9 3.8 9.2 9.2 0 1 0 20.2 15.1Z"/></svg>
 <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6ZM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.22 5.64l1.42-1.42 2.12 2.12-1.42 1.42zm12.02 12.02 1.42-1.42 2.12 2.12-1.42 1.42zM18.36 4.22l1.42 1.42-2.12 2.12-1.42-1.42zM6.34 16.24l1.42 1.42-2.12 2.12-1.42-1.42z"/></svg>
 </button>
+
+<div class="settings-picker" id="settingsPicker">
+<button class="theme-toggle settings-toggle" id="settingsToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Settings" title="Settings">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58ZM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6Z"/></svg>
+</button>
+<div class="settings-menu" id="settingsMenu" role="dialog" aria-label="Settings" hidden>
+<label class="settings-label" for="volumeSlider"><span id="volumeLabel">Sound effects volume</span><span id="volumeValue">50%</span></label>
+<input type="range" id="volumeSlider" min="0" max="100" step="1" value="50">
+<div class="settings-section">
+<div class="settings-label"><span id="colourLabel">Website colour</span></div>
+<div class="color-row" role="radiogroup" aria-labelledby="colourLabel">
+<button type="button" class="color-swatch" role="radio" aria-checked="true" data-accent="red" aria-label="Red" title="Red" style="--sw:#d22b2b"></button>
+<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="pink" aria-label="Pink" title="Pink" style="--sw:#ec4899"></button>
+<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="purple" aria-label="Purple" title="Purple" style="--sw:#7c3aed"></button>
+<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="blue" aria-label="Blue" title="Blue" style="--sw:#2563eb"></button>
+<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="green" aria-label="Green" title="Green" style="--sw:#16a34a"></button>
+<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="orange" aria-label="Orange" title="Orange" style="--sw:#f97316"></button>
+<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="yellow" aria-label="Yellow" title="Yellow" style="--sw:#facc15"></button>
+<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="white" aria-label="White" title="White" style="--sw:#ffffff"></button>
+</div>
+</div>
+</div>
+</div>
 
 <div class="subtitle">
 COMMUNITY GEOMETRY DASH DEMON LIST
@@ -753,7 +832,8 @@ objects: "Objects:", verificationVideo: "Verification Video",
 footer: "DemonVerse • Community Geometry Dash Demon List",
 chooseLanguage: "Choose language",
 switchDark: "Switch to dark mode", switchLight: "Switch to light mode",
-blankSlot: "Blank level slot"
+blankSlot: "Blank level slot",
+settings: "Settings", soundVolume: "Sound effects volume", websiteColour: "Website colour"
 },
 ru: {
 subtitle: "СООБЩЕСТВЕННЫЙ СПИСОК ДЕМОНОВ GEOMETRY DASH",
@@ -767,7 +847,8 @@ objects: "Объекты:", verificationVideo: "Видео верификаци�
 footer: "DemonVerse • Сообщественный список демонов Geometry Dash",
 chooseLanguage: "Выбрать язык",
 switchDark: "Включить тёмную тему", switchLight: "Включить светлую тему",
-blankSlot: "Пустое место уровня"
+blankSlot: "Пустое место уровня",
+settings: "Настройки", soundVolume: "Громкость звуковых эффектов", websiteColour: "Цвет сайта"
 },
 es: {
 subtitle: "LISTA COMUNITARIA DE DEMONIOS DE GEOMETRY DASH",
@@ -781,7 +862,8 @@ objects: "Objetos:", verificationVideo: "Vídeo de verificación",
 footer: "DemonVerse • Lista comunitaria de demonios de Geometry Dash",
 chooseLanguage: "Elegir idioma",
 switchDark: "Activar modo oscuro", switchLight: "Activar modo claro",
-blankSlot: "Espacio de nivel vacío"
+blankSlot: "Espacio de nivel vacío",
+settings: "Ajustes", soundVolume: "Volumen de efectos de sonido", websiteColour: "Color del sitio"
 },
 fr: {
 subtitle: "LISTE COMMUNAUTAIRE DES DÉMONS DE GEOMETRY DASH",
@@ -795,7 +877,8 @@ objects: "Objets :", verificationVideo: "Vidéo de vérification",
 footer: "DemonVerse • Liste communautaire des démons de Geometry Dash",
 chooseLanguage: "Choisir la langue",
 switchDark: "Activer le mode sombre", switchLight: "Activer le mode clair",
-blankSlot: "Emplacement de niveau vide"
+blankSlot: "Emplacement de niveau vide",
+settings: "Paramètres", soundVolume: "Volume des effets sonores", websiteColour: "Couleur du site"
 }
 };
 
@@ -823,6 +906,12 @@ const dark = document.body.classList.contains("dark-mode");
 const themeToggle = document.getElementById("themeToggle");
 themeToggle.setAttribute("aria-label", dark ? tr("switchLight") : tr("switchDark"));
 themeToggle.title = dark ? tr("switchLight") : tr("switchDark");
+
+const settingsToggle = document.getElementById("settingsToggle");
+settingsToggle.setAttribute("aria-label", tr("settings"));
+settingsToggle.title = tr("settings");
+document.getElementById("volumeLabel").textContent = tr("soundVolume");
+document.getElementById("colourLabel").textContent = tr("websiteColour");
 
 document.querySelector(".list-title").textContent = tr("mainTitle");
 
@@ -2881,6 +2970,121 @@ if (event.key === "Escape" && !panel.hidden) closePanel();
 });
 })();
 
+
+// Clicking the DemonVerse logo scrolls back to the top of the page.
+(() => {
+const logo = document.getElementById("logo");
+const goTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+logo.addEventListener("click", goTop);
+logo.addEventListener("keydown", event => {
+if (event.key === "Enter" || event.key === " ") { event.preventDefault(); goTop(); }
+});
+})();
+
+// Settings (gear) menu + sound effects.
+// Sounds are generated in the browser (no audio files needed): a soft tick for clicks and a lighter blip for hovering a level.
+(() => {
+const picker = document.getElementById("settingsPicker");
+const toggle = document.getElementById("settingsToggle");
+const menu = document.getElementById("settingsMenu");
+const slider = document.getElementById("volumeSlider");
+const valueLabel = document.getElementById("volumeValue");
+const STORAGE_KEY = "demonverseVolume";
+
+let volume = 50; // 0-100, default 50%
+try {
+const saved = localStorage.getItem(STORAGE_KEY);
+if (saved !== null && !isNaN(Number(saved))) volume = Math.min(100, Math.max(0, Number(saved)));
+} catch (e) {}
+slider.value = volume;
+valueLabel.textContent = volume + "%";
+
+let ctx = null;
+const getCtx = () => {
+if (!ctx) {
+const AC = window.AudioContext || window.webkitAudioContext;
+if (!AC) return null;
+try { ctx = new AC(); } catch (e) { return null; }
+}
+if (ctx.state === "suspended") ctx.resume().catch(() => {});
+return ctx;
+};
+
+const blip = (c, o) => {
+const t = c.currentTime;
+const osc = c.createOscillator();
+const gain = c.createGain();
+const level = Math.max(o.peak * Math.pow(volume / 100, 2), 0.0001);
+osc.type = o.type;
+osc.frequency.setValueAtTime(o.freq, t); // one steady pitch, no sliding, so it sounds like a plain tap
+gain.gain.setValueAtTime(0.0001, t);
+gain.gain.exponentialRampToValueAtTime(level, t + 0.004);
+gain.gain.exponentialRampToValueAtTime(0.0001, t + o.dur);
+osc.connect(gain);
+gain.connect(c.destination);
+osc.start(t);
+osc.stop(t + o.dur + 0.02);
+};
+
+// Click: a very short, soft, low "tap".
+const playClick = () => {
+if (volume <= 0) return;
+const c = getCtx();
+if (c) blip(c, { freq: 330, dur: 0.045, type: "sine", peak: 0.3 });
+};
+// Hover: an even shorter, quieter, slightly higher "tick" (different from the click).
+const playHover = () => {
+if (volume <= 0 || !ctx || ctx.state !== "running") return;
+blip(ctx, { freq: 600, dur: 0.03, type: "sine", peak: 0.07 });
+};
+
+// Browsers only allow sound after the first click/tap/key press, so unlock audio then.
+["pointerdown", "keydown"].forEach(name => {
+document.addEventListener(name, () => { if (volume > 0) getCtx(); }, { passive: true });
+});
+
+document.addEventListener("click", event => {
+if (event.target.closest("#volumeSlider")) return;
+if (event.target.closest("button, a, .thumbnail, .level-card, .logo")) playClick();
+});
+
+const canHover = !!(window.matchMedia && window.matchMedia("(hover: hover)").matches);
+let lastHover = 0;
+document.addEventListener("mouseover", event => {
+if (!canHover) return;
+const card = event.target.closest(".level-card");
+if (!card || card.contains(event.relatedTarget)) return;
+const now = performance.now();
+if (now - lastHover < 70) return;
+lastHover = now;
+playHover();
+});
+
+const setOpen = open => {
+menu.hidden = !open;
+toggle.setAttribute("aria-expanded", String(open));
+};
+toggle.addEventListener("click", () => setOpen(menu.hidden));
+document.addEventListener("click", event => { if (!picker.contains(event.target)) setOpen(false); });
+document.addEventListener("keydown", event => { if (event.key === "Escape") setOpen(false); });
+
+slider.addEventListener("input", () => {
+volume = Number(slider.value);
+valueLabel.textContent = volume + "%";
+try { localStorage.setItem(STORAGE_KEY, String(volume)); } catch (e) {}
+});
+slider.addEventListener("change", playClick); // preview the new volume
+
+// Website colour chooser
+const swatches = Array.from(document.querySelectorAll(".color-swatch"));
+const markAccent = name => swatches.forEach(b => b.setAttribute("aria-checked", String(b.dataset.accent === name)));
+markAccent(document.body.getAttribute("data-accent") || "red");
+swatches.forEach(b => b.addEventListener("click", () => {
+document.body.setAttribute("data-accent", b.dataset.accent);
+markAccent(b.dataset.accent);
+try { localStorage.setItem("demonverseAccent", b.dataset.accent); } catch (e) {}
+}));
+})();
 
 displayLevels(levels, "main");
 updateLanguageInterface();
