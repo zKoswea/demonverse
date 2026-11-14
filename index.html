@@ -49,10 +49,6 @@ white-space: nowrap;
 color: #d62828;
 }
 
-.logo .purple {
-color: #713cff;
-}
-
 .subtitle {
 font-size: 13px;
 font-weight: 500;
@@ -135,45 +131,6 @@ font-weight: 700;
 margin-bottom: 18px;
 }
 
-.view-switch {
-max-width: 1260px;
-margin: 18px auto 0;
-padding: 0 20px;
-display: flex;
-gap: 10px;
-}
-.view-button {
-border: 1px solid #ccc;
-border-radius: 6px;
-background: #fff;
-color: #222;
-padding: 10px 16px;
-font: 700 12px "Orbitron", Arial, sans-serif;
-letter-spacing: .5px;
-cursor: pointer;
-transition: background .2s ease, color .2s ease, border-color .2s ease;
-}
-.view-button.active { background: #222; color: #fff; border-color: #222; }
-.view-button[data-view="upcoming"].active { background: #713cff; border-color: #713cff; }
-body.dark-mode .view-button { background: #191919; color: #eee; border-color: #444; }
-body.dark-mode .view-button.active { background: #eee; color: #111; border-color: #eee; }
-body.dark-mode .view-button[data-view="upcoming"].active { background: #8b5cff; color: #fff; border-color: #8b5cff; }
-.upcoming-card { border-color: rgba(113,60,255,.42); }
-.upcoming-card .right-title { color: #713cff; }
-.upcoming-card .verification-button { background: #713cff; }
-.upcoming-card .verification-button:hover { background: #5c2bd8; }
-body.dark-mode .upcoming-card { border-color: rgba(151,112,255,.55); }
-body.dark-mode .upcoming-card .right-title { color: #ad8cff; }
-body.dark-mode .upcoming-card .verification-button { background: #7542ed; }
-body.dark-mode .upcoming-card .verification-button:hover { background: #6334d2; }
-.upcoming-card .progress-value { color: #713cff; font-weight: 800; }
-body.dark-mode .upcoming-card .progress-value { color: #b79aff; }
-.upcoming-card .left-side { flex-wrap: wrap; }
-@media (max-width: 900px) {
-}
-@media (max-width: 600px) {
-}
-
 .level-card {
 display: flex;
 width: 100%;
@@ -184,6 +141,32 @@ overflow: hidden;
 box-shadow: 0 2px 5px rgba(0,0,0,0.08);
 margin-bottom: 18px;
 min-height: 215px;
+}
+
+/* Hover: each level card grows slightly. 1.015 is small enough to stay inside the 18px gap between cards. */
+.level-card {
+transition: transform .2s ease, box-shadow .2s ease;
+}
+@media (hover: hover) {
+.level-card:hover {
+transform: scale(1.015);
+position: relative;
+z-index: 1;
+}
+/* Glow on hover for every card except #1 (the gold-glow card keeps its own glow). */
+.level-card:not(.gold-glow):hover {
+box-shadow:
+0 0 10px rgba(90, 90, 90, 0.35),
+0 0 22px rgba(90, 90, 90, 0.2);
+}
+body.dark-mode .level-card:not(.gold-glow):hover {
+box-shadow:
+0 0 10px rgba(255, 255, 255, 0.4),
+0 0 24px rgba(255, 255, 255, 0.22);
+}
+}
+@media (prefers-reduced-motion: reduce) {
+.level-card { transition: none; }
 }
 
 .left-side {
@@ -457,9 +440,6 @@ height: 145px;
 }
 
 @media (max-width: 600px) {
-.view-switch { gap: 8px; }
-.view-button { flex: 1; padding: 10px 8px; font-size: 10px; }
-
 .level-name {
 font-size: 23px;
 }
@@ -637,7 +617,7 @@ body.dark-mode .faq-answer { color:#ddd; }
 </style>
 </head>
 
-<body>
+<body class="dark-mode">
 
 <header>
 
@@ -645,7 +625,7 @@ body.dark-mode .faq-answer { color:#ddd; }
 Demon<span class="red">Verse</span>
 </div>
 
-<button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="true" title="Switch to light mode">
 <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.8 8.8 0 0 1 8.9 3.8 9.2 9.2 0 1 0 20.2 15.1Z"/></svg>
 <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6ZM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.22 5.64l1.42-1.42 2.12 2.12-1.42 1.42zm12.02 12.02 1.42-1.42 2.12 2.12-1.42 1.42zM18.36 4.22l1.42 1.42-2.12 2.12-1.42-1.42zM6.34 16.24l1.42 1.42-2.12 2.12-1.42-1.42z"/></svg>
 </button>
@@ -688,13 +668,6 @@ placeholder="Search levels..."
 >
 
 </div>
-
-<div class="view-switch" role="group" aria-label="Choose leaderboard">
-<button class="view-button active" id="mainViewButton" data-view="main" type="button">MAIN LIST</button>
-<button class="view-button" id="upcomingViewButton" data-view="upcoming" type="button">UP AND COMING</button>
-</div>
-
-
 
 <!-- FAQ PANEL
      EDIT HERE: change the text inside each .faq-question and .faq-answer.
@@ -776,12 +749,11 @@ fr: `<svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-label="French fl
 const translations = {
 en: {
 subtitle: "COMMUNITY GEOMETRY DASH DEMON LIST",
-mainList: "MAIN LIST", upcomingButton: "UP AND COMING",
-mainTitle: "Top 75 Demons", upcomingTitle: "Up and Coming",
-searchMain: "Search levels...", searchUpcoming: "Search upcoming levels...",
+mainTitle: "Top 75 Demons",
+searchMain: "Search levels...",
 hostedBy: "Hosted by:", verifiedBy: "Verified by:",
-currentVerifier: "Current Verifier:", firstVictor: "First Victor:",
-bestProgress: "Best Progress:", notAdded: "Not added",
+firstVictor: "First Victor:",
+notAdded: "Not added",
 levelInfo: "LEVEL INFO", levelId: "Level ID:", length: "Length:",
 objects: "Objects:", verificationVideo: "Verification Video",
 footer: "DemonVerse • Community Geometry Dash Demon List",
@@ -791,12 +763,11 @@ blankSlot: "Blank level slot"
 },
 ru: {
 subtitle: "СООБЩЕСТВЕННЫЙ СПИСОК ДЕМОНОВ GEOMETRY DASH",
-mainList: "ОСНОВНОЙ СПИСОК", upcomingButton: "НА ПОДХОДЕ",
-mainTitle: "Топ 75 демонов", upcomingTitle: "На подходе",
-searchMain: "Поиск уровней...", searchUpcoming: "Поиск будущих уровней...",
+mainTitle: "Топ 75 демонов",
+searchMain: "Поиск уровней...",
 hostedBy: "Организатор:", verifiedBy: "Подтвердил:",
-currentVerifier: "Текущий верификатор:", firstVictor: "Первый победитель:",
-bestProgress: "Лучший прогресс:", notAdded: "Не добавлено",
+firstVictor: "Первый победитель:",
+notAdded: "Не добавлено",
 levelInfo: "ИНФОРМАЦИЯ ОБ УРОВНЕ", levelId: "ID уровня:", length: "Длительность:",
 objects: "Объекты:", verificationVideo: "Видео верификации",
 footer: "DemonVerse • Сообщественный список демонов Geometry Dash",
@@ -806,12 +777,11 @@ blankSlot: "Пустое место уровня"
 },
 es: {
 subtitle: "LISTA COMUNITARIA DE DEMONIOS DE GEOMETRY DASH",
-mainList: "LISTA PRINCIPAL", upcomingButton: "PRÓXIMAMENTE",
-mainTitle: "Los 75 mejores demonios", upcomingTitle: "Próximamente",
-searchMain: "Buscar niveles...", searchUpcoming: "Buscar próximos niveles...",
+mainTitle: "Los 75 mejores demonios",
+searchMain: "Buscar niveles...",
 hostedBy: "Organizado por:", verifiedBy: "Verificado por:",
-currentVerifier: "Verificador actual:", firstVictor: "Primer vencedor:",
-bestProgress: "Mejor progreso:", notAdded: "Sin añadir",
+firstVictor: "Primer vencedor:",
+notAdded: "Sin añadir",
 levelInfo: "INFORMACIÓN DEL NIVEL", levelId: "ID del nivel:", length: "Duración:",
 objects: "Objetos:", verificationVideo: "Vídeo de verificación",
 footer: "DemonVerse • Lista comunitaria de demonios de Geometry Dash",
@@ -821,12 +791,11 @@ blankSlot: "Espacio de nivel vacío"
 },
 fr: {
 subtitle: "LISTE COMMUNAUTAIRE DES DÉMONS DE GEOMETRY DASH",
-mainList: "LISTE PRINCIPALE", upcomingButton: "À VENIR",
-mainTitle: "Top 75 des démons", upcomingTitle: "À venir",
-searchMain: "Rechercher des niveaux...", searchUpcoming: "Rechercher les niveaux à venir...",
+mainTitle: "Top 75 des démons",
+searchMain: "Rechercher des niveaux...",
 hostedBy: "Organisé par :", verifiedBy: "Vérifié par :",
-currentVerifier: "Vérificateur actuel :", firstVictor: "Premier vainqueur :",
-bestProgress: "Meilleure progression :", notAdded: "Non renseigné",
+firstVictor: "Premier vainqueur :",
+notAdded: "Non renseigné",
 levelInfo: "INFOS DU NIVEAU", levelId: "ID du niveau :", length: "Durée :",
 objects: "Objets :", verificationVideo: "Vidéo de vérification",
 footer: "DemonVerse • Liste communautaire des démons de Geometry Dash",
@@ -842,11 +811,8 @@ const tr = key => translations[currentLanguage][key] || translations.en[key] || 
 function updateLanguageInterface() {
 document.documentElement.lang = currentLanguage;
 document.querySelector(".subtitle").textContent = tr("subtitle");
-document.getElementById("mainViewButton").textContent = tr("mainList");
-document.getElementById("upcomingViewButton").textContent = tr("upcomingButton");
 document.querySelector("footer").textContent = tr("footer");
-document.getElementById("search").placeholder =
-currentView === "upcoming" ? tr("searchUpcoming") : tr("searchMain");
+document.getElementById("search").placeholder = tr("searchMain");
 
 const codes = { en: "ENG", ru: "RUS", es: "ESP", fr: "FRE" };
 document.getElementById("currentLanguageCode").textContent = codes[currentLanguage];
@@ -864,14 +830,9 @@ const themeToggle = document.getElementById("themeToggle");
 themeToggle.setAttribute("aria-label", dark ? tr("switchLight") : tr("switchDark"));
 themeToggle.title = dark ? tr("switchLight") : tr("switchDark");
 
-const isUpcoming = currentView === "upcoming";
-document.querySelector(".list-title").textContent =
-isUpcoming ? tr("upcomingTitle") : tr("mainTitle");
+document.querySelector(".list-title").textContent = tr("mainTitle");
 
-displayLevels(
-isUpcoming ? sortedUpcomingLevels() : levels,
-currentView
-);
+displayLevels(levels, "main");
 }
 
 (() => {
@@ -2497,328 +2458,6 @@ objects: ""
 
 
 
-// Up and Coming entries. Keep progress values/ranges exactly as entered.
-const upcomingLevels = [
-{
-name: "Silent Acropolis",
-host: "The Purgatory",
-verifier: "Hover",
-image: "silent acropolis.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "99%",
-},
-{
-name: "NIGHTFALL",
-host: "MadisonYuko",
-verifier: "nei_gmd",
-image: "nightfall.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "97%",
-},
-{
-name: "Apollyon",
-host: "RicoLP",
-verifier: "katzen",
-image: "apollyon.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "97%",
-},
-{
-name: "Eternal Silence",
-host: "Realvet",
-verifier: "TBD",
-image: "eternal silence.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "4-100%",
-},
-{
-name: "Sweeping Demon 2",
-host: "Temp",
-verifier: "Taiago",
-image: "sweeping demon 2.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "87%",
-},
-{
-name: "Laybrinth",
-host: "SyQual",
-verifier: "GGonop",
-image: "labyrinth.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "13%-100%",
-},
-{
-name: "ECHO",
-host: "Zeptoz",
-verifier: "hqmy",
-image: "echo.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "86%",
-},
-{
-name: "Heliopolis",
-host: "MindCap",
-verifier: "Zoink",
-image: "heliopolis.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "85%",
-},
-{
-name: "ESCALATOR",
-host: "Neomarbilan",
-verifier: "teraaa",
-image: "escalator.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "83%",
-},
-{
-name: "Silent Circles",
-host: "Starchman",
-verifier: "dewbbs",
-image: "silent circles.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "82%",
-},
-{
-name: "Banshee",
-host: "Komp",
-verifier: "hstorm",
-image: "banshee.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "21-100%",
-},
-{
-name: "SILENT HELHEIM",
-host: "Streamy450",
-verifier: "TBD",
-image: "silent helheim.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "78%",
-},
-{
-name: "i n j u r y",
-host: "greafer",
-verifier: "KYWY",
-image: "i n j u r y.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "74%",
-},
-{
-name: "FLASHBANG",
-host: "Insxne97",
-verifier: "LordVadercraft",
-image: "flashbang.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "22-96%",
-},
-{
-name: "Diffraction",
-host: "ggii",
-verifier: "Gamingbyte",
-image: "diffraction.png",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "74%",
-},
-{
-// Editable Up and Coming placeholder 23
-name: "Bad Tr1p",
-host: "cherryteam",
-verifier: "ROZE",
-image: "bad tr1p.jpg",
-verification: "#",
-id: "",
-length: "",
-objects: "",
-progress: "29-100%",
-},
-{
-name: "KOCMOC UNLEASED",
-host: "cherryteam",
-verifier: "Arshadow",
-image: "kocmoc unleased.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "69%"
-},
-{
-// Editable Up and Coming placeholder 28
-name: "ZANBOT",
-host: "Ido26",
-verifier: "GMitzy",
-image: "zanbot.png",
-verification: "#",
-id: "",
-length: "",
-objects: "",
-progress: "68%",
-},
-{
-name: "exasperation",
-host: "Thyket",
-verifier: "TBD",
-image: "exasperation.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "67%",
-},
-{
-name: "ARE",
-host: "Cinemat",
-verifier: "BONNGD",
-image: "are.jpg",
-verification: "#",
-id: "Not added",
-length: "Not added",
-objects: "Not added",
-progress: "36-100%",
-},
-{
-// Editable Up and Coming placeholder 25
-name: "Dignity",
-host: "San Andreas",
-verifier: "Sevant",
-image: "dignity.jpg",
-verification: "#",
-id: "",
-length: "",
-objects: "",
-progress: "64%",
-},
-{
-// Editable Up and Coming placeholder 26
-name: "BANG BANG",
-host: "Varse",
-verifier: "Jori",
-image: "bang bang.jpg",
-verification: "#",
-id: "",
-length: "",
-objects: "",
-progress: "64%",
-},
-{
-// Editable Up and Coming placeholder 29
-name: "Ankou",
-host: "Xukarns",
-verifier: "BlueOrbe",
-image: "ankou.jpg",
-verification: "#",
-id: "",
-length: "",
-objects: "",
-progress: "64%",
-},
-{
-// Editable Up and Coming placeholder 27
-name: "You When Bee Crusher (Solo)",
-host: "akunakun",
-verifier: "Guit Guit",
-image: "you when bee crusher.jpg",
-verification: "#",
-id: "",
-length: "",
-objects: "",
-progress: "63%",
-},
-{
-// Editable Up and Coming placeholder 21
-name: "Eternal Night",
-host: "Electro",
-verifier: "Mizukii",
-image: "eternal night.jpg",
-verification: "#",
-id: "",
-length: "",
-objects: "",
-progress: "38-100%",
-},
-{
-// Editable Up and Coming placeholder 30
-name: "mysterycore",
-host: "urge",
-verifier: "Cyzyex",
-image: "mystercore.jpg",
-verification: "#",
-id: "",
-length: "",
-objects: "",
-progress: "61%",
-},
-{
-// Editable Up and Coming placeholder 22
-name: "Vehemence",
-host: "MadisonYuko",
-verifier: "A6",
-image: "vehemence.jpg",
-verification: "#",
-id: "",
-length: "",
-objects: "",
-progress: "40-100%",
-},
-{
-// Editable Up and Coming placeholder 24
-name: "MAX NRG",
-host: "SaturMan",
-verifier: "SaturMan",
-image: "max nrg.jpg",
-verification: "#",
-id: "",
-length: "",
-objects: "",
-progress: "40-100%",
-}
-];
-
 // First Victors are matched to levels by RANK NUMBER (position in the list).
 // IT MEANS EVERYTING is #7, FIBERGLASS is #39 and the former blank spot (BLAZEIT) is #57.
 // Every victor below each insert was pushed down one spot so each level keeps its own victor.
@@ -2977,7 +2616,7 @@ const firstVictors = {
 150: "",
 };
 
-function createLevelCard(level, index, isUpcoming = false) {
+function createLevelCard(level, index) {
 
 const rank = index + 1;
 
@@ -3003,7 +2642,7 @@ const objects =
 
 return `
 
-<div class="level-card ${glowClass} ${isUpcoming ? "upcoming-card" : ""} ${level.blank ? "blank-level" : ""}">
+<div class="level-card ${glowClass} ${level.blank ? "blank-level" : ""}">
 
 <div class="left-side">
 
@@ -3033,12 +2672,12 @@ ${level.blank ? "" : `<strong>${tr("hostedBy")}</strong> ${displayValue(level.ho
 
 
 <div class="detail-line">
-${level.blank ? "" : `<strong>${isUpcoming ? tr("currentVerifier") : tr("verifiedBy")}</strong> ${displayValue(level.verifier)}`}
+${level.blank ? "" : `<strong>${tr("verifiedBy")}</strong> ${displayValue(level.verifier)}`}
 </div>
 
 
 <div class="detail-line">
-${level.blank ? "" : (isUpcoming ? `<strong>${tr("bestProgress")}</strong> <span class="progress-value">${level.progress === null || level.progress === undefined || level.progress === "" ? tr("notAdded") : level.progress}</span>` : `<strong>${tr("firstVictor")}</strong> ${firstVictor}`)}
+${level.blank ? "" : `<strong>${tr("firstVictor")}</strong> ${firstVictor}`}
 </div>
 
 </div>
@@ -3048,7 +2687,7 @@ ${level.blank ? "" : (isUpcoming ? `<strong>${tr("bestProgress")}</strong> <span
 </div>
 
 
-${isUpcoming ? "" : `<div class="divider"></div>
+<div class="divider"></div>
 
 <div class="right-side">
 
@@ -3076,7 +2715,7 @@ ${objects}
 <span class="verification-label">${tr("verificationVideo")}</span>
 </a>
 
-</div>`}
+</div>
 
 </div>
 
@@ -3085,30 +2724,7 @@ ${objects}
 }
 
 
-function progressAmount(progress) {
-// A run such as 4-100 represents 96 percentage points of progress.
-// Keep the original range text for display; use only the calculated amount to rank.
-const values = String(progress ?? "").match(/\d+(?:\.\d+)?/g);
-if (!values || !values.length) return -1;
-const numbers = values.map(Number);
-return numbers.length >= 2 ? numbers[numbers.length - 1] - numbers[0] : numbers[0];
-}
-
-function sortedUpcomingLevels() {
-// Stable sorting keeps the existing order when two levels have equal progress.
-return upcomingLevels
-.map((level, originalIndex) => ({ level, originalIndex }))
-.sort((a, b) => {
-if (a.level.blank) return b.level.blank ? a.originalIndex - b.originalIndex : 1;
-if (b.level.blank) return -1;
-return progressAmount(b.level.progress) - progressAmount(a.level.progress) || a.originalIndex - b.originalIndex;
-})
-.map(entry => entry.level);
-}
-
-let currentView = "main";
-
-function displayLevels(levelArray, view = currentView) {
+function displayLevels(levelArray, view = "main") {
 const list = document.getElementById("level-list");
 list.innerHTML = "";
 let dividerPlaced = false;
@@ -3120,7 +2736,7 @@ if (view === "main" && !dividerPlaced && rankIndex >= 75) {
 if (index > 0) list.innerHTML += '<div class="extended-divider"></div>';
 dividerPlaced = true;
 }
-list.innerHTML += createLevelCard(level, rankIndex, view === "upcoming");
+list.innerHTML += createLevelCard(level, rankIndex);
 });
 displayExtended(levelArray, view, dividerPlaced);
 }
@@ -3134,34 +2750,12 @@ const term = levelArray === levels ? "" : document.getElementById("search").valu
 let count = 0;
 extendedLevels.forEach((level, i) => {
 if (!(level.name || "").toLowerCase().includes(term)) return;
-extList.innerHTML += createLevelCard(level, levels.length + i, false);
+extList.innerHTML += createLevelCard(level, levels.length + i);
 count++;
 });
 // If a search hid every card from #76 on in the Main List, still draw the divider before the Extended results.
 if (!dividerPlaced && count > 0 && document.getElementById("level-list").children.length > 0) extList.innerHTML = '<div class="extended-divider"></div>' + extList.innerHTML;
 }
-
-function switchView(view) {
-currentView = view;
-const isUpcoming = view === "upcoming";
-const title = document.querySelector(".list-title");
-const search = document.getElementById("search");
-title.textContent = isUpcoming ? tr("upcomingTitle") : tr("mainTitle");
-const logoAccent = document.querySelector(".logo span");
-logoAccent.classList.toggle("purple", isUpcoming);
-logoAccent.classList.toggle("red", !isUpcoming);
-search.placeholder = isUpcoming ? tr("searchUpcoming") : tr("searchMain");
-document.getElementById("mainViewButton").classList.toggle("active", !isUpcoming);
-document.getElementById("upcomingViewButton").classList.toggle("active", isUpcoming);
-document.getElementById("mainViewButton").setAttribute("aria-pressed", String(!isUpcoming));
-document.getElementById("upcomingViewButton").setAttribute("aria-pressed", String(isUpcoming));
-search.value = "";
-displayLevels(isUpcoming ? sortedUpcomingLevels() : levels, view);
-}
-
-document.getElementById("mainViewButton").addEventListener("click", () => switchView("main"));
-document.getElementById("upcomingViewButton").addEventListener("click", () => switchView("upcoming"));
-
 
 document
 .getElementById("search")
@@ -3173,12 +2767,11 @@ const searchTerm =
 this.value.toLowerCase();
 
 
-const sourceLevels = currentView === "upcoming" ? sortedUpcomingLevels() : levels;
-const filteredLevels = sourceLevels.filter(level =>
+const filteredLevels = levels.filter(level =>
 (level.name || "").toLowerCase().includes(searchTerm)
 );
 
-displayLevels(filteredLevels, currentView);
+displayLevels(filteredLevels, "main");
 
 }
 );
