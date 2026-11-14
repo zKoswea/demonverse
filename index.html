@@ -145,24 +145,13 @@ min-height: 215px;
 
 /* Hover: each level card grows slightly. 1.015 is small enough to stay inside the 18px gap between cards. */
 .level-card {
-transition: transform .2s ease, box-shadow .2s ease;
+transition: transform .2s ease;
 }
 @media (hover: hover) {
 .level-card:hover {
 transform: scale(1.015);
 position: relative;
 z-index: 1;
-}
-/* Glow on hover for every card except #1 (the gold-glow card keeps its own glow). */
-.level-card:not(.gold-glow):hover {
-box-shadow:
-0 0 10px rgba(90, 90, 90, 0.35),
-0 0 22px rgba(90, 90, 90, 0.2);
-}
-body.dark-mode .level-card:not(.gold-glow):hover {
-box-shadow:
-0 0 10px rgba(255, 255, 255, 0.4),
-0 0 24px rgba(255, 255, 255, 0.22);
 }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -694,6 +683,11 @@ placeholder="Search levels..."
 <div class="faq-item">
 <h3 class="faq-question">Question 4: Is DemonVerse on social media?</h3>
 <p class="faq-answer">Answer 4: Yes we are! @demonversegd on Twitter (X).</p>
+</div>
+
+<div class="faq-item">
+<h3 class="faq-question">Question 5: Why should I use this list?</h3>
+<p class="faq-answer">Answer 5: It's simple! This list is mainly community ran, not just top player ran, so you have a valid opinion. If you have any suggestions about placements, tips for the website and more, join our Discord server to suggest something.</p>
 </div>
 
 </div>
