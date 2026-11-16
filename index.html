@@ -133,6 +133,7 @@ margin-bottom: 18px;
 }
 
 .level-card {
+position: relative;
 display: flex;
 width: 100%;
 background: white;
@@ -533,6 +534,21 @@ body.dark-mode .settings-menu { background:#191919; color:#eee; border-color:#44
 
 /* ===== Snow ===== */
 #snowCanvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 60; pointer-events: none; }
+
+/* ===== +RATED badge, top left corner of the level box ===== */
+/* The PNG has empty space around the badge, so the image is cropped to the badge itself here. */
+.level-badges { position:absolute; top:8px; left:3px; z-index:2; display:flex; flex-direction:column; align-items:flex-start; gap:6px; pointer-events:none; }
+.lvl-badge { position:relative; display:block; overflow:hidden; filter:drop-shadow(0 1px 2px rgba(0,0,0,.4)); }
+.lvl-badge img { position:absolute; display:block; max-width:none; height:auto; }
+.badge-rated { width:64px; aspect-ratio:1972 / 436; }
+.badge-rated img { width:110.142%; left:-5.071%; top:-33.028%; }
+@media (max-width: 900px) {
+.level-badges { top:10px; left:14px; }
+.level-card.has-badges .left-side { padding-top:46px; }
+}
+@media (max-width: 600px) {
+.badge-rated { width:58px; }
+}
 
 /* ===== VOTE button + voting panel ===== */
 .vote-button { border:0; margin:0; cursor:pointer; background:#f2b705; color:#111; }
@@ -1452,9 +1468,9 @@ host: "cherryteam",
 verifier: "Duv",
 image: "fiberglass.jpg",
 verification: "https://www.youtube.com/watch?v=VCp8bv8AM54",
-id: "152421515",
-length: "1:03s",
-objects: "163765"
+id: "NA",
+length: "NA",
+objects: "NA"
 },
 {
 name: "Tunnel of Despair",
@@ -2826,6 +2842,17 @@ const voteLevels = [
 // If it stays empty, each vote is only saved on the voter's own device.
 const VOTE_ENDPOINT = "";
 
+// ===== +RATED BADGE =====
+// The blue "+RATED" badge (picture file below) is shown in the top left corner of each of these levels.
+// Names must match the names in the main list (capital letters do not matter).
+const ratedLevels = [
+"IT MEANS EVERYTING", "IT MEANS EVERYTHING", // the main list spells it "EVERYTING", both spellings work here
+"LESOPOWAL", "Herr Machine", "Azure Flare", "SILENTMAN ADVENTURES", "FIBERGLASS", "Centipede",
+"BASSLINE JUNKIE", "Lost in Time 2", "Wild Roses", "Ace", "SUBCONCIOUS", "Lunatic Eyes", "Kintetsu"
+];
+const BADGE_RATED_IMG = "_rated.png"; // file name of the +RATED picture (it must sit next to this page, same as the level thumbnails)
+const RATED_BADGE = '<span class="lvl-badge badge-rated" role="img" aria-label="+RATED"><img src="' + BADGE_RATED_IMG + '" alt="" decoding="async"></span>';
+
 function createLevelCard(level, index) {
 
 const rank = index + 1;
@@ -2849,10 +2876,16 @@ const displayValue = value =>
 const objects =
 (!level.objects || String(level.objects).trim().toLowerCase() === "not added") ? tr("notAdded") : level.objects;
 
+const nameKey = String(level.name || "").trim().toLowerCase();
+const isRated = !level.blank && ratedLevels.some(n => String(n).trim().toLowerCase() === nameKey);
+const badges = isRated ? `<div class="level-badges">${RATED_BADGE}</div>` : "";
+
 
 return `
 
-<div class="level-card ${glowClass} ${level.blank ? "blank-level" : ""}">
+<div class="level-card ${glowClass} ${level.blank ? "blank-level" : ""} ${isRated ? "has-badges" : ""}">
+
+${badges}
 
 <div class="left-side">
 
@@ -3243,8 +3276,36 @@ r: 1 + Math.random() * 2.4,          // size
 speed: 22 + Math.random() * 38,      // px per second (slow)
 sway: 8 + Math.random() * 16,        // side-to-side drift
 phase: Math.random() * Math.PI * 2,
+rot: Math.random() * Math.PI * 2,      // each flake is turned a different way
+spin: (Math.random() - 0.5) * 0.6,   // and turns very slowly as it falls
 alpha: 0.45 + Math.random() * 0.5
 });
+// A snowflake: six arms, each with two little branches (tiny flakes are just six spokes)
+const drawFlake = (x, y, r, rot, color) => {
+const L = r * 1.7;
+ctx.save();
+ctx.translate(x, y);
+ctx.rotate(rot);
+ctx.strokeStyle = color;
+ctx.lineCap = "round";
+ctx.lineWidth = Math.max(0.7, r * 0.34);
+ctx.beginPath();
+for (let i = 0; i < 6; i++) {
+const a = i * Math.PI / 3, ca = Math.cos(a), sa = Math.sin(a);
+ctx.moveTo(0, 0);
+ctx.lineTo(ca * L, sa * L);
+if (r > 1.6) {
+const bx = ca * L * 0.55, by = sa * L * 0.55, bl = L * 0.42;
+for (const side of [-1, 1]) {
+const b = a + side * Math.PI / 3.2;
+ctx.moveTo(bx, by);
+ctx.lineTo(bx + Math.cos(b) * bl, by + Math.sin(b) * bl);
+}
+}
+}
+ctx.stroke();
+ctx.restore();
+};
 const resize = () => {
 dpr = Math.min(window.devicePixelRatio || 1, 2);
 w = window.innerWidth; h = window.innerHeight;
@@ -3267,11 +3328,9 @@ f.y += f.speed * dt;
 f.phase += dt * 0.8;
 const x = f.x + Math.sin(f.phase) * f.sway;
 if (f.y - f.r > h) { Object.assign(f, makeFlake(false)); continue; }
-ctx.beginPath();
-ctx.arc(x, f.y, f.r, 0, Math.PI * 2);
+f.rot += f.spin * dt;
 // white snow on dark mode, soft blue-grey snow on light mode so it stays visible
-ctx.fillStyle = dark ? "rgba(255,255,255," + f.alpha + ")" : "rgba(120,150,190," + f.alpha + ")";
-ctx.fill();
+drawFlake(x, f.y, f.r, f.rot, dark ? "rgba(255,255,255," + f.alpha + ")" : "rgba(100,135,185," + f.alpha + ")");
 }
 requestAnimationFrame(frame);
 };
