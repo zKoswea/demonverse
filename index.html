@@ -535,19 +535,19 @@ body.dark-mode .settings-menu { background:#191919; color:#eee; border-color:#44
 /* ===== Snow ===== */
 #snowCanvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 60; pointer-events: none; }
 
-/* ===== +RATED badge, top left corner of the level box ===== */
-/* The PNG has empty space around the badge, so the image is cropped to the badge itself here. */
-.level-badges { position:absolute; top:8px; left:3px; z-index:2; display:flex; flex-direction:column; align-items:flex-start; gap:6px; pointer-events:none; }
-.lvl-badge { position:relative; display:block; overflow:hidden; filter:drop-shadow(0 1px 2px rgba(0,0,0,.4)); }
-.lvl-badge img { position:absolute; display:block; max-width:none; height:auto; }
-.badge-rated { width:64px; aspect-ratio:1972 / 436; }
-.badge-rated img { width:110.142%; left:-5.071%; top:-33.028%; }
+/* ===== Custom vector badges, anchored inside the top-left of each level card ===== */
+.level-badges { position:absolute; top:8px; left:8px; z-index:3; display:flex; flex-direction:column; align-items:flex-start; gap:4px; pointer-events:none; }
+.lvl-badge { display:block; width:74px; aspect-ratio:4.52 / 1; filter:drop-shadow(0 1px 2px rgba(0,0,0,.38)); flex:none; }
+.lvl-badge svg { display:block; width:100%; height:100%; }
+.badge-winner { width:82px; }
 @media (max-width: 900px) {
-.level-badges { top:10px; left:14px; }
-.level-card.has-badges .left-side { padding-top:46px; }
+.level-badges { top:8px; left:8px; }
+.level-card.has-badges .left-side { padding-top:42px; }
 }
 @media (max-width: 600px) {
-.badge-rated { width:58px; }
+.lvl-badge { width:66px; }
+.badge-winner { width:74px; }
+.level-card.has-badges .left-side { padding-top:38px; }
 }
 
 /* ===== VOTE button + voting panel ===== */
@@ -2860,8 +2860,9 @@ const ratedLevels = [
 "LESOPOWAL", "Herr Machine", "Azure Flare", "SILENTMAN ADVENTURES", "FIBERGLASS", "Centipede",
 "BASSLINE JUNKIE", "Lost in Time 2", "Wild Roses", "Ace", "SUBCONCIOUS", "Lunatic Eyes", "Kintetsu"
 ];
-const BADGE_RATED_IMG = "_rated.png"; // file name of the +RATED picture (it must sit next to this page, same as the level thumbnails)
-const RATED_BADGE = '<span class="lvl-badge badge-rated" role="img" aria-label="+RATED"><img src="' + BADGE_RATED_IMG + '" alt="" decoding="async"></span>';
+// Inline SVG artwork: both badges are drawn in the page, so no separate image uploads are needed.
+const RATED_BADGE = `<span class="lvl-badge badge-rated" role="img" aria-label="+RATED"><svg viewBox="0 0 452 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="ratedBase" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#020b42"/><stop offset=".48" stop-color="#0648c9"/><stop offset="1" stop-color="#08b8f5"/></linearGradient><linearGradient id="ratedSheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".48" stop-color="#fff" stop-opacity=".025"/><stop offset="1" stop-color="#001044" stop-opacity=".12"/></linearGradient></defs><rect x="1" y="1" width="450" height="98" rx="25" fill="url(#ratedBase)"/><rect x="1" y="1" width="450" height="98" rx="25" fill="url(#ratedSheen)"/><path d="M27 2H425" stroke="#fff" stroke-opacity=".18" stroke-width="1.5"/><text x="226" y="69" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="56" font-weight="900" letter-spacing="1.2" fill="#fff">+RATED</text></svg></span>`;
+const WINNER_BADGE = `<span class="lvl-badge badge-winner" role="img" aria-label="2026 LW"><svg viewBox="0 0 452 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="winnerGold" x1="0" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#fff06a"/><stop offset=".18" stop-color="#ffbf00"/><stop offset=".48" stop-color="#d98200"/><stop offset=".72" stop-color="#ffca18"/><stop offset="1" stop-color="#a94d00"/></linearGradient><linearGradient id="winnerShine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".48"/><stop offset=".3" stop-color="#fff" stop-opacity=".05"/><stop offset="1" stop-color="#7b3500" stop-opacity=".16"/></linearGradient></defs><rect x="1.5" y="1.5" width="449" height="97" rx="24" fill="#8b4300"/><rect x="4" y="4" width="444" height="92" rx="21" fill="url(#winnerGold)" stroke="#ffe45b" stroke-width="3"/><rect x="9" y="9" width="434" height="82" rx="17" fill="url(#winnerShine)" stroke="#fff2a0" stroke-opacity=".8" stroke-width="1.5"/><path d="M23 13H429" stroke="#fff" stroke-opacity=".7" stroke-width="2"/><text x="226" y="69" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="55" font-weight="900" letter-spacing="1" fill="#fff">2026 LW</text></svg></span>`;
 
 function createLevelCard(level, index) {
 
@@ -2888,7 +2889,13 @@ const objects =
 
 const nameKey = String(level.name || "").trim().toLowerCase();
 const isRated = !level.blank && ratedLevels.some(n => String(n).trim().toLowerCase() === nameKey);
-const badges = isRated ? `<div class="level-badges">${RATED_BADGE}</div>` : "";
+
+// Enter the exact level name here after choosing the 2026 winner. Leave blank until then.
+const winner2026Level = "";
+const is2026Winner = !level.blank && winner2026Level.trim().toLowerCase() === nameKey;
+const badges = (isRated || is2026Winner)
+  ? `<div class="level-badges">${is2026Winner ? WINNER_BADGE : ""}${isRated ? RATED_BADGE : ""}</div>`
+  : "";
 
 
 return `
