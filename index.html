@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" href="general-profile-picture-1024x1024.png">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 * {
 box-sizing: border-box;
@@ -718,79 +718,122 @@ body.dark-mode .faq-answer { color:#ddd; }
 .faq-panel { transition:none; }
 }
 
+
+/* ===== Infinite Demonlist-inspired DemonVerse redesign ===== */
+:root { --accent:#d62828; --accent-hover:#b91f1f; --on-accent:#fff; --accent-text:#e34a4a; --accent-text-2:#ff6666; --accent-logo:#e04444; }
+body, button, input { font-family: Inter, Arial, Helvetica, sans-serif; }
+body { background:#0b0c10; color:#f4f5f7; }
+header { min-height:60px; padding:0 clamp(14px,3vw,34px); gap:clamp(12px,2vw,26px); background:#131722; border-bottom:1px solid #292e39; display:flex; flex-wrap:nowrap; }
+.logo { font-family:Inter,Arial,sans-serif; font-size:23px; font-weight:900; letter-spacing:-.8px; }
+.logo .red { color:#e04444; }
+.subtitle { display:none; }
+.header-socials { display:flex; align-items:center; gap:13px; }
+.header-icon { width:28px; height:34px; display:inline-flex; align-items:center; justify-content:center; border:0; padding:0; background:transparent; color:#aeb5c2; text-decoration:none; cursor:pointer; }
+.header-icon svg { width:21px; height:21px; display:block; fill:currentColor; }
+.header-icon:hover { color:#fff; }
+.header-spacer { flex:1; }
+#themeToggle { width:34px; height:34px; border:0; background:transparent; flex:0 0 34px; }
+#themeToggle .moon-icon { fill:#6da4ff; }
+#themeToggle .sun-icon { fill:#fff; }
+.language-trigger { min-height:34px; background:#1b202b; color:#e8ebf1; border:1px solid #303746; border-radius:7px; font:600 12px Inter,Arial,sans-serif; letter-spacing:0; }
+.language-trigger:hover { background:#252c39; }
+.language-menu { background:#1b202b; }
+.header-actions { margin:0; display:flex; gap:12px; align-items:center; }
+.header-actions .discord-button { display:none; }
+.search-container { max-width:850px; margin:18px auto 0; padding:0 18px; }
+#search { background:#191d26; border:1px solid #303746; color:#f4f5f7; border-radius:8px; padding:14px 16px; font:14px Inter,Arial,sans-serif; }
+#search::placeholder { color:#929baa; }
+.list-container { max-width:850px; margin:22px auto 50px; padding:0 18px; }
+.list-title { font:800 20px Inter,Arial,sans-serif; margin:0 0 16px; }
+.level-card { display:grid; grid-template-columns:minmax(210px,250px) minmax(0,1fr); align-items:stretch; min-height:142px; margin:0 0 12px; background:#1a1d24; border:1px solid #303642; border-radius:0; box-shadow:none; overflow:hidden; transition:border-color .16s ease,background .16s ease; }
+.level-card:hover { border-color:#4a5261; background:#1d212a; }
+.left-side { display:contents; padding:0; gap:0; }
+.rank { display:none; }
+.thumbnail { grid-column:1; grid-row:1; width:100%; height:100%; min-height:140px; border-radius:0; background-color:#101218; background-size:cover !important; background-position:center; cursor:default; position:relative; }
+.thumbnail.has-verification { cursor:pointer; }
+.thumbnail .thumb-play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.42); opacity:0; transition:opacity .18s ease; }
+.thumbnail .thumb-play svg { width:48px; height:48px; filter:drop-shadow(0 2px 5px #000); }
+.thumbnail.has-verification:hover .thumb-play, .thumbnail.has-verification:focus-visible .thumb-play { opacity:1; }
+.thumbnail:focus-visible { outline:2px solid var(--accent); outline-offset:-3px; }
+.level-details { grid-column:2; grid-row:1; min-width:0; padding:18px 20px 15px; display:flex; flex-direction:column; justify-content:flex-start; gap:0; }
+.level-name { font-size:18px; font-weight:800; line-height:1.25; margin:0 0 8px; overflow-wrap:anywhere; }
+.level-name::before { content:attr(data-rank); color:#e04444; margin-right:10px; font-weight:900; }
+.detail-line { display:inline; font-size:13px; color:#aeb5c2; line-height:1.55; margin-right:0; }
+.detail-line strong { color:#f1f3f6; font-weight:600; }
+.detail-line + .detail-line { margin-top:0; }
+.level-details .detail-line:nth-of-type(2), .level-details .detail-line:nth-of-type(3) { display:inline; }
+.level-details .detail-line:not(:empty) { margin-right:0; }
+.level-details .detail-line strong { margin-right:4px; }
+.level-details .detail-line:nth-of-type(2)::after { content:'  |  '; color:#667080; padding:0 7px; }
+.level-details .detail-line:nth-of-type(3)::after { content:'  |  '; color:#667080; padding:0 7px; }
+.divider, .right-side { display:none !important; }
+.level-card.has-badges .level-details { padding-top:47px; }
+.level-badges { top:8px; left:8px; z-index:4; flex-direction:row; gap:6px; }
+.lvl-badge { width:94px; }
+.badge-winner { width:100px; }
+.extended-divider { height:1px; background:#424956; margin:24px 0 20px; }
+footer { color:#8992a2; }
+.faq-panel { background:#191d26; color:#f2f4f8; border-color:#303746; border-radius:8px; }
+.faq-question { color:#ff6666; }
+.faq-answer { color:#c4cad4; }
+body.dark-mode .faq-panel { background:#191d26; color:#f2f4f8; border-color:#303746; }
+body.dark-mode .faq-answer { color:#c4cad4; }
+@media(max-width:760px) {
+ header { min-height:58px; gap:10px; padding:0 12px; }
+ .logo { font-size:19px; }
+ .header-socials { gap:7px; }
+ .header-icon { width:25px; }
+ .language-trigger { padding:6px 7px; gap:5px; font-size:11px; }
+ .level-card { grid-template-columns: minmax(120px,34%) minmax(0,1fr); min-height:112px; }
+ .thumbnail { min-height:112px; }
+ .level-details { padding:13px 12px 10px; }
+ .level-name { font-size:15px; margin-bottom:6px; }
+ .detail-line { font-size:11px; }
+ .level-card.has-badges .level-details { padding-top:43px; }
+ .lvl-badge { width:82px; }
+ .badge-winner { width:88px; }
+}
+@media(max-width:480px) {
+ .logo { font-size:17px; }
+ .header-socials { gap:3px; }
+ .header-icon { width:22px; }
+ .header-icon svg { width:18px; height:18px; }
+ #themeToggle { width:26px; flex-basis:26px; }
+ .language-trigger .flag-icon { width:20px; height:14px; }
+ .level-card { grid-template-columns: 112px minmax(0,1fr); min-height:105px; }
+ .thumbnail { min-height:105px; }
+ .level-details { padding:11px 9px 8px; }
+ .level-name { font-size:13px; }
+ .detail-line { font-size:10px; }
+ .level-card.has-badges .level-details { padding-top:39px; }
+ .lvl-badge { width:70px; }
+ .badge-winner { width:76px; }
+}
+
 </style>
 </head>
 
 <body class="dark-mode">
-<script>try{var a=localStorage.getItem("demonverseAccent");if(/^(red|pink|purple|blue|green|orange|yellow|white)$/.test(a))document.body.setAttribute("data-accent",a)}catch(e){}</script>
 
-<canvas id="snowCanvas" aria-hidden="true"></canvas>
+
+
 
 <header>
-
-<div class="logo" id="logo" role="button" tabindex="0">
-Demon<span class="red">Verse</span>
-</div>
-
-<button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="true" title="Switch to light mode">
-<svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.8 8.8 0 0 1 8.9 3.8 9.2 9.2 0 1 0 20.2 15.1Z"/></svg>
-<svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6ZM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.22 5.64l1.42-1.42 2.12 2.12-1.42 1.42zm12.02 12.02 1.42-1.42 2.12 2.12-1.42 1.42zM18.36 4.22l1.42 1.42-2.12 2.12-1.42-1.42zM6.34 16.24l1.42 1.42-2.12 2.12-1.42-1.42z"/></svg>
-</button>
-
-<div class="settings-picker" id="settingsPicker">
-<button class="theme-toggle settings-toggle" id="settingsToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Settings" title="Settings">
-<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58ZM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6Z"/></svg>
-</button>
-<div class="settings-menu" id="settingsMenu" role="dialog" aria-label="Settings" hidden>
-<label class="settings-label" for="volumeSlider"><span id="volumeLabel">Sound effects volume</span><span id="volumeValue">50%</span></label>
-<input type="range" id="volumeSlider" min="0" max="100" step="1" value="50">
-<div class="settings-section">
-<div class="settings-label"><span id="colourLabel">Website colour</span></div>
-<div class="color-row" role="radiogroup" aria-labelledby="colourLabel">
-<button type="button" class="color-swatch" role="radio" aria-checked="true" data-accent="red" aria-label="Red" title="Red" style="--sw:#d22b2b"></button>
-<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="pink" aria-label="Pink" title="Pink" style="--sw:#ec4899"></button>
-<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="purple" aria-label="Purple" title="Purple" style="--sw:#7c3aed"></button>
-<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="blue" aria-label="Blue" title="Blue" style="--sw:#2563eb"></button>
-<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="green" aria-label="Green" title="Green" style="--sw:#16a34a"></button>
-<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="orange" aria-label="Orange" title="Orange" style="--sw:#f97316"></button>
-<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="yellow" aria-label="Yellow" title="Yellow" style="--sw:#facc15"></button>
-<button type="button" class="color-swatch" role="radio" aria-checked="false" data-accent="white" aria-label="White" title="White" style="--sw:#ffffff"></button>
-</div>
-</div>
-</div>
-</div>
-
-<div class="subtitle">
-COMMUNITY GEOMETRY DASH DEMON LIST
-</div>
-
-
-<div class="language-picker" id="languagePicker">
-<button class="language-trigger" id="languageTrigger" type="button"
-aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
-<span id="currentLanguageFlag" aria-hidden="true"></span>
-<span id="currentLanguageCode">ENG</span>
-<svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 3.5 6 8.5 11 3.5Z"/></svg>
-</button>
-<div class="language-menu" id="languageMenu" role="menu" aria-label="Languages">
-<button class="language-option" type="button" role="menuitemradio" data-language="en" aria-selected="true"><span class="flag-icon" aria-hidden="true"></span><span>ENG</span></button>
-<button class="language-option" type="button" role="menuitemradio" data-language="ru" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>RUS</span></button>
-<button class="language-option" type="button" role="menuitemradio" data-language="es" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>ESP</span></button>
-<button class="language-option" type="button" role="menuitemradio" data-language="fr" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>FRE</span></button>
-</div>
-</div>
-
-
-<div class="header-actions">
-<button type="button" class="discord-button faq-button" id="openFaq" aria-controls="faqPanel" aria-expanded="false">FAQ</button>
-<button type="button" class="discord-button vote-button" id="openVote" aria-controls="votePanel" aria-expanded="false">VOTE</button>
-<a class="discord-button" href="https://discord.gg/ye8whxz52" target="_blank" rel="noopener noreferrer">DISCORD</a>
-</div>
-
+  <div class="logo" id="logo" role="button" tabindex="0">Demon<span class="red">Verse</span></div>
+  <nav class="header-socials" aria-label="DemonVerse links">
+    <a class="header-icon" href="#level-list" aria-label="Main list" title="Main list"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2v2H4zm4 0h12v2H8zM4 11h2v2H4zm4 0h12v2H8zM4 17h2v2H4zm4 0h12v2H8z"/></svg></a>
+    <a class="header-icon" href="https://discord.gg/XVZjdZy7q" target="_blank" rel="noopener noreferrer" aria-label="Discord server" title="Discord"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.7 5.3A18 18 0 0 0 15.3 4l-.5 1a16 16 0 0 0-5.6 0l-.5-1a18 18 0 0 0-4.4 1.3C1.5 9.4.7 13.4 1.1 17.4a18 18 0 0 0 5.4 2.7l1.2-2a11 11 0 0 1-1.9-.9l.5-.4a12.8 12.8 0 0 0 11.4 0l.5.4a11 11 0 0 1-1.9.9l1.2 2a18 18 0 0 0 5.4-2.7c.5-4.7-.8-8.7-3.2-12.1ZM8.6 14.8c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm6.8 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg></a>
+    <a class="header-icon" href="#" id="twitterLink" aria-label="DemonVerse on X" title="X" onclick="return false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.6 22H2.4l7.3-8.4L1.8 2h6.5l4.5 6.8L18.9 2Zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20Z"/></svg></a>
+    <button class="header-icon" type="button" id="openFaq" aria-controls="faqPanel" aria-expanded="false" aria-label="FAQ" title="FAQ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm-.1-13.2c-2 0-3.3 1.2-3.4 3h2c.1-.8.6-1.2 1.4-1.2.8 0 1.3.4 1.3 1.1 0 .6-.3.9-1.1 1.5-1 .7-1.5 1.4-1.5 2.7v.4h2v-.3c0-.8.2-1.1 1.1-1.8 1-.7 1.6-1.4 1.6-2.6 0-1.7-1.4-2.8-3.4-2.8ZM11 16h2v2h-2z"/></svg></button>
+  </nav>
+  <div class="header-spacer"></div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="true" title="Switch to light mode"><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.8 8.8 0 0 1 8.9 3.8 9.2 9.2 0 1 0 20.2 15.1Z"/></svg><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6ZM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.22 5.64l1.42-1.42 2.12 2.12-1.42 1.42zm12.02 12.02 1.42-1.42 2.12 2.12-1.42 1.42zM18.36 4.22l1.42 1.42-2.12 2.12-1.42-1.42zM6.34 16.24l1.42 1.42-2.12 2.12-1.42-1.42z"/></svg></button>
+  <div class="language-picker" id="languagePicker"><button class="language-trigger" id="languageTrigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Choose language"><span id="currentLanguageFlag" aria-hidden="true"></span><span id="currentLanguageCode">ENG</span><svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 3.5 6 8.5 11 3.5Z"/></svg></button><div class="language-menu" id="languageMenu" role="menu" aria-label="Languages"><button class="language-option" type="button" role="menuitemradio" data-language="en" aria-selected="true"><span class="flag-icon" aria-hidden="true"></span><span>ENG</span></button><button class="language-option" type="button" role="menuitemradio" data-language="ru" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>RUS</span></button><button class="language-option" type="button" role="menuitemradio" data-language="es" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>ESP</span></button><button class="language-option" type="button" role="menuitemradio" data-language="fr" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>FRE</span></button></div></div>
 </header>
 
 
 <div class="search-container">
+<button type="button" class="vote-submit" id="openVote" aria-controls="votePanel" aria-expanded="false" style="width:auto;margin:0 0 10px auto;padding:9px 16px;font-size:12px">VOTE</button>
 
 <input
 type="text"
@@ -874,15 +917,7 @@ DemonVerse • Community Geometry Dash Demon List
 </footer>
 
 
-<div class="image-modal" id="imageModal">
 
-<span class="close" id="closeModal">
-×
-</span>
-
-<img id="modalImage" src="" alt="">
-
-</div>
 
 
 <script>
@@ -1043,11 +1078,6 @@ const themeToggle = document.getElementById("themeToggle");
 themeToggle.setAttribute("aria-label", dark ? tr("switchLight") : tr("switchDark"));
 themeToggle.title = dark ? tr("switchLight") : tr("switchDark");
 
-const settingsToggle = document.getElementById("settingsToggle");
-settingsToggle.setAttribute("aria-label", tr("settings"));
-settingsToggle.title = tr("settings");
-document.getElementById("volumeLabel").textContent = tr("soundVolume");
-document.getElementById("colourLabel").textContent = tr("websiteColour");
 document.getElementById("openVote").textContent = tr("voteBtn");
 if (window.renderVoteList) window.renderVoteList();
 
@@ -2865,124 +2895,20 @@ const RATED_BADGE = `<span class="lvl-badge badge-rated" role="img" aria-label="
 const WINNER_BADGE = `<span class="lvl-badge badge-winner" role="img" aria-label="2026 LW"><svg viewBox="0 0 452 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="winnerGold" x1="0" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#fff06a"/><stop offset=".18" stop-color="#ffbf00"/><stop offset=".48" stop-color="#d98200"/><stop offset=".72" stop-color="#ffca18"/><stop offset="1" stop-color="#a94d00"/></linearGradient><linearGradient id="winnerShine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".48"/><stop offset=".3" stop-color="#fff" stop-opacity=".05"/><stop offset="1" stop-color="#7b3500" stop-opacity=".16"/></linearGradient></defs><rect x="1.5" y="1.5" width="449" height="97" rx="24" fill="#8b4300"/><rect x="4" y="4" width="444" height="92" rx="21" fill="url(#winnerGold)" stroke="#ffe45b" stroke-width="3"/><rect x="9" y="9" width="434" height="82" rx="17" fill="url(#winnerShine)" stroke="#fff2a0" stroke-opacity=".8" stroke-width="1.5"/><path d="M23 13H429" stroke="#fff" stroke-opacity=".7" stroke-width="2"/><text x="226" y="69" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="55" font-weight="900" letter-spacing="1" fill="#fff">2026 LW</text></svg></span>`;
 
 function createLevelCard(level, index) {
-
-const rank = index + 1;
-
-let glowClass = "";
-
-if (rank === 1 && !level.blank) {
-glowClass = "gold-glow";
+  const rank = index + 1;
+  const glowClass = rank === 1 && !level.blank ? "gold-glow" : (rank >= 4 && rank <= 10 ? "white-glow" : "");
+  const firstVictor = level.firstVictor || firstVictors[rank] || tr("notAdded");
+  const displayValue = value => (!value || String(value).trim().toLowerCase() === "not added") ? tr("notAdded") : value;
+  const nameKey = String(level.name || "").trim().toLowerCase();
+  const isRated = !level.blank && ratedLevels.some(n => String(n).trim().toLowerCase() === nameKey);
+  // Set the exact level name here when selecting the 2026 winner.
+  const winner2026Level = "";
+  const is2026Winner = !level.blank && winner2026Level.trim().toLowerCase() === nameKey;
+  const badges = (isRated || is2026Winner) ? `<div class="level-badges">${is2026Winner ? WINNER_BADGE : ""}${isRated ? RATED_BADGE : ""}</div>` : "";
+  const hasVideo = !!(level.verification && /^https?:\/\//i.test(level.verification));
+  const thumbnail = `<div class="thumbnail ${level.image ? "" : "blank-thumbnail"} ${hasVideo ? "has-verification" : ""}" style="${level.image ? `background-image:url('${level.image}');` : ""}" ${hasVideo ? `role="link" tabindex="0" onclick="window.open('${level.verification}','_blank','noopener')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.open('${level.verification}','_blank','noopener')}" aria-label="Watch verification video for ${String(level.name || "level").replace(/&/g,"&amp;").replace(/'/g,"&#39;")}"` : 'aria-label="Level thumbnail"'}>${hasVideo ? `<span class="thumb-play" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="27" fill="rgba(12,14,18,.72)" stroke="#fff" stroke-width="2"/><path d="M26 19 45 32 26 45Z" fill="#fff"/></svg></span>` : ""}</div>`;
+  return `<article class="level-card ${glowClass} ${level.blank ? "blank-level" : ""} ${isRated || is2026Winner ? "has-badges" : ""}">${badges}${thumbnail}<div class="level-details"><div class="level-name" data-rank="#${rank}">${level.blank ? "" : level.name}</div><div class="detail-line">${level.blank ? "" : `<strong>${tr("hostedBy")}</strong> ${displayValue(level.host)}`}</div><div class="detail-line">${level.blank ? "" : `<strong>${tr("verifiedBy")}</strong> ${displayValue(level.verifier)}`}</div><div class="detail-line">${level.blank ? "" : `<strong>${tr("firstVictor")}</strong> ${firstVictor}`}</div></div></article>`;
 }
-
-if (rank >= 4 && rank <= 10) {
-glowClass = "white-glow";
-}
-
-const firstVictor =
-level.firstVictor || firstVictors[rank] || tr("notAdded");
-
-const displayValue = value =>
-(!value || String(value).trim().toLowerCase() === "not added") ? tr("notAdded") : value;
-
-const objects =
-(!level.objects || String(level.objects).trim().toLowerCase() === "not added") ? tr("notAdded") : level.objects;
-
-const nameKey = String(level.name || "").trim().toLowerCase();
-const isRated = !level.blank && ratedLevels.some(n => String(n).trim().toLowerCase() === nameKey);
-
-// Enter the exact level name here after choosing the 2026 winner. Leave blank until then.
-const winner2026Level = "";
-const is2026Winner = !level.blank && winner2026Level.trim().toLowerCase() === nameKey;
-const badges = (isRated || is2026Winner)
-  ? `<div class="level-badges">${is2026Winner ? WINNER_BADGE : ""}${isRated ? RATED_BADGE : ""}</div>`
-  : "";
-
-
-return `
-
-<div class="level-card ${glowClass} ${level.blank ? "blank-level" : ""} ${isRated ? "has-badges" : ""}">
-
-${badges}
-
-<div class="left-side">
-
-<div class="rank">
-#${rank}
-</div>
-
-
-<div
-class="thumbnail ${level.image ? "" : "blank-thumbnail"}"
-style="${level.image ? `background-image: url('${level.image}');` : ''}"
-onclick="${level.image ? `openModal('${level.image}')` : ''}"
-aria-label="${level.name || tr('blankSlot')}"
-></div>
-
-
-<div class="level-details">
-
-<div class="level-name">
-${level.blank ? "" : level.name}
-</div>
-
-
-<div class="detail-line">
-${level.blank ? "" : `<strong>${tr("hostedBy")}</strong> ${displayValue(level.host)}`}
-</div>
-
-
-<div class="detail-line">
-${level.blank ? "" : `<strong>${tr("verifiedBy")}</strong> ${displayValue(level.verifier)}`}
-</div>
-
-
-<div class="detail-line">
-${level.blank ? "" : `<strong>${tr("firstVictor")}</strong> ${firstVictor}`}
-</div>
-
-</div>
-
-
-
-</div>
-
-
-<div class="divider"></div>
-
-<div class="right-side">
-
-<div class="right-title">
-${tr("levelInfo")}
-</div>
-
-<div class="right-info">
-<strong>${tr("levelId")}</strong>
-${displayValue(level.id)}
-</div>
-
-<div class="right-info">
-<strong>${tr("length")}</strong>
-${displayValue(level.length)}
-</div>
-
-<div class="right-info">
-<strong>${tr("objects")}</strong>
-${objects}
-</div>
-
-<a href="${level.verification}" target="_blank" class="verification-button">
-<span class="play-icon" aria-hidden="true"></span>
-<span class="verification-label">${tr("verificationVideo")}</span>
-</a>
-
-</div>
-
-</div>
-
-`;
-
-}
-
 
 function displayLevels(levelArray, view = "main") {
 const list = document.getElementById("level-list");
@@ -3035,82 +2961,6 @@ displayLevels(filteredLevels, "main");
 
 }
 );
-
-
-function openModal(image) {
-
-const modal =
-document.getElementById(
-"imageModal"
-);
-
-
-const modalImage =
-document.getElementById(
-"modalImage"
-);
-
-
-modalImage.src = image;
-modalImage.style.width = "min(90vw, 1200px)";
-modalImage.style.height = "min(82vh, 760px)";
-modalImage.style.objectFit = "contain";
-
-modal.style.display = "flex";
-
-}
-
-
-function closeModal() {
-
-document.getElementById(
-"imageModal"
-).style.display = "none";
-
-}
-
-
-document
-.getElementById("closeModal")
-.addEventListener(
-"click",
-closeModal
-);
-
-
-document
-.getElementById("imageModal")
-.addEventListener(
-"click",
-function(event) {
-
-if (
-event.target === this
-) {
-
-closeModal();
-
-}
-
-}
-);
-
-
-document.addEventListener(
-"keydown",
-function(event) {
-
-if (
-event.key === "Escape"
-) {
-
-closeModal();
-
-}
-
-}
-);
-
 
 
 // FAQ panel: opens/closes with the FAQ button in the header (Escape also closes it).
@@ -3365,110 +3215,6 @@ if (event.key === "Enter" || event.key === " ") { event.preventDefault(); goTop(
 });
 })();
 
-// Settings (gear) menu + sound effects.
-// Sounds are generated in the browser (no audio files needed): a soft tick for clicks and a lighter blip for hovering a level.
-(() => {
-const picker = document.getElementById("settingsPicker");
-const toggle = document.getElementById("settingsToggle");
-const menu = document.getElementById("settingsMenu");
-const slider = document.getElementById("volumeSlider");
-const valueLabel = document.getElementById("volumeValue");
-const STORAGE_KEY = "demonverseVolume";
-
-let volume = 50; // 0-100, default 50%
-try {
-const saved = localStorage.getItem(STORAGE_KEY);
-if (saved !== null && !isNaN(Number(saved))) volume = Math.min(100, Math.max(0, Number(saved)));
-} catch (e) {}
-slider.value = volume;
-valueLabel.textContent = volume + "%";
-
-let ctx = null;
-const getCtx = () => {
-if (!ctx) {
-const AC = window.AudioContext || window.webkitAudioContext;
-if (!AC) return null;
-try { ctx = new AC(); } catch (e) { return null; }
-}
-if (ctx.state === "suspended") ctx.resume().catch(() => {});
-return ctx;
-};
-
-const blip = (c, o) => {
-const t = c.currentTime;
-const osc = c.createOscillator();
-const gain = c.createGain();
-const level = Math.max(o.peak * Math.pow(volume / 100, 2), 0.0001);
-osc.type = o.type;
-osc.frequency.setValueAtTime(o.freq, t); // one steady pitch, no sliding, so it sounds like a plain tap
-gain.gain.setValueAtTime(0.0001, t);
-gain.gain.exponentialRampToValueAtTime(level, t + 0.004);
-gain.gain.exponentialRampToValueAtTime(0.0001, t + o.dur);
-osc.connect(gain);
-gain.connect(c.destination);
-osc.start(t);
-osc.stop(t + o.dur + 0.02);
-};
-
-// Click: a very short, soft, low "tap".
-const playClick = () => {
-if (volume <= 0) return;
-const c = getCtx();
-if (c) blip(c, { freq: 330, dur: 0.045, type: "sine", peak: 0.3 });
-};
-// Hover: an even shorter, quieter, slightly higher "tick" (different from the click).
-const playHover = () => {
-if (volume <= 0 || !ctx || ctx.state !== "running") return;
-blip(ctx, { freq: 600, dur: 0.03, type: "sine", peak: 0.07 });
-};
-
-// Browsers only allow sound after the first click/tap/key press, so unlock audio then.
-["pointerdown", "keydown"].forEach(name => {
-document.addEventListener(name, () => { if (volume > 0) getCtx(); }, { passive: true });
-});
-
-document.addEventListener("click", event => {
-if (event.target.closest("#volumeSlider")) return;
-if (event.target.closest("button, a, .thumbnail, .level-card, .logo, .vote-pick")) playClick();
-});
-
-const canHover = !!(window.matchMedia && window.matchMedia("(hover: hover)").matches);
-let lastHover = 0;
-document.addEventListener("mouseover", event => {
-if (!canHover) return;
-const card = event.target.closest(".level-card");
-if (!card || card.contains(event.relatedTarget)) return;
-const now = performance.now();
-if (now - lastHover < 70) return;
-lastHover = now;
-playHover();
-});
-
-const setOpen = open => {
-menu.hidden = !open;
-toggle.setAttribute("aria-expanded", String(open));
-};
-toggle.addEventListener("click", () => setOpen(menu.hidden));
-document.addEventListener("click", event => { if (!picker.contains(event.target)) setOpen(false); });
-document.addEventListener("keydown", event => { if (event.key === "Escape") setOpen(false); });
-
-slider.addEventListener("input", () => {
-volume = Number(slider.value);
-valueLabel.textContent = volume + "%";
-try { localStorage.setItem(STORAGE_KEY, String(volume)); } catch (e) {}
-});
-slider.addEventListener("change", playClick); // preview the new volume
-
-// Website colour chooser
-const swatches = Array.from(document.querySelectorAll(".color-swatch"));
-const markAccent = name => swatches.forEach(b => b.setAttribute("aria-checked", String(b.dataset.accent === name)));
-markAccent(document.body.getAttribute("data-accent") || "red");
-swatches.forEach(b => b.addEventListener("click", () => {
-document.body.setAttribute("data-accent", b.dataset.accent);
-markAccent(b.dataset.accent);
-try { localStorage.setItem("demonverseAccent", b.dataset.accent); } catch (e) {}
-}));
-})();
 
 displayLevels(levels, "main");
 updateLanguageInterface();
