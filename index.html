@@ -1290,6 +1290,16 @@ id: "120012581",
 length: "1:00s",
 },
 {
+// EDITABLE BLANK SPOT (Main List: between Defeated Circles and Avernus.)
+name: "METROPOLIS",
+host: "KZLR",
+verifier: "Ascended",
+image: "metropolis.jpg",
+verification: "https://www.youtube.com/watch?v=JtWMtMFdK24&t=1s",
+id: "144560194",
+length: "0:51s",
+},
+{
 name: "Avernus",
 host: "PockeWindfish",
 verifier: "Zoink",
@@ -1326,6 +1336,16 @@ id: "73667628",
 length: "1:07s",
 },
 {
+// EDITABLE BLANK SPOT (Main List: between Acheron and Menace.)
+name: "SKRTSKRTSKRTSKRT",
+host: "KZLR",
+verifier: "nickname09",
+image: "skrtskrtskrtskrt.jpg",
+verification: "https://www.youtube.com/watch?v=wHZ_WQlsKtA&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Finfinitedemonlist.com%2F",
+id: "152827426",
+length: "0:32s",
+},
+{
 name: "Menace",
 host: "Arraegen",
 verifier: "WhizKid05",
@@ -1360,6 +1380,16 @@ image: "kyouki.jpg",
 verification: "https://www.youtube.com/watch?v=KDa5c0CJTHs",
 id: "86018142",
 length: "1:38s",
+},
+{
+// EDITABLE BLANK SPOT (Main List: between Kyouki and Sacrifice.)
+name: "",
+host: "",
+verifier: "",
+image: "",
+verification: "",
+id: "",
+length: "",
 },
 {
 name: "Sacrifice",
@@ -1533,6 +1563,16 @@ image: "eyes in the water.jpg",
 verification: "https://www.youtube.com/watch?v=yvLwiOy3KEA",
 id: "95851008",
 length: "1:32s",
+},
+{
+// EDITABLE BLANK SPOT (Main List: between Eyes in the Water and Sakupen Circles.)
+name: "CONVULSION",
+host: "femboy",
+verifier: "Whizkid05",
+image: "convulsion.png",
+verification: "https://www.youtube.com/watch?v=qeRKuyU3eGI",
+id: "113322063",
+length: "1:06s",
 },
 {
 name: "Sakupen Circles",
@@ -1853,6 +1893,16 @@ id: "86084399",
 length: "3:27s",
 },
 {
+// Extended List #88: fill in the fields below (leave "" to show "Not added").
+name: "COMBUSTION",
+host: "Cersia",
+verifier: "Silithuim",
+image: "combustion.jpg",
+verification: "https://www.youtube.com/watch?v=3cTR4XUcA28",
+id: "94359172",
+length: "0:58s",
+},
+{
 // Extended List #89: fill in the fields below (leave "" to show "Not added").
 name: "Make Paul Dance",
 host: "Bemq",
@@ -1893,6 +1943,16 @@ id: "94969889",
 length: "1:46s",
 },
 {
+// EDITABLE BLANK SPOT (Extended List: between Belladonna and Mayhem.)
+name: "Saul Goodman",
+host: "Renn241",
+verifier: "bloom",
+image: "saul goodman.jpg",
+verification: "https://www.youtube.com/watch?v=hjs5PjUaw9k&t=2s",
+id: "90477539",
+length: "1:26s",
+},
+{
 // Extended List #93: fill in the fields below (leave "" to show "Not added").
 name: "Mayhem",
 host: "konsi",
@@ -1901,6 +1961,16 @@ image: "mayhem.jpg",
 verification: "https://www.youtube.com/watch?v=U6e6DD32noM&t=7s",
 id: "82544060",
 length: "1:29s",
+},
+{
+// EDITABLE BLANK SPOT (Extended List: between Mayhem and CHROMACAVE.)
+name: "UNIDENTIFIED",
+host: "ultrobro",
+verifier: "Seppyjr",
+image: "unidentified.png",
+verification: "https://www.youtube.com/watch?v=CgWzd2eLTpQ",
+id: "152529771",
+length: "45s",
 },
 {
 // Extended List #94: fill in the fields below (leave "" to show "Not added").
@@ -2634,27 +2704,31 @@ const firstVictors = {
 150: "Vankley",
 };
 
-// Bind each First Victor to its level before reordering or inserting editable slots.
-levels.forEach((level, i) => { level.firstVictor = firstVictors[i + 1] || ""; });
-extendedLevels.forEach((level, i) => { level.firstVictor = firstVictors[levels.length + i + 1] || ""; });
-const blankSlot = () => ({ name: "", host: "", verifier: "", image: "", verification: "", id: "", length: "", blank: true, firstVictor: "" });
+// Bind First Victors in list order while leaving the new editable blank spots empty.
+let firstVictorIndex = 1;
+const isUnfilledEditableSpot = level => !level.name && !level.host && !level.verifier && !level.image && !level.verification && !level.id && !level.length;
+[...levels, ...extendedLevels].forEach(level => {
+  if (isUnfilledEditableSpot(level)) {
+    level.firstVictor = "";
+  } else {
+    level.firstVictor = firstVictors[firstVictorIndex++] || "";
+  }
+});
+// EDITABLE NEW SPOTS ---------------------------------------------------------
+// Fill in the quoted values below to add information to each inserted card.
+// Leave values as "" until you are ready to add that information.
+// image = thumbnail filename; verification = verification-video URL.
+
+
 const swapLevels = (a, b) => {
   const ia = levels.findIndex(x => x.name && x.name.toLowerCase() === a.toLowerCase());
   const ib = levels.findIndex(x => x.name && x.name.toLowerCase() === b.toLowerCase());
   if (ia >= 0 && ib >= 0) [levels[ia], levels[ib]] = [levels[ib], levels[ia]];
 };
-const insertBlankAfter = (list, name) => {
-  const i = list.findIndex(x => x.name && x.name.toLowerCase() === name.toLowerCase());
-  if (i >= 0) list.splice(i + 1, 0, blankSlot());
-};
 // Requested placement swaps; First Victors stay attached to their original levels.
 swapLevels("Amethyst", "Artemis 13");
 swapLevels("andromeda", "Herr Machine");
-// Editable slots requested between the named levels.
-insertBlankAfter(levels, "Defeated Circles");
-insertBlankAfter(levels, "Kyouki");
-insertBlankAfter(levels, "Acheron");
-insertBlankAfter(extendedLevels, "Codependence (Solo)");
+// Editable blank spots are written inline in the arrays above, beside their list positions.
 // Keep the combined list at exactly 150 positions (including editable blank slots).
 if (levels.length + extendedLevels.length > 150) extendedLevels.splice(150 - levels.length);
 
@@ -2664,7 +2738,7 @@ function createLevelCard(level, index) {
   const rank = index + 1;
   const glowClass = rank === 1 && !level.blank ? "gold-glow" : (rank >= 4 && rank <= 10 ? "white-glow" : "");
   const firstVictor = level.firstVictor || tr("notAdded");
-  const isEmptySlot = !!level.blank && !level.name && !level.host && !level.verifier && !level.image && !level.verification && !level.firstVictor;
+  const isEmptySlot = !level.name && !level.host && !level.verifier && !level.image && !level.verification && !level.id && !level.length && !level.firstVictor;
   const displayValue = value => (!value || String(value).trim().toLowerCase() === "not added") ? tr("notAdded") : value;
   const nameKey = String(level.name || "").trim().toLowerCase();
     // Set the exact level name here when selecting the 2026 winner.
