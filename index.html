@@ -902,6 +902,39 @@ body:not(.dark-mode) body:not(.dark-mode) body:not(.dark-mode) @media(max-width:
 /* Light/dark toggle sits closer to the language picker */
 #themeToggle{margin-right:-14px}
 @media(max-width:760px){#themeToggle{margin-right:-4px}}
+/* ===== Slightly bigger level spots (list is 100px wider than before) ===== */
+@media(min-width:761px){
+.list-container{max-width:1000px}
+.level-card{grid-template-columns:minmax(240px,290px) minmax(0,1fr);min-height:160px}
+.thumbnail{min-height:158px}
+.level-details{padding:20px 24px 18px;justify-content:center}
+.level-name{font-size:20px;margin-bottom:10px}
+.metadata-row .detail-line,.level-info-row{font-size:14px}
+.metadata-row .detail-line + .detail-line::before,.level-info-row .info-value + .info-value::before{padding:0 10px}
+.info-divider{margin:12px 0 10px}
+.level-card.has-badges .level-details{padding-top:52px}
+.lvl-badge{width:100px}
+.badge-winner{width:108px}
+}
+@media(min-width:481px) and (max-width:760px){
+.level-card{grid-template-columns:minmax(140px,36%) minmax(0,1fr);min-height:128px}
+.thumbnail{min-height:126px}
+.level-details{padding:14px 14px 11px}
+.level-name{font-size:16px}
+.metadata-row .detail-line,.level-info-row{font-size:12px}
+}
+@media(max-width:480px){
+.level-card{grid-template-columns:120px minmax(0,1fr);min-height:112px}
+.thumbnail{min-height:110px}
+.level-details{padding:11px 10px 9px}
+.level-name{font-size:14px}
+.metadata-row .detail-line,.level-info-row{font-size:11px}
+}
+
+/* Line between the search bar and the first spot */
+.search-divider{max-width:1000px;margin:18px auto 0;padding:0 18px}
+.search-divider::before{content:"";display:block;height:1px;background:#424956}
+body:not(.dark-mode) .search-divider::before{background:#d3d7df}
 </style>
 </head>
 
@@ -940,6 +973,8 @@ placeholder="Search levels..."
 >
 
 </div>
+
+<div class="search-divider" aria-hidden="true"></div>
 
 <!-- FAQ PANEL
      The FAQ questions and answers are now written in the "translations" object in the script below
