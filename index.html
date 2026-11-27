@@ -970,6 +970,102 @@ body:not(.dark-mode) .rl-tag.miss{background:rgba(255,255,255,.86);color:#606775
 .rl-anim .rl-sec{animation:rlFadeUp .45s ease .5s backwards}
 .rl-anim .rl-list .rl-card{animation:rlFadeUp .45s ease backwards;animation-delay:calc(.55s + var(--i,0) * .06s)}
 @media(prefers-reduced-motion:reduce){.rl-card.rl-fail,.rl-req.rl-failtext,.rl-anim *{animation:none !important}}
+/* ===== Front page ===== */
+#homeView[hidden],#listView[hidden]{display:none}
+.home{max-width:1100px;margin:0 auto;padding:54px 18px 30px;text-align:center}
+.hm-kicker{margin:0 0 14px;font:800 clamp(18px,3.4vw,26px) Inter,Arial,sans-serif;letter-spacing:.32em;color:var(--accent-text-2)}
+.hm-headline{max-width:640px;margin:0 auto;font:800 clamp(22px,3.6vw,31px)/1.28 Inter,Arial,sans-serif;color:#e4e7ec}
+.hm-stats{display:flex;justify-content:center;margin:40px auto 34px;max-width:620px}
+.hm-stat{flex:1;padding:4px 14px;border-left:1px solid #292e39}
+.hm-stat:first-child{border-left:0}
+.hm-stat svg{width:20px;height:20px;fill:var(--accent-text-2);display:block;margin:0 auto 8px}
+.hm-stat b{display:block;font:900 clamp(26px,5vw,38px) Inter,Arial,sans-serif;letter-spacing:.5px}
+.hm-stat span{display:block;margin-top:6px;font:700 11px Inter,Arial,sans-serif;letter-spacing:.14em;color:#8992a2}
+.hm-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.hm-btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border:1px solid #303746;border-radius:8px;background:#161b26;color:#f4f5f7;font:700 15px Inter,Arial,sans-serif;text-decoration:none;cursor:pointer;transition:background .16s ease,transform .16s ease,border-color .16s ease}
+.hm-btn:hover{background:#202637;border-color:#4a5261;transform:translateY(-1px)}
+.hm-btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.hm-btn.primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.hm-btn svg{width:18px;height:18px;flex:0 0 18px}
+.hm-social{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:18px}
+.hm-chip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid #303746;border-radius:7px;background:#131722;color:#d4d9e2;font:600 13px Inter,Arial,sans-serif;text-decoration:none}
+.hm-chip:hover{background:#1c2230;color:#fff}
+.hm-chip svg{width:15px;height:15px;fill:currentColor}
+.hm-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:20px;margin-top:44px;text-align:left;align-items:start}
+.hm-panel{padding:20px 22px;background:#131722;border:1px solid #292e39;border-radius:12px}
+.hm-panel h2{margin:0 0 14px;font:800 17px Inter,Arial,sans-serif}
+.hm-scroll{max-height:400px;overflow:auto;padding-right:6px}
+.rc-date{display:flex;align-items:center;gap:12px;margin:14px 0 8px;font:700 10px Inter,Arial,sans-serif;letter-spacing:.16em;color:#6f7a90}
+.rc-date:first-child{margin-top:0}
+.rc-date::before,.rc-date::after{content:"";flex:1;height:1px;background:#292e39}
+.rc-item{display:flex;align-items:flex-start;gap:12px;padding:9px 4px;font-size:13px;line-height:1.5;color:#8992a2}
+.rc-ico{flex:0 0 22px;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font:900 13px/1 Inter,Arial,sans-serif;margin-top:1px}
+.rc-ico.add{background:rgba(34,197,94,.16);color:#4ade80}
+.rc-ico.mv{background:rgba(250,204,21,.16);color:#facc15}
+.rc-ico.rm{background:rgba(239,68,68,.16);color:#f87171}
+.rc-name{border:0;padding:0;margin-right:6px;background:transparent;color:#f4f5f7;font:700 14px Inter,Arial,sans-serif;cursor:pointer}
+button.rc-name:hover{color:var(--accent-text-2);text-decoration:underline}
+.rc-item em{font-style:normal;color:#7da2d6}
+.why-item{display:flex;gap:14px;padding:12px 0}
+.why-ico{flex:0 0 34px;width:34px;height:34px;border-radius:8px;background:#1c2230;display:flex;align-items:center;justify-content:center}
+.why-ico svg{width:18px;height:18px;fill:var(--accent-text-2)}
+.why-ico svg[fill="none"]{fill:none}
+.why-item h3{margin:0 0 4px;font:700 14px Inter,Arial,sans-serif}
+.why-item p{margin:0;font-size:12.5px;line-height:1.5;color:#8992a2}
+.hm-empty{margin:6px 0;color:#8992a2;font-size:13px}
+@media(max-width:860px){.hm-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.home{padding-top:34px}.hm-stat{padding:4px 6px}.hm-btn{width:100%;justify-content:center}}
+body:not(.dark-mode) .hm-headline{color:#20242c}
+body:not(.dark-mode) .hm-stat{border-left-color:#d9dce2}
+body:not(.dark-mode) .hm-stat span,body:not(.dark-mode) .rc-item,body:not(.dark-mode) .why-item p,body:not(.dark-mode) .hm-empty{color:#606775}
+body:not(.dark-mode) .hm-btn{background:#fff;border-color:#d3d7df;color:#20242c}
+body:not(.dark-mode) .hm-btn:hover{background:#f1f3f7}
+body:not(.dark-mode) .hm-btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+body:not(.dark-mode) .hm-chip{background:#fff;border-color:#d3d7df;color:#363c47}
+body:not(.dark-mode) .hm-chip:hover{background:#f1f3f7;color:#000}
+body:not(.dark-mode) .hm-panel{background:#fff;border-color:#d9dce2}
+body:not(.dark-mode) .rc-date::before,body:not(.dark-mode) .rc-date::after{background:#e2e5ea}
+body:not(.dark-mode) .rc-date{color:#8992a2}
+body:not(.dark-mode) .rc-name{color:#17191f}
+body:not(.dark-mode) .rc-item em{color:#3b6bb0}
+body:not(.dark-mode) .why-ico{background:#eef0f5}
+/* Front page: red & white colour scheme */
+.hm-panel{background:#15161c;border-color:color-mix(in srgb,var(--accent) 32%,#2a2d36)}
+.hm-panel h2{display:flex;align-items:center;gap:10px}
+.hm-panel h2::before{content:"";flex:0 0 4px;width:4px;height:18px;border-radius:2px;background:var(--accent)}
+.rc-item em{color:var(--accent-text-2)}
+.why-ico{background:color-mix(in srgb,var(--accent) 16%,#15161c)}
+.hm-btn{background:#17181e;border-color:#2c2f38}
+.hm-btn:hover{background:#21232b;border-color:var(--accent)}
+.hm-chip{background:#15161c;border-color:#2c2f38}
+.hm-chip:hover{background:#1d1e25;border-color:var(--accent);color:#fff}
+.hm-stat{border-left-color:#2a2d36}
+body:not(.dark-mode) .hm-panel{background:#fff;border-color:color-mix(in srgb,var(--accent) 28%,#d9dce2)}
+body:not(.dark-mode) .rc-item em{color:var(--accent-text)}
+body:not(.dark-mode) .why-ico{background:color-mix(in srgb,var(--accent) 12%,#fff)}
+body:not(.dark-mode) .hm-chip:hover{border-color:var(--accent)}
+.hm-stat b.txt{font-size:clamp(16px,3vw,25px);line-height:1.7;letter-spacing:0;white-space:nowrap}
+.rc-ico svg{width:13px;height:13px;display:block}
+.rc-ico.add{color:#4ade80}
+.rc-ico.rm{color:#ff5a5a}
+
+/* Front page: click animations + page transitions */
+.hm-btn{position:relative;overflow:hidden}
+.hm-ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.38);transform:scale(0);animation:hmRipple .65s ease-out forwards;pointer-events:none}
+@keyframes hmRipple{to{transform:scale(1);opacity:0}}
+.hm-btn.hm-press{animation:hmPress .4s ease}
+@keyframes hmPress{40%{transform:scale(.94)}}
+.hm-btn.hm-press svg{animation:hmArrow .5s ease}
+@keyframes hmArrow{50%{transform:translateX(12px)}}
+.hm-btn.hm-spin svg{animation:hmSpin .55s cubic-bezier(.4,0,.2,1)}
+@keyframes hmSpin{to{transform:rotate(720deg)}}
+.hm-btn.hm-pop svg{animation:hmPop .55s ease}
+@keyframes hmPop{30%{transform:scale(1.55) rotate(-14deg)}60%{transform:scale(.9) rotate(8deg)}}
+.hm-leave{animation:hmLeave .3s ease forwards}
+@keyframes hmLeave{to{opacity:0;transform:translateY(-18px) scale(.98)}}
+.view-in{animation:viewIn .45s cubic-bezier(.2,.8,.25,1) backwards}
+@keyframes viewIn{from{opacity:0;transform:translateY(18px)}}
+@media(prefers-reduced-motion:reduce){.hm-btn.hm-press,.hm-btn svg,.hm-leave,.view-in,.hm-ripple{animation:none !important}}
 </style>
 </head>
 
@@ -999,6 +1095,10 @@ body:not(.dark-mode) .rl-tag.miss{background:rgba(255,255,255,.86);color:#606775
   <div class="language-picker" id="languagePicker"><button class="language-trigger" id="languageTrigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Choose language"><span id="currentLanguageFlag" aria-hidden="true"></span><span id="currentLanguageCode">ENG</span><svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 3.5 6 8.5 11 3.5Z"/></svg></button><div class="language-menu" id="languageMenu" role="menu" aria-label="Languages"><button class="language-option" type="button" role="menuitemradio" data-language="en" aria-selected="true"><span class="flag-icon" aria-hidden="true"></span><span>ENG</span></button><button class="language-option" type="button" role="menuitemradio" data-language="ru" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>RUS</span></button><button class="language-option" type="button" role="menuitemradio" data-language="es" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>ESP</span></button><button class="language-option" type="button" role="menuitemradio" data-language="fr" aria-selected="false"><span class="flag-icon" aria-hidden="true"></span><span>FRE</span></button></div></div>
 </header>
 
+
+<div id="homeView" class="home"></div>
+
+<div id="listView" hidden>
 
 <div class="search-container">
 <input
@@ -1030,6 +1130,8 @@ placeholder="Search levels..."
 <div id="extended-list"></div>
 
 </main>
+
+</div><!-- /listView -->
 
 
 <footer>
@@ -1071,6 +1173,7 @@ chooseLanguage: "Choose language",
 switchDark: "Switch to dark mode", switchLight: "Switch to light mode",
 blankSlot: "Blank level slot",
 settings: "Settings", soundVolume: "Sound effects volume", websiteColour: "Website colour",
+home:{ kicker:"DEMONVERSE", headline:"The community-ranked Geometry Dash demon list, built by players and updated every week.", statLevels:"LEVELS", statUpdates:"UPDATES", statUpdatesVal:"Weekly", statComm:"DRIVEN", statCommVal:"Community", explore:"Explore the List", roulette:"Level Roulette", suggest:"Suggest a placement", recent:"Recent Changes", today:"TODAY", placed:"placed at", above:"above", below:"below", removed:"removed from the list", noChanges:"No changes yet.", why:"Why DemonVerse?", w1t:"Community Ran", w1d:"Placements come from the whole community, not just top players, so your opinion counts.", w2t:"Updated Weekly", w2d:"The list updates every week, so there are always new placements to check out.", w3t:"Tested by Players", w3d:"Levels are played and tested by real players to find a fair placement.", w4t:"Level Roulette", w4d:"Challenge yourself with a random level run, then see what you would have gotten." },
 faqTitle:"FAQ", bgDefault:"Default", bgUpload:"Upload", bgLabel:"Background",
 rlTitle:"ROULETTE", rlSub:"Select the level range to continue: (Leave empty for all levels)", rlFrom:"Range Start", rlTo:"Range End", rlStart:"START", rlImport:"IMPORT", rlExport:"EXPORT", rlReset:"RESET", rlGet:"GET {p}%", rlLevelN:"LEVEL {n}", rlCompleted:"COMPLETED", rlNext:"NEXT", rlEndBtn:"END", rlGiveUp:"GIVE UP", rlOver:"RUN OVER", rlHighest:"Highest: {p}%", rlNone:"No levels completed", rlNew:"NEW RUN", rlNoLevels:"There are no levels in that range.", rlConfirm:"Reset your roulette progress?", rlBadFile:"That file isn't a valid roulette save.", rlClose:"Close", rlDoneTitle:"LEVELS YOU COMPLETED", rlMissedTitle:"WHAT YOU WOULD'VE GOTTEN",
 faq:[
@@ -1094,6 +1197,7 @@ chooseLanguage: "Выбрать язык",
 switchDark: "Включить тёмную тему", switchLight: "Включить светлую тему",
 blankSlot: "Пустое место уровня",
 settings: "Настройки", soundVolume: "Громкость звуковых эффектов", websiteColour: "Цвет сайта",
+home:{ kicker:"DEMONVERSE", headline:"Сообщественный список демонов Geometry Dash, который ведут игроки и обновляют каждую неделю.", statLevels:"УРОВНЕЙ", statUpdates:"ОБНОВЛЕНИЯ", statUpdatesVal:"Еженедельно", statComm:"ВЕДЁТ", statCommVal:"Сообщество", explore:"Открыть список", roulette:"Рулетка уровней", suggest:"Предложить место", recent:"Последние изменения", today:"СЕГОДНЯ", placed:"добавлен на место", above:"выше", below:"ниже", removed:"удалён из списка", noChanges:"Пока нет изменений.", why:"Почему DemonVerse?", w1t:"Ведёт сообщество", w1d:"Места определяет всё сообщество, а не только топ-игроки, так что ваше мнение важно.", w2t:"Обновляется каждую неделю", w2d:"Список обновляется каждую неделю, так что новые места появляются постоянно.", w3t:"Проверено игроками", w3d:"Уровни проходят и проверяют настоящие игроки, чтобы найти справедливое место.", w4t:"Рулетка уровней", w4d:"Проверьте себя на случайных уровнях и узнайте, что вас ждало дальше." },
 faqTitle:"FAQ", bgDefault:"По умолчанию", bgUpload:"Загрузить", bgLabel:"Фон",
 rlTitle:"РУЛЕТКА", rlSub:"Выберите диапазон уровней (оставьте пустым для всех уровней)", rlFrom:"Начало диапазона", rlTo:"Конец диапазона", rlStart:"СТАРТ", rlImport:"ИМПОРТ", rlExport:"ЭКСПОРТ", rlReset:"СБРОС", rlGet:"НАБЕРИТЕ {p}%", rlLevelN:"УРОВЕНЬ {n}", rlCompleted:"ПРОЙДЕНО", rlNext:"ДАЛЕЕ", rlEndBtn:"ЗАВЕРШИТЬ", rlGiveUp:"СДАТЬСЯ", rlOver:"ЗАБЕГ ОКОНЧЕН", rlHighest:"Лучший результат: {p}%", rlNone:"Ни один уровень не пройден", rlNew:"НОВЫЙ ЗАБЕГ", rlNoLevels:"В этом диапазоне нет уровней.", rlConfirm:"Сбросить прогресс рулетки?", rlBadFile:"Этот файл не является сохранением рулетки.", rlClose:"Закрыть", rlDoneTitle:"ПРОЙДЕННЫЕ УРОВНИ", rlMissedTitle:"ЧТО ВАС ЖДАЛО ДАЛЬШЕ",
 faq:[
@@ -1117,6 +1221,7 @@ chooseLanguage: "Elegir idioma",
 switchDark: "Activar modo oscuro", switchLight: "Activar modo claro",
 blankSlot: "Espacio de nivel vacío",
 settings: "Ajustes", soundVolume: "Volumen de efectos de sonido", websiteColour: "Color del sitio",
+home:{ kicker:"DEMONVERSE", headline:"La lista comunitaria de demonios de Geometry Dash, hecha por jugadores y actualizada cada semana.", statLevels:"NIVELES", statUpdates:"ACTUALIZACIONES", statUpdatesVal:"Semanal", statComm:"DIRIGIDA", statCommVal:"Comunidad", explore:"Explorar la lista", roulette:"Ruleta de niveles", suggest:"Sugerir una posición", recent:"Cambios recientes", today:"HOY", placed:"colocado en el", above:"encima de", below:"debajo de", removed:"eliminado de la lista", noChanges:"Aún no hay cambios.", why:"¿Por qué DemonVerse?", w1t:"Dirigida por la comunidad", w1d:"Las posiciones vienen de toda la comunidad, no solo de los mejores jugadores, así que tu opinión cuenta.", w2t:"Actualizada cada semana", w2d:"La lista se actualiza cada semana, así que siempre hay posiciones nuevas.", w3t:"Probada por jugadores", w3d:"Jugadores reales juegan y prueban los niveles para encontrar una posición justa.", w4t:"Ruleta de niveles", w4d:"Ponte a prueba con niveles aleatorios y descubre qué habrías conseguido." },
 faqTitle:"FAQ", bgDefault:"Predeterminado", bgUpload:"Subir", bgLabel:"Fondo",
 rlTitle:"RULETA", rlSub:"Selecciona el rango de niveles (déjalo vacío para todos los niveles)", rlFrom:"Inicio del rango", rlTo:"Fin del rango", rlStart:"EMPEZAR", rlImport:"IMPORTAR", rlExport:"EXPORTAR", rlReset:"REINICIAR", rlGet:"CONSIGUE {p}%", rlLevelN:"NIVEL {n}", rlCompleted:"COMPLETADO", rlNext:"SIGUIENTE", rlEndBtn:"TERMINAR", rlGiveUp:"RENDIRSE", rlOver:"PARTIDA TERMINADA", rlHighest:"Mejor resultado: {p}%", rlNone:"Ningún nivel completado", rlNew:"NUEVA PARTIDA", rlNoLevels:"No hay niveles en ese rango.", rlConfirm:"¿Reiniciar tu progreso de la ruleta?", rlBadFile:"Ese archivo no es un guardado de ruleta válido.", rlClose:"Cerrar", rlDoneTitle:"NIVELES COMPLETADOS", rlMissedTitle:"LO QUE HABRÍAS CONSEGUIDO",
 faq:[
@@ -1140,6 +1245,7 @@ chooseLanguage: "Choisir la langue",
 switchDark: "Activer le mode sombre", switchLight: "Activer le mode clair",
 blankSlot: "Emplacement de niveau vide",
 settings: "Paramètres", soundVolume: "Volume des effets sonores", websiteColour: "Couleur du site",
+home:{ kicker:"DEMONVERSE", headline:"La liste communautaire des démons de Geometry Dash, faite par les joueurs et mise à jour chaque semaine.", statLevels:"NIVEAUX", statUpdates:"MISES À JOUR", statUpdatesVal:"Hebdo", statComm:"GÉRÉE", statCommVal:"Communauté", explore:"Explorer la liste", roulette:"Roulette de niveaux", suggest:"Suggérer un placement", recent:"Changements récents", today:"AUJOURD'HUI", placed:"placé en", above:"au-dessus de", below:"en dessous de", removed:"retiré de la liste", noChanges:"Aucun changement pour l'instant.", why:"Pourquoi DemonVerse ?", w1t:"Gérée par la communauté", w1d:"Les placements viennent de toute la communauté, pas seulement des meilleurs joueurs, donc votre avis compte.", w2t:"Mise à jour chaque semaine", w2d:"La liste est mise à jour chaque semaine, il y a donc toujours de nouveaux placements.", w3t:"Testée par des joueurs", w3d:"De vrais joueurs jouent et testent les niveaux pour trouver un placement juste.", w4t:"Roulette de niveaux", w4d:"Testez-vous sur des niveaux aléatoires et découvrez ce que vous auriez obtenu." },
 faqTitle:"FAQ", bgDefault:"Par défaut", bgUpload:"Importer", bgLabel:"Arrière-plan",
 rlTitle:"ROULETTE", rlSub:"Choisissez la plage de niveaux (laissez vide pour tous les niveaux)", rlFrom:"Début de la plage", rlTo:"Fin de la plage", rlStart:"DÉMARRER", rlImport:"IMPORTER", rlExport:"EXPORTER", rlReset:"RÉINITIALISER", rlGet:"OBTENEZ {p} %", rlLevelN:"NIVEAU {n}", rlCompleted:"TERMINÉ", rlNext:"SUIVANT", rlEndBtn:"FIN", rlGiveUp:"ABANDONNER", rlOver:"PARTIE TERMINÉE", rlHighest:"Meilleur résultat : {p} %", rlNone:"Aucun niveau terminé", rlNew:"NOUVELLE PARTIE", rlNoLevels:"Aucun niveau dans cette plage.", rlConfirm:"Réinitialiser votre progression de la roulette ?", rlBadFile:"Ce fichier n'est pas une sauvegarde de roulette valide.", rlClose:"Fermer", rlDoneTitle:"NIVEAUX TERMINÉS", rlMissedTitle:"CE QUE VOUS AURIEZ EU",
 faq:[
@@ -1189,6 +1295,7 @@ document.getElementById("bgUpload").textContent = tr("bgUpload");
 document.getElementById("bgToggle").title = tr("bgLabel");
 document.getElementById("bgToggle").setAttribute("aria-label", tr("bgLabel"));
 if (window.rouletteRefresh) window.rouletteRefresh();
+if (window.renderHome) window.renderHome();
 
 displayLevels(levels, "main");
 }
@@ -2871,6 +2978,7 @@ setTimeout(() => { if (!panel.classList.contains("is-open")) panel.hidden = true
 window.closeFaqPanel = () => { if (!panel.hidden) closePanel(); };
 
 toggle.addEventListener("click", () => {
+if (window.isHomeView && window.isHomeView()) window.showListView();
 if (panel.hidden) openPanel(); else closePanel();
 });
 document.addEventListener("keydown", event => {
@@ -3208,6 +3316,162 @@ if (event.key === "Enter" || event.key === " ") { event.preventDefault(); goTop(
     openBtn.title = tr("rlTitle"); openBtn.setAttribute("aria-label", tr("rlTitle"));
     if (!overlay.hidden) render();
   };
+})();
+
+
+// ===== Front page: Recent Changes =====
+// To add a change, put a new line at the TOP of this list (newest first). Dates are YYYY-MM-DD.
+//   Placed a new level:  { date:"2026-11-26", type:"placed",  name:"LEVEL", to:10, above:"LEVEL BELOW ITS SPOT'S NEIGHBOUR", below:"..." },
+//   Moved a level:       { date:"2026-11-26", type:"moved",   name:"LEVEL", from:47, to:51, above:"...", below:"..." },
+//   Removed a level:     { date:"2026-11-26", type:"removed", name:"LEVEL" },
+// "above" = the level right under it on the list, "below" = the level right over it (leave either out if not needed).
+const recentChanges = [
+{ date:"2026-11-26", type:"placed", name:"Labyrinth", to:10, above:"ORBIT", below:"Tidal Wave" },
+{ date:"2026-11-26", type:"placed", name:"ZANBOT", to:51, above:"KOCMOC", below:"Centipede" },
+];
+
+// ===== Front page + page switching (#list = the list, anything else = front page) =====
+(() => {
+  const $ = id => document.getElementById(id);
+  const homeEl = $("homeView"), listEl = $("listView");
+  const DISCORD = "https://discord.gg/DAQSa8vfT", X_LINK = "https://x.com/demonversegd";
+  const h = k => { const t = (translations[currentLanguage] || {}).home || {}; return t[k] != null ? t[k] : translations.en.home[k]; };
+  const esc = v => String(v).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const all = () => levels.concat(extendedLevels);
+  const isList = () => location.hash === "#list";
+  const locales = { en: "en-US", ru: "ru-RU", es: "es-ES", fr: "fr-FR" };
+  let pendingAnim = true;
+
+  const todayKey = () => { const n = new Date(); return n.getFullYear() + "-" + String(n.getMonth() + 1).padStart(2, "0") + "-" + String(n.getDate()).padStart(2, "0"); };
+  const fmtDate = key => { const [y, m, d] = key.split("-").map(Number); return new Date(y, m - 1, d).toLocaleDateString(locales[currentLanguage] || "en-US", { year: "numeric", month: "long", day: "numeric" }).toUpperCase(); };
+
+  const recentHtml = () => {
+    if (!recentChanges.length) return '<p class="hm-empty">' + h("noChanges") + '</p>';
+    const byDate = [];
+    recentChanges.slice().sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0)).forEach(c => {
+      let g = byDate.find(x => x.date === c.date);
+      if (!g) { g = { date: c.date, items: [] }; byDate.push(g); }
+      g.items.push(c);
+    });
+    const names = new Set(all().filter(l => l.name).map(l => l.name));
+    return byDate.map(g => {
+      const label = g.date === todayKey() ? h("today") : fmtDate(g.date);
+      return '<div class="rc-date">' + esc(label) + '</div>' + g.items.map(c => {
+        const up = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6"/></svg>';
+        const down = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v13M6 12l6 6 6-6"/></svg>';
+        // green up arrow = placed / moved up the list, red down arrow = moved down, red minus = removed
+        const ico = c.type === "removed" ? '<span class="rc-ico rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12"/></svg></span>'
+          : (c.type === "moved" && c.to > c.from) ? '<span class="rc-ico rm">' + down + '</span>' : '<span class="rc-ico add">' + up + '</span>';
+        const nm = c.type !== "removed" && names.has(c.name) ? '<button class="rc-name" type="button" data-find="' + esc(c.name) + '">' + esc(c.name) + '</button>' : '<span class="rc-name">' + esc(c.name) + '</span>';
+        let meta = c.type === "placed" ? h("placed") + " #" + c.to : c.type === "removed" ? h("removed") : "#" + c.from + " &rarr; #" + c.to;
+        if (c.above) meta += ", " + h("above") + " <em>" + esc(c.above) + "</em>";
+        if (c.below) meta += ", " + h("below") + " <em>" + esc(c.below) + "</em>";
+        return '<div class="rc-item">' + ico + '<div>' + nm + '<span>' + meta + '</span></div></div>';
+      }).join("");
+    }).join("");
+  };
+
+  const ICON = {
+    list: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h2v2H3zM7 5h14v2H7zM3 11h2v2H3zM7 11h14v2H7zM3 17h2v2H3zM7 17h14v2H7z"/></svg>',
+    refresh: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L8 6l4 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7Z"/></svg>',
+    users: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3ZM8 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm0 2c-2.3 0-7 1.2-7 3.5V19h14v-2.5C15 14.2 10.3 13 8 13Zm8 0c-.4 0-.8 0-1.2.1 1.2.8 2.2 1.9 2.2 3.4V19h6v-2.5c0-2.3-4.700-3.500-7-3.500Z"/></svg>',
+    arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+    wheel: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M3.5 12h17M6 6l12 12M18 6 6 18"/></svg>',
+    chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9.500L4 20.500Z"/></svg>',
+    discord: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.7 5.3A18 18 0 0 0 15.3 4l-.5 1a16 16 0 0 0-5.6 0l-.5-1a18 18 0 0 0-4.4 1.3C1.5 9.4.7 13.4 1.1 17.4a18 18 0 0 0 5.4 2.7l1.2-2a11 11 0 0 1-1.9-.9l.5-.4a12.800 12.800 0 0 0 11.400 0l.5.4a11 11 0 0 1-1.900.9l1.200 2a18 18 0 0 0 5.400-2.700c.5-4.700-.8-8.700-3.200-12.100ZM8.600 14.800c-1 0-1.800-.9-1.800-2s.8-2 1.800-2 1.800.9 1.800 2-.8 2-1.800 2Zm6.800 0c-1 0-1.800-.9-1.800-2s.8-2 1.800-2 1.800.9 1.800 2-.8 2-1.800 2Z"/></svg>',
+    x: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.6 22H2.4l7.3-8.4L1.8 2h6.5l4.5 6.8L18.9 2Zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20Z"/></svg>',
+    people: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3 0-8 1.500-8 4.500V21h16v-2.500C20 15.500 15 14 12 14Z"/></svg>',
+    check: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.400 9.500 8 11 4.600-1.500 8-6 8-11V5Zm-1.500 14.500-3.500-3.500 1.400-1.400 2.100 2.100 5-5 1.400 1.400Z"/></svg>'
+  };
+
+  const renderHome = () => {
+    const named = all().filter(l => l.name);
+    const levelsN = named.length;
+    const why = [["people", "w1"], ["refresh", "w2"], ["check", "w3"], ["wheel", "w4"]].map(([ic, k]) =>
+      '<div class="why-item"><div class="why-ico">' + (ic === "wheel" ? ICON.wheel.replace('fill="none" stroke="currentColor" stroke-width="1.9"', 'fill="none" stroke="var(--accent-text-2)" stroke-width="1.9"') : ICON[ic]) + '</div><div><h3>' + h(k + "t") + '</h3><p>' + h(k + "d") + '</p></div></div>').join("");
+    homeEl.innerHTML =
+      '<p class="hm-kicker">' + h("kicker") + '</p><h1 class="hm-headline">' + h("headline") + '</h1>' +
+      '<div class="hm-stats">' +
+        '<div class="hm-stat">' + ICON.list + '<b data-count="' + levelsN + '">' + levelsN + '</b><span>' + h("statLevels") + '</span></div>' +
+        '<div class="hm-stat">' + ICON.refresh + '<b class="txt">' + h("statUpdatesVal") + '</b><span>' + h("statUpdates") + '</span></div>' +
+        '<div class="hm-stat">' + ICON.users + '<b class="txt">' + h("statCommVal") + '</b><span>' + h("statComm") + '</span></div>' +
+      '</div>' +
+      '<div class="hm-actions">' +
+        '<button class="hm-btn primary" type="button" data-go="list">' + h("explore") + ' ' + ICON.arrow + '</button>' +
+        '<button class="hm-btn" type="button" data-go="roulette">' + h("roulette") + ' ' + ICON.wheel + '</button>' +
+        '<a class="hm-btn" href="' + DISCORD + '" target="_blank" rel="noopener noreferrer">' + h("suggest") + ' ' + ICON.chat + '</a>' +
+      '</div>' +
+      '<div class="hm-social"><a class="hm-chip" href="' + DISCORD + '" target="_blank" rel="noopener noreferrer">' + ICON.discord + ' Discord</a><a class="hm-chip" href="' + X_LINK + '" target="_blank" rel="noopener noreferrer">' + ICON.x + ' X</a></div>' +
+      '<div class="hm-grid"><section class="hm-panel"><h2>' + h("recent") + '</h2><div class="hm-scroll">' + recentHtml() + '</div></section>' +
+      '<section class="hm-panel"><h2>' + h("why") + '</h2>' + why + '</section></div>';
+    if (pendingAnim && !isList()) { pendingAnim = false; runCounts(); }
+  };
+
+  const runCounts = () => {
+    const reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    if (reduce) return;
+    homeEl.querySelectorAll("[data-count]").forEach(el => {
+      const end = Number(el.dataset.count), t0 = performance.now(), dur = 900;
+      el.textContent = "0";
+      const step = now => { const p = Math.min((now - t0) / dur, 1); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    });
+  };
+
+  const apply = skipRender => {
+    const list = isList();
+    homeEl.hidden = list; listEl.hidden = !list;
+    const shown = list ? listEl : homeEl;
+    shown.classList.remove("view-in"); void shown.offsetWidth; shown.classList.add("view-in");
+    if (!list) { pendingAnim = true; if (!skipRender) renderHome(); }
+    window.scrollTo(0, 0);
+  };
+
+  const reduceMotion = () => !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const ripple = (btn, e) => {
+    const r = btn.getBoundingClientRect(), size = Math.max(r.width, r.height) * 2.2;
+    const x = (e.clientX || e.clientY) ? e.clientX - r.left : r.width / 2, y = (e.clientX || e.clientY) ? e.clientY - r.top : r.height / 2;
+    const dot = document.createElement("span");
+    dot.className = "hm-ripple";
+    dot.style.cssText = "width:" + size + "px;height:" + size + "px;left:" + (x - size / 2) + "px;top:" + (y - size / 2) + "px";
+    btn.appendChild(dot);
+    setTimeout(() => dot.remove(), 650);
+  };
+  const flash = (btn, cls, ms) => { btn.classList.remove(cls); void btn.offsetWidth; btn.classList.add(cls); setTimeout(() => btn.classList.remove(cls), ms); };
+  let busy = false;
+
+  homeEl.addEventListener("click", e => {
+    const btn = e.target.closest(".hm-btn"), go = e.target.closest("[data-go]"), find = e.target.closest("[data-find]");
+    const still = reduceMotion();
+    if (btn && !still) ripple(btn, e);
+    if (go) {
+      if (busy) return;
+      if (go.dataset.go === "list") {
+        // Explore: arrow shoots forward, the front page lifts away, then the list slides in.
+        const toList = () => { homeEl.classList.remove("hm-leave"); busy = false; location.hash = "list"; apply(); };
+        if (still) { toList(); return; }
+        busy = true; flash(go, "hm-press", 500);
+        setTimeout(() => { homeEl.classList.add("hm-leave"); setTimeout(toList, 280); }, 170);
+      } else if (go.dataset.go === "roulette") {
+        // Roulette: the wheel spins fast, then the roulette opens.
+        if (still) { $("openRoulette").click(); return; }
+        busy = true; flash(go, "hm-spin", 600);
+        setTimeout(() => { busy = false; $("openRoulette").click(); }, 480);
+      }
+    } else if (find) {
+      location.hash = "list"; apply();
+      const q = $("search"); q.value = find.dataset.find; q.dispatchEvent(new Event("input"));
+    } else if (btn && !still) {
+      // Suggest a placement (link opens Discord): the chat bubble pops.
+      flash(btn, "hm-pop", 600);
+    }
+  });
+  $("logo").addEventListener("click", () => { if (isList()) { location.hash = "home"; apply(); } });
+  window.addEventListener("hashchange", () => apply());
+  window.isHomeView = () => !isList();
+  window.showListView = () => { location.hash = "list"; apply(); };
+  window.renderHome = renderHome;
+  apply(true);
 })();
 
 
