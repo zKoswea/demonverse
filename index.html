@@ -1067,6 +1067,27 @@ body:not(.dark-mode) .hm-chip:hover{border-color:var(--accent)}
 .view-in{animation:viewIn .45s cubic-bezier(.2,.8,.25,1) backwards}
 @keyframes viewIn{from{opacity:0;transform:translateY(18px)}}
 @media(prefers-reduced-motion:reduce){.hm-btn.hm-press,.hm-btn svg,.hm-btn .whl,.hm-leave,.view-in,.hm-ripple{animation:none !important}}
+/* Roulette click animation (header button + front-page button use the same spin) */
+#openRoulette.rl-go{animation:rlBtnPop .5s ease}
+@keyframes rlBtnPop{30%{transform:scale(.8)}65%{transform:scale(1.15)}}
+#openRoulette.rl-go .wheel-spin{animation:wheelBurst .55s cubic-bezier(.4,0,.2,1)}
+@keyframes wheelBurst{to{transform:rotate(720deg)}}
+.hm-btn.hm-spin{animation:hmSquish .5s ease}
+@keyframes hmSquish{30%{transform:scale(.94)}65%{transform:scale(1.04)}}
+@media(prefers-reduced-motion:reduce){#openRoulette.rl-go,#openRoulette.rl-go .wheel-spin,.hm-btn.hm-spin{animation:none !important}}
+/* Roulette popup: opening / closing animation */
+.rl-overlay:not([hidden]){animation:rlFade .28s ease}
+.rl-overlay:not([hidden]) .rl-panel{animation:rlOpen .55s cubic-bezier(.2,.9,.25,1.15)}
+.rl-overlay:not([hidden])::after{content:"";position:absolute;left:50%;top:50%;width:460px;height:460px;margin:-230px 0 0 -230px;border-radius:50%;border:3px solid var(--accent);box-shadow:0 0 40px var(--accent);opacity:0;pointer-events:none;z-index:-1;animation:rlRing .75s ease-out}
+@keyframes rlFade{from{opacity:0}}
+@keyframes rlOpen{0%{opacity:0;transform:translateY(40px) scale(.55) rotate(-8deg)}60%{opacity:1;transform:translateY(-4px) scale(1.04) rotate(1deg)}100%{transform:none}}
+@keyframes rlRing{0%{opacity:.9;transform:scale(.2)}100%{opacity:0;transform:scale(2.1)}}
+.rl-overlay.rl-closing{animation:rlFadeOut .22s ease forwards}
+.rl-overlay.rl-closing .rl-panel{animation:rlClose .22s ease forwards}
+.rl-overlay.rl-closing::after{animation:none;opacity:0}
+@keyframes rlFadeOut{to{opacity:0}}
+@keyframes rlClose{to{opacity:0;transform:translateY(24px) scale(.88)}}
+@media(prefers-reduced-motion:reduce){.rl-overlay,.rl-overlay .rl-panel,.rl-overlay::after{animation:none !important}}
 </style>
 </head>
 
@@ -1188,7 +1209,7 @@ faq:[
 ["Question 8: How does the Level Roulette work?","Answer 8: Pick a range and you'll get a random level from the list that you have to beat 1% of. Each level after that needs 1% more than the last, all the way up to 100%. Hit GIVE UP whenever you want to end the run and see what you would have gotten."],
 ["Question 9: What's the difference between the Main List and the Extended List?","Answer 9: The Main List is the top 75 hardest levels, and the Extended List covers #76 to #150, shown below the line on the list. Both are updated every week."],
 // EDITABLE QUESTION 10 (English): type the question and the answer between the quotes. It stays hidden while both are empty.
-["Question 10: Why are there only some unrated levels, but not all?","Answer 10: We only place unrated levels that we find are good enough to get rated in game. So if we find a level to not have good enough decoration, gameplay, etc... We will not place it on the list."]
+["Question 10: Why are there only some unrated levels on the list, and not all?","Answer 10: We only place levels that we find are rateworthy in game. So if we find a level that is list difficulty but the decoration or gameplay isn't rateworthy, we will not place it."]
 ],
 },
 ru: {
@@ -3323,9 +3344,25 @@ if (event.key === "Enter" || event.key === " ") { event.preventDefault(); goTop(
     if (e.key === "Enter" && e.target.classList.contains("rl-range")) actions.start();
   });
 
-  const open = () => { syncState(); render(); overlay.hidden = false; document.body.style.overflow = "hidden"; };
-  const close = () => { overlay.hidden = true; document.body.style.overflow = ""; };
-  openBtn.addEventListener("click", open);
+  let closeTimer = null;
+  const open = () => { clearTimeout(closeTimer); overlay.classList.remove("rl-closing"); syncState(); render(); overlay.hidden = false; document.body.style.overflow = "hidden"; };
+  const close = () => {
+    if (overlay.hidden || overlay.classList.contains("rl-closing")) return;
+    const finish = () => { overlay.classList.remove("rl-closing"); overlay.hidden = true; document.body.style.overflow = ""; };
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { finish(); return; }
+    overlay.classList.add("rl-closing"); closeTimer = setTimeout(finish, 220);
+  };
+  // Click animation (same as the front-page Level Roulette button): the wheel spins fast, then the roulette opens.
+  let spinning = false;
+  openBtn.addEventListener("click", () => {
+    const still = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    if (still) { open(); return; }
+    if (spinning) return;
+    spinning = true;
+    openBtn.classList.remove("rl-go"); void openBtn.offsetWidth; openBtn.classList.add("rl-go");
+    setTimeout(() => { openBtn.classList.remove("rl-go"); spinning = false; open(); }, 480);
+  });
+  window.openRouletteNow = open;
   closeBtn.addEventListener("click", close);
   overlay.addEventListener("click", e => { if (e.target === overlay) close(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !overlay.hidden) close(); });
@@ -3472,9 +3509,9 @@ const recentChanges = [
         setTimeout(() => { homeEl.classList.add("hm-leave"); setTimeout(toList, 280); }, 170);
       } else if (go.dataset.go === "roulette") {
         // Roulette: the wheel spins fast, then the roulette opens.
-        if (still) { $("openRoulette").click(); return; }
+        if (still) { window.openRouletteNow(); return; }
         busy = true; flash(go, "hm-spin", 600);
-        setTimeout(() => { busy = false; $("openRoulette").click(); }, 480);
+        setTimeout(() => { busy = false; window.openRouletteNow(); }, 480);
       }
     } else if (find) {
       location.hash = "list"; apply();
