@@ -1010,6 +1010,7 @@ button.rc-name:hover{color:var(--accent-text-2);text-decoration:underline}
 .why-ico{flex:0 0 34px;width:34px;height:34px;border-radius:8px;background:#1c2230;display:flex;align-items:center;justify-content:center}
 .why-ico svg{width:18px;height:18px;fill:var(--accent-text-2)}
 .why-ico svg[fill="none"]{fill:none}
+.why-ico{color:var(--accent-text-2)}
 .why-item h3{margin:0 0 4px;font:700 14px Inter,Arial,sans-serif}
 .why-item p{margin:0;font-size:12.5px;line-height:1.5;color:#8992a2}
 .hm-empty{margin:6px 0;color:#8992a2;font-size:13px}
@@ -1057,7 +1058,7 @@ body:not(.dark-mode) .hm-chip:hover{border-color:var(--accent)}
 @keyframes hmPress{40%{transform:scale(.94)}}
 .hm-btn.hm-press svg{animation:hmArrow .5s ease}
 @keyframes hmArrow{50%{transform:translateX(12px)}}
-.hm-btn.hm-spin svg{animation:hmSpin .55s cubic-bezier(.4,0,.2,1)}
+.hm-btn.hm-spin .whl{animation:hmSpin .55s cubic-bezier(.4,0,.2,1);transform-origin:12px 10px}
 @keyframes hmSpin{to{transform:rotate(720deg)}}
 .hm-btn.hm-pop svg{animation:hmPop .55s ease}
 @keyframes hmPop{30%{transform:scale(1.55) rotate(-14deg)}60%{transform:scale(.9) rotate(8deg)}}
@@ -1065,7 +1066,7 @@ body:not(.dark-mode) .hm-chip:hover{border-color:var(--accent)}
 @keyframes hmLeave{to{opacity:0;transform:translateY(-18px) scale(.98)}}
 .view-in{animation:viewIn .45s cubic-bezier(.2,.8,.25,1) backwards}
 @keyframes viewIn{from{opacity:0;transform:translateY(18px)}}
-@media(prefers-reduced-motion:reduce){.hm-btn.hm-press,.hm-btn svg,.hm-leave,.view-in,.hm-ripple{animation:none !important}}
+@media(prefers-reduced-motion:reduce){.hm-btn.hm-press,.hm-btn svg,.hm-btn .whl,.hm-leave,.view-in,.hm-ripple{animation:none !important}}
 </style>
 </head>
 
@@ -1183,7 +1184,11 @@ faq:[
 ["Question 4: Is DemonVerse on social media?","Answer 4: Yes we are! @demonversegd on Twitter (X)."],
 ["Question 5: Why should I use this list?","Answer 5: It's simple! This list is mainly community ran, not just top player ran, so you have a valid opinion. If you have any suggestions about placements, tips for the website and more, join our Discord server to suggest something."],
 ["Question 6: Why is pausing banned?","Answer 6: Pausing is banned since it counts as calming down nerves. Which having nerve control is a skill you need to learn."],
-["Question 7: Why is \"paqoe\" not on the list?","Answer 7: Paqoe is very well known for pausing in her \"Silent Clubstep verification,\" so that is why Zoink is the verifier."]
+["Question 7: Why is \"paqoe\" not on the list?","Answer 7: Paqoe is very well known for pausing in her \"Silent Clubstep verification,\" so that is why Zoink is the verifier."],
+["Question 8: How does the Level Roulette work?","Answer 8: Pick a range and you'll get a random level from the list that you have to beat 1% of. Each level after that needs 1% more than the last, all the way up to 100%. Hit GIVE UP whenever you want to end the run and see what you would have gotten."],
+["Question 9: What's the difference between the Main List and the Extended List?","Answer 9: The Main List is the top 75 hardest levels, and the Extended List covers #76 to #150, shown below the line on the list. Both are updated every week."],
+// EDITABLE QUESTION 10 (English): type the question and the answer between the quotes. It stays hidden while both are empty.
+["Question 10: Why are there only some unrated levels, but not all?","Answer 10: We only place unrated levels that we find are good enough to get rated in game. So if we find a level to not have good enough decoration, gameplay, etc... We will not place it on the list."]
 ],
 },
 ru: {
@@ -1207,7 +1212,11 @@ faq:[
 ["Вопрос 4: Есть ли DemonVerse в социальных сетях?","Ответ 4: Да! @demonversegd в Twitter (X)."],
 ["Вопрос 5: Зачем мне пользоваться этим списком?","Ответ 5: Всё просто! Этот список ведёт в основном сообщество, а не только топ-игроки, так что ваше мнение имеет значение. Если у вас есть предложения по местам, советы по сайту и многое другое — заходите на наш Discord-сервер."],
 ["Вопрос 6: Почему запрещены паузы?","Ответ 6: Паузы запрещены, потому что они помогают успокоить нервы, а контроль над нервами — это навык, которому нужно научиться."],
-["Вопрос 7: Почему «paqoe» нет в списке?","Ответ 7: Paqoe хорошо известна тем, что использовала паузы в своей «верификации Silent Clubstep», поэтому верификатором является Zoink."]
+["Вопрос 7: Почему «paqoe» нет в списке?","Ответ 7: Paqoe хорошо известна тем, что использовала паузы в своей «верификации Silent Clubstep», поэтому верификатором является Zoink."],
+["Вопрос 8: Как работает рулетка уровней?","Ответ 8: Выберите диапазон, и вы получите случайный уровень из списка, на котором нужно набрать 1%. Каждый следующий уровень требует на 1% больше, вплоть до 100%. Нажмите «Сдаться», когда захотите закончить забег, и вы увидите, что вас ждало дальше."],
+["Вопрос 9: В чём разница между основным и расширенным списком?","Ответ 9: Основной список — это топ-75 самых сложных уровней, а расширенный список охватывает места с #76 по #150 и показан под линией в списке. Оба списка обновляются каждую неделю."],
+// EDITABLE QUESTION 10 (Russian): type the question and the answer between the quotes. It stays hidden while both are empty.
+["",""]
 ],
 },
 es: {
@@ -1231,7 +1240,11 @@ faq:[
 ["Pregunta 4: ¿DemonVerse está en redes sociales?","Respuesta 4: ¡Sí! @demonversegd en Twitter (X)."],
 ["Pregunta 5: ¿Por qué debería usar esta lista?","Respuesta 5: ¡Es simple! Esta lista la dirige principalmente la comunidad, no solo los mejores jugadores, así que tu opinión es válida. Si tienes sugerencias sobre posiciones, consejos para el sitio web y más, únete a nuestro servidor de Discord."],
 ["Pregunta 6: ¿Por qué está prohibido pausar?","Respuesta 6: Pausar está prohibido porque sirve para calmar los nervios, y tener control de los nervios es una habilidad que hay que aprender."],
-["Pregunta 7: ¿Por qué «paqoe» no está en la lista?","Respuesta 7: Paqoe es muy conocida por pausar en su «verificación de Silent Clubstep», por eso Zoink es el verificador."]
+["Pregunta 7: ¿Por qué «paqoe» no está en la lista?","Respuesta 7: Paqoe es muy conocida por pausar en su «verificación de Silent Clubstep», por eso Zoink es el verificador."],
+["Pregunta 8: ¿Cómo funciona la ruleta de niveles?","Respuesta 8: Elige un rango y recibirás un nivel aleatorio de la lista en el que debes conseguir el 1%. Cada nivel siguiente requiere un 1% más que el anterior, hasta llegar al 100%. Pulsa «Rendirse» cuando quieras terminar la partida para ver qué habrías conseguido."],
+["Pregunta 9: ¿Cuál es la diferencia entre la lista principal y la lista extendida?","Respuesta 9: La lista principal son los 75 niveles más difíciles, y la lista extendida abarca del #76 al #150 y aparece debajo de la línea en la lista. Ambas se actualizan cada semana."],
+// EDITABLE QUESTION 10 (Spanish): type the question and the answer between the quotes. It stays hidden while both are empty.
+["",""]
 ],
 },
 fr: {
@@ -1255,7 +1268,11 @@ faq:[
 ["Question 4 : DemonVerse est-il sur les réseaux sociaux ?","Réponse 4 : Oui ! @demonversegd sur Twitter (X)."],
 ["Question 5 : Pourquoi devrais-je utiliser cette liste ?","Réponse 5 : C'est simple ! Cette liste est principalement gérée par la communauté, pas seulement par les meilleurs joueurs, donc votre avis compte. Si vous avez des suggestions de placements, des conseils pour le site et plus encore, rejoignez notre serveur Discord."],
 ["Question 6 : Pourquoi la pause est-elle interdite ?","Réponse 6 : La pause est interdite car elle permet de calmer ses nerfs, et le contrôle des nerfs est une compétence à apprendre."],
-["Question 7 : Pourquoi « paqoe » n'est-elle pas dans la liste ?","Réponse 7 : Paqoe est très connue pour avoir fait des pauses dans sa « vérification de Silent Clubstep », c'est pourquoi Zoink est le vérificateur."]
+["Question 7 : Pourquoi « paqoe » n'est-elle pas dans la liste ?","Réponse 7 : Paqoe est très connue pour avoir fait des pauses dans sa « vérification de Silent Clubstep », c'est pourquoi Zoink est le vérificateur."],
+["Question 8 : Comment fonctionne la roulette de niveaux ?","Réponse 8 : Choisissez une plage et vous recevrez un niveau aléatoire de la liste sur lequel il faut obtenir 1 %. Chaque niveau suivant demande 1 % de plus que le précédent, jusqu'à 100 %. Cliquez sur « Abandonner » quand vous voulez terminer la partie pour voir ce que vous auriez obtenu."],
+["Question 9 : Quelle est la différence entre la liste principale et la liste étendue ?","Réponse 9 : La liste principale regroupe les 75 niveaux les plus difficiles, et la liste étendue couvre les places #76 à #150, affichées sous la ligne dans la liste. Les deux sont mises à jour chaque semaine."],
+// EDITABLE QUESTION 10 (French): type the question and the answer between the quotes. It stays hidden while both are empty.
+["",""]
 ],
 }
 };
@@ -1289,6 +1306,7 @@ themeToggle.title = dark ? tr("switchLight") : tr("switchDark");
 
 document.getElementById("faqHeading").textContent = tr("faqTitle");
 document.getElementById("faqItems").innerHTML = (translations[currentLanguage].faq || translations.en.faq)
+  .filter(([q, a]) => q || a)
   .map(([q, a]) => `<div class="faq-item"><h3 class="faq-question">${q}</h3><p class="faq-answer">${a}</p></div>`).join("");
 document.getElementById("bgDefault").textContent = tr("bgDefault");
 document.getElementById("bgUpload").textContent = tr("bgUpload");
@@ -3376,7 +3394,7 @@ const recentChanges = [
     refresh: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L8 6l4 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7Z"/></svg>',
     users: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3ZM8 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm0 2c-2.3 0-7 1.2-7 3.5V19h14v-2.5C15 14.2 10.3 13 8 13Zm8 0c-.4 0-.8 0-1.2.1 1.2.8 2.2 1.9 2.2 3.4V19h6v-2.5c0-2.3-4.700-3.500-7-3.500Z"/></svg>',
     arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
-    wheel: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M3.5 12h17M6 6l12 12M18 6 6 18"/></svg>',
+    wheel: '<svg viewBox="0 0 24 24" aria-hidden="true"><g class="whl"><g fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="12" cy="10" r="7.4" stroke-width="1.8"/><path stroke-width="1.5" d="M12 2.6v14.8M4.6 10h14.8M6.8 4.8l10.4 10.4M17.2 4.8 6.8 15.2"/></g><circle cx="12" cy="10" r="2.2" fill="currentColor"/></g><path d="M9.2 18.9h5.6l2.7 3.1H6.5Z" fill="currentColor"/></svg>',
     chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9.500L4 20.500Z"/></svg>',
     discord: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.7 5.3A18 18 0 0 0 15.3 4l-.5 1a16 16 0 0 0-5.6 0l-.5-1a18 18 0 0 0-4.4 1.3C1.5 9.4.7 13.4 1.1 17.4a18 18 0 0 0 5.4 2.7l1.2-2a11 11 0 0 1-1.9-.9l.5-.4a12.800 12.800 0 0 0 11.400 0l.5.4a11 11 0 0 1-1.900.9l1.200 2a18 18 0 0 0 5.400-2.700c.5-4.700-.8-8.700-3.200-12.100ZM8.600 14.800c-1 0-1.800-.9-1.800-2s.8-2 1.800-2 1.800.9 1.800 2-.8 2-1.800 2Zm6.800 0c-1 0-1.800-.9-1.800-2s.8-2 1.800-2 1.800.9 1.800 2-.8 2-1.800 2Z"/></svg>',
     x: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.6 22H2.4l7.3-8.4L1.8 2h6.5l4.5 6.8L18.9 2Zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20Z"/></svg>',
@@ -3388,7 +3406,7 @@ const recentChanges = [
     const named = all().filter(l => l.name);
     const levelsN = named.length;
     const why = [["people", "w1"], ["refresh", "w2"], ["check", "w3"], ["wheel", "w4"]].map(([ic, k]) =>
-      '<div class="why-item"><div class="why-ico">' + (ic === "wheel" ? ICON.wheel.replace('fill="none" stroke="currentColor" stroke-width="1.9"', 'fill="none" stroke="var(--accent-text-2)" stroke-width="1.9"') : ICON[ic]) + '</div><div><h3>' + h(k + "t") + '</h3><p>' + h(k + "d") + '</p></div></div>').join("");
+      '<div class="why-item"><div class="why-ico">' + ICON[ic] + '</div><div><h3>' + h(k + "t") + '</h3><p>' + h(k + "d") + '</p></div></div>').join("");
     homeEl.innerHTML =
       '<p class="hm-kicker">' + h("kicker") + '</p><h1 class="hm-headline">' + h("headline") + '</h1>' +
       '<div class="hm-stats">' +
